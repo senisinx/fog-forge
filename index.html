@@ -291,6 +291,7 @@ footer a { text-underline-offset: 3px; }
         <div class="screen stage" id="stage">
           <img class="on" src="img/match-rotten-fields.webp" width="3439" height="1437" alt="Dead by Daylight match on Rotten Fields. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
           <img src="img/match-dead-dawg.webp" width="3439" height="1439" alt="Dead by Daylight match on Dead Dawg Saloon with the Fog Scout callout map at the left edge.">
+          <img src="img/match-greenville-square.webp" width="2000" height="837" alt="Dead by Daylight match on Greenville Square from the survivor's view. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
           <div class="tag map" aria-hidden="true"><span>Callout map, round timer, server</span></div>
           <div class="tag sys r" aria-hidden="true"><span>System values and today's rounds</span></div>
         </div>
@@ -487,7 +488,7 @@ footer a { text-underline-offset: 3px; }
   if (fromHash()) { toTop(); addEventListener("load", toTop); }
 
   /* ---------- hero: real match screenshots, crossfading ---------- */
-  var SHOTS = ["Rotten Fields", "Dead Dawg Saloon"];
+  var SHOTS = ["Rotten Fields", "Dead Dawg Saloon", "Greenville Square"];
   var stage = doc.getElementById("stage"), shots = stage.querySelectorAll("img"),
       statusText = doc.getElementById("statusText"), chips = doc.getElementById("chips"), cur = 0, heroTimer;
   function show(i) {
