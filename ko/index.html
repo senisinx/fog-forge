@@ -230,6 +230,7 @@ p.sub { color: var(--haze); }
 .feat li { position: relative; min-width: 0; padding: 1.1rem 1.1rem 1.25rem; background: var(--ground); transition: background .25s; }
 .feat li::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
 .feat li:hover { background: var(--ground-2); }
+.feat li:last-child:nth-child(odd) { grid-column: 1 / -1; } /* an odd last tile fills its row */
 .feat li:hover::before { transform: scaleX(1); }
 .feat b { display: block; font-weight: 600; margin-bottom: .2rem; }
 .feat span { color: var(--haze); font-size: .9375rem; }
@@ -404,7 +405,8 @@ footer a { text-underline-offset: 3px; }
             <li><b>매치 통계</b><span>라운드별 역할, 살인마, 처치, 탈출, 블러드포인트를 PC에 저장합니다.</span></li>
             <li><b>OBS로 녹화</b><span>매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다.</span></li>
             <li><b>Discord와 Spotify</b><span>선택 사항: 맵과 역할을 Discord 상태로 표시하고, Spotify 재생 대기열을 볼 수 있습니다.</span></li>
-            <li><b>독일어와 영어</b><span>Windows 언어를 따르며, 설정에서 바꿀 수 있습니다.</span></li>
+            <li><b>게임 언어 자동 인식</b><span>영어, 독일어, 프랑스어, 스페인어, 이탈리아어, 폴란드어, 포르투갈어, 터키어 맵 이름을 인식합니다. Fog Scout가 게임 언어를 스스로 알아냅니다. 러시아어, 중국어, 일본어, 한국어라면 DBD를 영어로 설정하세요.</span></li>
+            <li><b>7개 언어</b><span>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</span></li>
           </ul>
         </div>
       </div>

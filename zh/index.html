@@ -230,6 +230,7 @@ p.sub { color: var(--haze); }
 .feat li { position: relative; min-width: 0; padding: 1.1rem 1.1rem 1.25rem; background: var(--ground); transition: background .25s; }
 .feat li::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
 .feat li:hover { background: var(--ground-2); }
+.feat li:last-child:nth-child(odd) { grid-column: 1 / -1; } /* an odd last tile fills its row */
 .feat li:hover::before { transform: scaleX(1); }
 .feat b { display: block; font-weight: 600; margin-bottom: .2rem; }
 .feat span { color: var(--haze); font-size: .9375rem; }
@@ -404,7 +405,8 @@ footer a { text-underline-offset: 3px; }
             <li><b>对局统计</b><span>每局的角色、杀手、击杀、逃脱和血点，保存在你的电脑上。</span></li>
             <li><b>使用 OBS 录制</b><span>按对局开始并命名录制，附带用于剪辑精彩片段的编辑器。</span></li>
             <li><b>Discord 和 Spotify</b><span>可选：将地图和角色显示为 Discord 状态，查看你的 Spotify 播放队列。</span></li>
-            <li><b>德语和英语</b><span>跟随 Windows 语言，可在设置中切换。</span></li>
+            <li><b>自动识别游戏语言</b><span>支持英语、德语、法语、西班牙语、意大利语、波兰语、葡萄牙语和土耳其语的地图名称。Fog Scout 会自动识别游戏语言。如果游戏是俄语、中文、日语或韩语，请将 DBD 设为英语。</span></li>
+            <li><b>七种语言</b><span>应用界面支持德语、英语、意大利语、俄语、中文、日语和韩语。跟随 Windows 语言，可在设置中切换。</span></li>
           </ul>
         </div>
       </div>
