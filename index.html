@@ -65,18 +65,37 @@ button { font: inherit; color: inherit; }
 .bar nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
 .bar nav a:hover, .bar nav a.on { color: var(--mist); }
 .bar nav a.on::after, .bar nav a:hover::after { transform: scaleX(1); }
+.bar nav { align-items: center; }
+/* tool switch: one tool on the page at a time */
+.switch { display: flex; border: 1px solid var(--line); }
+.bar nav .switch a { padding: .4rem .8rem; font-weight: 600; white-space: nowrap; transition: color .2s, background .2s; }
+.bar nav .switch a::after { content: none; }
+.bar nav .switch a + a { border-left: 1px solid var(--line); }
+.bar nav .switch a[aria-current="true"] { background: var(--ember); color: var(--ember-ink); }
+.bar nav a.btn { display: none; padding: .4rem .8rem; font-size: var(--step--1); }
+.js .bar nav a.btn { display: inline-flex; }
+.bar nav a.btn::after { height: auto; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%); transform: translateX(-120%); transform-origin: center; }
+.bar nav a.btn:hover { color: var(--ember-ink); }
+.bar nav a.btn:hover::after { transform: translateX(120%); }
+.js[data-tool="scout"] [data-for="translate"], .js[data-tool="translate"] [data-for="scout"] { display: none !important; }
 
 /* hero */
 .hero { display: grid; gap: clamp(1.5rem, 4vw, 2.75rem); padding-block: clamp(1.5rem, 4vw, 3.5rem) clamp(2rem, 5vw, 4rem); }
 .hero-text { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); align-items: end; }
 .hero-text h1 { grid-column: 1 / span 7; min-width: 0; }
-.hero-side { grid-column: 8 / -1; min-width: 0; display: grid; gap: 1.25rem; padding-bottom: .6rem; }
+.hero-side { grid-column: 8 / -1; min-width: 0; display: grid; gap: 2rem; padding-bottom: .6rem; }
+.hero-tool { display: grid; gap: 1rem; justify-items: start; }
+.hero-tool + .hero-tool { padding-top: 2rem; border-top: 1px solid var(--line); }
+.js .hero-tool + .hero-tool { padding-top: 0; border-top: 0; }
+.hero-tool h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
+.other { background: none; border: 0; padding: 0; cursor: pointer; font: 400 var(--step--1)/1.4 var(--mono); color: var(--haze); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+.other:hover { color: var(--mist); }
 .hero h1 { margin: 0; font: 800 var(--step-4)/.8 var(--display); text-transform: uppercase; }
 .hero h1 span { display: block; animation: emerge 1.6s var(--ease) backwards; }
 .hero h1 span + span { color: transparent; -webkit-text-stroke: 1.5px var(--mist); animation-delay: .25s; }
 @keyframes emerge { from { opacity: 0; filter: blur(22px); transform: translateX(-.15em); } }
-.lede { margin: 0; max-width: 32ch; font-size: var(--step-1); line-height: 1.4; text-wrap: balance; animation: rise .9s var(--ease) .6s backwards; }
-.hero-links { display: flex; flex-wrap: wrap; gap: .75rem; animation: rise .9s var(--ease) .75s backwards; }
+.lede { margin: 0; max-width: 32ch; font-size: var(--step-1); line-height: 1.4; text-wrap: balance; }
+.hero-tool { animation: rise .9s var(--ease) .6s backwards; }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
 
 /* hero stage: real match screenshots */
@@ -164,9 +183,8 @@ p.sub { color: var(--haze); }
 .stats dd { margin: 0; font: 800 clamp(2.25rem, 5vw, 3.25rem)/1 var(--display); color: var(--ember); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* fog translate screenshots */
-.tr-shot { margin: 0; display: grid; gap: .6rem; }
-.tr-shot .screen { max-width: 30rem; }
-.tr-shot img { display: block; width: 100%; height: auto; }
+.tr-pair { display: grid; grid-template-columns: 862fr 1162fr; gap: var(--gap); align-items: start; }
+.tr-pair img { display: block; width: 100%; height: auto; }
 .tag.below span { left: -1px; top: 100%; margin: .4rem 0 0; }
 .tag.tr1 { left: 1.6%; top: .8%; width: 32.6%; height: 44.8%; }
 .tag.tr2 { left: 20%; top: 53%; width: 64%; height: 22.4%; }
@@ -202,6 +220,8 @@ footer a { text-underline-offset: 3px; }
 @media (max-width: 860px) {
   .hero-text h1, .hero-side, .tool-head, .tool-body, .rules-head, .never, .gal-tabs, .gal-view { grid-column: 1 / -1; }
   .stage { aspect-ratio: 4 / 3; }
+  .tr-pair { grid-template-columns: minmax(0, 1fr); max-width: 30rem; }
+  .bar nav a.plain { display: none; }
   .tag { display: none; }
   .gal-tabs { flex-direction: row; flex-wrap: wrap; gap: .25rem 1rem; }
   .gal-tabs h3 { flex-basis: 100%; }
@@ -225,10 +245,14 @@ footer a { text-underline-offset: 3px; }
     <div class="bar-in">
       <a class="mark" href="#top">Fog Forge</a>
       <nav aria-label="Sections">
-        <a href="#scout">Fog Scout</a>
-        <a href="#translate">Fog Translate</a>
-        <a href="#fair-play">Fair play</a>
-        <a href="https://github.com/senisinx">GitHub</a>
+        <div class="switch" role="group" aria-label="Choose a tool">
+          <a href="#scout" data-tool="scout">Fog Scout</a>
+          <a href="#translate" data-tool="translate">Fog Translate</a>
+        </div>
+        <a class="plain" href="#fair-play">Fair play</a>
+        <a class="plain" href="https://github.com/senisinx">GitHub</a>
+        <a class="btn go" data-for="scout" data-dl="fog-scout" href="https://github.com/senisinx/fog-scout/releases/latest">Download</a>
+        <a class="btn go" data-for="translate" data-dl="fog-translate" href="https://github.com/senisinx/fog-translate/releases/latest">Download</a>
       </nav>
     </div>
   </header>
@@ -238,15 +262,32 @@ footer a { text-underline-offset: 3px; }
       <div class="hero-text">
         <h1><span>Fog</span><span>Forge</span></h1>
         <div class="hero-side">
-          <p class="lede">Two free Windows tools for Dead by Daylight. They read the pixels on your screen and nothing else.</p>
-          <div class="hero-links">
-            <a class="btn go" href="#scout">Fog Scout</a>
-            <a class="btn" href="#translate">Fog Translate</a>
+          <div class="hero-tool" data-for="scout">
+            <p class="kicker">Map overlay</p>
+            <h2>Fog Scout</h2>
+            <p class="lede">Shows the callout map of the map you are on, right when the match starts.</p>
+            <a class="btn go" data-dl="fog-scout" href="https://github.com/senisinx/fog-scout/releases/latest">
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              Download Fog Scout
+            </a>
+            <p class="meta" data-meta="fog-scout">Windows installer from the latest GitHub release</p>
+            <a class="other" href="#translate" data-tool="translate">Looking for chat translation? Fog Translate →</a>
+          </div>
+          <div class="hero-tool" data-for="translate">
+            <p class="kicker">Live chat translation</p>
+            <h2>Fog Translate</h2>
+            <p class="lede">Translates the Dead by Daylight chat while you play, from any script.</p>
+            <a class="btn go" data-dl="fog-translate" href="https://github.com/senisinx/fog-translate/releases/latest">
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              Download Fog Translate
+            </a>
+            <p class="meta" data-meta="fog-translate">Windows installer from the latest GitHub release</p>
+            <a class="other" href="#scout" data-tool="scout">Looking for callout maps? Fog Scout →</a>
           </div>
         </div>
       </div>
 
-      <figure class="demo">
+      <figure class="demo" data-for="scout">
         <div class="screen stage" id="stage">
           <img class="on" src="img/match-rotten-fields.webp" width="3439" height="1437" alt="Dead by Daylight match on Rotten Fields. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
           <img src="img/match-dead-dawg.webp" width="3439" height="1439" alt="Dead by Daylight match on Dead Dawg Saloon with the Fog Scout callout map at the left edge.">
@@ -257,24 +298,28 @@ footer a { text-underline-offset: 3px; }
         <div class="chips" id="chips" role="group" aria-label="Switch screenshot"></div>
         <figcaption class="note">Fog Scout in custom games at 3440×1440. The game runs in 16:9 here, so the map sits in the black bar next to the picture.</figcaption>
       </figure>
+
+      <figure class="demo tr" data-for="translate">
+        <div class="tr-pair">
+          <div class="screen">
+            <img src="img/translate-ingame.webp" width="713" height="827" alt="Dead by Daylight lobby chat with messages in German, Chinese, Japanese and Russian. Fog Translate shows each one in English with its language and the original text in a panel at the top left.">
+            <div class="tag below tr1" aria-hidden="true"><span>Fog Translate</span></div>
+            <div class="tag below tr2" aria-hidden="true"><span>Game chat</span></div>
+          </div>
+          <div class="screen"><img src="img/translate-app.webp" width="661" height="569" alt="Fog Translate window: target language, service, model, API key, daily limit, overlay text size and display time, and a notice about what is sent to the service."></div>
+        </div>
+        <figcaption class="note">Left: test messages in a custom game, each with its language tag and the original below. Right: the one settings window, with request counter and cost estimate at the bottom.</figcaption>
+      </figure>
     </section>
 
-    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+    <div class="ticker" data-for="scout" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
 
-    <section class="tool" id="scout">
+    <section class="tool" id="scout" data-for="scout">
       <div class="tool-head" data-rv>
-        <p class="kicker">Map overlay</p>
-        <h2>Fog Scout</h2>
+        <p class="kicker">How it works</p>
         <p>When a match starts, Fog Scout reads the map name at the bottom left of the screen and puts the matching callout map on top of the game. After the round the map goes away again.</p>
         <p class="sub">Text recognition runs on your PC. Map detection and the overlay open no internet connection.</p>
-        <div class="get">
-          <a class="btn go" data-dl="fog-scout" href="https://github.com/senisinx/fog-scout/releases/latest">
-            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-            Download Fog Scout
-          </a>
-          <p class="meta" data-meta="fog-scout">Windows installer from the latest GitHub release</p>
           <p class="meta">Not signed: SmartScreen shows "More info", then "Run anyway". Asks for administrator rights once. Set DBD to Windowed Fullscreen.</p>
-        </div>
       </div>
 
       <div class="tool-body">
@@ -303,7 +348,7 @@ footer a { text-underline-offset: 3px; }
       </div>
     </section>
 
-    <section class="gallery" aria-label="Fog Scout screenshots">
+    <section class="gallery" data-for="scout" aria-label="Fog Scout screenshots">
       <div class="gal-tabs" data-rv>
         <h3>Inside the app</h3>
         <button type="button" class="gal-tab" id="gal-maps" aria-pressed="true" data-src="img/maps.webp" data-alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."><b>Maps</b><span>All 56 callout maps in six styles, with your rounds and kills per map.</span></button>
@@ -317,34 +362,15 @@ footer a { text-underline-offset: 3px; }
       </figure>
     </section>
 
-    <section class="tool" id="translate" style="border-top:1px solid var(--line)">
+    <section class="tool" id="translate" data-for="translate">
       <div class="tool-head" data-rv>
-        <p class="kicker">Live chat translation</p>
-        <h2>Fog Translate</h2>
+        <p class="kicker">What it does</p>
         <p>Translates the Dead by Daylight chat while you play. It reads any script, including Cyrillic, Korean, Japanese and Chinese, and shows the translation in a small click-through window on top of the game.</p>
         <p class="sub">A standalone program. It runs next to Fog Scout or without it.</p>
-        <div class="get">
-          <a class="btn go" data-dl="fog-translate" href="https://github.com/senisinx/fog-translate/releases/latest">
-            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-            Download Fog Translate
-          </a>
-          <p class="meta" data-meta="fog-translate">Windows installer from the latest GitHub release</p>
           <p class="meta">Not signed: SmartScreen shows "More info", then "Run anyway". No administrator rights needed.</p>
-        </div>
       </div>
 
       <div class="tool-body">
-        <div data-rv>
-          <figure class="tr-shot">
-            <div class="screen">
-              <img src="img/translate-ingame.webp" width="713" height="827" alt="Dead by Daylight lobby chat with messages in German, Chinese, Japanese and Russian. Fog Translate shows each one in English with its language and the original text in a panel at the top left.">
-              <div class="tag below tr1" aria-hidden="true"><span>Fog Translate</span></div>
-              <div class="tag below tr2" aria-hidden="true"><span>Game chat</span></div>
-            </div>
-            <figcaption class="note">Test messages in a custom game: German, Chinese, Japanese and Russian, each with its language tag and the original below.</figcaption>
-          </figure>
-        </div>
-
         <div data-rv>
           <h3>How it works</h3>
           <ol class="steps">
@@ -352,14 +378,6 @@ footer a { text-underline-offset: 3px; }
             <li><div><b>Press Start.</b> <span>The program looks at that area twice a second and only reacts when the text has changed.</span></div></li>
             <li><div><b>Read the translation.</b> <span>Language, name, translation and the original in small print appear in the overlay and fade after 25 seconds.</span></div></li>
           </ol>
-        </div>
-
-        <div data-rv>
-          <h3>One window</h3>
-          <figure class="tr-shot">
-            <div class="screen"><img src="img/translate-app.webp" width="661" height="569" loading="lazy" alt="Fog Translate window: target language, service, model, API key, daily limit, overlay text size and display time, and a notice about what is sent to the service."></div>
-            <figcaption class="note">Target language, service, model, daily limit and overlay settings. The request counter and cost estimate sit at the bottom.</figcaption>
-          </figure>
         </div>
 
         <div data-rv>
@@ -442,6 +460,31 @@ footer a { text-underline-offset: 3px; }
   function onScroll() { bar.classList.toggle("stuck", scrollY > 12); }
   addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
+  /* ---------- tool switch: one tool on the page at a time; #scout / #translate stay shareable ---------- */
+  var TOOLS = { scout: "Fog Scout", translate: "Fog Translate" }, picks = doc.querySelectorAll("a[data-tool]");
+  /* the section anchors are for the page without script; with it, #scout / #translate pick the tool and must not scroll */
+  Object.keys(TOOLS).forEach(function (t) { doc.getElementById(t).removeAttribute("id"); });
+  function fromHash() { var h = location.hash.slice(1); return TOOLS[h] ? h : ""; }
+  function setTool(t) {
+    root.setAttribute("data-tool", t);
+    doc.title = TOOLS[t] + " · Fog Forge";
+    Array.prototype.forEach.call(picks, function (a) {
+      if (a.parentNode.className === "switch") a.setAttribute("aria-current", a.getAttribute("data-tool") === t ? "true" : "false");
+    });
+  }
+  function toTop() { scrollTo({ top: 0, behavior: "instant" }); }
+  Array.prototype.forEach.call(picks, function (a) {
+    a.addEventListener("click", function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault(); var t = a.getAttribute("data-tool");
+      if (root.getAttribute("data-tool") !== t) history.pushState(null, "", "#" + t);
+      setTool(t); toTop();
+    });
+  });
+  addEventListener("popstate", function () { var t = fromHash() || (location.hash ? "" : "scout"); if (t) { setTool(t); toTop(); } });
+  setTool(fromHash() || "scout");
+  if (fromHash()) { toTop(); addEventListener("load", toTop); }
+
   /* ---------- hero: real match screenshots, crossfading ---------- */
   var SHOTS = ["Rotten Fields", "Dead Dawg Saloon"];
   var stage = doc.getElementById("stage"), shots = stage.querySelectorAll("img"),
@@ -494,25 +537,21 @@ footer a { text-underline-offset: 3px; }
       });
     }, { threshold: .15 });
     Array.prototype.forEach.call(rv, function (el) { io.observe(el); });
-    var links = doc.querySelectorAll('.bar nav a[href^="#"]');
-    var so = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        Array.prototype.forEach.call(links, function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id); });
-      });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    ["scout", "translate", "fair-play"].forEach(function (id) { so.observe(doc.getElementById(id)); });
+    var fair = doc.querySelector('.bar nav a[href="#fair-play"]');
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { fair.classList.toggle("on", e.isIntersecting); });
+    }, { rootMargin: "-40% 0px -55% 0px" }).observe(doc.getElementById("fair-play"));
   } else Array.prototype.forEach.call(rv, function (el) { el.classList.add("in"); });
 
   /* ---------- download buttons: newest installer from the GitHub release ---------- */
   function fmtDate(s) { try { return new Date(s).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }); } catch (e) { return ""; } }
-  Array.prototype.forEach.call(doc.querySelectorAll("a[data-dl]"), function (a) {
-    var repo = a.getAttribute("data-dl"), meta = doc.querySelector('[data-meta="' + repo + '"]');
+  Object.keys(TOOLS).forEach(function (t) {
+    var repo = "fog-" + t, as = doc.querySelectorAll('a[data-dl="' + repo + '"]'), meta = doc.querySelector('[data-meta="' + repo + '"]');
     fetch("https://api.github.com/repos/senisinx/" + repo + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (rel) {
         var asset = (rel.assets || []).filter(function (x) { return /setup.*\.exe$/i.test(x.name); })[0]; if (!asset) return;
-        a.href = asset.browser_download_url;
+        Array.prototype.forEach.call(as, function (a) { a.href = asset.browser_download_url; });
         if (meta) meta.textContent = "Version " + String(rel.tag_name).replace(/^v/i, "") + " · " + fmtDate(rel.published_at) + " · " + (asset.size / 1048576).toFixed(0) + " MB · Windows installer";
       })
       .catch(function () { /* keep the release-page link */ });
