@@ -109,6 +109,7 @@ button { font: inherit; color: inherit; }
 .tag.r span { left: auto; right: 100%; margin: 0 .6rem 0 0; }
 .tag.map { left: .1%; top: 31.5%; width: 12.7%; height: 48.5%; }
 .tag.sys { left: 89.7%; top: 37.5%; width: 9.8%; height: 34%; }
+.stage.wide .tag.sys { left: 87.8%; width: 11.7%; height: 41%; }
 @keyframes pulse { 50% { border-color: transparent; } }
 
 /* app screenshots */
@@ -292,6 +293,7 @@ footer a { text-underline-offset: 3px; }
           <img class="on" src="img/match-rotten-fields.webp" width="3439" height="1437" alt="Dead by Daylight match on Rotten Fields. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
           <img src="img/match-dead-dawg.webp" width="3439" height="1439" alt="Dead by Daylight match on Dead Dawg Saloon with the Fog Scout callout map at the left edge.">
           <img src="img/match-greenville-square.webp" width="2000" height="837" alt="Dead by Daylight match on Greenville Square from the survivor's view. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
+          <img src="img/match-groaning-storehouse.webp" width="2000" height="838" alt="Dead by Daylight match on Groaning Storehouse I from the killer's view. Fog Scout shows the callout map with the round timer at the left edge and system values, today's rounds and the current track at the right edge.">
           <div class="tag map" aria-hidden="true"><span>Callout map, round timer, server</span></div>
           <div class="tag sys r" aria-hidden="true"><span>System values and today's rounds</span></div>
         </div>
@@ -488,13 +490,14 @@ footer a { text-underline-offset: 3px; }
   if (fromHash()) { toTop(); addEventListener("load", toTop); }
 
   /* ---------- hero: real match screenshots, crossfading ---------- */
-  var SHOTS = ["Rotten Fields", "Dead Dawg Saloon", "Greenville Square"];
+  var SHOTS = ["Rotten Fields", "Dead Dawg Saloon", "Greenville Square", "Groaning Storehouse I"];
   var stage = doc.getElementById("stage"), shots = stage.querySelectorAll("img"),
       statusText = doc.getElementById("statusText"), chips = doc.getElementById("chips"), cur = 0, heroTimer;
   function show(i) {
     cur = i;
     Array.prototype.forEach.call(shots, function (im, k) { im.classList.toggle("on", k === i); });
     statusText.textContent = "Map on display: " + SHOTS[i];
+    stage.classList.toggle("wide", i === 3);
     Array.prototype.forEach.call(chips.children, function (b, k) { b.setAttribute("aria-pressed", k === i ? "true" : "false"); });
   }
   function cycle() { clearInterval(heroTimer); if (!still) heroTimer = setInterval(function () { if (!doc.hidden) show((cur + 1) % SHOTS.length); }, 6000); }
