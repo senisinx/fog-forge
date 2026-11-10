@@ -230,6 +230,7 @@ p.sub { color: var(--haze); }
 .feat li { position: relative; min-width: 0; padding: 1.1rem 1.1rem 1.25rem; background: var(--ground); transition: background .25s; }
 .feat li::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
 .feat li:hover { background: var(--ground-2); }
+.feat li:last-child:nth-child(odd) { grid-column: 1 / -1; } /* an odd last tile fills its row */
 .feat li:hover::before { transform: scaleX(1); }
 .feat b { display: block; font-weight: 600; margin-bottom: .2rem; }
 .feat span { color: var(--haze); font-size: .9375rem; }
@@ -404,7 +405,8 @@ footer a { text-underline-offset: 3px; }
             <li><b>Statistiche delle partite</b><span>Ruolo, killer, uccisioni, fughe e punti sangue per round, salvati sul tuo PC.</span></li>
             <li><b>Registrazione con OBS</b><span>Avvia e nomina le registrazioni per partita, con un editor di clip per i momenti migliori.</span></li>
             <li><b>Discord e Spotify</b><span>Opzionale: mostra mappa e ruolo come stato Discord, vedi la tua coda di Spotify.</span></li>
-            <li><b>Tedesco e inglese</b><span>Segue la lingua di Windows, modificabile nelle impostazioni.</span></li>
+            <li><b>Riconosce la lingua del gioco</b><span>Nomi delle mappe in inglese, tedesco, francese, spagnolo, italiano, polacco, portoghese e turco. Fog Scout riconosce da solo la lingua del gioco. Per russo, cinese, giapponese o coreano, imposta DBD in inglese.</span></li>
+            <li><b>Sette lingue</b><span>L’app in tedesco, inglese, italiano, russo, cinese, giapponese e coreano. Segue la lingua di Windows, modificabile nelle impostazioni.</span></li>
           </ul>
         </div>
       </div>

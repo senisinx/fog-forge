@@ -230,6 +230,7 @@ p.sub { color: var(--haze); }
 .feat li { position: relative; min-width: 0; padding: 1.1rem 1.1rem 1.25rem; background: var(--ground); transition: background .25s; }
 .feat li::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
 .feat li:hover { background: var(--ground-2); }
+.feat li:last-child:nth-child(odd) { grid-column: 1 / -1; } /* an odd last tile fills its row */
 .feat li:hover::before { transform: scaleX(1); }
 .feat b { display: block; font-weight: 600; margin-bottom: .2rem; }
 .feat span { color: var(--haze); font-size: .9375rem; }
@@ -404,7 +405,8 @@ footer a { text-underline-offset: 3px; }
             <li><b>マッチ統計</b><span>ラウンドごとの役割、キラー、キル数、脱出数、ブラッドポイントを PC に保存します。</span></li>
             <li><b>OBS で録画</b><span>マッチごとに録画を開始して名前を付けます。ハイライト用のクリップエディター付きです。</span></li>
             <li><b>Discord と Spotify</b><span>オプション：マップと役割を Discord のステータスに表示し、Spotify の再生キューを確認できます。</span></li>
-            <li><b>ドイツ語と英語</b><span>Windows の言語に合わせます。設定で切り替えできます。</span></li>
+            <li><b>ゲームの言語を自動認識</b><span>英語・ドイツ語・フランス語・スペイン語・イタリア語・ポーランド語・ポルトガル語・トルコ語のマップ名に対応。Fog Scout はゲームの言語を自動で認識します。ロシア語・中国語・日本語・韓国語の場合は、DBD を英語に設定してください。</span></li>
+            <li><b>7 つの言語</b><span>アプリはドイツ語・英語・イタリア語・ロシア語・中国語・日本語・韓国語に対応。Windows の言語に合わせて表示され、設定で切り替えられます。</span></li>
           </ul>
         </div>
       </div>

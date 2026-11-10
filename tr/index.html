@@ -230,6 +230,7 @@ p.sub { color: var(--haze); }
 .feat li { position: relative; min-width: 0; padding: 1.1rem 1.1rem 1.25rem; background: var(--ground); transition: background .25s; }
 .feat li::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
 .feat li:hover { background: var(--ground-2); }
+.feat li:last-child:nth-child(odd) { grid-column: 1 / -1; } /* an odd last tile fills its row */
 .feat li:hover::before { transform: scaleX(1); }
 .feat b { display: block; font-weight: 600; margin-bottom: .2rem; }
 .feat span { color: var(--haze); font-size: .9375rem; }
@@ -404,7 +405,8 @@ footer a { text-underline-offset: 3px; }
             <li><b>Maç istatistikleri</b><span>Tur başına rol, katil, öldürmeler, kaçışlar ve kan puanı; senin bilgisayarında saklanır.</span></li>
             <li><b>OBS ile kayıt</b><span>Kayıtları maç başına başlatır ve adlandırır, öne çıkan anlar için bir klip düzenleyici içerir.</span></li>
             <li><b>Discord ve Spotify</b><span>İsteğe bağlı: harita ve rolünü Discord durumu olarak göster, Spotify sıranı gör.</span></li>
-            <li><b>Almanca ve İngilizce</b><span>Windows dilini izler, ayarlardan değiştirilebilir.</span></li>
+            <li><b>Oyun dilini tanır</b><span>İngilizce, Almanca, Fransızca, İspanyolca, İtalyanca, Lehçe, Portekizce ve Türkçe harita adları. Fog Scout oyun dilini kendisi tanır. Rusça, Çince, Japonca veya Korece için DBD’yi İngilizceye al.</span></li>
+            <li><b>Yedi dil</b><span>Uygulama Almanca, İngilizce, İtalyanca, Rusça, Çince, Japonca ve Korece. Windows dilini izler, ayarlardan değiştirilebilir.</span></li>
           </ul>
         </div>
       </div>

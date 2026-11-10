@@ -230,6 +230,7 @@ p.sub { color: var(--haze); }
 .feat li { position: relative; min-width: 0; padding: 1.1rem 1.1rem 1.25rem; background: var(--ground); transition: background .25s; }
 .feat li::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
 .feat li:hover { background: var(--ground-2); }
+.feat li:last-child:nth-child(odd) { grid-column: 1 / -1; } /* an odd last tile fills its row */
 .feat li:hover::before { transform: scaleX(1); }
 .feat b { display: block; font-weight: 600; margin-bottom: .2rem; }
 .feat span { color: var(--haze); font-size: .9375rem; }
@@ -404,7 +405,8 @@ footer a { text-underline-offset: 3px; }
             <li><b>Estatísticas das partidas</b><span>Papel, assassino, abates, fugas e pontos de sangue por rodada, guardados no seu PC.</span></li>
             <li><b>Gravação com OBS</b><span>Inicia e nomeia as gravações por partida, com um editor de clipes para os melhores momentos.</span></li>
             <li><b>Discord e Spotify</b><span>Opcional: mostre o mapa e o papel como status no Discord e veja sua fila do Spotify.</span></li>
-            <li><b>Alemão e inglês</b><span>Segue o idioma do Windows e pode ser trocado nas configurações.</span></li>
+            <li><b>Detecta o idioma do jogo</b><span>Nomes de mapas em inglês, alemão, francês, espanhol, italiano, polonês, português e turco. O Fog Scout detecta sozinho o idioma do jogo. Para russo, chinês, japonês ou coreano, coloque o DBD em inglês.</span></li>
+            <li><b>Sete idiomas</b><span>O app em alemão, inglês, italiano, russo, chinês, japonês e coreano. Segue o idioma do Windows e pode ser trocado nas configurações.</span></li>
           </ul>
         </div>
       </div>

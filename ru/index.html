@@ -230,6 +230,7 @@ p.sub { color: var(--haze); }
 .feat li { position: relative; min-width: 0; padding: 1.1rem 1.1rem 1.25rem; background: var(--ground); transition: background .25s; }
 .feat li::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
 .feat li:hover { background: var(--ground-2); }
+.feat li:last-child:nth-child(odd) { grid-column: 1 / -1; } /* an odd last tile fills its row */
 .feat li:hover::before { transform: scaleX(1); }
 .feat b { display: block; font-weight: 600; margin-bottom: .2rem; }
 .feat span { color: var(--haze); font-size: .9375rem; }
@@ -404,7 +405,8 @@ footer a { text-underline-offset: 3px; }
             <li><b>Статистика матчей</b><span>Роль, убийца, убийства, побеги и очки крови за каждый раунд — хранятся на вашем ПК.</span></li>
             <li><b>Запись через OBS</b><span>Запускает и подписывает записи для каждого матча, есть редактор клипов для лучших моментов.</span></li>
             <li><b>Discord и Spotify</b><span>По желанию: показывайте карту и роль в статусе Discord, смотрите свою очередь в Spotify.</span></li>
-            <li><b>Немецкий и английский</b><span>Следует языку Windows, можно переключить в настройках.</span></li>
+            <li><b>Определяет язык игры</b><span>Названия карт на английском, немецком, французском, испанском, итальянском, польском, португальском и турецком. Fog Scout сам определяет язык игры. Если DBD на русском, китайском, японском или корейском, переключите игру на английский.</span></li>
+            <li><b>Семь языков</b><span>Приложение на немецком, английском, итальянском, русском, китайском, японском и корейском. Следует языку Windows, переключается в настройках.</span></li>
           </ul>
         </div>
       </div>
