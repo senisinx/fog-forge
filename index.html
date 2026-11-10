@@ -106,6 +106,7 @@ button { font: inherit; color: inherit; }
 .stage img.on { opacity: 1; }
 .tag { position: absolute; border: 1px solid var(--ember); pointer-events: none; animation: pulse 3.5s ease-in-out infinite; }
 .tag span { position: absolute; left: 100%; top: -1px; margin-left: .6rem; white-space: nowrap; padding: .3rem .55rem; background: rgba(12, 17, 19, .88); font: 500 var(--step--1)/1.2 var(--mono); color: var(--ember); }
+.stage.bare .tag { display: none; }
 .tag.r span { left: auto; right: 100%; margin: 0 .6rem 0 0; }
 .tag.map { left: .1%; top: 31.5%; width: 12.7%; height: 48.5%; }
 .tag.sys { left: 89.7%; top: 37.5%; width: 9.8%; height: 34%; }
@@ -291,6 +292,8 @@ footer a { text-underline-offset: 3px; }
         <div class="screen stage" id="stage">
           <img class="on" src="img/match-rotten-fields.webp" width="3439" height="1437" alt="Dead by Daylight match on Rotten Fields. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
           <img src="img/match-dead-dawg.webp" width="3439" height="1439" alt="Dead by Daylight match on Dead Dawg Saloon with the Fog Scout callout map at the left edge.">
+          <img src="img/match-chase.webp" width="2000" height="837" alt="Dead by Daylight match from the survivor's view: the killer carries a survivor past a hook while another survivor runs ahead.">
+          <img src="img/match-self-care.webp" width="2000" height="837" alt="Dead by Daylight match from the survivor's view: a survivor heals with Self-Care indoors while the killer stands a few steps away.">
           <div class="tag map" aria-hidden="true"><span>Callout map, round timer, server</span></div>
           <div class="tag sys r" aria-hidden="true"><span>System values and today's rounds</span></div>
         </div>
@@ -487,18 +490,24 @@ footer a { text-underline-offset: 3px; }
   if (fromHash()) { toTop(); addEventListener("load", toTop); }
 
   /* ---------- hero: real match screenshots, crossfading ---------- */
-  var SHOTS = ["Rotten Fields", "Dead Dawg Saloon"];
+  var SHOTS = [
+    { name: "Rotten Fields", status: "Map on display: Rotten Fields" },
+    { name: "Dead Dawg Saloon", status: "Map on display: Dead Dawg Saloon" },
+    { name: "Chase", status: "Match screenshot: Chase", bare: true },
+    { name: "Self-Care", status: "Match screenshot: Self-Care", bare: true }
+  ];
   var stage = doc.getElementById("stage"), shots = stage.querySelectorAll("img"),
       statusText = doc.getElementById("statusText"), chips = doc.getElementById("chips"), cur = 0, heroTimer;
   function show(i) {
     cur = i;
     Array.prototype.forEach.call(shots, function (im, k) { im.classList.toggle("on", k === i); });
-    statusText.textContent = "Map on display: " + SHOTS[i];
+    statusText.textContent = SHOTS[i].status;
+    stage.classList.toggle("bare", !!SHOTS[i].bare);
     Array.prototype.forEach.call(chips.children, function (b, k) { b.setAttribute("aria-pressed", k === i ? "true" : "false"); });
   }
   function cycle() { clearInterval(heroTimer); if (!still) heroTimer = setInterval(function () { if (!doc.hidden) show((cur + 1) % SHOTS.length); }, 6000); }
   SHOTS.forEach(function (n, i) {
-    var b = doc.createElement("button"); b.type = "button"; b.className = "chip"; b.id = "chip-" + i; b.textContent = n;
+    var b = doc.createElement("button"); b.type = "button"; b.className = "chip"; b.id = "chip-" + i; b.textContent = n.name;
     b.addEventListener("click", function () { show(i); cycle(); }); chips.appendChild(b);
   });
   show(0); cycle();
