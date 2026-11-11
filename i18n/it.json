@@ -157,5 +157,11 @@
   "Enlarge picture": "Ingrandisci immagine",
   "Close": "Chiudi",
   "Match starts …": "La partita inizia …",
-  "Reading the map name …": "Lettura del nome della mappa …"
+  "Reading the map name …": "Lettura del nome della mappa …",
+  "Arrange the overlay": "Disponi l’overlay",
+  "Drag the parts to where you want them, or move the chosen part with the arrow keys. In the app you do this on the Overlay page.": "Trascina gli elementi dove vuoi, oppure sposta l’elemento scelto con i tasti freccia. Nell’app lo fai nella pagina Overlay.",
+  "Map": "Mappa",
+  "Today": "Oggi",
+  "Music": "Musica",
+  "Reset": "Ripristina"
 }

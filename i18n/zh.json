@@ -157,5 +157,11 @@
   "Enlarge picture": "放大图片",
   "Close": "关闭",
   "Match starts …": "对局开始…",
-  "Reading the map name …": "正在读取地图名称…"
+  "Reading the map name …": "正在读取地图名称…",
+  "Arrange the overlay": "摆放叠加层",
+  "Drag the parts to where you want them, or move the chosen part with the arrow keys. In the app you do this on the Overlay page.": "把各个部分拖到你想要的位置，或用方向键移动选中的部分。在应用里，这一步在叠加层页面完成。",
+  "Map": "地图",
+  "Today": "今日",
+  "Music": "音乐",
+  "Reset": "重置"
 }
