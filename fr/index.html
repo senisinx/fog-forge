@@ -287,6 +287,39 @@ html:not(.js) .tx-pick, html:not(.js) .tx-pane.chat { display: none; }
 :lang(en) .tx-out [data-lang="EN"], :lang(de) .tx-out [data-lang="DE"], :lang(fr) .tx-out [data-lang="FR"], :lang(es) .tx-out [data-lang="ES"],
 :lang(ru) .tx-out [data-lang="RU"], :lang(zh) .tx-out [data-lang="ZH"], :lang(ja) .tx-out [data-lang="JA"], :lang(ko) .tx-out [data-lang="KO"] { display: none; }
 
+/* replay of a match start: the overlay parts are covered (they sit in the black bars), a banner is read, the overlay comes back */
+.veil { position: absolute; background: #000; opacity: 0; pointer-events: none; transition: opacity .9s ease; }
+.veil.l { left: 0; top: 30%; width: 12.75%; height: 52%; }
+.veil.r { left: 87.3%; top: 36%; width: 12.7%; height: 44%; }
+.stage.pre .veil { opacity: 1; transition: none; }
+.stage.pre .spot button { opacity: 0; pointer-events: none; }
+.banner { position: absolute; left: 14.2%; top: 64%; padding: .3rem .6rem .45rem; border: 1px solid transparent; pointer-events: none; opacity: 0; transition: opacity .4s ease, border-color .3s;
+  font: 600 clamp(.75rem, 1.5vw, 1.3rem)/1.15 var(--body); letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; color: #fff; text-shadow: 0 1px 8px #000, 0 0 2px #000; }
+.banner b { display: block; padding-bottom: .35rem; border-bottom: 1px solid rgba(255, 255, 255, .75); font-weight: 600; }
+.stage.ban .banner { opacity: 1; }
+.stage.scan .banner { border-color: var(--ember); background: rgba(227, 154, 85, .08); }
+.demo-ctl { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1.5rem; }
+.replay { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .9rem; }
+html:not(.js) .replay { display: none; }
+.chip.play { color: var(--ember); border-color: var(--ember); }
+.chip.play::before { content: ""; display: inline-block; margin-right: .5rem; border: solid transparent; border-width: .3rem 0 .3rem .5rem; border-left-color: currentColor; }
+@media (hover: hover) { .chip.play:hover { color: var(--ember-ink); background: var(--ember); border-color: var(--ember); } }
+.replay label { display: flex; align-items: center; gap: .5rem; }
+.replay select { padding: .3rem .4rem; border: 1px solid var(--line); background: var(--ground-2); color: var(--mist); font: 400 var(--step--1)/1.2 var(--body); cursor: pointer; }
+
+/* enlarged pictures */
+.zoom { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; }
+.js .zoom { cursor: zoom-in; }
+.lb { width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mist); }
+.lb::backdrop { background: rgba(8, 11, 13, .93); }
+.lb-scroll { width: 100%; height: 100%; overflow: auto; display: grid; place-items: center; padding: 3.25rem 1rem 1rem; }
+.lb-scroll img { display: block; max-width: 100%; max-height: calc(100vh - 4.25rem); max-height: calc(100dvh - 4.25rem); width: auto; height: auto; border: 1px solid var(--line); cursor: zoom-in; }
+.lb-scroll.full { place-items: start; }
+.lb-scroll.full img { max-width: none; max-height: none; cursor: zoom-out; }
+.lb-x { position: fixed; top: .6rem; right: .8rem; z-index: 1; width: 2.25rem; height: 2.25rem; padding: 0; border: 1px solid var(--line); background: var(--ground-2); font: 400 1.4rem/1 var(--body); cursor: pointer; }
+.lb-x:hover { border-color: var(--haze); }
+.stage, .gal-view .screen { touch-action: pan-y; }
+
 .steps { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 1.1rem; }
 .steps li { counter-increment: s; display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .5rem; }
 .steps li::before { content: counter(s); font: 800 2rem/1 var(--display); color: var(--ember); }
@@ -398,6 +431,8 @@ footer a { text-underline-offset: 3px; }
           <img src="/img/match-greenville-square.webp" width="2000" height="837" alt="Partie de Dead by Daylight sur Greenville Square, vue du survivant. Fog Scout affiche la carte de callouts avec le chrono de la manche sur le bord gauche et les valeurs système sur le bord droit.">
           <img src="/img/match-groaning-storehouse.webp" width="2000" height="838" alt="Partie de Dead by Daylight sur Groaning Storehouse I, vue du tueur. Fog Scout affiche la carte de callouts avec le chrono de la manche sur le bord gauche et, sur le bord droit, les valeurs système, les manches du jour et le morceau en cours.">
           <div class="spots" id="spots">
+            <div class="veil l" aria-hidden="true"></div><div class="veil r" aria-hidden="true"></div>
+            <div class="banner" aria-hidden="true"><b id="bannerName"></b></div>
             <div class="spot" style="--x:12.4%;--y:38.9%"><button type="button" aria-labelledby="spot-1" aria-describedby="tip-1" aria-expanded="false"></button><p class="tip" id="tip-1"><b id="spot-1">Nom de la map et chrono de la manche</b>Le royaume, la map reconnue par Fog Scout et le temps écoulé de la manche.</p></div>
             <div class="spot wide-only" style="--x:3.3%;--y:43.1%"><button type="button" aria-labelledby="spot-2" aria-describedby="tip-2" aria-expanded="false"></button><p class="tip" id="tip-2"><b id="spot-2">Région du serveur</b>Choisis les régions auxquelles tu te connectes et vois sur quel serveur de jeu tu es.</p></div>
             <div class="spot wide-only" style="--x:10.2%;--y:43.1%"><button type="button" aria-labelledby="spot-3" aria-describedby="tip-3" aria-expanded="false"></button><p class="tip" id="tip-3"><b id="spot-3">Enregistrement avec OBS</b>Lance et nomme les enregistrements par partie, avec un éditeur de clips pour les meilleurs moments.</p></div>
@@ -408,18 +443,24 @@ footer a { text-underline-offset: 3px; }
           </div>
         </div>
         <div class="status ok" id="status" aria-live="polite"><span class="dot"></span><span id="statusText">Carte affichée : Rotten Fields</span></div>
-        <div class="chips" id="chips" role="group" aria-label="Changer de capture"></div>
-        <figcaption class="note"><span>Les repères expliquent chaque partie de l’overlay.</span> Fog Scout en partie personnalisée en 3440×1440. Ici, le jeu tourne en 16:9, donc la carte se place dans la bande noire à côté de l’image.</figcaption>
+        <div class="demo-ctl">
+          <div class="chips" id="chips" role="group" aria-label="Changer de capture"></div>
+          <div class="replay">
+            <label class="meta">Langue du jeu <select id="gameLang"></select></label>
+            <button type="button" class="chip play" id="replay">Rejouer le début du match</button>
+          </div>
+        </div>
+        <figcaption class="note"><span>Les repères expliquent chaque partie de l’overlay.</span> <span>Le déroulé est reconstitué sur la capture d’écran.</span> Fog Scout en partie personnalisée en 3440×1440. Ici, le jeu tourne en 16:9, donc la carte se place dans la bande noire à côté de l’image.</figcaption>
       </figure>
 
       <figure class="demo tr" data-for="translate">
         <div class="tr-pair">
           <div class="screen">
-            <img src="/img/translate-ingame.webp" width="713" height="827" alt="Chat du lobby de Dead by Daylight avec des messages en allemand, chinois, japonais et russe. Fog Translate affiche chacun en anglais, avec sa langue et le texte d’origine, dans un panneau en haut à gauche.">
+            <button type="button" class="zoom" aria-label="Agrandir l’image"><img src="/img/translate-ingame.webp" width="713" height="827" alt="Chat du lobby de Dead by Daylight avec des messages en allemand, chinois, japonais et russe. Fog Translate affiche chacun en anglais, avec sa langue et le texte d’origine, dans un panneau en haut à gauche."></button>
             <div class="tag below tr1" aria-hidden="true"><span>Fog Translate</span></div>
             <div class="tag below tr2" aria-hidden="true"><span>Chat du jeu</span></div>
           </div>
-          <div class="screen"><img src="/img/translate-app.webp" width="661" height="569" alt="Fenêtre de Fog Translate : langue cible, service, modèle, clé API, limite quotidienne, taille du texte et durée d’affichage de l’overlay, et un avertissement sur ce qui est envoyé au service."></div>
+          <div class="screen"><button type="button" class="zoom" aria-label="Agrandir l’image"><img src="/img/translate-app.webp" width="661" height="569" alt="Fenêtre de Fog Translate : langue cible, service, modèle, clé API, limite quotidienne, taille du texte et durée d’affichage de l’overlay, et un avertissement sur ce qui est envoyé au service."></button></div>
         </div>
         <figcaption class="note">À gauche : des messages de test en partie personnalisée, chacun avec son étiquette de langue et l’original en dessous. À droite : l’unique fenêtre de réglages, avec compteur de requêtes et estimation du coût en bas.</figcaption>
       </figure>
@@ -472,7 +513,7 @@ footer a { text-underline-offset: 3px; }
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Page Serveur de Fog Scout : une liste de 15 régions de serveur avec des cases à cocher, dont deux autorisées."><b>Serveur</b><span>Coche les régions dans lesquelles DBD peut chercher. « Allow all » annule tout.</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><img id="galImg" src="/img/maps.webp" width="1555" height="1178" alt="Page Cartes de Fog Scout : toutes les cartes de callouts regroupées par royaume, avec les manches et la moyenne de kills par map."></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Agrandir l’image"><img id="galImg" src="/img/maps.webp" width="1555" height="1178" alt="Page Cartes de Fog Scout : toutes les cartes de callouts regroupées par royaume, avec les manches et la moyenne de kills par map."></button></div>
       </figure>
     </section>
 
@@ -565,6 +606,11 @@ footer a { text-underline-offset: 3px; }
   </footer>
 </div>
 
+<dialog class="lb" id="lb">
+  <button type="button" class="lb-x" id="lbClose" aria-label="Fermer">×</button>
+  <div class="lb-scroll" id="lbScroll"><img id="lbImg" src="" alt=""></div>
+</dialog>
+
 <script>
 (function () {
   var doc = document, root = doc.documentElement;
@@ -572,7 +618,7 @@ footer a { text-underline-offset: 3px; }
   var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var NS = "http://www.w3.org/2000/svg";
   /* texts made by script; tools/build.py swaps this line per language */
-  var S = {"onDisplay": "Carte affichée : %s", "version": "Version %s", "installer": "Installateur Windows", "locale": "fr-FR"};
+  var S = {"onDisplay": "Carte affichée : %s", "starting": "Le match commence …", "reading": "Lecture du nom de la map …", "version": "Version %s", "installer": "Installateur Windows", "locale": "fr-FR"};
 
   /* ---------- fog canvas: drifting blobs that part around the pointer ---------- */
   (function fog() {
@@ -651,7 +697,7 @@ footer a { text-underline-offset: 3px; }
   var stage = doc.getElementById("stage"), shots = stage.querySelectorAll("img"),
       statusText = doc.getElementById("statusText"), chips = doc.getElementById("chips"), cur = 0, heroTimer;
   function show(i) {
-    cur = i;
+    stopReplay(); cur = i;
     Array.prototype.forEach.call(shots, function (im, k) { im.classList.toggle("on", k === i); });
     statusText.textContent = S.onDisplay.replace("%s", SHOTS[i]);
     closeSpots();
@@ -683,7 +729,59 @@ footer a { text-underline-offset: 3px; }
   doc.addEventListener("click", function () { closeSpots(); });
   doc.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSpots(); });
   /* the screenshots stand still while a note is open or pointed at */
-  function reading() { return !!stage.querySelector(".spot.open, .spot button:hover, .spot button:focus-visible"); }
+  function reading() { return stage.classList.contains("ban") || !!stage.querySelector(".spot.open, .spot button:hover, .spot button:focus-visible"); }
+
+  /* replay of a match start. The banner shows the map name as the game writes it in the chosen game language (names: maps.json of Fog Scout). */
+  var GAME = {
+    "en": ["English", "Rotten Fields", "Dead Dawg Saloon", "Greenville Square", "Groaning Storehouse"],
+    "de": ["Deutsch", "Faulige Felder", "Dead Dawg Saloon", "Hauptplatz von Greenville", "Seufzendes Lagerhaus"],
+    "fr": ["Français", "Champs pourris", "Saloon de Dead Dawg", "Place de Greenville", "Entrepôt grondant"],
+    "es": ["Español", "Campos podridos", "Salón Dead Dawg", "Plaza de Greenville", "Almacén quejumbroso"],
+    "it": ["Italiano", "Campi putrefatti", "Saloon Dead Dawg", "Greenville Square", "Deposito scricchiolante"],
+    "pl": ["Polski", "Zbutwiałe Pola", "Knajpa pod Martwym Ziomkiem", "Plac Greenville", "Jęczący Magazyn"],
+    "pt": ["Português", "Campos Pútridos", "Saloon do Cachorro Morto", "Praça de Greenville", "Armazém Rangente"],
+    "tr": ["Türkçe", "Başıboş Tarla", "Ölü İt Barı", "Greenville Meydanı", "İnleyen Depo"],
+    "ru": ["Русский", "Сгнившие Поля", "Салун «Мертвяк вусмерть»", "Площадь Гринвилла", "Стонущий Склад"],
+    "zh": ["简体中文", "腐臭田野", "死狗酒馆", "格林维尔广场", "哀嚎仓库"],
+    "ja": ["日本語", "ロトン・フィールズ", "死んだ犬の酒場", "グリーンビル広場", "グロウニング・ストアハウス"],
+    "ko": ["한국어", "썩은 들판", "폐허가 된 술집", "그린빌 광장", "비명을 지르는 창고"]};
+  var gameLang = doc.getElementById("gameLang"), bannerName = doc.getElementById("bannerName"), statusBox = doc.getElementById("status"), steps = [];
+  Object.keys(GAME).forEach(function (c) { var o = doc.createElement("option"); o.value = c; o.textContent = GAME[c][0]; gameLang.appendChild(o); });
+  gameLang.value = GAME[root.lang.slice(0, 2)] ? root.lang.slice(0, 2) : "en";
+  function stopReplay() { steps.forEach(clearTimeout); steps = []; stage.classList.remove("pre", "ban", "scan"); statusBox.classList.add("ok"); }
+  function replay() {
+    stopReplay(); closeSpots();
+    bannerName.textContent = GAME[gameLang.value][cur + 1]; bannerName.lang = gameLang.value;
+    stage.classList.add("pre"); statusBox.classList.remove("ok"); statusText.textContent = S.starting;
+    steps.push(setTimeout(function () { stage.classList.add("ban", "scan"); statusText.textContent = S.reading; }, 800));
+    steps.push(setTimeout(function () {
+      stage.classList.remove("pre", "scan"); statusBox.classList.add("ok"); statusText.textContent = S.onDisplay.replace("%s", SHOTS[cur]);
+    }, 2400));
+    steps.push(setTimeout(function () { stage.classList.remove("ban"); }, 5000));
+  }
+  doc.getElementById("replay").addEventListener("click", replay);
+  gameLang.addEventListener("change", replay);
+
+  /* arrow keys walk through a row of buttons; a sideways swipe on a picture does the same */
+  function arrows(box, sel) {
+    box.addEventListener("keydown", function (e) {
+      var d = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+      if (!d || !e.target.matches(sel)) return;
+      var all = box.querySelectorAll(sel), i = Array.prototype.indexOf.call(all, e.target), n = all[(i + d + all.length) % all.length];
+      e.preventDefault(); n.focus(); n.click();
+    });
+  }
+  function swipe(el, go) {
+    var x0 = null, y0 = 0;
+    el.addEventListener("pointerdown", function (e) { if (e.pointerType === "mouse") return; x0 = e.clientX; y0 = e.clientY; });
+    el.addEventListener("pointerup", function (e) {
+      if (x0 === null) return; var dx = e.clientX - x0, dy = e.clientY - y0; x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > 2 * Math.abs(dy)) go(dx < 0 ? 1 : -1);
+    });
+    el.addEventListener("pointercancel", function () { x0 = null; });
+  }
+  arrows(chips, ".chip");
+  swipe(stage, function (d) { show((cur + d + SHOTS.length) % SHOTS.length); cycle(); });
   function cycle() { clearInterval(heroTimer); if (!still) heroTimer = setInterval(function () { if (!doc.hidden && !reading()) show((cur + 1) % SHOTS.length); }, 6000); }
   SHOTS.forEach(function (n, i) {
     var b = doc.createElement("button"); b.type = "button"; b.className = "chip"; b.id = "chip-" + i; b.textContent = n;
@@ -702,6 +800,30 @@ footer a { text-underline-offset: 3px; }
   }
   Array.prototype.forEach.call(tabs, function (b, i) { b.addEventListener("click", function () { clearInterval(galTimer); pick(i); }); });
   if (!still) galTimer = setInterval(function () { if (!doc.hidden) pick((gi + 1) % tabs.length); }, 5500);
+  function galStep(d) { clearInterval(galTimer); pick((gi + d + tabs.length) % tabs.length); }
+  arrows(doc.querySelector(".gal-tabs"), ".gal-tab");
+  swipe(doc.querySelector(".gal-view .screen"), galStep);
+
+  /* ---------- enlarged pictures: click for full size, arrows walk through the app screenshots ---------- */
+  var lb = doc.getElementById("lb"), lbImg = doc.getElementById("lbImg"), lbScroll = doc.getElementById("lbScroll"), lbGal = false;
+  function lbSet(src, alt) { lbScroll.classList.remove("full"); lbImg.src = src; lbImg.alt = alt; }
+  if (lb.showModal) {
+    Array.prototype.forEach.call(doc.querySelectorAll(".zoom"), function (b) {
+      b.addEventListener("click", function () {
+        var im = b.querySelector("img"); lbGal = b.getAttribute("data-zoom") === "gal";
+        if (lbGal) { clearInterval(galTimer); lbSet(tabs[gi].getAttribute("data-src"), tabs[gi].getAttribute("data-alt")); }
+        else lbSet(im.getAttribute("src"), im.alt);
+        lb.showModal();
+      });
+    });
+    lbImg.addEventListener("click", function (e) { e.stopPropagation(); lbScroll.classList.toggle("full"); });
+    lbScroll.addEventListener("click", function () { lb.close(); });
+    doc.getElementById("lbClose").addEventListener("click", function () { lb.close(); });
+    lb.addEventListener("keydown", function (e) {
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (!d || !lbGal) return;
+      e.preventDefault(); galStep(d); lbSet(tabs[gi].getAttribute("data-src"), tabs[gi].getAttribute("data-alt"));
+    });
+  }
 
   /* ---------- fog translate: prepared chat messages, replayed as game chat and overlay ---------- */
   (function tx() {
