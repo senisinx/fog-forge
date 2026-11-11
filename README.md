@@ -26,6 +26,31 @@ python3 tools/build.py
 New or changed English text has to be added to every `i18n/*.json`; the build stops and names the
 missing texts. `python3 tools/build.py --template` prints all keys, `--check` fails if a page is out of date.
 
+## Icons
+
+`tools/icons/` is the one source of the icons of Fog Forge, Fog Scout, Fog Translate and Fog Launch: one family
+(the same tile, glow, fog and amber, one picture each) and a simpler variant for 16–32 px. After a change:
+
+```bash
+python3 tools/icons/icons.py
+```
+
+```bash
+node tools/icons/render.mjs
+```
+
+```bash
+python3 tools/icons/icons.py tidy
+```
+
+```bash
+python3 tools/icons/icons.py site
+```
+
+The first writes the SVGs, the second renders every size to `tools/icons/png/` (needs Playwright with Chromium),
+the third clears the faint edge Chromium leaves in the transparent corners, the fourth copies the Fog Forge icon into `img/` (`icon.svg` is the small variant for the tab and the header).
+The programs ship the PNGs from `tools/icons/png/`; copy them into each repository. Then redraw the link preview.
+
 ## Link preview
 
 `img/og.jpg` (1200×630) is the picture Discord and other sites show for a link to the page. Its source is
