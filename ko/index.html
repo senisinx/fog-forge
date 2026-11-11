@@ -139,12 +139,11 @@ button { font: inherit; color: inherit; }
 /* hero */
 .hero { display: grid; gap: clamp(1.5rem, 4vw, 2.75rem); padding-block: clamp(1.5rem, 4vw, 3.5rem) clamp(2rem, 5vw, 4rem); }
 .hero-text { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); align-items: end; }
-.hero-text h1 { grid-column: 1 / span 7; min-width: 0; }
+.hero-name { grid-column: 1 / span 7; min-width: 0; display: grid; gap: 1.5rem; }
 .hero-side { grid-column: 8 / -1; min-width: 0; display: grid; gap: 2rem; padding-bottom: .6rem; }
 .hero-tool { display: grid; gap: 1rem; justify-items: start; }
 .hero-tool + .hero-tool { padding-top: 2rem; border-top: 1px solid var(--line); }
 .js .hero-tool + .hero-tool { padding-top: 0; border-top: 0; }
-.hero-tool h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
 .other { background: none; border: 0; padding: 0; cursor: pointer; font: 400 var(--step--1)/1.4 var(--mono); color: var(--haze); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
 .other:hover { color: var(--mist); }
 .hero h1 { margin: 0; font: 800 var(--step-4)/.8 var(--display); text-transform: uppercase; }
@@ -158,7 +157,7 @@ button { font: inherit; color: inherit; }
 /* hero stage: real match screenshots */
 .demo { min-width: 0; margin: 0; display: grid; gap: .75rem; animation: rise 1.1s var(--ease) .4s backwards; }
 .screen { position: relative; overflow: hidden; border: 1px solid var(--line); background: #0c1113; box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .8); }
-.stage { aspect-ratio: 3439 / 1438; max-width: 100%; }
+.stage { aspect-ratio: 3439 / 1438; max-width: 100%; overflow: clip; }
 .stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left center; opacity: 0; transition: opacity 1.2s ease; }
 .stage img.on { opacity: 1; }
 .tag { position: absolute; border: 1px solid var(--ember); pointer-events: none; animation: pulse 3.5s ease-in-out infinite; }
@@ -166,8 +165,26 @@ button { font: inherit; color: inherit; }
 .tag.r span { left: auto; right: 100%; margin: 0 .6rem 0 0; }
 .tag.map { left: .1%; top: 31.5%; width: 12.7%; height: 48.5%; }
 .tag.sys { left: 89.7%; top: 37.5%; width: 9.8%; height: 34%; }
-.stage.wide .tag.sys { left: 87.8%; width: 11.7%; height: 41%; }
 @keyframes pulse { 50% { border-color: transparent; } }
+
+/* marks on the match screenshots: each opens a short note. The layer has the picture's shape, so --x / --y are per cent of the picture. */
+.spots { position: absolute; left: 0; top: 0; height: 100%; aspect-ratio: 3439 / 1438; }
+.spot { display: contents; }
+.spot button { position: absolute; left: var(--x); top: var(--y); width: 1.25rem; height: 1.25rem; margin: -.625rem 0 0 -.625rem; padding: 0; border: 1.5px solid var(--ember); border-radius: 50%;
+  background: rgba(12, 17, 19, .82); cursor: pointer; transition: background .2s, left .6s var(--ease), top .6s var(--ease); }
+.spot button::before { content: ""; position: absolute; inset: 30%; border-radius: 50%; background: var(--ember); transition: background .2s; }
+.spot button::after { content: ""; position: absolute; inset: -1.5px; border-radius: 50%; border: 1.5px solid var(--ember); opacity: 0; animation: ping 2.8s ease-out infinite; }
+.spot:nth-child(even) button::after { animation-delay: 1.4s; }
+@keyframes ping { from { opacity: .8; transform: scale(1); } to { opacity: 0; transform: scale(2.3); } }
+.spot button:hover, .spot.open button { background: var(--ember); }
+.spot button:hover::before, .spot.open button::before { background: var(--ember-ink); }
+.tip { position: absolute; z-index: 2; left: calc(var(--x) + 1.1rem); top: calc(var(--y) - .7rem); width: 17rem; margin: 0; padding: .6rem .8rem .7rem; pointer-events: none;
+  background: rgba(12, 17, 19, .95); border: 1px solid var(--ember); font-size: .875rem; line-height: 1.45; color: var(--haze);
+  opacity: 0; visibility: hidden; transform: translateY(4px); transition: opacity .2s, transform .2s var(--ease), visibility 0s .2s; }
+.tip b { display: block; margin-bottom: .1rem; font-weight: 600; color: var(--mist); }
+.spot.r .tip { left: auto; right: calc(100% - var(--x) + 1.1rem); }
+.spot.up .tip { top: auto; bottom: calc(100% - var(--y) - .7rem); }
+.spot button:hover + .tip, .spot button:focus-visible + .tip, .spot.open .tip { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
 
 /* app screenshots */
 #scout { padding-bottom: clamp(2rem, 4vw, 3rem); }
@@ -248,6 +265,28 @@ p.sub { color: var(--haze); }
 .tag.tr1 { left: 1.6%; top: .8%; width: 32.6%; height: 44.8%; }
 .tag.tr2 { left: 20%; top: 53%; width: 64%; height: 22.4%; }
 
+/* fog translate: prepared chat messages, replayed as game chat and overlay */
+.tx-box { display: grid; gap: 1px; background: var(--line); }
+.tx-pane { position: relative; overflow: hidden; min-width: 0; padding: .8rem .9rem .9rem; background: #0c1113; }
+.tx-cap { margin: 0 0 .6rem; font: 500 .6875rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--haze); }
+.tx-pane ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+.js .tx-pane ol { overflow: hidden; height: 13.2rem; }
+.js .tx-pane ol.tx-chat { height: 6.4rem; gap: .1rem; }
+.js .tx-pane li { flex: none; animation: rise .5s var(--ease) backwards; }
+.tx-out li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: .5rem; align-items: baseline; }
+.tx-out li::before { content: attr(data-lang); font: 500 .75rem/1.4 var(--mono); color: var(--ember); }
+.tx-out i::before { content: attr(data-name); font: 400 .75rem/1.4 var(--mono); font-style: normal; color: var(--haze); }
+.tx-out span { grid-column: 1 / -1; font-weight: 500; line-height: 1.35; }
+.tx-out li::after { content: attr(data-orig); grid-column: 1 / -1; font-size: .8125rem; line-height: 1.4; color: var(--haze); }
+.tx-chat li { line-height: 1.5; overflow-wrap: anywhere; }
+.tx-chat b { font-weight: 600; color: var(--ember); }
+.tx-pane.scan::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--ember); box-shadow: 0 0 18px 2px rgba(227, 154, 85, .5); animation: scan .7s linear forwards; }
+@keyframes scan { from { top: 0; opacity: 1; } 90% { opacity: 1; } to { top: 100%; opacity: 0; } }
+.tx-pick { display: grid; gap: .5rem; margin-top: .9rem; }
+html:not(.js) .tx-pick, html:not(.js) .tx-pane.chat { display: none; }
+:lang(en) .tx-out [data-lang="EN"], :lang(de) .tx-out [data-lang="DE"], :lang(fr) .tx-out [data-lang="FR"], :lang(es) .tx-out [data-lang="ES"],
+:lang(ru) .tx-out [data-lang="RU"], :lang(zh) .tx-out [data-lang="ZH"], :lang(ja) .tx-out [data-lang="JA"], :lang(ko) .tx-out [data-lang="KO"] { display: none; }
+
 .steps { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 1.1rem; }
 .steps li { counter-increment: s; display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .5rem; }
 .steps li::before { content: counter(s); font: 800 2rem/1 var(--display); color: var(--ember); }
@@ -277,11 +316,14 @@ footer a { text-underline-offset: 3px; }
 .js [data-rv].in { opacity: 1; transform: none; }
 
 @media (max-width: 860px) {
-  .hero-text h1, .hero-side, .tool-head, .tool-body, .rules-head, .never, .gal-tabs, .gal-view { grid-column: 1 / -1; }
+  .hero-name, .hero-side, .tool-head, .tool-body, .rules-head, .never, .gal-tabs, .gal-view { grid-column: 1 / -1; }
   .stage { aspect-ratio: 4 / 3; }
   .tr-pair { grid-template-columns: minmax(0, 1fr); max-width: 30rem; }
   .bar nav a.plain { display: none; }
   .tag { display: none; }
+  .spot.r, .spot.wide-only { display: none; }
+  .spot button { width: 1.75rem; height: 1.75rem; margin: -.875rem 0 0 -.875rem; }
+  .tip, .spot.up .tip { left: .5rem; top: auto; bottom: .5rem; width: min(20rem, calc(100vw - 3.2rem)); }
   .gal-tabs { flex-direction: row; flex-wrap: wrap; gap: .25rem 1rem; }
   .gal-tabs h3 { flex-basis: 100%; }
   .gal-tab { padding: .5rem 0 .5rem .75rem; }
@@ -321,11 +363,13 @@ footer a { text-underline-offset: 3px; }
   <main id="top">
     <section class="hero">
       <div class="hero-text">
-        <h1><span>Fog</span><span>Forge</span></h1>
+        <div class="hero-name">
+          <h1 data-for="scout"><span>Fog</span><span>Scout</span></h1>
+          <h1 data-for="translate"><span>Fog</span><span>Translate</span></h1>
+        </div>
         <div class="hero-side">
           <div class="hero-tool" data-for="scout">
             <p class="kicker">맵 오버레이</p>
-            <h2>Fog Scout</h2>
             <p class="lede">매치가 시작되면 바로 현재 맵의 콜아웃 맵을 보여줍니다.</p>
             <a class="btn go" data-dl="fog-scout" href="https://github.com/senisinx/fog-scout/releases/latest">
               <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -336,7 +380,6 @@ footer a { text-underline-offset: 3px; }
           </div>
           <div class="hero-tool" data-for="translate">
             <p class="kicker">실시간 채팅 번역</p>
-            <h2>Fog Translate</h2>
             <p class="lede">플레이 중 Dead by Daylight 채팅을 어떤 문자든 번역합니다.</p>
             <a class="btn go" data-dl="fog-translate" href="https://github.com/senisinx/fog-translate/releases/latest">
               <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -354,12 +397,19 @@ footer a { text-underline-offset: 3px; }
           <img src="/img/match-dead-dawg.webp" width="3439" height="1439" alt="Dead Dawg Saloon에서의 Dead by Daylight 매치. 왼쪽 가장자리에 Fog Scout 콜아웃 맵이 있습니다.">
           <img src="/img/match-greenville-square.webp" width="2000" height="837" alt="생존자 시점의 Greenville Square에서의 Dead by Daylight 매치. Fog Scout가 왼쪽 가장자리에 콜아웃 맵과 라운드 타이머를, 오른쪽 가장자리에 시스템 수치를 표시합니다.">
           <img src="/img/match-groaning-storehouse.webp" width="2000" height="838" alt="살인마 시점의 Groaning Storehouse I에서의 Dead by Daylight 매치. Fog Scout가 왼쪽 가장자리에 콜아웃 맵과 라운드 타이머를, 오른쪽 가장자리에 시스템 수치, 오늘의 라운드, 현재 곡을 표시합니다.">
-          <div class="tag map" aria-hidden="true"><span>콜아웃 맵, 라운드 타이머, 서버</span></div>
-          <div class="tag sys r" aria-hidden="true"><span>시스템 수치와 오늘의 라운드</span></div>
+          <div class="spots" id="spots">
+            <div class="spot" style="--x:12.4%;--y:38.9%"><button type="button" aria-labelledby="spot-1" aria-describedby="tip-1" aria-expanded="false"></button><p class="tip" id="tip-1"><b id="spot-1">맵 이름과 라운드 타이머</b>렐름, Fog Scout가 인식한 맵, 라운드 경과 시간.</p></div>
+            <div class="spot wide-only" style="--x:3.3%;--y:43.1%"><button type="button" aria-labelledby="spot-2" aria-describedby="tip-2" aria-expanded="false"></button><p class="tip" id="tip-2"><b id="spot-2">서버 지역</b>접속할 지역을 고르고 현재 게임 서버를 확인할 수 있습니다.</p></div>
+            <div class="spot wide-only" style="--x:10.2%;--y:43.1%"><button type="button" aria-labelledby="spot-3" aria-describedby="tip-3" aria-expanded="false"></button><p class="tip" id="tip-3"><b id="spot-3">OBS로 녹화</b>매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다.</p></div>
+            <div class="spot up" style="--x:12.4%;--y:60.8%"><button type="button" aria-labelledby="spot-4" aria-describedby="tip-4" aria-expanded="false"></button><p class="tip" id="tip-4"><b id="spot-4">자동 콜아웃 맵</b>56개의 맵 이미지. Coal Tower II 같은 레이아웃도 구분하며, 클릭이 통과되는 창에 표시합니다.</p></div>
+            <div class="spot r" style="--x:90.05%;--y:48%"><button type="button" aria-labelledby="spot-5" aria-describedby="tip-5" aria-expanded="false"></button><p class="tip" id="tip-5"><b id="spot-5">시스템 수치</b>CPU와 GPU의 온도와 사용률, 사용 중인 VRAM과 RAM.</p></div>
+            <div class="spot r up" style="--x:90.05%;--y:64.4%"><button type="button" aria-labelledby="spot-6" aria-describedby="tip-6" aria-expanded="false"></button><p class="tip" id="tip-6"><b id="spot-6">오늘의 라운드</b>오늘 플레이한 라운드 수, 그 플레이 시간, 현재 시각.</p></div>
+            <div class="spot r up" style="--x:88.15%;--y:74.5%" hidden><button type="button" aria-labelledby="spot-7" aria-describedby="tip-7" aria-expanded="false"></button><p class="tip" id="tip-7"><b id="spot-7">현재 곡</b>재생 중인 곡과 진행 상태.</p></div>
+          </div>
         </div>
         <div class="status ok" id="status" aria-live="polite"><span class="dot"></span><span id="statusText">표시 중인 맵: Rotten Fields</span></div>
         <div class="chips" id="chips" role="group" aria-label="스크린샷 전환"></div>
-        <figcaption class="note">3440×1440 사용자 지정 게임에서의 Fog Scout. 여기서는 게임이 16:9로 실행되므로 맵이 화면 옆 검은 여백에 표시됩니다.</figcaption>
+        <figcaption class="note"><span>표시가 오버레이의 각 부분을 설명합니다.</span> 3440×1440 사용자 지정 게임에서의 Fog Scout. 여기서는 게임이 16:9로 실행되므로 맵이 화면 옆 검은 여백에 표시됩니다.</figcaption>
       </figure>
 
       <figure class="demo tr" data-for="translate">
@@ -435,6 +485,34 @@ footer a { text-underline-offset: 3px; }
       </div>
 
       <div class="tool-body">
+        <div data-rv id="tx">
+          <h3>직접 해 보기</h3>
+          <div class="tx-box screen">
+            <div class="tx-pane">
+              <p class="tx-cap">Fog Translate</p>
+              <ol class="tx-out" id="txOut" aria-live="polite">
+                <li data-lang="ZH" data-orig="谢谢你把我从钩子上救下来"><i data-name="xiaoyu_77"></i><span>갈고리에서 구해줘서 고마워요</span></li>
+                <li data-lang="RU" data-orig="извини, у меня лагало весь матч"><i data-name="volk_tumana"></i><span>미안, 매치 내내 렉이 걸렸어</span></li>
+                <li data-lang="DE" data-orig="gg, das war knapp am Ende"><i data-name="nachtfalke"></i><span>gg, 마지막에 아슬아슬했어</span></li>
+                <li data-lang="JA" data-orig="最後のチェイス、すごかったです"><i data-name="kiri_no_neko"></i><span>마지막 추격전 정말 대단했어요</span></li>
+                <li data-lang="KO" data-orig="발전기 같이 돌려줘서 고마워요"><i data-name="angae_04"></i><span>발전기 같이 돌려줘서 고마워요</span></li>
+                <li data-lang="ES" data-orig="buena partida, ¿jugamos otra?"><i data-name="niebla_roja"></i><span>좋은 게임이었어요, 한 판 더 할까요?</span></li>
+                <li data-lang="FR" data-orig="bien joué, tu m'as eu à la porte"><i data-name="brume_grise"></i><span>잘했어요, 출구에서 잡혔네요</span></li>
+                <li data-lang="EN" data-orig="good game, thanks for the fair match"><i data-name="misty_owl"></i><span>좋은 게임이었어요, 공정한 매치 고마워요</span></li>
+              </ol>
+            </div>
+            <div class="tx-pane chat">
+              <p class="tx-cap">게임 채팅</p>
+              <ol class="tx-chat" id="txChat"></ol>
+            </div>
+          </div>
+          <div class="tx-pick">
+            <p class="meta" id="txLabel">다음 채팅 메시지의 언어를 고르세요:</p>
+            <div class="chips" id="txChips" role="group" aria-labelledby="txLabel"></div>
+          </div>
+          <p class="meta" style="margin-top:.75rem">준비된 문장을 브라우저에서 재생합니다. 여기서는 어떤 서비스로도 아무것도 전송되지 않습니다.</p>
+        </div>
+
         <div data-rv>
           <h3>작동 방식</h3>
           <ol class="steps">
@@ -499,23 +577,38 @@ footer a { text-underline-offset: 3px; }
   /* ---------- fog canvas: drifting blobs that part around the pointer ---------- */
   (function fog() {
     var c = doc.getElementById("fog"), x = c.getContext("2d"); if (!x) return;
-    var W, H, blobs = [], px = -9999, py = -9999, K = 8;
+    var W, H, blobs = [], px = -9999, py = -9999, K = 8, sx = .5, sy = .5, near = false, lit = 0, kick = 0;
     function size() { W = c.width = Math.ceil(innerWidth / K); H = c.height = Math.ceil(innerHeight / K); }
     size(); addEventListener("resize", size);
     for (var i = 0; i < 16; i++) blobs.push({ x: Math.random(), y: Math.random(), r: .18 + Math.random() * .22,
       vx: (Math.random() - .5) * .00035, vy: (Math.random() - .5) * .0002, warm: i % 6 === 0, a: .06 + Math.random() * .08 });
-    addEventListener("pointermove", function (e) { px = e.clientX / innerWidth; py = e.clientY / innerHeight; }, { passive: true });
+    function away() { near = false; px = py = -9999; }
+    addEventListener("pointermove", function (e) { px = e.clientX / innerWidth; py = e.clientY / innerHeight; if (lit < .02) { sx = px; sy = py; } near = true; }, { passive: true });
+    addEventListener("pointerdown", function () { kick = 1; }, { passive: true }); /* a click blows the fog apart */
+    ["pointerup", "pointercancel"].forEach(function (n) { addEventListener(n, function (e) { if (e.pointerType !== "mouse") away(); }, { passive: true }); });
+    doc.documentElement.addEventListener("pointerleave", away); addEventListener("blur", away);
     function draw() {
       x.clearRect(0, 0, W, H); x.globalCompositeOperation = "lighter";
       for (var i = 0; i < blobs.length; i++) {
         var b = blobs[i], dx = b.x - px, dy = b.y - py, d = Math.sqrt(dx * dx + dy * dy);
-        if (d < .25 && d > 0) { b.x += dx / d * (.25 - d) * .02; b.y += dy / d * (.25 - d) * .02; }
+        var reach = .25 + kick * .2, push = .02 + kick * .1;
+        if (d < reach && d > 0) { b.x += dx / d * (reach - d) * push; b.y += dy / d * (reach - d) * push; }
         b.x += b.vx; b.y += b.vy;
         if (b.x < -.3) b.x = 1.3; if (b.x > 1.3) b.x = -.3; if (b.y < -.3) b.y = 1.3; if (b.y > 1.3) b.y = -.3;
         var cx = b.x * W, cy = b.y * H, r = b.r * Math.max(W, H);
         var g = x.createRadialGradient(cx, cy, 0, cx, cy, r), col = b.warm ? "227,154,85" : "165,190,192";
         g.addColorStop(0, "rgba(" + col + "," + b.a + ")"); g.addColorStop(1, "rgba(" + col + ",0)");
         x.fillStyle = g; x.fillRect(cx - r, cy - r, r * 2, r * 2);
+      }
+      kick *= .9; lit += ((near ? 1 : 0) - lit) * .06;
+      if (near) { sx += (px - sx) * .14; sy += (py - sy) * .14; }
+      if (lit > .01) { /* a clearing around the pointer, with a little ember light in it */
+        var lx = sx * W, ly = sy * H, lr = .17 * Math.max(W, H), h = x.createRadialGradient(lx, ly, 0, lx, ly, lr);
+        h.addColorStop(0, "rgba(0,0,0," + .9 * lit + ")"); h.addColorStop(.45, "rgba(0,0,0," + .55 * lit + ")"); h.addColorStop(1, "rgba(0,0,0,0)");
+        x.globalCompositeOperation = "destination-out"; x.fillStyle = h; x.fillRect(lx - lr, ly - lr, lr * 2, lr * 2);
+        h = x.createRadialGradient(lx, ly, 0, lx, ly, lr * .5);
+        h.addColorStop(0, "rgba(227,154,85," + .07 * lit + ")"); h.addColorStop(1, "rgba(227,154,85,0)");
+        x.globalCompositeOperation = "lighter"; x.fillStyle = h; x.fillRect(lx - lr, ly - lr, lr * 2, lr * 2);
       }
       if (!still && !doc.hidden) requestAnimationFrame(draw);
     }
@@ -561,10 +654,37 @@ footer a { text-underline-offset: 3px; }
     cur = i;
     Array.prototype.forEach.call(shots, function (im, k) { im.classList.toggle("on", k === i); });
     statusText.textContent = S.onDisplay.replace("%s", SHOTS[i]);
-    stage.classList.toggle("wide", i === 3);
+    closeSpots();
+    Array.prototype.forEach.call(spots, function (sp, k) {
+      var at = SPOTS[i][k]; sp.hidden = !at;
+      if (at) { sp.style.setProperty("--x", at[0] + "%"); sp.style.setProperty("--y", at[1] + "%"); }
+    });
     Array.prototype.forEach.call(chips.children, function (b, k) { b.setAttribute("aria-pressed", k === i ? "true" : "false"); });
   }
-  function cycle() { clearInterval(heroTimer); if (!still) heroTimer = setInterval(function () { if (!doc.hidden) show((cur + 1) % SHOTS.length); }, 6000); }
+  /* where the marks sit on each screenshot, in per cent of the picture: name and timer, server, recording, map, system, today, track */
+  var SPOTS = [
+    [[12.4, 38.9], [3.3, 43.1], [10.2, 43.1], [12.4, 60.8], [90.05, 48], [90.05, 64.4], null],
+    [[12.7, 41.7], [3, 45.9], [9.8, 45.9], [12.7, 62], [90.05, 48], [90.05, 64.5], null],
+    [[11, 39.6], [2.8, 43.8], [9.5, 43.8], [11, 61], [90.05, 48], [90.05, 64.5], null],
+    [[12.5, 41.7], [2.9, 46.1], [9.6, 46.1], [12.5, 60.8], [88.15, 47.9], [88.15, 63.8], [88.15, 74.5]]];
+  var spots = stage.querySelectorAll(".spot");
+  function closeSpots(but) {
+    Array.prototype.forEach.call(spots, function (sp) {
+      if (sp === but) return; sp.classList.remove("open"); sp.querySelector("button").setAttribute("aria-expanded", "false");
+    });
+  }
+  Array.prototype.forEach.call(spots, function (sp) {
+    var b = sp.querySelector("button");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); closeSpots(sp);
+      b.setAttribute("aria-expanded", sp.classList.toggle("open") ? "true" : "false");
+    });
+  });
+  doc.addEventListener("click", function () { closeSpots(); });
+  doc.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSpots(); });
+  /* the screenshots stand still while a note is open or pointed at */
+  function reading() { return !!stage.querySelector(".spot.open, .spot button:hover, .spot button:focus-visible"); }
+  function cycle() { clearInterval(heroTimer); if (!still) heroTimer = setInterval(function () { if (!doc.hidden && !reading()) show((cur + 1) % SHOTS.length); }, 6000); }
   SHOTS.forEach(function (n, i) {
     var b = doc.createElement("button"); b.type = "button"; b.className = "chip"; b.id = "chip-" + i; b.textContent = n;
     b.addEventListener("click", function () { show(i); cycle(); }); chips.appendChild(b);
@@ -582,6 +702,36 @@ footer a { text-underline-offset: 3px; }
   }
   Array.prototype.forEach.call(tabs, function (b, i) { b.addEventListener("click", function () { clearInterval(galTimer); pick(i); }); });
   if (!still) galTimer = setInterval(function () { if (!doc.hidden) pick((gi + 1) % tabs.length); }, 5500);
+
+  /* ---------- fog translate: prepared chat messages, replayed as game chat and overlay ---------- */
+  (function tx() {
+    var box = doc.getElementById("tx"), out = doc.getElementById("txOut"), chat = doc.getElementById("txChat"), row = doc.getElementById("txChips"), pane = chat.parentNode;
+    var LANG = { ZH: "中文", RU: "Русский", DE: "Deutsch", JA: "日本語", KO: "한국어", ES: "Español", FR: "Français", EN: "English" };
+    var here = root.lang.slice(0, 2).toUpperCase(), pool = [], touched = false;
+    Array.prototype.forEach.call(out.querySelectorAll("li"), function (li) { if (li.getAttribute("data-lang") !== here) pool.push(li); });
+    out.textContent = "";
+    function fit(ol) { while (ol.children.length > 1 && ol.scrollHeight > ol.clientHeight + 1) ol.removeChild(ol.firstChild); } /* oldest out, never half a line */
+    function send(li) {
+      var line = doc.createElement("li"), b = doc.createElement("b");
+      b.textContent = li.querySelector("i").getAttribute("data-name") + ":";
+      line.appendChild(b); line.appendChild(doc.createTextNode(" " + li.getAttribute("data-orig")));
+      chat.appendChild(line); fit(chat);
+      if (still) { out.appendChild(li.cloneNode(true)); fit(out); return; }
+      pane.classList.remove("scan"); void pane.offsetWidth; pane.classList.add("scan"); /* the app looks at the chat, then the translation appears */
+      setTimeout(function () { out.appendChild(li.cloneNode(true)); fit(out); }, 700);
+    }
+    pool.forEach(function (li) {
+      var code = li.getAttribute("data-lang"), b = doc.createElement("button");
+      b.type = "button"; b.className = "chip"; b.lang = code.toLowerCase(); b.textContent = LANG[code];
+      b.addEventListener("click", function () { touched = true; send(li); }); row.appendChild(b);
+    });
+    /* two messages arrive by themselves the first time the box is seen */
+    function intro() { if (touched) return; send(pool[0]); setTimeout(function () { if (!touched) send(pool[1]); }, still ? 0 : 1900); }
+    if ("IntersectionObserver" in window) {
+      var seen = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { seen.disconnect(); intro(); } }, { threshold: .35 });
+      seen.observe(box);
+    } else intro();
+  })();
 
   /* ---------- ticker: map names shipped with Fog Scout ---------- */
   var NAMES = ["Coal Tower", "Groaning Storehouse", "Ironworks of Misery", "Shelter Woods", "Suffocation Pit", "Azarov's Resting Place", "Blood Lodge", "Gas Heaven",
