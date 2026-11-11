@@ -163,5 +163,16 @@
   "Map": "Карта",
   "Today": "Сегодня",
   "Music": "Музыка",
-  "Reset": "Сбросить"
+  "Reset": "Сбросить",
+  "Browse all maps →": "Смотреть все карты →",
+  "Callout maps · Fog Forge": "Callout-карты · Fog Forge",
+  "All callout maps of Fog Scout for Dead by Daylight, to search and view large.": "Все callout-карты Fog Scout для Dead by Daylight: с поиском и просмотром в крупном размере.",
+  "Callout maps": "Callout-карты",
+  "The callout maps that ship with Fog Scout. Click a map to see it large.": "Callout-карты, которые входят в Fog Scout. Нажмите на карту, чтобы увидеть её крупно.",
+  "Search": "Поиск",
+  "Realm": "Мир",
+  "All realms": "Все миры",
+  "No map matches.": "Ни одна карта не подходит.",
+  "Previous map": "Предыдущая карта",
+  "Next map": "Следующая карта"
 }

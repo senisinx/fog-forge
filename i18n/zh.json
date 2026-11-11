@@ -163,5 +163,16 @@
   "Map": "地图",
   "Today": "今日",
   "Music": "音乐",
-  "Reset": "重置"
+  "Reset": "重置",
+  "Browse all maps →": "浏览全部地图 →",
+  "Callout maps · Fog Forge": "报点地图 · Fog Forge",
+  "All callout maps of Fog Scout for Dead by Daylight, to search and view large.": "Fog Scout 为 Dead by Daylight 提供的全部报点地图，可搜索并放大查看。",
+  "Callout maps": "报点地图",
+  "The callout maps that ship with Fog Scout. Click a map to see it large.": "Fog Scout 自带的报点地图。点击地图即可放大查看。",
+  "Search": "搜索",
+  "Realm": "领域",
+  "All realms": "全部领域",
+  "No map matches.": "没有匹配的地图。",
+  "Previous map": "上一张地图",
+  "Next map": "下一张地图"
 }

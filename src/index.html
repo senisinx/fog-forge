@@ -217,6 +217,7 @@ p.sub { color: var(--haze); }
 .feat li:hover::before { transform: scaleX(1); }
 .feat b { display: block; font-weight: 600; margin-bottom: .2rem; }
 .feat span { color: var(--haze); font-size: .9375rem; }
+.feat .more { display: inline-block; margin-top: .5rem; font: 400 var(--step--1)/1.4 var(--mono); color: var(--ember); text-underline-offset: 3px; }
 
 .stats { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1.5rem 2rem; }
 .stats div { min-width: 0; }
@@ -362,6 +363,7 @@ footer a { text-underline-offset: 3px; }
           <a href="#translate" data-tool="translate">Fog Translate</a>
         </div>
         <a class="plain" href="#fair-play">Fair play</a>
+        <a class="plain" href="/maps/">Maps</a>
         <a class="plain" href="/contact/">Contact</a>
         <a class="plain" href="https://github.com/senisinx">GitHub</a>
         <!-- i18n:switch -->
@@ -469,7 +471,7 @@ footer a { text-underline-offset: 3px; }
         <div data-rv>
           <h3>What it does</h3>
           <ul class="feat">
-            <li><b>Automatic callout maps</b><span>56 map pictures, layouts like Coal Tower II told apart, in a click-through window.</span></li>
+            <li><b>Automatic callout maps</b><span>56 map pictures, layouts like Coal Tower II told apart, in a click-through window.</span> <a class="more" href="/maps/">Browse all maps →</a></li>
             <li><b>Server region</b><span>Choose which regions you connect to and see the game server you are on.</span></li>
             <li><b>Match statistics</b><span>Role, killer, kills, escapes and bloodpoints per round, kept on your PC.</span></li>
             <li><b>Recording with OBS</b><span>Starts and labels recordings per match, with a clip editor for the highlights.</span></li>

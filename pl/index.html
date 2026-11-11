@@ -251,6 +251,7 @@ p.sub { color: var(--haze); }
 .feat li:hover::before { transform: scaleX(1); }
 .feat b { display: block; font-weight: 600; margin-bottom: .2rem; }
 .feat span { color: var(--haze); font-size: .9375rem; }
+.feat .more { display: inline-block; margin-top: .5rem; font: 400 var(--step--1)/1.4 var(--mono); color: var(--ember); text-underline-offset: 3px; }
 
 .stats { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1.5rem 2rem; }
 .stats div { min-width: 0; }
@@ -396,6 +397,7 @@ footer a { text-underline-offset: 3px; }
           <a href="#translate" data-tool="translate">Fog Translate</a>
         </div>
         <a class="plain" href="#fair-play">Fair play</a>
+        <a class="plain" href="/pl/maps/">Mapy</a>
         <a class="plain" href="/pl/contact/">Kontakt</a>
         <a class="plain" href="https://github.com/senisinx">GitHub</a>
         <details class="lang"><summary aria-label="Język: Polski">PL</summary><ul><li><a href="/" hreflang="en" lang="en" data-lang="en">English</a></li><li><a href="/de/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li><li><a href="/es/" hreflang="es" lang="es" data-lang="es">Español</a></li><li><a href="/it/" hreflang="it" lang="it" data-lang="it">Italiano</a></li><li><a href="/pt/" hreflang="pt-BR" lang="pt-BR" data-lang="pt">Português</a></li><li><a href="/pl/" hreflang="pl" lang="pl" data-lang="pl" aria-current="true">Polski</a></li><li><a href="/ru/" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr" data-lang="tr">Türkçe</a></li><li><a href="/nl/" hreflang="nl" lang="nl" data-lang="nl">Nederlands</a></li><li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh">简体中文</a></li><li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li><li><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko">한국어</a></li></ul></details>
@@ -503,7 +505,7 @@ footer a { text-underline-offset: 3px; }
         <div data-rv>
           <h3>Co robi</h3>
           <ul class="feat">
-            <li><b>Automatyczne mapy calloutów</b><span>56 obrazów map, warianty takie jak Coal Tower II są rozróżniane, w oknie click-through.</span></li>
+            <li><b>Automatyczne mapy calloutów</b><span>56 obrazów map, warianty takie jak Coal Tower II są rozróżniane, w oknie click-through.</span> <a class="more" href="/pl/maps/">Zobacz wszystkie mapy →</a></li>
             <li><b>Region serwera</b><span>Wybierz, z którymi regionami się łączysz, i zobacz, na jakim serwerze gry jesteś.</span></li>
             <li><b>Statystyki meczów</b><span>Rola, zabójca, zabójstwa, ucieczki i punkty krwi na rundę, zapisane na twoim PC.</span></li>
             <li><b>Nagrywanie z OBS</b><span>Uruchamia i nazywa nagrania dla każdego meczu, z edytorem klipów do najlepszych momentów.</span></li>
