@@ -644,13 +644,10 @@ footer a { text-underline-offset: 3px; }
       }
       kick *= .9; lit += ((near ? 1 : 0) - lit) * .06;
       if (near) { sx += (px - sx) * .14; sy += (py - sy) * .14; }
-      if (lit > .01) { /* a clearing around the pointer, with a little ember light in it */
-        var lx = sx * W, ly = sy * H, lr = .17 * Math.max(W, H), h = x.createRadialGradient(lx, ly, 0, lx, ly, lr);
-        h.addColorStop(0, "rgba(0,0,0," + .9 * lit + ")"); h.addColorStop(.45, "rgba(0,0,0," + .55 * lit + ")"); h.addColorStop(1, "rgba(0,0,0,0)");
-        x.globalCompositeOperation = "destination-out"; x.fillStyle = h; x.fillRect(lx - lr, ly - lr, lr * 2, lr * 2);
-        h = x.createRadialGradient(lx, ly, 0, lx, ly, lr * .5);
-        h.addColorStop(0, "rgba(227,154,85," + .07 * lit + ")"); h.addColorStop(1, "rgba(227,154,85,0)");
-        x.globalCompositeOperation = "lighter"; x.fillStyle = h; x.fillRect(lx - lr, ly - lr, lr * 2, lr * 2);
+      if (lit > .01) { /* a small ember light follows the pointer; the fog itself only swirls away */
+        var lx = sx * W, ly = sy * H, lr = .07 * Math.max(W, H), h = x.createRadialGradient(lx, ly, 0, lx, ly, lr);
+        h.addColorStop(0, "rgba(227,154,85," + .16 * lit + ")"); h.addColorStop(1, "rgba(227,154,85,0)");
+        x.fillStyle = h; x.fillRect(lx - lr, ly - lr, lr * 2, lr * 2);
       }
       if (!still && !doc.hidden) requestAnimationFrame(draw);
     }
