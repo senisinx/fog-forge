@@ -13,8 +13,9 @@ The HTML in the repository root and in the language folders (`de/`, `fr/`, …) 
 - `src/index.html`, `src/contact/index.html`, `src/maps/index.html`: the English pages, the source of every language.
 - `i18n/<code>.json`: one file per language. The English text is the key, the value its translation.
 - `tools/build.py`: writes all pages (needs only Python 3).
-- `data/maps.json`, `img/maps/`: the callout maps on `/maps/`, copied from Fog Scout. Do not edit them; run
-  `python3 tools/import_maps.py <path to a fog-scout checkout>` when Fog Scout gets new maps (needs Pillow), then the build.
+- `data/maps.json`, `img/maps/`: three callout maps in the six map styles for `/maps/`, made from Fog Scout. Do not edit
+  them; run `python3 tools/import_maps.py <path to a fog-scout checkout>` to show other maps or after a change to the
+  styles (needs Pillow, NumPy and OpenCV), then the build.
 
 After a change:
 

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Callout maps · Fog Forge</title>
-<meta name="description" content="All callout maps of Fog Scout for Dead by Daylight, to search and view large.">
-<meta property="og:title" content="Callout maps · Fog Forge">
-<meta property="og:description" content="All callout maps of Fog Scout for Dead by Daylight, to search and view large.">
+<title>Map styles · Fog Forge</title>
+<meta name="description" content="The six map styles of Fog Scout for Dead by Daylight, shown on three callout maps.">
+<meta property="og:title" content="Map styles · Fog Forge">
+<meta property="og:description" content="The six map styles of Fog Scout for Dead by Daylight, shown on three callout maps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fogforge.app/maps/">
 <meta property="og:image" content="https://fogforge.app/img/og.jpg">
@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Same tokens and bar as the landing page; one grid of map pictures with a search, a realm filter and a large view. */
+/* Same tokens and bar as the landing page; three maps, each drawn in the six map styles, with a large view. */
 :root {
   color-scheme: dark;
   --ground: #11171a;
@@ -85,27 +85,21 @@ h1 { margin: 0; font: 800 clamp(3rem, 8vw, 5.5rem)/.9 var(--display); text-trans
 @keyframes emerge { from { opacity: 0; filter: blur(22px); transform: translateX(-.15em); } }
 .head p { margin: 0; max-width: 46ch; font-size: var(--step-1); line-height: 1.4; }
 
-/* search and realm filter: one row */
-.find { display: flex; flex-wrap: wrap; align-items: end; gap: .75rem 1.25rem; }
-.find label { display: grid; gap: .35rem; font: 500 var(--step--1)/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--haze); }
-.find input, .find select { min-width: 0; padding: .55rem .7rem; border: 1px solid var(--line); background: #0c1113; color: var(--mist); font: 400 1rem/1.2 var(--body); letter-spacing: 0; text-transform: none; }
-.find input { width: min(20rem, 78vw); }
-.find select { max-width: 78vw; cursor: pointer; }
-.find input:hover, .find select:hover { border-color: var(--haze); }
-.count { margin: 0 0 .6rem auto; font: 400 var(--step--1)/1.2 var(--mono); color: var(--haze); font-variant-numeric: tabular-nums; }
-html:not(.js) .find { display: none; }
-
-.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: var(--gap) 1rem; }
-.grid a { position: relative; display: grid; gap: .15rem; text-decoration: none; }
-.grid img { display: block; width: 100%; aspect-ratio: 1164 / 1280; height: auto; object-fit: contain; padding: .5rem; margin-bottom: .45rem; border: 1px solid var(--line); background: #0c1113; transition: border-color .2s, transform .3s var(--ease); }
+/* one block per map: its name, then the six styles in a row. The pictures stand on black, as in the game's black bar. */
+.set { display: grid; gap: 1rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+.set-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem 1rem; }
+h2 { margin: 0; font: 800 clamp(1.6rem, 3.2vw, 2.25rem)/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.set-head p { margin: 0; font: 400 var(--step--1)/1.3 var(--mono); color: var(--haze); }
+.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
+.grid a { display: grid; gap: .5rem; text-decoration: none; }
+.grid img { display: block; width: 100%; height: auto; padding: .4rem; border: 1px solid var(--line); background: #000; transition: border-color .2s, transform .3s var(--ease); }
 .grid a:hover img, .grid a:focus-visible img { border-color: var(--ember); transform: translateY(-3px); }
-.grid b { font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
-.grid span { font-size: var(--step--1); line-height: 1.35; color: var(--haze); }
-.none { margin: 0; color: var(--haze); }
+.grid b { font: 500 var(--step--1)/1.3 var(--mono); color: var(--haze); transition: color .2s; }
+.grid a:hover b { color: var(--mist); }
 
 /* large view */
 .lb { width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mist); }
-.lb::backdrop { background: rgba(8, 11, 13, .94); }
+.lb::backdrop { background: #000; }
 .lb-in { width: 100%; height: 100%; display: grid; grid-template-rows: minmax(0, 1fr) auto; justify-items: center; gap: .75rem; padding: 3.25rem 3.5rem 1.25rem; }
 .lb-in img { display: block; align-self: center; min-height: 0; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .lb-cap { margin: 0; text-align: center; }
@@ -122,6 +116,9 @@ footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; display: g
 footer p { margin: 0; max-width: 80ch; }
 footer a { text-underline-offset: 3px; }
 
+@media (max-width: 860px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 560px) {
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .lb-in { padding-inline: .75rem; }
@@ -155,20 +152,11 @@ footer a { text-underline-offset: 3px; }
   <main>
     <div class="head">
       <p class="kicker">Fog Scout</p>
-      <h1>Callout maps</h1>
-      <p>The callout maps that ship with Fog Scout. Click a map to see it large.</p>
+      <h1>Map styles</h1>
+      <p>Fog Scout draws its callout maps in six styles. Three of its 56 map pictures as examples: click one to see it large.</p>
     </div>
 
-    <div class="find">
-      <label>Search <input type="search" id="q" autocomplete="off" spellcheck="false"></label>
-      <label>Realm <select id="realm"><option value="">All realms</option><!-- maps:realms --></select></label>
-      <p class="count" id="count" aria-live="polite"></p>
-    </div>
-
-    <ul class="grid" id="grid">
 <!-- maps:grid -->
-    </ul>
-    <p class="none" id="none" hidden>No map matches.</p>
   </main>
 
   <footer>
@@ -180,8 +168,8 @@ footer a { text-underline-offset: 3px; }
 
 <dialog class="lb" id="lb">
   <button type="button" class="lb-x" id="lbClose" aria-label="Close">×</button>
-  <button type="button" class="lb-prev" id="lbPrev" aria-label="Previous map">‹</button>
-  <button type="button" class="lb-next" id="lbNext" aria-label="Next map">›</button>
+  <button type="button" class="lb-prev" id="lbPrev" aria-label="Previous picture">‹</button>
+  <button type="button" class="lb-next" id="lbNext" aria-label="Next picture">›</button>
   <div class="lb-in" id="lbIn">
     <img id="lbImg" src="" alt="">
     <p class="lb-cap"><b id="lbName"></b><span id="lbRealm"></span></p>
@@ -221,32 +209,22 @@ footer a { text-underline-offset: 3px; }
     doc.addEventListener("visibilitychange", function () { if (!doc.hidden && !still) requestAnimationFrame(draw); });
   })();
 
-  /* search and realm filter: tiles are only shown and hidden */
-  var grid = doc.getElementById("grid"), tiles = Array.prototype.slice.call(grid.children), q = doc.getElementById("q"),
-      realm = doc.getElementById("realm"), count = doc.getElementById("count"), none = doc.getElementById("none");
-  function shown() { return tiles.filter(function (li) { return !li.hidden; }); }
-  function filter() {
-    var words = q.value.toLowerCase().split(/\s+/).filter(Boolean), r = realm.value, n = 0;
-    tiles.forEach(function (li) {
-      var text = li.getAttribute("data-q"), ok = (!r || li.getAttribute("data-realm") === r) && words.every(function (w) { return text.indexOf(w) >= 0; });
-      li.hidden = !ok; if (ok) n++;
-    });
-    count.textContent = n + " / " + tiles.length; none.hidden = n > 0;
-  }
-  q.addEventListener("input", filter); realm.addEventListener("change", filter); filter();
-
-  /* large view: arrows walk through the maps that are shown */
-  var lb = doc.getElementById("lb"), lbImg = doc.getElementById("lbImg"), lbName = doc.getElementById("lbName"), lbRealm = doc.getElementById("lbRealm"), at = null;
+  /* large view: arrows walk through all pictures */
+  var tiles = Array.prototype.slice.call(doc.querySelectorAll(".grid li")), lb = doc.getElementById("lb"), lbImg = doc.getElementById("lbImg"),
+      lbName = doc.getElementById("lbName"), lbStyle = doc.getElementById("lbRealm"), at = null;
   function open(li) {
     var a = li.querySelector("a"); at = li; lbImg.src = a.getAttribute("href");
-    lbName.textContent = a.querySelector("b").textContent; lbRealm.textContent = a.querySelector("span").textContent; lbImg.alt = lbName.textContent;
+    lbName.textContent = li.closest(".set").querySelector("h2").textContent; lbStyle.textContent = a.querySelector("b").textContent;
+    lbImg.alt = lbName.textContent + ", " + lbStyle.textContent;
     if (!lb.open) lb.showModal();
   }
-  function step(d) { var all = shown(), i = all.indexOf(at); if (all.length) open(all[(i + d + all.length) % all.length]); }
+  function step(d) { open(tiles[(tiles.indexOf(at) + d + tiles.length) % tiles.length]); }
   if (lb.showModal) {
-    grid.addEventListener("click", function (e) {
-      var a = e.target.closest("a"); if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      e.preventDefault(); open(a.parentNode);
+    tiles.forEach(function (li) {
+      li.querySelector("a").addEventListener("click", function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault(); open(li);
+      });
     });
     doc.getElementById("lbClose").addEventListener("click", function () { lb.close(); });
     doc.getElementById("lbPrev").addEventListener("click", function () { step(-1); });

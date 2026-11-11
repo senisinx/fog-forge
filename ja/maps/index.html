@@ -4,10 +4,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>コールアウトマップ · Fog Forge</title>
-<meta name="description" content="Dead by Daylight 用 Fog Scout のコールアウトマップをすべて掲載。検索して大きく表示できます。">
-<meta property="og:title" content="コールアウトマップ · Fog Forge">
-<meta property="og:description" content="Dead by Daylight 用 Fog Scout のコールアウトマップをすべて掲載。検索して大きく表示できます。">
+<title>マップスタイル · Fog Forge</title>
+<meta name="description" content="Dead by Daylight 用 Fog Scout の 6 種類のマップスタイルを、3 つのコールアウトマップで紹介します。">
+<meta property="og:title" content="マップスタイル · Fog Forge">
+<meta property="og:description" content="Dead by Daylight 用 Fog Scout の 6 種類のマップスタイルを、3 つのコールアウトマップで紹介します。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fogforge.app/ja/maps/">
 <meta property="og:image" content="https://fogforge.app/img/og.jpg">
@@ -55,7 +55,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Same tokens and bar as the landing page; one grid of map pictures with a search, a realm filter and a large view. */
+/* Same tokens and bar as the landing page; three maps, each drawn in the six map styles, with a large view. */
 :root {
   color-scheme: dark;
   --ground: #11171a;
@@ -119,27 +119,21 @@ h1 { margin: 0; font: 800 clamp(3rem, 8vw, 5.5rem)/.9 var(--display); text-trans
 @keyframes emerge { from { opacity: 0; filter: blur(22px); transform: translateX(-.15em); } }
 .head p { margin: 0; max-width: 46ch; font-size: var(--step-1); line-height: 1.4; }
 
-/* search and realm filter: one row */
-.find { display: flex; flex-wrap: wrap; align-items: end; gap: .75rem 1.25rem; }
-.find label { display: grid; gap: .35rem; font: 500 var(--step--1)/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--haze); }
-.find input, .find select { min-width: 0; padding: .55rem .7rem; border: 1px solid var(--line); background: #0c1113; color: var(--mist); font: 400 1rem/1.2 var(--body); letter-spacing: 0; text-transform: none; }
-.find input { width: min(20rem, 78vw); }
-.find select { max-width: 78vw; cursor: pointer; }
-.find input:hover, .find select:hover { border-color: var(--haze); }
-.count { margin: 0 0 .6rem auto; font: 400 var(--step--1)/1.2 var(--mono); color: var(--haze); font-variant-numeric: tabular-nums; }
-html:not(.js) .find { display: none; }
-
-.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: var(--gap) 1rem; }
-.grid a { position: relative; display: grid; gap: .15rem; text-decoration: none; }
-.grid img { display: block; width: 100%; aspect-ratio: 1164 / 1280; height: auto; object-fit: contain; padding: .5rem; margin-bottom: .45rem; border: 1px solid var(--line); background: #0c1113; transition: border-color .2s, transform .3s var(--ease); }
+/* one block per map: its name, then the six styles in a row. The pictures stand on black, as in the game's black bar. */
+.set { display: grid; gap: 1rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+.set-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem 1rem; }
+h2 { margin: 0; font: 800 clamp(1.6rem, 3.2vw, 2.25rem)/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.set-head p { margin: 0; font: 400 var(--step--1)/1.3 var(--mono); color: var(--haze); }
+.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
+.grid a { display: grid; gap: .5rem; text-decoration: none; }
+.grid img { display: block; width: 100%; height: auto; padding: .4rem; border: 1px solid var(--line); background: #000; transition: border-color .2s, transform .3s var(--ease); }
 .grid a:hover img, .grid a:focus-visible img { border-color: var(--ember); transform: translateY(-3px); }
-.grid b { font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
-.grid span { font-size: var(--step--1); line-height: 1.35; color: var(--haze); }
-.none { margin: 0; color: var(--haze); }
+.grid b { font: 500 var(--step--1)/1.3 var(--mono); color: var(--haze); transition: color .2s; }
+.grid a:hover b { color: var(--mist); }
 
 /* large view */
 .lb { width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mist); }
-.lb::backdrop { background: rgba(8, 11, 13, .94); }
+.lb::backdrop { background: #000; }
 .lb-in { width: 100%; height: 100%; display: grid; grid-template-rows: minmax(0, 1fr) auto; justify-items: center; gap: .75rem; padding: 3.25rem 3.5rem 1.25rem; }
 .lb-in img { display: block; align-self: center; min-height: 0; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .lb-cap { margin: 0; text-align: center; }
@@ -156,6 +150,9 @@ footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; display: g
 footer p { margin: 0; max-width: 80ch; }
 footer a { text-underline-offset: 3px; }
 
+@media (max-width: 860px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 560px) {
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .lb-in { padding-inline: .75rem; }
@@ -189,75 +186,43 @@ footer a { text-underline-offset: 3px; }
   <main>
     <div class="head">
       <p class="kicker">Fog Scout</p>
-      <h1>コールアウトマップ</h1>
-      <p>Fog Scout に同梱されているコールアウトマップです。マップをクリックすると大きく表示します。</p>
+      <h1>マップスタイル</h1>
+      <p>Fog Scout はコールアウトマップを 6 種類のスタイルで描画します。56 枚のマップ画像のうち 3 枚を例として掲載しています。クリックすると大きく表示します。</p>
     </div>
 
-    <div class="find">
-      <label>検索 <input type="search" id="q" autocomplete="off" spellcheck="false"></label>
-      <label>レルム <select id="realm"><option value="">すべてのレルム</option><option value="0">マクミラン・エステート</option><option value="1">オートヘイヴン・レッカーズ</option><option value="2">コールドウィンド・ファーム</option><option value="3">クロータス・プレン・アサイラム</option><option value="4">ハドンフィールド</option><option value="5">バックウォーター・スワンプ</option><option value="6">レリー記念研究所</option><option value="7">レッド・フォレスト</option><option value="8">スプリングウッド</option><option value="9">ギデオン食肉工場</option><option value="10">山岡邸</option><option value="11">オーモンド</option><option value="12">ホーキンス国立研究所</option><option value="13">グレンベールの墓</option><option value="14">サイレントヒル</option><option value="15">ラクーンシティ</option><option value="16">荒れ果てた墓場</option><option value="17">枯死の島</option><option value="18">壊滅したボルゴ</option><option value="19">ドヴァルカ・ディープウッド</option><option value="20">眠らない界隈</option></select></label>
-      <p class="count" id="count" aria-live="polite"></p>
-    </div>
-
-    <ul class="grid" id="grid">
-      <li data-realm="0" data-q="コール・タワー i coal tower i マクミラン・エステート the macmillan estate"><a href="/img/maps/coal-tower-1.webp"><img src="/img/maps/t/coal-tower-1.webp" width="360" height="396" alt=""><b>コール・タワー I</b><span>マクミラン・エステート</span></a></li>
-      <li data-realm="0" data-q="コール・タワー ii coal tower ii マクミラン・エステート the macmillan estate"><a href="/img/maps/coal-tower-2.webp"><img src="/img/maps/t/coal-tower-2.webp" width="360" height="396" alt=""><b>コール・タワー II</b><span>マクミラン・エステート</span></a></li>
-      <li data-realm="0" data-q="グロウニング・ストアハウス i groaning storehouse i マクミラン・エステート the macmillan estate"><a href="/img/maps/groaning-storehouse-1.webp"><img src="/img/maps/t/groaning-storehouse-1.webp" width="360" height="396" alt=""><b>グロウニング・ストアハウス I</b><span>マクミラン・エステート</span></a></li>
-      <li data-realm="0" data-q="グロウニング・ストアハウス ii groaning storehouse ii マクミラン・エステート the macmillan estate"><a href="/img/maps/groaning-storehouse-2.webp"><img src="/img/maps/t/groaning-storehouse-2.webp" width="360" height="396" alt=""><b>グロウニング・ストアハウス II</b><span>マクミラン・エステート</span></a></li>
-      <li data-realm="0" data-q="アイアンワークス・オブ・ミザリー i ironworks of misery i マクミラン・エステート the macmillan estate"><a href="/img/maps/ironworks-of-misery-1.webp"><img src="/img/maps/t/ironworks-of-misery-1.webp" width="360" height="396" alt=""><b>アイアンワークス・オブ・ミザリー I</b><span>マクミラン・エステート</span></a></li>
-      <li data-realm="0" data-q="アイアンワークス・オブ・ミザリー ii ironworks of misery ii マクミラン・エステート the macmillan estate"><a href="/img/maps/ironworks-of-misery-2.webp"><img src="/img/maps/t/ironworks-of-misery-2.webp" width="360" height="396" alt=""><b>アイアンワークス・オブ・ミザリー II</b><span>マクミラン・エステート</span></a></li>
-      <li data-realm="0" data-q="シェルター・ウッズ i shelter woods i マクミラン・エステート the macmillan estate"><a href="/img/maps/shelter-woods-1.webp"><img src="/img/maps/t/shelter-woods-1.webp" width="360" height="396" alt=""><b>シェルター・ウッズ I</b><span>マクミラン・エステート</span></a></li>
-      <li data-realm="0" data-q="シェルター・ウッズ ii shelter woods ii マクミラン・エステート the macmillan estate"><a href="/img/maps/shelter-woods-2.webp"><img src="/img/maps/t/shelter-woods-2.webp" width="360" height="396" alt=""><b>シェルター・ウッズ II</b><span>マクミラン・エステート</span></a></li>
-      <li data-realm="0" data-q="サファケーション・ピット i suffocation pit i マクミラン・エステート the macmillan estate"><a href="/img/maps/suffocation-pit-1.webp"><img src="/img/maps/t/suffocation-pit-1.webp" width="360" height="396" alt=""><b>サファケーション・ピット I</b><span>マクミラン・エステート</span></a></li>
-      <li data-realm="0" data-q="サファケーション・ピット ii suffocation pit ii マクミラン・エステート the macmillan estate"><a href="/img/maps/suffocation-pit-2.webp"><img src="/img/maps/t/suffocation-pit-2.webp" width="360" height="396" alt=""><b>サファケーション・ピット II</b><span>マクミラン・エステート</span></a></li>
-      <li data-realm="1" data-q="アザロフの休憩所 azarov&#x27;s resting place オートヘイヴン・レッカーズ autohaven wreckers"><a href="/img/maps/azarovs-resting-place.webp"><img src="/img/maps/t/azarovs-resting-place.webp" width="360" height="396" alt=""><b>アザロフの休憩所</b><span>オートヘイヴン・レッカーズ</span></a></li>
-      <li data-realm="1" data-q="ブラッド・ロッジ blood lodge オートヘイヴン・レッカーズ autohaven wreckers"><a href="/img/maps/blood-lodge.webp"><img src="/img/maps/t/blood-lodge.webp" width="360" height="396" alt=""><b>ブラッド・ロッジ</b><span>オートヘイヴン・レッカーズ</span></a></li>
-      <li data-realm="1" data-q="ガス・ヘヴン gas heaven オートヘイヴン・レッカーズ autohaven wreckers"><a href="/img/maps/gas-heaven.webp"><img src="/img/maps/t/gas-heaven.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ガス・ヘヴン</b><span>オートヘイヴン・レッカーズ</span></a></li>
-      <li data-realm="1" data-q="レッカーズ・ヤード wreckers&#x27; yard オートヘイヴン・レッカーズ autohaven wreckers"><a href="/img/maps/wreckers-yard.webp"><img src="/img/maps/t/wreckers-yard.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>レッカーズ・ヤード</b><span>オートヘイヴン・レッカーズ</span></a></li>
-      <li data-realm="1" data-q="レッチド・ショップ wretched shop オートヘイヴン・レッカーズ autohaven wreckers"><a href="/img/maps/wretched-shop.webp"><img src="/img/maps/t/wretched-shop.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>レッチド・ショップ</b><span>オートヘイヴン・レッカーズ</span></a></li>
-      <li data-realm="2" data-q="フラクチャード・カウシェッド fractured cowshed コールドウィンド・ファーム coldwind farm"><a href="/img/maps/fractured-cowshed.webp"><img src="/img/maps/t/fractured-cowshed.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>フラクチャード・カウシェッド</b><span>コールドウィンド・ファーム</span></a></li>
-      <li data-realm="2" data-q="ランシッド・アバトワー rancid abattoir コールドウィンド・ファーム coldwind farm"><a href="/img/maps/rancid-abattoir.webp"><img src="/img/maps/t/rancid-abattoir.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ランシッド・アバトワー</b><span>コールドウィンド・ファーム</span></a></li>
-      <li data-realm="2" data-q="ロトン・フィールズ rotten fields コールドウィンド・ファーム coldwind farm"><a href="/img/maps/rotten-fields.webp"><img src="/img/maps/t/rotten-fields.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ロトン・フィールズ</b><span>コールドウィンド・ファーム</span></a></li>
-      <li data-realm="2" data-q="トンプソン・ハウス the thompson house コールドウィンド・ファーム coldwind farm"><a href="/img/maps/thompson-house.webp"><img src="/img/maps/t/thompson-house.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>トンプソン・ハウス</b><span>コールドウィンド・ファーム</span></a></li>
-      <li data-realm="2" data-q="トーメント・クリーク torment creek コールドウィンド・ファーム coldwind farm"><a href="/img/maps/torment-creek.webp"><img src="/img/maps/t/torment-creek.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>トーメント・クリーク</b><span>コールドウィンド・ファーム</span></a></li>
-      <li data-realm="3" data-q="ディスターブド・ウォード disturbed ward クロータス・プレン・アサイラム crotus prenn asylum"><a href="/img/maps/disturbed-ward.webp"><img src="/img/maps/t/disturbed-ward.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ディスターブド・ウォード</b><span>クロータス・プレン・アサイラム</span></a></li>
-      <li data-realm="3" data-q="ファザー・キャンベルズ・チャペル father campbell&#x27;s chapel クロータス・プレン・アサイラム crotus prenn asylum"><a href="/img/maps/father-campbells-chapel.webp"><img src="/img/maps/t/father-campbells-chapel.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ファザー・キャンベルズ・チャペル</b><span>クロータス・プレン・アサイラム</span></a></li>
-      <li data-realm="4" data-q="ランプキン・レーン lampkin lane ハドンフィールド haddonfield"><a href="/img/maps/lampkin-lane.webp"><img src="/img/maps/t/lampkin-lane.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ランプキン・レーン</b><span>ハドンフィールド</span></a></li>
-      <li data-realm="5" data-q="ペイル・ローズ the pale rose バックウォーター・スワンプ backwater swamp"><a href="/img/maps/pale-rose.webp"><img src="/img/maps/t/pale-rose.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ペイル・ローズ</b><span>バックウォーター・スワンプ</span></a></li>
-      <li data-realm="5" data-q="おぞましい貯蔵室 grim pantry バックウォーター・スワンプ backwater swamp"><a href="/img/maps/grim-pantry.webp"><img src="/img/maps/t/grim-pantry.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>おぞましい貯蔵室</b><span>バックウォーター・スワンプ</span></a></li>
-      <li data-realm="6" data-q="治療シアター treatment theatre レリー記念研究所 léry&#x27;s memorial institute"><a href="/img/maps/treatment-theatre.webp"><img src="/img/maps/t/treatment-theatre.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>治療シアター</b><span>レリー記念研究所</span></a></li>
-      <li data-realm="7" data-q="マザーズ・ドゥエリング mother&#x27;s dwelling レッド・フォレスト red forest"><a href="/img/maps/mothers-dwelling.webp"><img src="/img/maps/t/mothers-dwelling.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>マザーズ・ドゥエリング</b><span>レッド・フォレスト</span></a></li>
-      <li data-realm="7" data-q="浄罪の神殿 the temple of purgation レッド・フォレスト red forest"><a href="/img/maps/temple-of-purgation.webp"><img src="/img/maps/t/temple-of-purgation.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>浄罪の神殿</b><span>レッド・フォレスト</span></a></li>
-      <li data-realm="8" data-q="バダム幼稚園 i badham preschool i スプリングウッド springwood"><a href="/img/maps/badham-preschool-1.webp"><img src="/img/maps/t/badham-preschool-1.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>バダム幼稚園 I</b><span>スプリングウッド</span></a></li>
-      <li data-realm="8" data-q="バダム幼稚園 ii badham preschool ii スプリングウッド springwood"><a href="/img/maps/badham-preschool-2.webp"><img src="/img/maps/t/badham-preschool-2.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>バダム幼稚園 II</b><span>スプリングウッド</span></a></li>
-      <li data-realm="8" data-q="バダム幼稚園 iii badham preschool iii スプリングウッド springwood"><a href="/img/maps/badham-preschool-3.webp"><img src="/img/maps/t/badham-preschool-3.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>バダム幼稚園 III</b><span>スプリングウッド</span></a></li>
-      <li data-realm="8" data-q="バダム幼稚園 iv badham preschool iv スプリングウッド springwood"><a href="/img/maps/badham-preschool-4.webp"><img src="/img/maps/t/badham-preschool-4.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>バダム幼稚園 IV</b><span>スプリングウッド</span></a></li>
-      <li data-realm="8" data-q="バダム幼稚園 v badham preschool v スプリングウッド springwood"><a href="/img/maps/badham-preschool-5.webp"><img src="/img/maps/t/badham-preschool-5.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>バダム幼稚園 V</b><span>スプリングウッド</span></a></li>
-      <li data-realm="9" data-q="ゲームについて the game ギデオン食肉工場 gideon meat plant"><a href="/img/maps/the-game.webp"><img src="/img/maps/t/the-game.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ゲームについて</b><span>ギデオン食肉工場</span></a></li>
-      <li data-realm="10" data-q="ファミリー・レジデンス family residence 山岡邸 yamaoka estate"><a href="/img/maps/family-residence.webp"><img src="/img/maps/t/family-residence.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ファミリー・レジデンス</b><span>山岡邸</span></a></li>
-      <li data-realm="10" data-q="怒りの聖所 sanctum of wrath 山岡邸 yamaoka estate"><a href="/img/maps/sanctum-of-wrath.webp"><img src="/img/maps/t/sanctum-of-wrath.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>怒りの聖所</b><span>山岡邸</span></a></li>
-      <li data-realm="11" data-q="オーモンド山のリゾート i mount ormond resort i オーモンド ormond"><a href="/img/maps/mount-ormond-resort-1.webp"><img src="/img/maps/t/mount-ormond-resort-1.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>オーモンド山のリゾート I</b><span>オーモンド</span></a></li>
-      <li data-realm="11" data-q="オーモンド山のリゾート ii mount ormond resort ii オーモンド ormond"><a href="/img/maps/mount-ormond-resort-2.webp"><img src="/img/maps/t/mount-ormond-resort-2.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>オーモンド山のリゾート II</b><span>オーモンド</span></a></li>
-      <li data-realm="11" data-q="オーモンド山のリゾート iii mount ormond resort iii オーモンド ormond"><a href="/img/maps/mount-ormond-resort-3.webp"><img src="/img/maps/t/mount-ormond-resort-3.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>オーモンド山のリゾート III</b><span>オーモンド</span></a></li>
-      <li data-realm="11" data-q="オーモンド湖採掘場 ormond lake mine オーモンド ormond"><a href="/img/maps/ormond-lake-mine.webp"><img src="/img/maps/t/ormond-lake-mine.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>オーモンド湖採掘場</b><span>オーモンド</span></a></li>
-      <li data-realm="12" data-q="地下施設 the underground complex ホーキンス国立研究所 hawkins national laboratory"><a href="/img/maps/underground-complex.webp"><img src="/img/maps/t/underground-complex.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>地下施設</b><span>ホーキンス国立研究所</span></a></li>
-      <li data-realm="13" data-q="死んだ犬の酒場 dead dawg saloon グレンベールの墓 grave of glenvale"><a href="/img/maps/dead-dawg-saloon.webp"><img src="/img/maps/t/dead-dawg-saloon.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>死んだ犬の酒場</b><span>グレンベールの墓</span></a></li>
-      <li data-realm="14" data-q="ミッドウィッチ小学校 midwich elementary school サイレントヒル silent hill"><a href="/img/maps/midwich.gif"><img src="/img/maps/t/midwich.webp" width="360" height="360" alt="" loading="lazy" decoding="async"><b>ミッドウィッチ小学校</b><span>サイレントヒル</span></a></li>
-      <li data-realm="15" data-q="ラクーンシティ警察署東棟 raccoon city police station east wing ラクーンシティ raccoon city"><a href="/img/maps/rpd-east.webp"><img src="/img/maps/t/rpd-east.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ラクーンシティ警察署東棟</b><span>ラクーンシティ</span></a></li>
-      <li data-realm="15" data-q="ラクーンシティ警察署西棟 raccoon city police station west wing ラクーンシティ raccoon city"><a href="/img/maps/rpd-west.webp"><img src="/img/maps/t/rpd-west.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ラクーンシティ警察署西棟</b><span>ラクーンシティ</span></a></li>
-      <li data-realm="16" data-q="カラスの巣 eyrie of crows 荒れ果てた墓場 forsaken boneyard"><a href="/img/maps/eyrie-of-crows.webp"><img src="/img/maps/t/eyrie-of-crows.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>カラスの巣</b><span>荒れ果てた墓場</span></a></li>
-      <li data-realm="16" data-q="死の砂漠 dead sands 荒れ果てた墓場 forsaken boneyard"><a href="/img/maps/dead-sands.webp"><img src="/img/maps/t/dead-sands.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>死の砂漠</b><span>荒れ果てた墓場</span></a></li>
-      <li data-realm="17" data-q="喜びの庭 garden of joy 枯死の島 withered isle"><a href="/img/maps/garden-of-joy.webp"><img src="/img/maps/t/garden-of-joy.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>喜びの庭</b><span>枯死の島</span></a></li>
-      <li data-realm="17" data-q="グリーンビル広場 greenville square 枯死の島 withered isle"><a href="/img/maps/greenville-square.webp"><img src="/img/maps/t/greenville-square.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>グリーンビル広場</b><span>枯死の島</span></a></li>
-      <li data-realm="17" data-q="フレディファズベアーズピザ freddy fazbear&#x27;s pizza 枯死の島 withered isle"><a href="/img/maps/freddy-fazbears-pizza.webp"><img src="/img/maps/t/freddy-fazbears-pizza.webp" width="360" height="341" alt="" loading="lazy" decoding="async"><b>フレディファズベアーズピザ</b><span>枯死の島</span></a></li>
-      <li data-realm="17" data-q="落ちた避難所 fallen refuge 枯死の島 withered isle"><a href="/img/maps/fallen-refuge.webp"><img src="/img/maps/t/fallen-refuge.webp" width="360" height="541" alt="" loading="lazy" decoding="async"><b>落ちた避難所</b><span>枯死の島</span></a></li>
-      <li data-realm="18" data-q="瓦礫と化した広場 the shattered square 壊滅したボルゴ the decimated borgo"><a href="/img/maps/shattered-square.webp"><img src="/img/maps/t/shattered-square.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>瓦礫と化した広場</b><span>壊滅したボルゴ</span></a></li>
-      <li data-realm="18" data-q="忘れ去られた遺跡 forgotten ruins 壊滅したボルゴ the decimated borgo"><a href="/img/maps/forgotten-ruins.webp"><img src="/img/maps/t/forgotten-ruins.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>忘れ去られた遺跡</b><span>壊滅したボルゴ</span></a></li>
-      <li data-realm="19" data-q="トーバ着陸地点 toba landing ドヴァルカ・ディープウッド dvarka deepwood"><a href="/img/maps/toba-landing.webp"><img src="/img/maps/t/toba-landing.webp" width="360" height="393" alt="" loading="lazy" decoding="async"><b>トーバ着陸地点</b><span>ドヴァルカ・ディープウッド</span></a></li>
-      <li data-realm="19" data-q="ノストロモ号の残骸 nostromo wreckage ドヴァルカ・ディープウッド dvarka deepwood"><a href="/img/maps/nostromo-wreckage.webp"><img src="/img/maps/t/nostromo-wreckage.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>ノストロモ号の残骸</b><span>ドヴァルカ・ディープウッド</span></a></li>
-      <li data-realm="20" data-q="トリックスターの妄想 trickster&#x27;s delusion 眠らない界隈 sleepless district"><a href="/img/maps/tricksters-delusion.webp"><img src="/img/maps/t/tricksters-delusion.webp" width="360" height="393" alt="" loading="lazy" decoding="async"><b>トリックスターの妄想</b><span>眠らない界隈</span></a></li>
-    </ul>
-    <p class="none" id="none" hidden>一致するマップがありません。</p>
+    <section class="set">
+      <div class="set-head"><h2>ロトン・フィールズ</h2><p>コールドウィンド・ファーム</p></div>
+      <ul class="grid">
+        <li><a href="/img/maps/rotten-fields-classic.webp"><img src="/img/maps/t/rotten-fields-classic.webp" width="360" height="396" alt=""><b>オリジナル</b></a></li>
+        <li><a href="/img/maps/rotten-fields-dark.webp"><img src="/img/maps/t/rotten-fields-dark.webp" width="360" height="396" alt=""><b>ダーク</b></a></li>
+        <li><a href="/img/maps/rotten-fields-grey.webp"><img src="/img/maps/t/rotten-fields-grey.webp" width="360" height="396" alt=""><b>グレー</b></a></li>
+        <li><a href="/img/maps/rotten-fields-grey-edge.webp"><img src="/img/maps/t/rotten-fields-grey-edge.webp" width="360" height="396" alt=""><b>縁付きグレー</b></a></li>
+        <li><a href="/img/maps/rotten-fields-lilac.webp"><img src="/img/maps/t/rotten-fields-lilac.webp" width="360" height="396" alt=""><b>ダークライラック</b></a></li>
+        <li><a href="/img/maps/rotten-fields-lilac-glass.webp"><img src="/img/maps/t/rotten-fields-lilac-glass.webp" width="360" height="396" alt=""><b>ライラック（透過）</b></a></li>
+      </ul>
+    </section>
+    <section class="set">
+      <div class="set-head"><h2>死んだ犬の酒場</h2><p>グレンベールの墓</p></div>
+      <ul class="grid">
+        <li><a href="/img/maps/dead-dawg-saloon-classic.webp"><img src="/img/maps/t/dead-dawg-saloon-classic.webp" width="360" height="396" alt=""><b>オリジナル</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-dark.webp"><img src="/img/maps/t/dead-dawg-saloon-dark.webp" width="360" height="396" alt=""><b>ダーク</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-grey.webp"><img src="/img/maps/t/dead-dawg-saloon-grey.webp" width="360" height="396" alt=""><b>グレー</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-grey-edge.webp"><img src="/img/maps/t/dead-dawg-saloon-grey-edge.webp" width="360" height="396" alt=""><b>縁付きグレー</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-lilac.webp"><img src="/img/maps/t/dead-dawg-saloon-lilac.webp" width="360" height="396" alt=""><b>ダークライラック</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-lilac-glass.webp"><img src="/img/maps/t/dead-dawg-saloon-lilac-glass.webp" width="360" height="396" alt=""><b>ライラック（透過）</b></a></li>
+      </ul>
+    </section>
+    <section class="set">
+      <div class="set-head"><h2>グロウニング・ストアハウス</h2><p>マクミラン・エステート</p></div>
+      <ul class="grid">
+        <li><a href="/img/maps/groaning-storehouse-classic.webp"><img src="/img/maps/t/groaning-storehouse-classic.webp" width="360" height="396" alt=""><b>オリジナル</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-dark.webp"><img src="/img/maps/t/groaning-storehouse-dark.webp" width="360" height="396" alt=""><b>ダーク</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-grey.webp"><img src="/img/maps/t/groaning-storehouse-grey.webp" width="360" height="396" alt=""><b>グレー</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-grey-edge.webp"><img src="/img/maps/t/groaning-storehouse-grey-edge.webp" width="360" height="396" alt=""><b>縁付きグレー</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-lilac.webp"><img src="/img/maps/t/groaning-storehouse-lilac.webp" width="360" height="396" alt=""><b>ダークライラック</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-lilac-glass.webp"><img src="/img/maps/t/groaning-storehouse-lilac-glass.webp" width="360" height="396" alt=""><b>ライラック（透過）</b></a></li>
+      </ul>
+    </section>
   </main>
 
   <footer>
@@ -269,8 +234,8 @@ footer a { text-underline-offset: 3px; }
 
 <dialog class="lb" id="lb">
   <button type="button" class="lb-x" id="lbClose" aria-label="閉じる">×</button>
-  <button type="button" class="lb-prev" id="lbPrev" aria-label="前のマップ">‹</button>
-  <button type="button" class="lb-next" id="lbNext" aria-label="次のマップ">›</button>
+  <button type="button" class="lb-prev" id="lbPrev" aria-label="前の画像">‹</button>
+  <button type="button" class="lb-next" id="lbNext" aria-label="次の画像">›</button>
   <div class="lb-in" id="lbIn">
     <img id="lbImg" src="" alt="">
     <p class="lb-cap"><b id="lbName"></b><span id="lbRealm"></span></p>
@@ -310,32 +275,22 @@ footer a { text-underline-offset: 3px; }
     doc.addEventListener("visibilitychange", function () { if (!doc.hidden && !still) requestAnimationFrame(draw); });
   })();
 
-  /* search and realm filter: tiles are only shown and hidden */
-  var grid = doc.getElementById("grid"), tiles = Array.prototype.slice.call(grid.children), q = doc.getElementById("q"),
-      realm = doc.getElementById("realm"), count = doc.getElementById("count"), none = doc.getElementById("none");
-  function shown() { return tiles.filter(function (li) { return !li.hidden; }); }
-  function filter() {
-    var words = q.value.toLowerCase().split(/\s+/).filter(Boolean), r = realm.value, n = 0;
-    tiles.forEach(function (li) {
-      var text = li.getAttribute("data-q"), ok = (!r || li.getAttribute("data-realm") === r) && words.every(function (w) { return text.indexOf(w) >= 0; });
-      li.hidden = !ok; if (ok) n++;
-    });
-    count.textContent = n + " / " + tiles.length; none.hidden = n > 0;
-  }
-  q.addEventListener("input", filter); realm.addEventListener("change", filter); filter();
-
-  /* large view: arrows walk through the maps that are shown */
-  var lb = doc.getElementById("lb"), lbImg = doc.getElementById("lbImg"), lbName = doc.getElementById("lbName"), lbRealm = doc.getElementById("lbRealm"), at = null;
+  /* large view: arrows walk through all pictures */
+  var tiles = Array.prototype.slice.call(doc.querySelectorAll(".grid li")), lb = doc.getElementById("lb"), lbImg = doc.getElementById("lbImg"),
+      lbName = doc.getElementById("lbName"), lbStyle = doc.getElementById("lbRealm"), at = null;
   function open(li) {
     var a = li.querySelector("a"); at = li; lbImg.src = a.getAttribute("href");
-    lbName.textContent = a.querySelector("b").textContent; lbRealm.textContent = a.querySelector("span").textContent; lbImg.alt = lbName.textContent;
+    lbName.textContent = li.closest(".set").querySelector("h2").textContent; lbStyle.textContent = a.querySelector("b").textContent;
+    lbImg.alt = lbName.textContent + ", " + lbStyle.textContent;
     if (!lb.open) lb.showModal();
   }
-  function step(d) { var all = shown(), i = all.indexOf(at); if (all.length) open(all[(i + d + all.length) % all.length]); }
+  function step(d) { open(tiles[(tiles.indexOf(at) + d + tiles.length) % tiles.length]); }
   if (lb.showModal) {
-    grid.addEventListener("click", function (e) {
-      var a = e.target.closest("a"); if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      e.preventDefault(); open(a.parentNode);
+    tiles.forEach(function (li) {
+      li.querySelector("a").addEventListener("click", function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault(); open(li);
+      });
     });
     doc.getElementById("lbClose").addEventListener("click", function () { lb.close(); });
     doc.getElementById("lbPrev").addEventListener("click", function () { step(-1); });

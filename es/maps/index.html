@@ -4,10 +4,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mapas de callouts · Fog Forge</title>
-<meta name="description" content="Todos los mapas de callouts de Fog Scout para Dead by Daylight, para buscar y ver en grande.">
-<meta property="og:title" content="Mapas de callouts · Fog Forge">
-<meta property="og:description" content="Todos los mapas de callouts de Fog Scout para Dead by Daylight, para buscar y ver en grande.">
+<title>Estilos de mapa · Fog Forge</title>
+<meta name="description" content="Los seis estilos de mapa de Fog Scout para Dead by Daylight, mostrados en tres mapas de callouts.">
+<meta property="og:title" content="Estilos de mapa · Fog Forge">
+<meta property="og:description" content="Los seis estilos de mapa de Fog Scout para Dead by Daylight, mostrados en tres mapas de callouts.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fogforge.app/es/maps/">
 <meta property="og:image" content="https://fogforge.app/img/og.jpg">
@@ -55,7 +55,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Same tokens and bar as the landing page; one grid of map pictures with a search, a realm filter and a large view. */
+/* Same tokens and bar as the landing page; three maps, each drawn in the six map styles, with a large view. */
 :root {
   color-scheme: dark;
   --ground: #11171a;
@@ -119,27 +119,21 @@ h1 { margin: 0; font: 800 clamp(3rem, 8vw, 5.5rem)/.9 var(--display); text-trans
 @keyframes emerge { from { opacity: 0; filter: blur(22px); transform: translateX(-.15em); } }
 .head p { margin: 0; max-width: 46ch; font-size: var(--step-1); line-height: 1.4; }
 
-/* search and realm filter: one row */
-.find { display: flex; flex-wrap: wrap; align-items: end; gap: .75rem 1.25rem; }
-.find label { display: grid; gap: .35rem; font: 500 var(--step--1)/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--haze); }
-.find input, .find select { min-width: 0; padding: .55rem .7rem; border: 1px solid var(--line); background: #0c1113; color: var(--mist); font: 400 1rem/1.2 var(--body); letter-spacing: 0; text-transform: none; }
-.find input { width: min(20rem, 78vw); }
-.find select { max-width: 78vw; cursor: pointer; }
-.find input:hover, .find select:hover { border-color: var(--haze); }
-.count { margin: 0 0 .6rem auto; font: 400 var(--step--1)/1.2 var(--mono); color: var(--haze); font-variant-numeric: tabular-nums; }
-html:not(.js) .find { display: none; }
-
-.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: var(--gap) 1rem; }
-.grid a { position: relative; display: grid; gap: .15rem; text-decoration: none; }
-.grid img { display: block; width: 100%; aspect-ratio: 1164 / 1280; height: auto; object-fit: contain; padding: .5rem; margin-bottom: .45rem; border: 1px solid var(--line); background: #0c1113; transition: border-color .2s, transform .3s var(--ease); }
+/* one block per map: its name, then the six styles in a row. The pictures stand on black, as in the game's black bar. */
+.set { display: grid; gap: 1rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+.set-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem 1rem; }
+h2 { margin: 0; font: 800 clamp(1.6rem, 3.2vw, 2.25rem)/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.set-head p { margin: 0; font: 400 var(--step--1)/1.3 var(--mono); color: var(--haze); }
+.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
+.grid a { display: grid; gap: .5rem; text-decoration: none; }
+.grid img { display: block; width: 100%; height: auto; padding: .4rem; border: 1px solid var(--line); background: #000; transition: border-color .2s, transform .3s var(--ease); }
 .grid a:hover img, .grid a:focus-visible img { border-color: var(--ember); transform: translateY(-3px); }
-.grid b { font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
-.grid span { font-size: var(--step--1); line-height: 1.35; color: var(--haze); }
-.none { margin: 0; color: var(--haze); }
+.grid b { font: 500 var(--step--1)/1.3 var(--mono); color: var(--haze); transition: color .2s; }
+.grid a:hover b { color: var(--mist); }
 
 /* large view */
 .lb { width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mist); }
-.lb::backdrop { background: rgba(8, 11, 13, .94); }
+.lb::backdrop { background: #000; }
 .lb-in { width: 100%; height: 100%; display: grid; grid-template-rows: minmax(0, 1fr) auto; justify-items: center; gap: .75rem; padding: 3.25rem 3.5rem 1.25rem; }
 .lb-in img { display: block; align-self: center; min-height: 0; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .lb-cap { margin: 0; text-align: center; }
@@ -156,6 +150,9 @@ footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; display: g
 footer p { margin: 0; max-width: 80ch; }
 footer a { text-underline-offset: 3px; }
 
+@media (max-width: 860px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 560px) {
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .lb-in { padding-inline: .75rem; }
@@ -189,75 +186,43 @@ footer a { text-underline-offset: 3px; }
   <main>
     <div class="head">
       <p class="kicker">Fog Scout</p>
-      <h1>Mapas de callouts</h1>
-      <p>Los mapas de callouts que incluye Fog Scout. Haz clic en un mapa para verlo en grande.</p>
+      <h1>Estilos de mapa</h1>
+      <p>Fog Scout dibuja sus mapas de callouts en seis estilos. Tres de sus 56 imágenes de mapas como ejemplo: haz clic en una para verla en grande.</p>
     </div>
 
-    <div class="find">
-      <label>Buscar <input type="search" id="q" autocomplete="off" spellcheck="false"></label>
-      <label>Reino <select id="realm"><option value="">Todos los reinos</option><option value="0">La finca Macmillan</option><option value="1">Desguace Autohaven</option><option value="2">Granja Coldwind</option><option value="3">Psiquiátrico Crotus Prenn</option><option value="4">Haddonfield</option><option value="5">Pantano de aguas estancadas</option><option value="6">Instituto Conmemorativo Léry</option><option value="7">Bosque rojo</option><option value="8">Springwood</option><option value="9">Planta procesadora de carne Gideon</option><option value="10">Residencia Yamaoka</option><option value="11">Ormond</option><option value="12">Laboratorio Nacional de Hawkins</option><option value="13">Tumba de Glenvale</option><option value="14">Silent Hill</option><option value="15">Raccoon City</option><option value="16">Cementerio abandonado</option><option value="17">Isla marchita</option><option value="18">El Burgo diezmado</option><option value="19">Espesura de Dvarka</option><option value="20">Barrio insomne</option></select></label>
-      <p class="count" id="count" aria-live="polite"></p>
-    </div>
-
-    <ul class="grid" id="grid">
-      <li data-realm="0" data-q="torre de carbón i coal tower i la finca macmillan the macmillan estate"><a href="/img/maps/coal-tower-1.webp"><img src="/img/maps/t/coal-tower-1.webp" width="360" height="396" alt=""><b>Torre de carbón I</b><span>La finca Macmillan</span></a></li>
-      <li data-realm="0" data-q="torre de carbón ii coal tower ii la finca macmillan the macmillan estate"><a href="/img/maps/coal-tower-2.webp"><img src="/img/maps/t/coal-tower-2.webp" width="360" height="396" alt=""><b>Torre de carbón II</b><span>La finca Macmillan</span></a></li>
-      <li data-realm="0" data-q="almacén quejumbroso i groaning storehouse i la finca macmillan the macmillan estate"><a href="/img/maps/groaning-storehouse-1.webp"><img src="/img/maps/t/groaning-storehouse-1.webp" width="360" height="396" alt=""><b>Almacén quejumbroso I</b><span>La finca Macmillan</span></a></li>
-      <li data-realm="0" data-q="almacén quejumbroso ii groaning storehouse ii la finca macmillan the macmillan estate"><a href="/img/maps/groaning-storehouse-2.webp"><img src="/img/maps/t/groaning-storehouse-2.webp" width="360" height="396" alt=""><b>Almacén quejumbroso II</b><span>La finca Macmillan</span></a></li>
-      <li data-realm="0" data-q="fundición de la miseria i ironworks of misery i la finca macmillan the macmillan estate"><a href="/img/maps/ironworks-of-misery-1.webp"><img src="/img/maps/t/ironworks-of-misery-1.webp" width="360" height="396" alt=""><b>Fundición de la Miseria I</b><span>La finca Macmillan</span></a></li>
-      <li data-realm="0" data-q="fundición de la miseria ii ironworks of misery ii la finca macmillan the macmillan estate"><a href="/img/maps/ironworks-of-misery-2.webp"><img src="/img/maps/t/ironworks-of-misery-2.webp" width="360" height="396" alt=""><b>Fundición de la Miseria II</b><span>La finca Macmillan</span></a></li>
-      <li data-realm="0" data-q="bosque refugio i shelter woods i la finca macmillan the macmillan estate"><a href="/img/maps/shelter-woods-1.webp"><img src="/img/maps/t/shelter-woods-1.webp" width="360" height="396" alt=""><b>Bosque refugio I</b><span>La finca Macmillan</span></a></li>
-      <li data-realm="0" data-q="bosque refugio ii shelter woods ii la finca macmillan the macmillan estate"><a href="/img/maps/shelter-woods-2.webp"><img src="/img/maps/t/shelter-woods-2.webp" width="360" height="396" alt=""><b>Bosque refugio II</b><span>La finca Macmillan</span></a></li>
-      <li data-realm="0" data-q="pozo de asfixia i suffocation pit i la finca macmillan the macmillan estate"><a href="/img/maps/suffocation-pit-1.webp"><img src="/img/maps/t/suffocation-pit-1.webp" width="360" height="396" alt=""><b>Pozo de asfixia I</b><span>La finca Macmillan</span></a></li>
-      <li data-realm="0" data-q="pozo de asfixia ii suffocation pit ii la finca macmillan the macmillan estate"><a href="/img/maps/suffocation-pit-2.webp"><img src="/img/maps/t/suffocation-pit-2.webp" width="360" height="396" alt=""><b>Pozo de asfixia II</b><span>La finca Macmillan</span></a></li>
-      <li data-realm="1" data-q="lugar de descanso de azarov azarov&#x27;s resting place desguace autohaven autohaven wreckers"><a href="/img/maps/azarovs-resting-place.webp"><img src="/img/maps/t/azarovs-resting-place.webp" width="360" height="396" alt=""><b>Lugar de descanso de Azarov</b><span>Desguace Autohaven</span></a></li>
-      <li data-realm="1" data-q="cabaña de sangre blood lodge desguace autohaven autohaven wreckers"><a href="/img/maps/blood-lodge.webp"><img src="/img/maps/t/blood-lodge.webp" width="360" height="396" alt=""><b>Cabaña de sangre</b><span>Desguace Autohaven</span></a></li>
-      <li data-realm="1" data-q="gasolinera gas heaven desguace autohaven autohaven wreckers"><a href="/img/maps/gas-heaven.webp"><img src="/img/maps/t/gas-heaven.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Gasolinera</b><span>Desguace Autohaven</span></a></li>
-      <li data-realm="1" data-q="desguace wreckers&#x27; yard desguace autohaven autohaven wreckers"><a href="/img/maps/wreckers-yard.webp"><img src="/img/maps/t/wreckers-yard.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Desguace</b><span>Desguace Autohaven</span></a></li>
-      <li data-realm="1" data-q="taller ruinoso wretched shop desguace autohaven autohaven wreckers"><a href="/img/maps/wretched-shop.webp"><img src="/img/maps/t/wretched-shop.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Taller ruinoso</b><span>Desguace Autohaven</span></a></li>
-      <li data-realm="2" data-q="establo en ruinas fractured cowshed granja coldwind coldwind farm"><a href="/img/maps/fractured-cowshed.webp"><img src="/img/maps/t/fractured-cowshed.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Establo en ruinas</b><span>Granja Coldwind</span></a></li>
-      <li data-realm="2" data-q="matadero pestilente rancid abattoir granja coldwind coldwind farm"><a href="/img/maps/rancid-abattoir.webp"><img src="/img/maps/t/rancid-abattoir.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Matadero pestilente</b><span>Granja Coldwind</span></a></li>
-      <li data-realm="2" data-q="campos podridos rotten fields granja coldwind coldwind farm"><a href="/img/maps/rotten-fields.webp"><img src="/img/maps/t/rotten-fields.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Campos podridos</b><span>Granja Coldwind</span></a></li>
-      <li data-realm="2" data-q="la casa de los thompson the thompson house granja coldwind coldwind farm"><a href="/img/maps/thompson-house.webp"><img src="/img/maps/t/thompson-house.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>La casa de los Thompson</b><span>Granja Coldwind</span></a></li>
-      <li data-realm="2" data-q="arroyo del tormento torment creek granja coldwind coldwind farm"><a href="/img/maps/torment-creek.webp"><img src="/img/maps/t/torment-creek.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Arroyo del tormento</b><span>Granja Coldwind</span></a></li>
-      <li data-realm="3" data-q="sala de transtornados disturbed ward psiquiátrico crotus prenn crotus prenn asylum"><a href="/img/maps/disturbed-ward.webp"><img src="/img/maps/t/disturbed-ward.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Sala de transtornados</b><span>Psiquiátrico Crotus Prenn</span></a></li>
-      <li data-realm="3" data-q="capilla del padre campbell father campbell&#x27;s chapel psiquiátrico crotus prenn crotus prenn asylum"><a href="/img/maps/father-campbells-chapel.webp"><img src="/img/maps/t/father-campbells-chapel.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Capilla del padre Campbell</b><span>Psiquiátrico Crotus Prenn</span></a></li>
-      <li data-realm="4" data-q="avenida lampkin lampkin lane haddonfield"><a href="/img/maps/lampkin-lane.webp"><img src="/img/maps/t/lampkin-lane.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Avenida Lampkin</b><span>Haddonfield</span></a></li>
-      <li data-realm="5" data-q="la rosa pálida the pale rose pantano de aguas estancadas backwater swamp"><a href="/img/maps/pale-rose.webp"><img src="/img/maps/t/pale-rose.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>La rosa pálida</b><span>Pantano de aguas estancadas</span></a></li>
-      <li data-realm="5" data-q="despensa sombría grim pantry pantano de aguas estancadas backwater swamp"><a href="/img/maps/grim-pantry.webp"><img src="/img/maps/t/grim-pantry.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Despensa sombría</b><span>Pantano de aguas estancadas</span></a></li>
-      <li data-realm="6" data-q="teatro de tratamiento treatment theatre instituto conmemorativo léry léry&#x27;s memorial institute"><a href="/img/maps/treatment-theatre.webp"><img src="/img/maps/t/treatment-theatre.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Teatro de tratamiento</b><span>Instituto Conmemorativo Léry</span></a></li>
-      <li data-realm="7" data-q="morada maternal mother&#x27;s dwelling bosque rojo red forest"><a href="/img/maps/mothers-dwelling.webp"><img src="/img/maps/t/mothers-dwelling.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Morada maternal</b><span>Bosque rojo</span></a></li>
-      <li data-realm="7" data-q="el templo de la purgación the temple of purgation bosque rojo red forest"><a href="/img/maps/temple-of-purgation.webp"><img src="/img/maps/t/temple-of-purgation.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>El Templo de la Purgación</b><span>Bosque rojo</span></a></li>
-      <li data-realm="8" data-q="guardería badham i badham preschool i springwood"><a href="/img/maps/badham-preschool-1.webp"><img src="/img/maps/t/badham-preschool-1.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Guardería Badham I</b><span>Springwood</span></a></li>
-      <li data-realm="8" data-q="guardería badham ii badham preschool ii springwood"><a href="/img/maps/badham-preschool-2.webp"><img src="/img/maps/t/badham-preschool-2.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Guardería Badham II</b><span>Springwood</span></a></li>
-      <li data-realm="8" data-q="guardería badham iii badham preschool iii springwood"><a href="/img/maps/badham-preschool-3.webp"><img src="/img/maps/t/badham-preschool-3.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Guardería Badham III</b><span>Springwood</span></a></li>
-      <li data-realm="8" data-q="guardería badham iv badham preschool iv springwood"><a href="/img/maps/badham-preschool-4.webp"><img src="/img/maps/t/badham-preschool-4.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Guardería Badham IV</b><span>Springwood</span></a></li>
-      <li data-realm="8" data-q="guardería badham v badham preschool v springwood"><a href="/img/maps/badham-preschool-5.webp"><img src="/img/maps/t/badham-preschool-5.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Guardería Badham V</b><span>Springwood</span></a></li>
-      <li data-realm="9" data-q="el juego the game planta procesadora de carne gideon gideon meat plant"><a href="/img/maps/the-game.webp"><img src="/img/maps/t/the-game.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>El juego</b><span>Planta procesadora de carne Gideon</span></a></li>
-      <li data-realm="10" data-q="residencia familiar family residence residencia yamaoka yamaoka estate"><a href="/img/maps/family-residence.webp"><img src="/img/maps/t/family-residence.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Residencia familiar</b><span>Residencia Yamaoka</span></a></li>
-      <li data-realm="10" data-q="santuario de la cólera sanctum of wrath residencia yamaoka yamaoka estate"><a href="/img/maps/sanctum-of-wrath.webp"><img src="/img/maps/t/sanctum-of-wrath.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Santuario de la cólera</b><span>Residencia Yamaoka</span></a></li>
-      <li data-realm="11" data-q="complejo del monte ormond i mount ormond resort i ormond"><a href="/img/maps/mount-ormond-resort-1.webp"><img src="/img/maps/t/mount-ormond-resort-1.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Complejo del monte Ormond I</b><span>Ormond</span></a></li>
-      <li data-realm="11" data-q="complejo del monte ormond ii mount ormond resort ii ormond"><a href="/img/maps/mount-ormond-resort-2.webp"><img src="/img/maps/t/mount-ormond-resort-2.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Complejo del monte Ormond II</b><span>Ormond</span></a></li>
-      <li data-realm="11" data-q="complejo del monte ormond iii mount ormond resort iii ormond"><a href="/img/maps/mount-ormond-resort-3.webp"><img src="/img/maps/t/mount-ormond-resort-3.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Complejo del monte Ormond III</b><span>Ormond</span></a></li>
-      <li data-realm="11" data-q="mina del lago ormond ormond lake mine ormond"><a href="/img/maps/ormond-lake-mine.webp"><img src="/img/maps/t/ormond-lake-mine.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Mina del lago Ormond</b><span>Ormond</span></a></li>
-      <li data-realm="12" data-q="el complejo subterráneo the underground complex laboratorio nacional de hawkins hawkins national laboratory"><a href="/img/maps/underground-complex.webp"><img src="/img/maps/t/underground-complex.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>El complejo subterráneo</b><span>Laboratorio Nacional de Hawkins</span></a></li>
-      <li data-realm="13" data-q="salón dead dawg dead dawg saloon tumba de glenvale grave of glenvale"><a href="/img/maps/dead-dawg-saloon.webp"><img src="/img/maps/t/dead-dawg-saloon.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Salón Dead Dawg</b><span>Tumba de Glenvale</span></a></li>
-      <li data-realm="14" data-q="escuela de primaria midwich midwich elementary school silent hill"><a href="/img/maps/midwich.gif"><img src="/img/maps/t/midwich.webp" width="360" height="360" alt="" loading="lazy" decoding="async"><b>Escuela de primaria Midwich</b><span>Silent Hill</span></a></li>
-      <li data-realm="15" data-q="ala este de la comisaría de raccoon city raccoon city police station east wing raccoon city"><a href="/img/maps/rpd-east.webp"><img src="/img/maps/t/rpd-east.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Ala este de la comisaría de Raccoon City</b><span>Raccoon City</span></a></li>
-      <li data-realm="15" data-q="ala oeste de la comisaría de raccoon city raccoon city police station west wing raccoon city"><a href="/img/maps/rpd-west.webp"><img src="/img/maps/t/rpd-west.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Ala oeste de la comisaría de Raccoon City</b><span>Raccoon City</span></a></li>
-      <li data-realm="16" data-q="nido de cuervos eyrie of crows cementerio abandonado forsaken boneyard"><a href="/img/maps/eyrie-of-crows.webp"><img src="/img/maps/t/eyrie-of-crows.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Nido de cuervos</b><span>Cementerio abandonado</span></a></li>
-      <li data-realm="16" data-q="arenas muertas dead sands cementerio abandonado forsaken boneyard"><a href="/img/maps/dead-sands.webp"><img src="/img/maps/t/dead-sands.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Arenas muertas</b><span>Cementerio abandonado</span></a></li>
-      <li data-realm="17" data-q="jardín del júbilo garden of joy isla marchita withered isle"><a href="/img/maps/garden-of-joy.webp"><img src="/img/maps/t/garden-of-joy.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Jardín del Júbilo</b><span>Isla marchita</span></a></li>
-      <li data-realm="17" data-q="plaza de greenville greenville square isla marchita withered isle"><a href="/img/maps/greenville-square.webp"><img src="/img/maps/t/greenville-square.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Plaza de Greenville</b><span>Isla marchita</span></a></li>
-      <li data-realm="17" data-q="freddy fazbear&#x27;s pizza isla marchita withered isle"><a href="/img/maps/freddy-fazbears-pizza.webp"><img src="/img/maps/t/freddy-fazbears-pizza.webp" width="360" height="341" alt="" loading="lazy" decoding="async"><b>Freddy Fazbear's Pizza</b><span>Isla marchita</span></a></li>
-      <li data-realm="17" data-q="refugio caído fallen refuge isla marchita withered isle"><a href="/img/maps/fallen-refuge.webp"><img src="/img/maps/t/fallen-refuge.webp" width="360" height="541" alt="" loading="lazy" decoding="async"><b>Refugio caído</b><span>Isla marchita</span></a></li>
-      <li data-realm="18" data-q="la plaza desolada the shattered square el burgo diezmado the decimated borgo"><a href="/img/maps/shattered-square.webp"><img src="/img/maps/t/shattered-square.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>La plaza desolada</b><span>El Burgo diezmado</span></a></li>
-      <li data-realm="18" data-q="ruinas olvidadas forgotten ruins el burgo diezmado the decimated borgo"><a href="/img/maps/forgotten-ruins.webp"><img src="/img/maps/t/forgotten-ruins.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Ruinas olvidadas</b><span>El Burgo diezmado</span></a></li>
-      <li data-realm="19" data-q="aterrizaje en toba toba landing espesura de dvarka dvarka deepwood"><a href="/img/maps/toba-landing.webp"><img src="/img/maps/t/toba-landing.webp" width="360" height="393" alt="" loading="lazy" decoding="async"><b>Aterrizaje en Toba</b><span>Espesura de Dvarka</span></a></li>
-      <li data-realm="19" data-q="restos de la nostromo nostromo wreckage espesura de dvarka dvarka deepwood"><a href="/img/maps/nostromo-wreckage.webp"><img src="/img/maps/t/nostromo-wreckage.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Restos de la Nostromo</b><span>Espesura de Dvarka</span></a></li>
-      <li data-realm="20" data-q="delirio del traicionero trickster&#x27;s delusion barrio insomne sleepless district"><a href="/img/maps/tricksters-delusion.webp"><img src="/img/maps/t/tricksters-delusion.webp" width="360" height="393" alt="" loading="lazy" decoding="async"><b>Delirio del Traicionero</b><span>Barrio insomne</span></a></li>
-    </ul>
-    <p class="none" id="none" hidden>Ningún mapa coincide.</p>
+    <section class="set">
+      <div class="set-head"><h2>Campos podridos</h2><p>Granja Coldwind</p></div>
+      <ul class="grid">
+        <li><a href="/img/maps/rotten-fields-classic.webp"><img src="/img/maps/t/rotten-fields-classic.webp" width="360" height="396" alt=""><b>Original</b></a></li>
+        <li><a href="/img/maps/rotten-fields-dark.webp"><img src="/img/maps/t/rotten-fields-dark.webp" width="360" height="396" alt=""><b>Oscuro</b></a></li>
+        <li><a href="/img/maps/rotten-fields-grey.webp"><img src="/img/maps/t/rotten-fields-grey.webp" width="360" height="396" alt=""><b>Gris</b></a></li>
+        <li><a href="/img/maps/rotten-fields-grey-edge.webp"><img src="/img/maps/t/rotten-fields-grey-edge.webp" width="360" height="396" alt=""><b>Gris con borde</b></a></li>
+        <li><a href="/img/maps/rotten-fields-lilac.webp"><img src="/img/maps/t/rotten-fields-lilac.webp" width="360" height="396" alt=""><b>Lila oscuro</b></a></li>
+        <li><a href="/img/maps/rotten-fields-lilac-glass.webp"><img src="/img/maps/t/rotten-fields-lilac-glass.webp" width="360" height="396" alt=""><b>Lila transparente</b></a></li>
+      </ul>
+    </section>
+    <section class="set">
+      <div class="set-head"><h2>Salón Dead Dawg</h2><p>Tumba de Glenvale</p></div>
+      <ul class="grid">
+        <li><a href="/img/maps/dead-dawg-saloon-classic.webp"><img src="/img/maps/t/dead-dawg-saloon-classic.webp" width="360" height="396" alt=""><b>Original</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-dark.webp"><img src="/img/maps/t/dead-dawg-saloon-dark.webp" width="360" height="396" alt=""><b>Oscuro</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-grey.webp"><img src="/img/maps/t/dead-dawg-saloon-grey.webp" width="360" height="396" alt=""><b>Gris</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-grey-edge.webp"><img src="/img/maps/t/dead-dawg-saloon-grey-edge.webp" width="360" height="396" alt=""><b>Gris con borde</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-lilac.webp"><img src="/img/maps/t/dead-dawg-saloon-lilac.webp" width="360" height="396" alt=""><b>Lila oscuro</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-lilac-glass.webp"><img src="/img/maps/t/dead-dawg-saloon-lilac-glass.webp" width="360" height="396" alt=""><b>Lila transparente</b></a></li>
+      </ul>
+    </section>
+    <section class="set">
+      <div class="set-head"><h2>Almacén quejumbroso</h2><p>La finca Macmillan</p></div>
+      <ul class="grid">
+        <li><a href="/img/maps/groaning-storehouse-classic.webp"><img src="/img/maps/t/groaning-storehouse-classic.webp" width="360" height="396" alt=""><b>Original</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-dark.webp"><img src="/img/maps/t/groaning-storehouse-dark.webp" width="360" height="396" alt=""><b>Oscuro</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-grey.webp"><img src="/img/maps/t/groaning-storehouse-grey.webp" width="360" height="396" alt=""><b>Gris</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-grey-edge.webp"><img src="/img/maps/t/groaning-storehouse-grey-edge.webp" width="360" height="396" alt=""><b>Gris con borde</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-lilac.webp"><img src="/img/maps/t/groaning-storehouse-lilac.webp" width="360" height="396" alt=""><b>Lila oscuro</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-lilac-glass.webp"><img src="/img/maps/t/groaning-storehouse-lilac-glass.webp" width="360" height="396" alt=""><b>Lila transparente</b></a></li>
+      </ul>
+    </section>
   </main>
 
   <footer>
@@ -269,8 +234,8 @@ footer a { text-underline-offset: 3px; }
 
 <dialog class="lb" id="lb">
   <button type="button" class="lb-x" id="lbClose" aria-label="Cerrar">×</button>
-  <button type="button" class="lb-prev" id="lbPrev" aria-label="Mapa anterior">‹</button>
-  <button type="button" class="lb-next" id="lbNext" aria-label="Mapa siguiente">›</button>
+  <button type="button" class="lb-prev" id="lbPrev" aria-label="Imagen anterior">‹</button>
+  <button type="button" class="lb-next" id="lbNext" aria-label="Imagen siguiente">›</button>
   <div class="lb-in" id="lbIn">
     <img id="lbImg" src="" alt="">
     <p class="lb-cap"><b id="lbName"></b><span id="lbRealm"></span></p>
@@ -310,32 +275,22 @@ footer a { text-underline-offset: 3px; }
     doc.addEventListener("visibilitychange", function () { if (!doc.hidden && !still) requestAnimationFrame(draw); });
   })();
 
-  /* search and realm filter: tiles are only shown and hidden */
-  var grid = doc.getElementById("grid"), tiles = Array.prototype.slice.call(grid.children), q = doc.getElementById("q"),
-      realm = doc.getElementById("realm"), count = doc.getElementById("count"), none = doc.getElementById("none");
-  function shown() { return tiles.filter(function (li) { return !li.hidden; }); }
-  function filter() {
-    var words = q.value.toLowerCase().split(/\s+/).filter(Boolean), r = realm.value, n = 0;
-    tiles.forEach(function (li) {
-      var text = li.getAttribute("data-q"), ok = (!r || li.getAttribute("data-realm") === r) && words.every(function (w) { return text.indexOf(w) >= 0; });
-      li.hidden = !ok; if (ok) n++;
-    });
-    count.textContent = n + " / " + tiles.length; none.hidden = n > 0;
-  }
-  q.addEventListener("input", filter); realm.addEventListener("change", filter); filter();
-
-  /* large view: arrows walk through the maps that are shown */
-  var lb = doc.getElementById("lb"), lbImg = doc.getElementById("lbImg"), lbName = doc.getElementById("lbName"), lbRealm = doc.getElementById("lbRealm"), at = null;
+  /* large view: arrows walk through all pictures */
+  var tiles = Array.prototype.slice.call(doc.querySelectorAll(".grid li")), lb = doc.getElementById("lb"), lbImg = doc.getElementById("lbImg"),
+      lbName = doc.getElementById("lbName"), lbStyle = doc.getElementById("lbRealm"), at = null;
   function open(li) {
     var a = li.querySelector("a"); at = li; lbImg.src = a.getAttribute("href");
-    lbName.textContent = a.querySelector("b").textContent; lbRealm.textContent = a.querySelector("span").textContent; lbImg.alt = lbName.textContent;
+    lbName.textContent = li.closest(".set").querySelector("h2").textContent; lbStyle.textContent = a.querySelector("b").textContent;
+    lbImg.alt = lbName.textContent + ", " + lbStyle.textContent;
     if (!lb.open) lb.showModal();
   }
-  function step(d) { var all = shown(), i = all.indexOf(at); if (all.length) open(all[(i + d + all.length) % all.length]); }
+  function step(d) { open(tiles[(tiles.indexOf(at) + d + tiles.length) % tiles.length]); }
   if (lb.showModal) {
-    grid.addEventListener("click", function (e) {
-      var a = e.target.closest("a"); if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      e.preventDefault(); open(a.parentNode);
+    tiles.forEach(function (li) {
+      li.querySelector("a").addEventListener("click", function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault(); open(li);
+      });
     });
     doc.getElementById("lbClose").addEventListener("click", function () { lb.close(); });
     doc.getElementById("lbPrev").addEventListener("click", function () { step(-1); });
