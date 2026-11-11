@@ -157,5 +157,11 @@
   "Enlarge picture": "Увеличить изображение",
   "Close": "Закрыть",
   "Match starts …": "Матч начинается …",
-  "Reading the map name …": "Чтение названия карты …"
+  "Reading the map name …": "Чтение названия карты …",
+  "Arrange the overlay": "Расставьте оверлей",
+  "Drag the parts to where you want them, or move the chosen part with the arrow keys. In the app you do this on the Overlay page.": "Перетащите элементы туда, где они вам нужны, или двигайте выбранный элемент клавишами со стрелками. В приложении это делается на странице «Оверлей».",
+  "Map": "Карта",
+  "Today": "Сегодня",
+  "Music": "Музыка",
+  "Reset": "Сбросить"
 }

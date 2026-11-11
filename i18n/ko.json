@@ -157,5 +157,11 @@
   "Enlarge picture": "이미지 확대",
   "Close": "닫기",
   "Match starts …": "매치 시작…",
-  "Reading the map name …": "맵 이름을 읽는 중…"
+  "Reading the map name …": "맵 이름을 읽는 중…",
+  "Arrange the overlay": "오버레이 배치",
+  "Drag the parts to where you want them, or move the chosen part with the arrow keys. In the app you do this on the Overlay page.": "각 요소를 원하는 곳으로 끌어다 놓거나, 선택한 요소를 화살표 키로 옮기세요. 앱에서는 오버레이 페이지에서 합니다.",
+  "Map": "맵",
+  "Today": "오늘",
+  "Music": "음악",
+  "Reset": "초기화"
 }

@@ -157,5 +157,11 @@
   "Enlarge picture": "Görseli büyüt",
   "Close": "Kapat",
   "Match starts …": "Maç başlıyor …",
-  "Reading the map name …": "Harita adı okunuyor …"
+  "Reading the map name …": "Harita adı okunuyor …",
+  "Arrange the overlay": "Overlay’i düzenle",
+  "Drag the parts to where you want them, or move the chosen part with the arrow keys. In the app you do this on the Overlay page.": "Parçaları istediğin yere sürükle ya da seçili parçayı ok tuşlarıyla taşı. Uygulamada bunu Overlay sayfasında yaparsın.",
+  "Map": "Harita",
+  "Today": "Bugün",
+  "Music": "Müzik",
+  "Reset": "Sıfırla"
 }

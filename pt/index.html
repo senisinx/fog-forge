@@ -307,6 +307,18 @@ html:not(.js) .replay { display: none; }
 .replay label { display: flex; align-items: center; gap: .5rem; }
 .replay select { padding: .3rem .4rem; border: 1px solid var(--line); background: var(--ground-2); color: var(--mist); font: 400 var(--step--1)/1.2 var(--body); cursor: pointer; }
 
+/* small overlay editor: the parts are cut-outs of a match screenshot and can be dragged */
+.build { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); padding-bottom: clamp(3rem, 7vw, 6rem); }
+html:not(.js) .build { display: none; }
+.build-side { grid-column: 1 / span 3; min-width: 0; display: grid; gap: .9rem; align-content: start; justify-items: start; }
+.build-side h3, .build-side p { margin: 0; }
+.build-main { grid-column: 4 / -1; min-width: 0; display: grid; gap: .75rem; }
+.pad { aspect-ratio: 2000 / 838; background: #000; }
+.pad-game { position: absolute; left: 12.8%; top: 0; width: 74.4%; height: 100%; opacity: .8; }
+.piece { position: absolute; padding: 0; border: 1px dashed transparent; background-color: #000; cursor: grab; touch-action: none; transition: border-color .2s, box-shadow .2s; }
+.piece:hover, .piece:focus-visible, .piece.on { border-color: var(--ember); }
+.piece.drag { cursor: grabbing; border-style: solid; box-shadow: 0 12px 40px -8px rgba(0, 0, 0, .9); z-index: 1; }
+
 /* enlarged pictures */
 .zoom { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; }
 .js .zoom { cursor: zoom-in; }
@@ -349,7 +361,7 @@ footer a { text-underline-offset: 3px; }
 .js [data-rv].in { opacity: 1; transform: none; }
 
 @media (max-width: 860px) {
-  .hero-name, .hero-side, .tool-head, .tool-body, .rules-head, .never, .gal-tabs, .gal-view { grid-column: 1 / -1; }
+  .build-side, .build-main, .hero-name, .hero-side, .tool-head, .tool-body, .rules-head, .never, .gal-tabs, .gal-view { grid-column: 1 / -1; }
   .stage { aspect-ratio: 4 / 3; }
   .tr-pair { grid-template-columns: minmax(0, 1fr); max-width: 30rem; }
   .bar nav a.plain { display: none; }
@@ -515,6 +527,24 @@ footer a { text-underline-offset: 3px; }
       <figure class="gal-view" data-rv>
         <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Ampliar imagem"><img id="galImg" src="/img/maps.webp" width="1555" height="1178" alt="Página Mapas do Fog Scout: todos os callout maps agrupados por reino, com rodadas e média de abates por mapa."></button></div>
       </figure>
+    </section>
+
+    <section class="build" data-for="scout" aria-labelledby="buildH">
+      <div class="build-side" data-rv>
+        <h3 id="buildH">Organizar o overlay</h3>
+        <p class="sub">Arraste as partes para onde quiser, ou mova a parte escolhida com as setas do teclado. No app, isso é feito na página Overlay.</p>
+        <div class="chips" id="padChips" role="group" aria-labelledby="buildH">
+          <button type="button" class="chip" id="part-map" aria-pressed="true">Mapa</button>
+          <button type="button" class="chip" id="part-sys" aria-pressed="true">Valores do sistema</button>
+          <button type="button" class="chip" id="part-today" aria-pressed="true">Hoje</button>
+          <button type="button" class="chip" id="part-music" aria-pressed="true">Música</button>
+        </div>
+        <button type="button" class="other" id="padReset">Redefinir</button>
+      </div>
+      <div class="build-main" data-rv>
+        <div class="pad screen" id="pad"><div class="pad-game" id="padGame"></div></div>
+        <p class="meta" id="padPos">&nbsp;</p>
+      </div>
     </section>
 
     <section class="tool" id="translate" data-for="translate">
@@ -803,6 +833,48 @@ footer a { text-underline-offset: 3px; }
   function galStep(d) { clearInterval(galTimer); pick((gi + d + tabs.length) % tabs.length); }
   arrows(doc.querySelector(".gal-tabs"), ".gal-tab");
   swipe(doc.querySelector(".gal-view .screen"), galStep);
+
+  /* ---------- small overlay editor: cut-outs of one match screenshot, dragged around the game picture ---------- */
+  (function build() {
+    var pad = doc.getElementById("pad"), pos = doc.getElementById("padPos"), IMG = "url(/img/match-groaning-storehouse.webp)";
+    /* where each part sits in that screenshot, in per cent: left, top, width, height */
+    var PARTS = { map: [.1, 35.8, 12.5, 41.8], sys: [88.15, 38.5, 11, 19.2], today: [88.15, 58.4, 11, 12.6], music: [88.15, 71.3, 11, 6.4] };
+    function cut(el, r) { /* show the region r of the screenshot in el */
+      el.style.backgroundImage = IMG; el.style.backgroundSize = 10000 / r[2] + "% " + 10000 / r[3] + "%";
+      el.style.backgroundPosition = r[0] / (100 - r[2]) * 100 + "% " + r[1] / (100 - r[3]) * 100 + "%";
+    }
+    cut(doc.getElementById("padGame"), [12.8, 0, 74.4, 99.99]);
+    var pieces = Object.keys(PARTS).map(function (k) {
+      var r = PARTS[k], chip = doc.getElementById("part-" + k), el = doc.createElement("button"), at = { x: r[0], y: r[1] }, grab = null;
+      el.type = "button"; el.className = "piece"; el.setAttribute("aria-labelledby", chip.id);
+      el.style.width = r[2] + "%"; el.style.height = r[3] + "%"; cut(el, r); pad.appendChild(el);
+      function say() { pos.textContent = chip.textContent + " · " + Math.round(at.x / (100 - r[2]) * 100) + " % · " + Math.round(at.y / (100 - r[3]) * 100) + " %"; }
+      function put(x, y, quiet) {
+        at.x = Math.max(0, Math.min(100 - r[2], x)); at.y = Math.max(0, Math.min(100 - r[3], y));
+        el.style.left = at.x + "%"; el.style.top = at.y + "%"; if (!quiet) say();
+      }
+      el.addEventListener("pointerdown", function (e) {
+        var b = pad.getBoundingClientRect(); grab = { dx: (e.clientX - b.left) / b.width * 100 - at.x, dy: (e.clientY - b.top) / b.height * 100 - at.y };
+        el.setPointerCapture(e.pointerId); el.classList.add("drag"); say();
+      });
+      el.addEventListener("pointermove", function (e) {
+        if (!grab) return; var b = pad.getBoundingClientRect();
+        put((e.clientX - b.left) / b.width * 100 - grab.dx, (e.clientY - b.top) / b.height * 100 - grab.dy);
+      });
+      ["pointerup", "pointercancel"].forEach(function (n) { el.addEventListener(n, function () { grab = null; el.classList.remove("drag"); }); });
+      el.addEventListener("keydown", function (e) {
+        var d = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key]; if (!d) return;
+        e.preventDefault(); var n = e.shiftKey ? 5 : 1; put(at.x + d[0] * n, at.y + d[1] * n);
+      });
+      el.addEventListener("focus", say);
+      chip.addEventListener("click", function () {
+        var on = chip.getAttribute("aria-pressed") !== "true"; chip.setAttribute("aria-pressed", on ? "true" : "false"); el.hidden = !on;
+      });
+      put(r[0], r[1], true);
+      return function () { chip.setAttribute("aria-pressed", "true"); el.hidden = false; put(r[0], r[1], true); };
+    });
+    doc.getElementById("padReset").addEventListener("click", function () { pieces.forEach(function (f) { f(); }); pos.textContent = "\u00a0"; });
+  })();
 
   /* ---------- enlarged pictures: click for full size, arrows walk through the app screenshots ---------- */
   var lb = doc.getElementById("lb"), lbImg = doc.getElementById("lbImg"), lbScroll = doc.getElementById("lbScroll"), lbGal = false;
