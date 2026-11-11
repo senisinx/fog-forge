@@ -47,7 +47,7 @@ LANGS = {
 
 # Names and handles stay as they are in every language.
 KEEP = {
-    "Fog Forge", "Fog", "Forge", "Fog Scout", "Fog Translate", "GitHub", "Discord", "Claude", "Gemini", "Ollama",
+    "Fog Forge", "Fog", "Forge", "Scout", "Translate", "Fog Scout", "Fog Translate", "GitHub", "Discord", "Claude", "Gemini", "Ollama",
     "senisin", "github.com/senisinx", "hens333.com/callouts", "DBD Map Overlay", "fog-scout", "fog-translate",
 }
 # Keys that are not text in src/ but made by this build.
