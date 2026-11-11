@@ -51,7 +51,7 @@
   "Discord and Spotify": "Discord и Spotify",
   "Optional: show map and role as Discord status, see your Spotify queue.": "По желанию: показывайте карту и роль в статусе Discord, смотрите свою очередь в Spotify.",
   "Detects the game language": "Определяет язык игры",
-  "Map names in English, German, French, Spanish, Italian, Polish, Portuguese and Turkish. Fog Scout spots the game language by itself. For Russian, Chinese, Japanese or Korean, set DBD to English.": "Названия карт на английском, немецком, французском, испанском, итальянском, польском, португальском и турецком. Fog Scout сам определяет язык игры. Если DBD на русском, китайском, японском или корейском, переключите игру на английский.",
+  "Map names in English, German, French, Spanish, Italian, Polish, Portuguese, Turkish, Russian, Chinese, Japanese and Korean. Fog Scout spots the game language by itself.": "Названия карт на английском, немецком, французском, испанском, итальянском, польском, португальском, турецком, русском, китайском, японском и корейском. Fog Scout сам определяет язык игры.",
   "Seven languages": "Семь языков",
   "The app in German, English, Italian, Russian, Chinese, Japanese and Korean. Follows the Windows language, switchable in the settings.": "Приложение на немецком, английском, итальянском, русском, китайском, японском и корейском. Следует языку Windows, переключается в настройках.",
   "Fog Scout screenshots": "Скриншоты Fog Scout",
