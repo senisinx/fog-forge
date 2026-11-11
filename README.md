@@ -26,5 +26,11 @@ python3 tools/build.py
 New or changed English text has to be added to every `i18n/*.json`; the build stops and names the
 missing texts. `python3 tools/build.py --template` prints all keys, `--check` fails if a page is out of date.
 
+## Link preview
+
+`img/og.jpg` (1200×630) is the picture Discord and other sites show for a link to the page. Its source is
+`tools/og.html`; open it in a browser window of 1200×630 and save a screenshot as `img/og.jpg`. After a change,
+raise `?v=` at `og:image` in the three `src/` pages so that sites fetch the new picture.
+
 English visitors whose browser prefers one of the other languages are sent to that version once;
 a choice in the language menu is remembered.
