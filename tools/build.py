@@ -8,8 +8,8 @@ i18n/<code>.json maps each key to its translation. The build writes
     index.html, contact/index.html, maps/index.html    English (from src/ as is)
     <code>/index.html, <code>/contact/..., ...         every other language
 
-The map pictures and names on maps/ come from data/maps.json (made by tools/import_maps.py); the build fills them
-in at <!-- maps:grid --> and <!-- maps:realms -->, with the names the game uses in that language.
+The pictures and map names on maps/ come from data/maps.json (made by tools/import_maps.py); the build fills them
+in at <!-- maps:grid -->, with the names the game uses in that language.
 
 and adds the language menu, hreflang links and, on the English pages, the redirect to the browser's language.
 
@@ -55,7 +55,9 @@ KEEP = {
     "senisin", "github.com/senisinx", "hens333.com/callouts", "DBD Map Overlay", "fog-scout", "fog-translate",
 }
 # Keys that are not text in src/ but made by this build.
-EXTRA = ["Language"]
+# The six map styles of Fog Scout, in the order of data/maps.json "styles"; named as in the app.
+MAP_STYLES = ["Original", "Dark", "Grey", "Grey with edge", "Dark lilac", "Lilac see-through"]
+EXTRA = ["Language"] + MAP_STYLES
 
 TOKEN = re.compile(r"(<script\b.*?</script>|<style\b.*?</style>|<!--.*?-->|<[^>]+>)", re.S | re.I)
 ATTR = re.compile(r'\b(alt|aria-label|data-alt|title)="([^"]*)"')
@@ -155,26 +157,19 @@ def maps_data():
     return _maps
 
 
-def maps_realms(code):
-    key = MAP_LANG.get(code, code)
-    return "".join('<option value="%d">%s</option>' % (i, html.escape(r.get(key) or r["en"], quote=False))
-                   for i, r in enumerate(maps_data()["realms"]))
-
-
-def maps_grid(code):
-    """One tile per picture: the name in the page's language, found by the search under its English name too."""
-    data, key, rows = maps_data(), MAP_LANG.get(code, code), []
-    for i, m in enumerate(data["maps"]):
-        realm = data["realms"][m["realm"]]
-        en, name = m["names"]["en"], m["names"].get(key) or m["names"]["en"]
-        tail = " " + m["layout"] if m["layout"] else ""
-        words = " ".join(dict.fromkeys([name + tail, en + tail, realm.get(key) or realm["en"], realm["en"]])).lower()
-        rows.append('      <li data-realm="%d" data-q="%s"><a href="/img/maps/%s"><img src="/img/maps/t/%s.webp" width="%d" height="%d" '
-                    'alt=""%s><b>%s</b><span>%s</span></a></li>'
-                    % (m["realm"], html.escape(words), m["file"], m["slug"], m["tw"], m["th"],
-                       "" if i < 12 else ' loading="lazy" decoding="async"', html.escape(name + tail, quote=False),
-                       html.escape(realm.get(key) or realm["en"], quote=False)))
-    return "\n".join(rows)
+def maps_grid(code, tr):
+    """One block per map on the map styles page: its name in the game's language, then one picture per style."""
+    data, key, out = maps_data(), MAP_LANG.get(code, code), []
+    for m in data["maps"]:
+        name, realm = m["names"].get(key) or m["names"]["en"], m["realm"].get(key) or m["realm"]["en"]
+        out.append('    <section class="set">\n      <div class="set-head"><h2>%s</h2><p>%s</p></div>\n      <ul class="grid">'
+                   % (html.escape(name, quote=False), html.escape(realm, quote=False)))
+        for style, label in zip(data["styles"], MAP_STYLES):
+            pic = "%s-%s.webp" % (m["id"], style)
+            out.append('        <li><a href="/img/maps/%s"><img src="/img/maps/t/%s" width="%d" height="%d" alt=""><b>%s</b></a></li>'
+                       % (pic, pic, m["tw"], m["th"], html.escape(tr(label), quote=False)))
+        out.append("      </ul>\n    </section>")
+    return "\n".join(out)
 
 
 def render(code, page, src, table):
@@ -222,9 +217,7 @@ def render(code, page, src, table):
         elif part == "<!-- i18n:switch -->":
             out.append(switch_block(code, page, tr))
         elif part == "<!-- maps:grid -->":
-            out.append(maps_grid(code))
-        elif part == "<!-- maps:realms -->":
-            out.append(maps_realms(code))
+            out.append(maps_grid(code, tr))
         elif part.startswith("<!--"):
             out.append(part)
         elif part.startswith("<"):
