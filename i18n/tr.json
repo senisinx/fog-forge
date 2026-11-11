@@ -150,5 +150,12 @@
   "Well played, you got me at the gate": "İyi oynadın, beni kapıda yakaladın",
   "Good game, thanks for the fair match": "İyi oyundu, adil maç için teşekkürler",
   "Pick the language of the next chat message:": "Sıradaki sohbet mesajının dilini seç:",
-  "Prepared sentences, replayed in your browser. Nothing is sent to a service here.": "Hazır cümleler, tarayıcında oynatılır. Burada hiçbir hizmete bir şey gönderilmez."
+  "Prepared sentences, replayed in your browser. Nothing is sent to a service here.": "Hazır cümleler, tarayıcında oynatılır. Burada hiçbir hizmete bir şey gönderilmez.",
+  "Game language": "Oyun dili",
+  "Replay match start": "Maç başlangıcını yeniden oynat",
+  "The replay is acted out on the screenshot.": "Akış, ekran görüntüsü üzerinde canlandırılmıştır.",
+  "Enlarge picture": "Görseli büyüt",
+  "Close": "Kapat",
+  "Match starts …": "Maç başlıyor …",
+  "Reading the map name …": "Harita adı okunuyor …"
 }

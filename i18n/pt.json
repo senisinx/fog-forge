@@ -150,5 +150,12 @@
   "Well played, you got me at the gate": "Bem jogado, você me pegou no portão",
   "Good game, thanks for the fair match": "Boa partida, obrigado pelo jogo limpo",
   "Pick the language of the next chat message:": "Escolha o idioma da próxima mensagem do chat:",
-  "Prepared sentences, replayed in your browser. Nothing is sent to a service here.": "Frases preparadas, reproduzidas no seu navegador. Nada é enviado a nenhum serviço aqui."
+  "Prepared sentences, replayed in your browser. Nothing is sent to a service here.": "Frases preparadas, reproduzidas no seu navegador. Nada é enviado a nenhum serviço aqui.",
+  "Game language": "Idioma do jogo",
+  "Replay match start": "Repetir o início da partida",
+  "The replay is acted out on the screenshot.": "A sequência é reconstituída sobre a captura de tela.",
+  "Enlarge picture": "Ampliar imagem",
+  "Close": "Fechar",
+  "Match starts …": "A partida começa …",
+  "Reading the map name …": "Lendo o nome do mapa …"
 }
