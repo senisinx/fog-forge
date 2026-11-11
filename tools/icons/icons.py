@@ -2,6 +2,7 @@
 
     python3 tools/icons/icons.py           writes tools/icons/<name>.svg and <name>-small.svg
     node tools/icons/render.mjs            renders them to tools/icons/png/ (needs Playwright with Chromium)
+    python3 tools/icons/icons.py tidy      clears the faint edge Chromium leaves outside the rounded tile
     python3 tools/icons/icons.py site      copies the Fog Forge icon into img/
     python3 tools/icons/icons.py ico NAME FILE   writes a Windows .ico (16-256 px) for NAME
 
@@ -152,6 +153,21 @@ def write_ico(name, target):
     pictures[-1].save(target, format="ICO", sizes=[p.size for p in pictures], append_images=pictures[:-1])
 
 
+def tidy():
+    """Chromium's antialiasing leaves an alpha of 1-3 of 255 in pixels outside the rounded tile (the transparent
+    corners); clear it, so the corners are really transparent."""
+    from PIL import Image
+
+    for file in sorted((HERE / "png").glob("*.png")):
+        with Image.open(file) as picture:
+            img = picture.convert("RGBA")
+        alpha = img.getchannel("A").point(lambda a: 0 if a <= 3 else a)
+        clean = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        clean.paste(img, mask=alpha.point(lambda a: 255 if a else 0))
+        clean.putalpha(alpha)
+        clean.save(file, optimize=True)
+
+
 def copy_site():
     img = ROOT / "img"
     shutil.copyfile(HERE / "fog-forge-small.svg", img / "icon.svg")
@@ -164,6 +180,8 @@ if __name__ == "__main__":
     command = sys.argv[1:] or ["svg"]
     if command[0] == "svg":
         write_svgs()
+    elif command[0] == "tidy":
+        tidy()
     elif command[0] == "site":
         copy_site()
     elif command[0] == "ico" and len(command) == 3:

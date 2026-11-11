@@ -40,11 +40,15 @@ node tools/icons/render.mjs
 ```
 
 ```bash
+python3 tools/icons/icons.py tidy
+```
+
+```bash
 python3 tools/icons/icons.py site
 ```
 
 The first writes the SVGs, the second renders every size to `tools/icons/png/` (needs Playwright with Chromium),
-the third copies the Fog Forge icon into `img/` (`icon.svg` is the small variant for the tab and the header).
+the third clears the faint edge Chromium leaves in the transparent corners, the fourth copies the Fog Forge icon into `img/` (`icon.svg` is the small variant for the tab and the header).
 The programs ship the PNGs from `tools/icons/png/`; copy them into each repository. Then redraw the link preview.
 
 ## Link preview
