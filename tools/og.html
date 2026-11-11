@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- Source of img/og.jpg, the picture shown in link previews (Discord, X, ...).
+     Render at 1200x630: see README, "Link preview". -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Instrument+Sans:wght@500;600&display=swap">
+<style>
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1200px; height: 630px; }
+body { background: #11171a; color: #c9d6d6; font-family: "Instrument Sans", sans-serif; overflow: hidden; position: relative; }
+body::before { content: ""; position: absolute; inset: 0;
+  background: radial-gradient(900px 500px at 12% 0%, rgba(227,154,85,.20), transparent 62%),
+              radial-gradient(800px 500px at 100% 100%, rgba(138,156,159,.16), transparent 60%); }
+.left { position: absolute; left: 64px; top: 0; bottom: 0; width: 470px; display: flex; flex-direction: column; justify-content: center; }
+.brand { display: flex; align-items: center; gap: 22px; }
+.brand img { width: 104px; height: 104px; border-radius: 22px; box-shadow: 0 0 0 2px #2b383d; }
+h1 { font-family: "Big Shoulders Display", sans-serif; font-weight: 800; font-size: 124px; line-height: .86; letter-spacing: .01em; text-transform: uppercase; color: #fff; }
+.tag { margin-top: 34px; font-size: 38px; line-height: 1.18; font-weight: 600; color: #e39a55; }
+.sub { margin-top: 16px; font-size: 27px; font-weight: 500; color: #c9d6d6; }
+.right { position: absolute; left: 580px; right: 0; top: 0; bottom: 0; }
+.shot { position: absolute; border-radius: 16px; overflow: hidden; border: 2px solid #2b383d; background: #000 center/cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.6); }
+.shot b { position: absolute; left: 0; top: 0; padding: 9px 18px 10px; font-family: "Big Shoulders Display", sans-serif; font-weight: 800; font-size: 34px; letter-spacing: .04em; text-transform: uppercase; color: #1a1109; background: #e39a55; border-bottom-right-radius: 14px; }
+.scout { left: 0; top: 40px; width: 700px; height: 372px; background-image: url(../img/match-rotten-fields.webp); background-size: 1500px auto; background-position: -10px -128px; }
+.translate { left: 222px; top: 330px; width: 420px; height: 262px; background-image: url(../img/translate-ingame.webp); background-size: 700px auto; background-position: 0 46px; background-color: #150c12; }
+.translate b { background: #c9d6d6; }
+</style>
+</head>
+<body>
+<div class="left">
+  <div class="brand"><img src="../img/icon.svg" alt=""><h1>Fog<br>Forge</h1></div>
+  <p class="tag">Two free tools for Dead&nbsp;by&nbsp;Daylight</p>
+  <p class="sub">Callout maps and live chat translation</p>
+</div>
+<div class="right">
+  <div class="shot scout"><b>Fog Scout</b></div>
+  <div class="shot translate"><b>Fog Translate</b></div>
+</div>
+</body>
+</html>
