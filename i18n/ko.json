@@ -163,5 +163,16 @@
   "Map": "맵",
   "Today": "오늘",
   "Music": "음악",
-  "Reset": "초기화"
+  "Reset": "초기화",
+  "Browse all maps →": "모든 맵 보기 →",
+  "Callout maps · Fog Forge": "콜아웃 맵 · Fog Forge",
+  "All callout maps of Fog Scout for Dead by Daylight, to search and view large.": "Dead by Daylight용 Fog Scout의 모든 콜아웃 맵을 검색하고 크게 볼 수 있습니다.",
+  "Callout maps": "콜아웃 맵",
+  "The callout maps that ship with Fog Scout. Click a map to see it large.": "Fog Scout에 포함된 콜아웃 맵입니다. 맵을 클릭하면 크게 볼 수 있습니다.",
+  "Search": "검색",
+  "Realm": "렐름",
+  "All realms": "모든 렐름",
+  "No map matches.": "일치하는 맵이 없습니다.",
+  "Previous map": "이전 맵",
+  "Next map": "다음 맵"
 }

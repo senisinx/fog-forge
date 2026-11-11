@@ -5,8 +5,11 @@ The English pages in src/ are the source. Every text in them (text between tags,
 data-alt, title, the page description and the texts in the `var S = {...}` line of the scripts) is a key;
 i18n/<code>.json maps each key to its translation. The build writes
 
-    index.html, contact/index.html           English (from src/ as is)
-    <code>/index.html, <code>/contact/...    every other language
+    index.html, contact/index.html, maps/index.html    English (from src/ as is)
+    <code>/index.html, <code>/contact/..., ...         every other language
+
+The map pictures and names on maps/ come from data/maps.json (made by tools/import_maps.py); the build fills them
+in at <!-- maps:grid --> and <!-- maps:realms -->, with the names the game uses in that language.
 
 and adds the language menu, hreflang links and, on the English pages, the redirect to the browser's language.
 
@@ -26,7 +29,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 I18N = ROOT / "i18n"
 SITE = "https://fogforge.app"
-PAGES = ["index.html", "contact/index.html"]
+PAGES = ["index.html", "contact/index.html", "maps/index.html"]
+DATA = ROOT / "data"
 
 # code: (html lang, name in its own language, locale for dates)
 LANGS = {
@@ -100,7 +104,7 @@ def all_keys():
 
 def page_url(code, page):
     base = "/" if code == "en" else "/%s/" % code
-    return base + ("contact/" if page.startswith("contact/") else "")
+    return base + page[: page.rfind("/") + 1]
 
 
 def head_block(code, page):
@@ -140,6 +144,39 @@ def switch_block(code, page, tr):
             % (html.escape(tr("Language")), LANGS[code][1], code.upper(), "".join(items)))
 
 
+# The game has no Dutch; its names for the other languages are stored under these keys in data/maps.json.
+MAP_LANG = {"pt": "pt-BR", "zh": "zh-Hans", "nl": "en"}
+_maps = {}
+
+
+def maps_data():
+    if not _maps:
+        _maps.update(json.loads((DATA / "maps.json").read_text(encoding="utf-8")))
+    return _maps
+
+
+def maps_realms(code):
+    key = MAP_LANG.get(code, code)
+    return "".join('<option value="%d">%s</option>' % (i, html.escape(r.get(key) or r["en"], quote=False))
+                   for i, r in enumerate(maps_data()["realms"]))
+
+
+def maps_grid(code):
+    """One tile per picture: the name in the page's language, found by the search under its English name too."""
+    data, key, rows = maps_data(), MAP_LANG.get(code, code), []
+    for i, m in enumerate(data["maps"]):
+        realm = data["realms"][m["realm"]]
+        en, name = m["names"]["en"], m["names"].get(key) or m["names"]["en"]
+        tail = " " + m["layout"] if m["layout"] else ""
+        words = " ".join(dict.fromkeys([name + tail, en + tail, realm.get(key) or realm["en"], realm["en"]])).lower()
+        rows.append('      <li data-realm="%d" data-q="%s"><a href="/img/maps/%s"><img src="/img/maps/t/%s.webp" width="%d" height="%d" '
+                    'alt=""%s><b>%s</b><span>%s</span></a></li>'
+                    % (m["realm"], html.escape(words), m["file"], m["slug"], m["tw"], m["th"],
+                       "" if i < 12 else ' loading="lazy" decoding="async"', html.escape(name + tail, quote=False),
+                       html.escape(realm.get(key) or realm["en"], quote=False)))
+    return "\n".join(rows)
+
+
 def render(code, page, src, table):
     def tr(key):
         if code == "en":
@@ -161,7 +198,7 @@ def render(code, page, src, table):
                                               if wanted(html.unescape(m.group(2))) else m.group(2)), tag)
         tag = META.sub(lambda m: m.group(1) + (html.escape(tr(html.unescape(m.group(2))))
                                                if wanted(html.unescape(m.group(2))) else m.group(2)) + m.group(3), tag)
-        tag = re.sub(r'href="/((?:contact/)?(?:#[^"]*)?)"', lambda m: 'href="/%s/%s"' % (code, m.group(1)), tag)
+        tag = re.sub(r'href="/((?:contact/|maps/)?(?:#[^"]*)?)"', lambda m: 'href="/%s/%s"' % (code, m.group(1)), tag)
         return tag
 
     def tr_script(part):
@@ -184,6 +221,10 @@ def render(code, page, src, table):
             out.append(head_block(code, page))
         elif part == "<!-- i18n:switch -->":
             out.append(switch_block(code, page, tr))
+        elif part == "<!-- maps:grid -->":
+            out.append(maps_grid(code))
+        elif part == "<!-- maps:realms -->":
+            out.append(maps_realms(code))
         elif part.startswith("<!--"):
             out.append(part)
         elif part.startswith("<"):

@@ -163,5 +163,16 @@
   "Map": "Mapa",
   "Today": "Hoy",
   "Music": "Música",
-  "Reset": "Restablecer"
+  "Reset": "Restablecer",
+  "Browse all maps →": "Ver todos los mapas →",
+  "Callout maps · Fog Forge": "Mapas de callouts · Fog Forge",
+  "All callout maps of Fog Scout for Dead by Daylight, to search and view large.": "Todos los mapas de callouts de Fog Scout para Dead by Daylight, para buscar y ver en grande.",
+  "Callout maps": "Mapas de callouts",
+  "The callout maps that ship with Fog Scout. Click a map to see it large.": "Los mapas de callouts que incluye Fog Scout. Haz clic en un mapa para verlo en grande.",
+  "Search": "Buscar",
+  "Realm": "Reino",
+  "All realms": "Todos los reinos",
+  "No map matches.": "Ningún mapa coincide.",
+  "Previous map": "Mapa anterior",
+  "Next map": "Mapa siguiente"
 }

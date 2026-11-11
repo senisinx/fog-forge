@@ -163,5 +163,16 @@
   "Map": "マップ",
   "Today": "今日",
   "Music": "音楽",
-  "Reset": "リセット"
+  "Reset": "リセット",
+  "Browse all maps →": "すべてのマップを見る →",
+  "Callout maps · Fog Forge": "コールアウトマップ · Fog Forge",
+  "All callout maps of Fog Scout for Dead by Daylight, to search and view large.": "Dead by Daylight 用 Fog Scout のコールアウトマップをすべて掲載。検索して大きく表示できます。",
+  "Callout maps": "コールアウトマップ",
+  "The callout maps that ship with Fog Scout. Click a map to see it large.": "Fog Scout に同梱されているコールアウトマップです。マップをクリックすると大きく表示します。",
+  "Search": "検索",
+  "Realm": "レルム",
+  "All realms": "すべてのレルム",
+  "No map matches.": "一致するマップがありません。",
+  "Previous map": "前のマップ",
+  "Next map": "次のマップ"
 }
