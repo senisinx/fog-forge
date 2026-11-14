@@ -18,8 +18,8 @@ The HTML in the repository root and in the language folders (`de/`, `fr/`, …) 
 - `fonts/`: the three fonts (Big Shoulders Display, Instrument Sans, JetBrains Mono) as variable WOFF2, latin and
   latin-ext (JetBrains Mono also Cyrillic), from Fontsource, under the SIL Open Font License (`fonts/OFL-*.txt`).
   The page loads nothing from Google.
-- Hero screenshots: each `img/match-*.webp` also exists as `-960` and `-1600` for `srcset`; after a new screenshot,
-  make both sizes (WebP, quality 80). Only the first screenshot loads with the page, the others when they are shown.
+- Hero screenshots: each `img/match-*.webp` also exists as `-960` and `-1600` for `srcset`, and as `-2560` if it is
+  wider than that; after a new screenshot, make these sizes (WebP, quality 80) and list them in its `srcset`. Only the first screenshot loads with the page, the others when they are shown.
 - `data/maps.json`, `img/maps/`: three callout maps in the six map styles for `/maps/`, made from Fog Scout. Do not edit
   them; run `python3 tools/import_maps.py <path to a fog-scout checkout>` to show other maps or after a change to the
   styles (needs Pillow, NumPy and OpenCV), then the build.

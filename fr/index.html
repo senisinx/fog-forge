@@ -498,8 +498,8 @@ footer a { text-underline-offset: 3px; }
 
       <figure class="demo" data-for="scout">
         <div class="screen stage" id="stage">
-          <img class="on" src="/img/match-rotten-fields.webp" srcset="/img/match-rotten-fields-960.webp 960w, /img/match-rotten-fields-1600.webp 1600w, /img/match-rotten-fields.webp 3439w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" fetchpriority="high" decoding="async" width="3439" height="1437" alt="Partie de Dead by Daylight sur Rotten Fields. Fog Scout affiche la carte de callouts avec le chrono de la manche sur le bord gauche et les valeurs système sur le bord droit.">
-          <img data-srcset="/img/match-dead-dawg-960.webp 960w, /img/match-dead-dawg-1600.webp 1600w, /img/match-dead-dawg.webp 3439w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" decoding="async" width="3439" height="1439" alt="Partie de Dead by Daylight sur Dead Dawg Saloon avec la carte de callouts de Fog Scout sur le bord gauche.">
+          <img class="on" src="/img/match-rotten-fields.webp" srcset="/img/match-rotten-fields-960.webp 960w, /img/match-rotten-fields-1600.webp 1600w, /img/match-rotten-fields-2560.webp 2560w, /img/match-rotten-fields.webp 3439w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" fetchpriority="high" decoding="async" width="3439" height="1437" alt="Partie de Dead by Daylight sur Rotten Fields. Fog Scout affiche la carte de callouts avec le chrono de la manche sur le bord gauche et les valeurs système sur le bord droit.">
+          <img data-srcset="/img/match-dead-dawg-960.webp 960w, /img/match-dead-dawg-1600.webp 1600w, /img/match-dead-dawg-2560.webp 2560w, /img/match-dead-dawg.webp 3439w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" decoding="async" width="3439" height="1439" alt="Partie de Dead by Daylight sur Dead Dawg Saloon avec la carte de callouts de Fog Scout sur le bord gauche.">
           <img data-srcset="/img/match-greenville-square-960.webp 960w, /img/match-greenville-square-1600.webp 1600w, /img/match-greenville-square.webp 2000w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" decoding="async" width="2000" height="837" alt="Partie de Dead by Daylight sur Greenville Square, vue du survivant. Fog Scout affiche la carte de callouts avec le chrono de la manche sur le bord gauche et les valeurs système sur le bord droit.">
           <img data-srcset="/img/match-groaning-storehouse-960.webp 960w, /img/match-groaning-storehouse-1600.webp 1600w, /img/match-groaning-storehouse.webp 2000w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" decoding="async" width="2000" height="838" alt="Partie de Dead by Daylight sur Groaning Storehouse I, vue du tueur. Fog Scout affiche la carte de callouts avec le chrono de la manche sur le bord gauche et, sur le bord droit, les valeurs système, les manches du jour et le morceau en cours.">
           <div class="spots" id="spots">
@@ -713,31 +713,34 @@ footer a { text-underline-offset: 3px; }
   /* ---------- fog canvas: drifting blobs that part around the pointer ---------- */
   (function fog() {
     var c = doc.getElementById("fog"), x = c.getContext("2d"); if (!x) return;
-    var W, H, blobs = [], px = -9999, py = -9999, K = 8, sx = .5, sy = .5, near = false, lit = 0, kick = 0;
+    var W, H, blobs = [], px = -9999, py = -9999, K = 8, sx = .5, sy = .5, near = false, lit = 0, kick = 0, last = 0, moved = 0;
     function size() { W = c.width = Math.ceil(innerWidth / K); H = c.height = Math.ceil(innerHeight / K); }
     size(); addEventListener("resize", size);
     for (var i = 0; i < 16; i++) blobs.push({ x: Math.random(), y: Math.random(), r: .18 + Math.random() * .22,
       vx: (Math.random() - .5) * .00035, vy: (Math.random() - .5) * .0002, warm: i % 6 === 0, a: .06 + Math.random() * .08 });
     function away() { near = false; px = py = -9999; }
-    addEventListener("pointermove", function (e) { px = e.clientX / innerWidth; py = e.clientY / innerHeight; if (lit < .02) { sx = px; sy = py; } near = true; }, { passive: true });
+    addEventListener("pointermove", function (e) { px = e.clientX / innerWidth; py = e.clientY / innerHeight; if (lit < .02) { sx = px; sy = py; } near = true; moved = performance.now(); }, { passive: true });
     addEventListener("pointerdown", function () { kick = 1; }, { passive: true }); /* a click blows the fog apart */
     ["pointerup", "pointercancel"].forEach(function (n) { addEventListener(n, function (e) { if (e.pointerType !== "mouse") away(); }, { passive: true }); });
     doc.documentElement.addEventListener("pointerleave", away); addEventListener("blur", away);
-    function draw() {
+    /* speeds are per 1/60 s, so the fog drifts alike at 60 and 144 Hz; at rest it is drawn about 30 times a second, at the full rate only while the pointer moves */
+    function draw(now) {
+      if (last && now - last < 30 && now - moved > 1000 && kick < .01) { requestAnimationFrame(draw); return; }
+      var f = last ? Math.min(4, (now - last) / 16.667) : 1; last = now;
       x.clearRect(0, 0, W, H); x.globalCompositeOperation = "lighter";
       for (var i = 0; i < blobs.length; i++) {
         var b = blobs[i], dx = b.x - px, dy = b.y - py, d = Math.sqrt(dx * dx + dy * dy);
-        var reach = .25 + kick * .2, push = .02 + kick * .1;
+        var reach = .25 + kick * .2, push = (.02 + kick * .1) * f;
         if (d < reach && d > 0) { b.x += dx / d * (reach - d) * push; b.y += dy / d * (reach - d) * push; }
-        b.x += b.vx; b.y += b.vy;
+        b.x += b.vx * f; b.y += b.vy * f;
         if (b.x < -.3) b.x = 1.3; if (b.x > 1.3) b.x = -.3; if (b.y < -.3) b.y = 1.3; if (b.y > 1.3) b.y = -.3;
         var cx = b.x * W, cy = b.y * H, r = b.r * Math.max(W, H);
         var g = x.createRadialGradient(cx, cy, 0, cx, cy, r), col = b.warm ? "227,154,85" : "165,190,192";
         g.addColorStop(0, "rgba(" + col + "," + b.a + ")"); g.addColorStop(1, "rgba(" + col + ",0)");
         x.fillStyle = g; x.fillRect(cx - r, cy - r, r * 2, r * 2);
       }
-      kick *= .9; lit += ((near ? 1 : 0) - lit) * .06;
-      if (near) { sx += (px - sx) * .14; sy += (py - sy) * .14; }
+      kick *= Math.pow(.9, f); lit += ((near ? 1 : 0) - lit) * (1 - Math.pow(.94, f));
+      if (near) { var k = 1 - Math.pow(.86, f); sx += (px - sx) * k; sy += (py - sy) * k; }
       if (lit > .01) { /* a small ember light follows the pointer; the fog itself only swirls away */
         var lx = sx * W, ly = sy * H, lr = .07 * Math.max(W, H), h = x.createRadialGradient(lx, ly, 0, lx, ly, lr);
         h.addColorStop(0, "rgba(227,154,85," + .16 * lit + ")"); h.addColorStop(1, "rgba(227,154,85,0)");
@@ -745,7 +748,7 @@ footer a { text-underline-offset: 3px; }
       }
       if (!still && !doc.hidden) requestAnimationFrame(draw);
     }
-    draw();
+    draw(performance.now());
     doc.addEventListener("visibilitychange", function () { if (!doc.hidden && !still) requestAnimationFrame(draw); });
   })();
 
@@ -779,10 +782,18 @@ footer a { text-underline-offset: 3px; }
   setTool(fromHash() || "scout");
   if (fromHash()) { toTop(); addEventListener("load", toTop); }
 
+  /* true while el is on the screen; a part of the tool that is not chosen, or one further down the page, is not */
+  function onScreen(el, shown) {
+    var s = { on: !("IntersectionObserver" in window) };
+    if (!s.on) new IntersectionObserver(function (es) { s.on = es[es.length - 1].isIntersecting; if (s.on && shown) shown(); }).observe(el);
+    return s;
+  }
+
   /* ---------- hero: real match screenshots, crossfading ---------- */
   var SHOTS = ["Rotten Fields", "Dead Dawg Saloon", "Greenville Square", "Groaning Storehouse I"];
   var stage = doc.getElementById("stage"), shots = stage.querySelectorAll("img"),
-      statusText = doc.getElementById("statusText"), chips = doc.getElementById("chips"), cur = 0, heroTimer;
+      statusText = doc.getElementById("statusText"), chips = doc.getElementById("chips"), cur = 0, heroTimer,
+      stageSeen = onScreen(stage, function () { if (doc.readyState === "complete") ready(shots[(cur + 1) % shots.length]); });
   /* only the first screenshot loads with the page; the others when they are about to be shown */
   function ready(im, done) {
     var ss = im.getAttribute("data-srcset");
@@ -804,7 +815,7 @@ footer a { text-underline-offset: 3px; }
         var at = SPOTS[i][k]; sp.hidden = !at;
         if (at) { sp.style.setProperty("--x", at[0] + "%"); sp.style.setProperty("--y", at[1] + "%"); }
       });
-      var next = function () { ready(shots[(i + 1) % shots.length]); };
+      var next = function () { if (stageSeen.on) ready(shots[(i + 1) % shots.length]); };
       if (doc.readyState === "complete") next(); else addEventListener("load", next, { once: true });
     });
   }
@@ -883,7 +894,7 @@ footer a { text-underline-offset: 3px; }
   }
   arrows(chips, ".chip");
   swipe(stage, function (d) { show((cur + d + SHOTS.length) % SHOTS.length); cycle(); });
-  function cycle() { clearInterval(heroTimer); if (!still) heroTimer = setInterval(function () { if (!doc.hidden && !reading()) show((cur + 1) % SHOTS.length); }, 6000); }
+  function cycle() { clearInterval(heroTimer); if (!still) heroTimer = setInterval(function () { if (!doc.hidden && stageSeen.on && !reading()) show((cur + 1) % SHOTS.length); }, 6000); }
   SHOTS.forEach(function (n, i) {
     var b = doc.createElement("button"); b.type = "button"; b.className = "chip"; b.id = "chip-" + i; b.textContent = n;
     b.addEventListener("click", function () { show(i); cycle(); }); chips.appendChild(b);
@@ -891,7 +902,7 @@ footer a { text-underline-offset: 3px; }
   show(0); cycle();
 
   /* ---------- app screenshots: tabs, auto-advance until the viewer picks one ---------- */
-  var tabs = doc.querySelectorAll(".gal-tab"), galImg = doc.getElementById("galImg"), gi = 0, galTimer;
+  var tabs = doc.querySelectorAll(".gal-tab"), galImg = doc.getElementById("galImg"), gi = 0, galTimer, galSeen = onScreen(galImg);
   function pick(i) {
     gi = i; var t = tabs[i], src = t.getAttribute("data-src"), pre = new Image();
     Array.prototype.forEach.call(tabs, function (b, k) { b.setAttribute("aria-pressed", k === i ? "true" : "false"); });
@@ -900,14 +911,16 @@ footer a { text-underline-offset: 3px; }
     pre.src = src;
   }
   Array.prototype.forEach.call(tabs, function (b, i) { b.addEventListener("click", function () { clearInterval(galTimer); pick(i); }); });
-  if (!still) galTimer = setInterval(function () { if (!doc.hidden) pick((gi + 1) % tabs.length); }, 5500);
+  if (!still) galTimer = setInterval(function () { if (!doc.hidden && galSeen.on) pick((gi + 1) % tabs.length); }, 5500);
   function galStep(d) { clearInterval(galTimer); pick((gi + d + tabs.length) % tabs.length); }
   arrows(doc.querySelector(".gal-tabs"), ".gal-tab");
   swipe(doc.querySelector(".gal-view .screen"), galStep);
 
   /* ---------- small overlay editor: cut-outs of one match screenshot, dragged around the game picture ---------- */
   (function build() {
-    var pad = doc.getElementById("pad"), pos = doc.getElementById("padPos"), IMG = "url(/img/match-groaning-storehouse.webp)";
+    var pad = doc.getElementById("pad"), pos = doc.getElementById("padPos");
+    /* the editor is as wide as the screenshot it shows: the 1600 px file, which the hero has usually loaded already, is enough up to that width */
+    var IMG = "url(/img/match-groaning-storehouse" + (pad.clientWidth * (window.devicePixelRatio || 1) > 1600 ? "" : "-1600") + ".webp)";
     /* where each part sits in that screenshot, in per cent: left, top, width, height */
     /* the screenshot is only fetched when the editor comes near the screen */
     var shown = !("IntersectionObserver" in window);
