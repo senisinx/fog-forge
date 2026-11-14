@@ -20,9 +20,8 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="canonical" href="https://fogforge.app/">
 <!-- i18n:head -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<!-- fonts:head -->
+<!-- ld:json -->
 <style>
 body { margin: 0; }
 img { max-width: 100%; }
@@ -409,10 +408,10 @@ footer a { text-underline-offset: 3px; }
 
       <figure class="demo" data-for="scout">
         <div class="screen stage" id="stage">
-          <img class="on" src="/img/match-rotten-fields.webp" width="3439" height="1437" alt="Dead by Daylight match on Rotten Fields. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
-          <img src="/img/match-dead-dawg.webp" width="3439" height="1439" alt="Dead by Daylight match on Dead Dawg Saloon with the Fog Scout callout map at the left edge.">
-          <img src="/img/match-greenville-square.webp" width="2000" height="837" alt="Dead by Daylight match on Greenville Square from the survivor's view. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
-          <img src="/img/match-groaning-storehouse.webp" width="2000" height="838" alt="Dead by Daylight match on Groaning Storehouse I from the killer's view. Fog Scout shows the callout map with the round timer at the left edge and system values, today's rounds and the current track at the right edge.">
+          <img class="on" src="/img/match-rotten-fields.webp" srcset="/img/match-rotten-fields-960.webp 960w, /img/match-rotten-fields-1600.webp 1600w, /img/match-rotten-fields.webp 3439w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" fetchpriority="high" decoding="async" width="3439" height="1437" alt="Dead by Daylight match on Rotten Fields. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
+          <img data-srcset="/img/match-dead-dawg-960.webp 960w, /img/match-dead-dawg-1600.webp 1600w, /img/match-dead-dawg.webp 3439w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" decoding="async" width="3439" height="1439" alt="Dead by Daylight match on Dead Dawg Saloon with the Fog Scout callout map at the left edge.">
+          <img data-srcset="/img/match-greenville-square-960.webp 960w, /img/match-greenville-square-1600.webp 1600w, /img/match-greenville-square.webp 2000w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" decoding="async" width="2000" height="837" alt="Dead by Daylight match on Greenville Square from the survivor's view. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
+          <img data-srcset="/img/match-groaning-storehouse-960.webp 960w, /img/match-groaning-storehouse-1600.webp 1600w, /img/match-groaning-storehouse.webp 2000w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" decoding="async" width="2000" height="838" alt="Dead by Daylight match on Groaning Storehouse I from the killer's view. Fog Scout shows the callout map with the round timer at the left edge and system values, today's rounds and the current track at the right edge.">
           <div class="spots" id="spots">
             <div class="veil l" aria-hidden="true"></div><div class="veil r" aria-hidden="true"></div>
             <div class="banner" aria-hidden="true"><b id="bannerName"></b></div>
@@ -439,11 +438,11 @@ footer a { text-underline-offset: 3px; }
       <figure class="demo tr" data-for="translate">
         <div class="tr-pair">
           <div class="screen">
-            <button type="button" class="zoom" aria-label="Enlarge picture"><img src="/img/translate-ingame.webp" width="713" height="827" alt="Dead by Daylight lobby chat with messages in German, Chinese, Japanese and Russian. Fog Translate shows each one in English with its language and the original text in a panel at the top left."></button>
+            <button type="button" class="zoom" aria-label="Enlarge picture"><img src="/img/translate-ingame.webp" loading="lazy" decoding="async" width="713" height="827" alt="Dead by Daylight lobby chat with messages in German, Chinese, Japanese and Russian. Fog Translate shows each one in English with its language and the original text in a panel at the top left."></button>
             <div class="tag below tr1" aria-hidden="true"><span>Fog Translate</span></div>
             <div class="tag below tr2" aria-hidden="true"><span>Game chat</span></div>
           </div>
-          <div class="screen"><button type="button" class="zoom" aria-label="Enlarge picture"><img src="/img/translate-app.webp" width="562" height="601" alt="Fog Translate window, &quot;Service&quot; tab: status and next step at the top, then target language, service, model, API key, daily limit and a notice about what is sent to the service."></button></div>
+          <div class="screen"><button type="button" class="zoom" aria-label="Enlarge picture"><img src="/img/translate-app.webp" loading="lazy" decoding="async" width="562" height="601" alt="Fog Translate window, &quot;Service&quot; tab: status and next step at the top, then target language, service, model, API key, daily limit and a notice about what is sent to the service."></button></div>
         </div>
         <figcaption class="note">Left: test messages in a custom game, each with its language tag and the original below. Right: the "Service" tab of the window, with request counter and cost estimate at the bottom.</figcaption>
       </figure>
@@ -496,7 +495,7 @@ footer a { text-underline-offset: 3px; }
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout Server page: a list of 15 server regions with checkboxes, two of them allowed."><b>Server</b><span>Tick the regions DBD may search in. "Allow all" undoes it.</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Enlarge picture"><img id="galImg" src="/img/maps.webp" width="1555" height="1178" alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."></button></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Enlarge picture"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1555" height="1178" alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."></button></div>
       </figure>
     </section>
 
@@ -694,16 +693,30 @@ footer a { text-underline-offset: 3px; }
   var SHOTS = ["Rotten Fields", "Dead Dawg Saloon", "Greenville Square", "Groaning Storehouse I"];
   var stage = doc.getElementById("stage"), shots = stage.querySelectorAll("img"),
       statusText = doc.getElementById("statusText"), chips = doc.getElementById("chips"), cur = 0, heroTimer;
+  /* only the first screenshot loads with the page; the others when they are about to be shown */
+  function ready(im, done) {
+    var ss = im.getAttribute("data-srcset");
+    if (ss) { im.removeAttribute("data-srcset"); im.srcset = ss; }
+    if (!done) return;
+    if (im.complete && im.naturalWidth) return done();
+    var once = function () { im.removeEventListener("load", once); im.removeEventListener("error", once); done(); };
+    im.addEventListener("load", once); im.addEventListener("error", once);
+  }
   function show(i) {
     stopReplay(); cur = i;
-    Array.prototype.forEach.call(shots, function (im, k) { im.classList.toggle("on", k === i); });
-    statusText.textContent = S.onDisplay.replace("%s", SHOTS[i]);
-    closeSpots();
-    Array.prototype.forEach.call(spots, function (sp, k) {
-      var at = SPOTS[i][k]; sp.hidden = !at;
-      if (at) { sp.style.setProperty("--x", at[0] + "%"); sp.style.setProperty("--y", at[1] + "%"); }
-    });
     Array.prototype.forEach.call(chips.children, function (b, k) { b.setAttribute("aria-pressed", k === i ? "true" : "false"); });
+    ready(shots[i], function () {
+      if (cur !== i) return;
+      Array.prototype.forEach.call(shots, function (im, k) { im.classList.toggle("on", k === i); });
+      statusText.textContent = S.onDisplay.replace("%s", SHOTS[i]);
+      closeSpots();
+      Array.prototype.forEach.call(spots, function (sp, k) {
+        var at = SPOTS[i][k]; sp.hidden = !at;
+        if (at) { sp.style.setProperty("--x", at[0] + "%"); sp.style.setProperty("--y", at[1] + "%"); }
+      });
+      var next = function () { ready(shots[(i + 1) % shots.length]); };
+      if (doc.readyState === "complete") next(); else addEventListener("load", next, { once: true });
+    });
   }
   /* where the marks sit on each screenshot, in per cent of the picture: name and timer, server, recording, map, system, today, track */
   var SPOTS = [
@@ -806,9 +819,18 @@ footer a { text-underline-offset: 3px; }
   (function build() {
     var pad = doc.getElementById("pad"), pos = doc.getElementById("padPos"), IMG = "url(/img/match-groaning-storehouse.webp)";
     /* where each part sits in that screenshot, in per cent: left, top, width, height */
+    /* the screenshot is only fetched when the editor comes near the screen */
+    var shown = !("IntersectionObserver" in window);
+    if (!shown) {
+      var near = new IntersectionObserver(function (es) {
+        if (!es[0].isIntersecting) return; near.disconnect(); shown = true;
+        Array.prototype.forEach.call(pad.querySelectorAll(".pad-game, .piece"), function (el) { el.style.backgroundImage = IMG; });
+      }, { rootMargin: "600px 0px" });
+      near.observe(pad);
+    }
     var PARTS = { map: [.1, 35.8, 12.5, 41.8], sys: [88.15, 38.5, 11, 19.2], today: [88.15, 58.4, 11, 12.6], music: [88.15, 71.3, 11, 6.4] };
     function cut(el, r) { /* show the region r of the screenshot in el */
-      el.style.backgroundImage = IMG; el.style.backgroundSize = 10000 / r[2] + "% " + 10000 / r[3] + "%";
+      if (shown) el.style.backgroundImage = IMG; el.style.backgroundSize = 10000 / r[2] + "% " + 10000 / r[3] + "%";
       el.style.backgroundPosition = r[0] / (100 - r[2]) * 100 + "% " + r[1] / (100 - r[3]) * 100 + "%";
     }
     cut(doc.getElementById("padGame"), [12.8, 0, 74.4, 99.99]);
@@ -925,11 +947,24 @@ footer a { text-underline-offset: 3px; }
   } else Array.prototype.forEach.call(rv, function (el) { el.classList.add("in"); });
 
   /* ---------- download buttons: newest installer from the GitHub release ---------- */
+  /* the API allows 60 requests an hour per address: the answer is kept for this tab for 30 minutes */
+  var KEEP_MS = 30 * 60 * 1000;
+  function latest(repo) {
+    var key = "ff-rel-" + repo, now = Date.now();
+    try { var hit = JSON.parse(sessionStorage.getItem(key)); if (hit && now - hit.t < KEEP_MS && hit.rel) return Promise.resolve(hit.rel); } catch (e) {}
+    return fetch("https://api.github.com/repos/senisinx/" + repo + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (rel) {
+        var keep = { tag_name: rel.tag_name, published_at: rel.published_at, assets: (rel.assets || []).map(function (a) {
+          return { name: a.name, size: a.size, browser_download_url: a.browser_download_url }; }) };
+        try { sessionStorage.setItem(key, JSON.stringify({ t: now, rel: keep })); } catch (e) {}
+        return keep;
+      });
+  }
   function fmtDate(s) { try { return new Date(s).toLocaleDateString(S.locale, { day: "numeric", month: "short", year: "numeric" }); } catch (e) { return ""; } }
   Object.keys(TOOLS).forEach(function (t) {
     var repo = "fog-" + t, as = doc.querySelectorAll('a[data-dl="' + repo + '"]'), meta = doc.querySelector('[data-meta="' + repo + '"]');
-    fetch("https://api.github.com/repos/senisinx/" + repo + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    latest(repo)
       .then(function (rel) {
         var asset = (rel.assets || []).filter(function (x) { return /setup.*\.exe$/i.test(x.name); })[0]; if (!asset) return;
         Array.prototype.forEach.call(as, function (a) { a.href = asset.browser_download_url; });

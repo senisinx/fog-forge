@@ -12,7 +12,14 @@ The HTML in the repository root and in the language folders (`de/`, `fr/`, …) 
 
 - `src/index.html`, `src/contact/index.html`, `src/maps/index.html`: the English pages, the source of every language.
 - `i18n/<code>.json`: one file per language. The English text is the key, the value its translation.
-- `tools/build.py`: writes all pages (needs only Python 3).
+- `src/404.html`: the page for unknown addresses; one page for all languages, its three texts are in `i18n/` too.
+- `tools/build.py`: writes all pages, `404.html`, `sitemap.xml` and `robots.txt` (needs only Python 3), plus the fonts
+  block and the JSON-LD of both tools.
+- `fonts/`: the three fonts (Big Shoulders Display, Instrument Sans, JetBrains Mono) as variable WOFF2, latin and
+  latin-ext (JetBrains Mono also Cyrillic), from Fontsource, under the SIL Open Font License (`fonts/OFL-*.txt`).
+  The page loads nothing from Google.
+- Hero screenshots: each `img/match-*.webp` also exists as `-960` and `-1600` for `srcset`; after a new screenshot,
+  make both sizes (WebP, quality 80). Only the first screenshot loads with the page, the others when they are shown.
 - `data/maps.json`, `img/maps/`: three callout maps in the six map styles for `/maps/`, made from Fog Scout. Do not edit
   them; run `python3 tools/import_maps.py <path to a fog-scout checkout>` to show other maps or after a change to the
   styles (needs Pillow, NumPy and OpenCV), then the build.
