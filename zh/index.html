@@ -54,9 +54,64 @@
   });
 })();
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" href="/fonts/big-shoulders-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Big Shoulders Display"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/fonts/big-shoulders-display-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Big Shoulders Display"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/fonts/big-shoulders-display-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/fonts/instrument-sans-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/fonts/instrument-sans-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/fonts/jetbrains-mono-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/fonts/jetbrains-mono-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/fonts/jetbrains-mono-cyrillic-wght-normal.woff2) format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/fonts/jetbrains-mono-cyrillic-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F; }
+</style>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Fog Scout",
+  "description": "对局开始时，立即显示你所在地图的报点地图。",
+  "operatingSystem": "Windows",
+  "applicationCategory": "UtilitiesApplication",
+  "inLanguage": "zh-Hans",
+  "url": "https://fogforge.app/zh/#scout",
+  "downloadUrl": "https://github.com/senisinx/fog-scout/releases/latest",
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "EUR"
+  },
+  "author": {
+   "@type": "Person",
+   "name": "senisinx",
+   "url": "https://github.com/senisinx"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Fog Translate",
+  "description": "在你游戏时翻译 Dead by Daylight 聊天，支持任何文字。",
+  "operatingSystem": "Windows",
+  "applicationCategory": "UtilitiesApplication",
+  "inLanguage": "zh-Hans",
+  "url": "https://fogforge.app/zh/#translate",
+  "downloadUrl": "https://github.com/senisinx/fog-translate/releases/latest",
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "EUR"
+  },
+  "author": {
+   "@type": "Person",
+   "name": "senisinx",
+   "url": "https://github.com/senisinx"
+  }
+ }
+]
+</script>
 <style>
 body { margin: 0; }
 img { max-width: 100%; }
@@ -443,10 +498,10 @@ footer a { text-underline-offset: 3px; }
 
       <figure class="demo" data-for="scout">
         <div class="screen stage" id="stage">
-          <img class="on" src="/img/match-rotten-fields.webp" width="3439" height="1437" alt="Rotten Fields 上的 Dead by Daylight 对局。Fog Scout 在左侧边缘显示报点地图和回合计时器，在右侧边缘显示系统数值。">
-          <img src="/img/match-dead-dawg.webp" width="3439" height="1439" alt="Dead Dawg Saloon 上的 Dead by Daylight 对局，左侧边缘显示 Fog Scout 报点地图。">
-          <img src="/img/match-greenville-square.webp" width="2000" height="837" alt="逃生者视角下 Greenville Square 上的 Dead by Daylight 对局。Fog Scout 在左侧边缘显示报点地图和回合计时器，在右侧边缘显示系统数值。">
-          <img src="/img/match-groaning-storehouse.webp" width="2000" height="838" alt="杀手视角下 Groaning Storehouse I 上的 Dead by Daylight 对局。Fog Scout 在左侧边缘显示报点地图和回合计时器，在右侧边缘显示系统数值、今日回合和当前曲目。">
+          <img class="on" src="/img/match-rotten-fields.webp" srcset="/img/match-rotten-fields-960.webp 960w, /img/match-rotten-fields-1600.webp 1600w, /img/match-rotten-fields.webp 3439w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" fetchpriority="high" decoding="async" width="3439" height="1437" alt="Rotten Fields 上的 Dead by Daylight 对局。Fog Scout 在左侧边缘显示报点地图和回合计时器，在右侧边缘显示系统数值。">
+          <img data-srcset="/img/match-dead-dawg-960.webp 960w, /img/match-dead-dawg-1600.webp 1600w, /img/match-dead-dawg.webp 3439w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" decoding="async" width="3439" height="1439" alt="Dead Dawg Saloon 上的 Dead by Daylight 对局，左侧边缘显示 Fog Scout 报点地图。">
+          <img data-srcset="/img/match-greenville-square-960.webp 960w, /img/match-greenville-square-1600.webp 1600w, /img/match-greenville-square.webp 2000w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" decoding="async" width="2000" height="837" alt="逃生者视角下 Greenville Square 上的 Dead by Daylight 对局。Fog Scout 在左侧边缘显示报点地图和回合计时器，在右侧边缘显示系统数值。">
+          <img data-srcset="/img/match-groaning-storehouse-960.webp 960w, /img/match-groaning-storehouse-1600.webp 1600w, /img/match-groaning-storehouse.webp 2000w" sizes="(min-width: 80rem) 76rem, calc(100vw - 32px)" decoding="async" width="2000" height="838" alt="杀手视角下 Groaning Storehouse I 上的 Dead by Daylight 对局。Fog Scout 在左侧边缘显示报点地图和回合计时器，在右侧边缘显示系统数值、今日回合和当前曲目。">
           <div class="spots" id="spots">
             <div class="veil l" aria-hidden="true"></div><div class="veil r" aria-hidden="true"></div>
             <div class="banner" aria-hidden="true"><b id="bannerName"></b></div>
@@ -473,11 +528,11 @@ footer a { text-underline-offset: 3px; }
       <figure class="demo tr" data-for="translate">
         <div class="tr-pair">
           <div class="screen">
-            <button type="button" class="zoom" aria-label="放大图片"><img src="/img/translate-ingame.webp" width="713" height="827" alt="Dead by Daylight 大厅聊天，包含德语、中文、日语和俄语消息。Fog Translate 在左上角的面板中将每条消息显示为英文，并附上语言和原文。"></button>
+            <button type="button" class="zoom" aria-label="放大图片"><img src="/img/translate-ingame.webp" loading="lazy" decoding="async" width="713" height="827" alt="Dead by Daylight 大厅聊天，包含德语、中文、日语和俄语消息。Fog Translate 在左上角的面板中将每条消息显示为英文，并附上语言和原文。"></button>
             <div class="tag below tr1" aria-hidden="true"><span>Fog Translate</span></div>
             <div class="tag below tr2" aria-hidden="true"><span>游戏聊天</span></div>
           </div>
-          <div class="screen"><button type="button" class="zoom" aria-label="放大图片"><img src="/img/translate-app.webp" width="562" height="601" alt="Fog Translate 窗口的“Service”选项卡：顶部是状态和下一步，下面是目标语言、服务、模型、API 密钥、每日上限，以及关于发送给服务的内容的说明。"></button></div>
+          <div class="screen"><button type="button" class="zoom" aria-label="放大图片"><img src="/img/translate-app.webp" loading="lazy" decoding="async" width="562" height="601" alt="Fog Translate 窗口的“Service”选项卡：顶部是状态和下一步，下面是目标语言、服务、模型、API 密钥、每日上限，以及关于发送给服务的内容的说明。"></button></div>
         </div>
         <figcaption class="note">左：自定义对局中的测试消息，每条带有语言标签，下方为原文。右：窗口的“Service”选项卡，底部有请求计数和费用估算。</figcaption>
       </figure>
@@ -530,7 +585,7 @@ footer a { text-underline-offset: 3px; }
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout 服务器页面：15 个服务器区域的复选框列表，其中两个被允许。"><b>服务器</b><span>勾选 DBD 可以搜索的区域。“Allow all”可撤销设置。</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="放大图片"><img id="galImg" src="/img/maps.webp" width="1555" height="1178" alt="Fog Scout 地图页面：所有报点地图按领域分组，显示每张地图的回合数和平均击杀。"></button></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="放大图片"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1555" height="1178" alt="Fog Scout 地图页面：所有报点地图按领域分组，显示每张地图的回合数和平均击杀。"></button></div>
       </figure>
     </section>
 
@@ -728,16 +783,30 @@ footer a { text-underline-offset: 3px; }
   var SHOTS = ["Rotten Fields", "Dead Dawg Saloon", "Greenville Square", "Groaning Storehouse I"];
   var stage = doc.getElementById("stage"), shots = stage.querySelectorAll("img"),
       statusText = doc.getElementById("statusText"), chips = doc.getElementById("chips"), cur = 0, heroTimer;
+  /* only the first screenshot loads with the page; the others when they are about to be shown */
+  function ready(im, done) {
+    var ss = im.getAttribute("data-srcset");
+    if (ss) { im.removeAttribute("data-srcset"); im.srcset = ss; }
+    if (!done) return;
+    if (im.complete && im.naturalWidth) return done();
+    var once = function () { im.removeEventListener("load", once); im.removeEventListener("error", once); done(); };
+    im.addEventListener("load", once); im.addEventListener("error", once);
+  }
   function show(i) {
     stopReplay(); cur = i;
-    Array.prototype.forEach.call(shots, function (im, k) { im.classList.toggle("on", k === i); });
-    statusText.textContent = S.onDisplay.replace("%s", SHOTS[i]);
-    closeSpots();
-    Array.prototype.forEach.call(spots, function (sp, k) {
-      var at = SPOTS[i][k]; sp.hidden = !at;
-      if (at) { sp.style.setProperty("--x", at[0] + "%"); sp.style.setProperty("--y", at[1] + "%"); }
-    });
     Array.prototype.forEach.call(chips.children, function (b, k) { b.setAttribute("aria-pressed", k === i ? "true" : "false"); });
+    ready(shots[i], function () {
+      if (cur !== i) return;
+      Array.prototype.forEach.call(shots, function (im, k) { im.classList.toggle("on", k === i); });
+      statusText.textContent = S.onDisplay.replace("%s", SHOTS[i]);
+      closeSpots();
+      Array.prototype.forEach.call(spots, function (sp, k) {
+        var at = SPOTS[i][k]; sp.hidden = !at;
+        if (at) { sp.style.setProperty("--x", at[0] + "%"); sp.style.setProperty("--y", at[1] + "%"); }
+      });
+      var next = function () { ready(shots[(i + 1) % shots.length]); };
+      if (doc.readyState === "complete") next(); else addEventListener("load", next, { once: true });
+    });
   }
   /* where the marks sit on each screenshot, in per cent of the picture: name and timer, server, recording, map, system, today, track */
   var SPOTS = [
@@ -840,9 +909,18 @@ footer a { text-underline-offset: 3px; }
   (function build() {
     var pad = doc.getElementById("pad"), pos = doc.getElementById("padPos"), IMG = "url(/img/match-groaning-storehouse.webp)";
     /* where each part sits in that screenshot, in per cent: left, top, width, height */
+    /* the screenshot is only fetched when the editor comes near the screen */
+    var shown = !("IntersectionObserver" in window);
+    if (!shown) {
+      var near = new IntersectionObserver(function (es) {
+        if (!es[0].isIntersecting) return; near.disconnect(); shown = true;
+        Array.prototype.forEach.call(pad.querySelectorAll(".pad-game, .piece"), function (el) { el.style.backgroundImage = IMG; });
+      }, { rootMargin: "600px 0px" });
+      near.observe(pad);
+    }
     var PARTS = { map: [.1, 35.8, 12.5, 41.8], sys: [88.15, 38.5, 11, 19.2], today: [88.15, 58.4, 11, 12.6], music: [88.15, 71.3, 11, 6.4] };
     function cut(el, r) { /* show the region r of the screenshot in el */
-      el.style.backgroundImage = IMG; el.style.backgroundSize = 10000 / r[2] + "% " + 10000 / r[3] + "%";
+      if (shown) el.style.backgroundImage = IMG; el.style.backgroundSize = 10000 / r[2] + "% " + 10000 / r[3] + "%";
       el.style.backgroundPosition = r[0] / (100 - r[2]) * 100 + "% " + r[1] / (100 - r[3]) * 100 + "%";
     }
     cut(doc.getElementById("padGame"), [12.8, 0, 74.4, 99.99]);
@@ -959,11 +1037,24 @@ footer a { text-underline-offset: 3px; }
   } else Array.prototype.forEach.call(rv, function (el) { el.classList.add("in"); });
 
   /* ---------- download buttons: newest installer from the GitHub release ---------- */
+  /* the API allows 60 requests an hour per address: the answer is kept for this tab for 30 minutes */
+  var KEEP_MS = 30 * 60 * 1000;
+  function latest(repo) {
+    var key = "ff-rel-" + repo, now = Date.now();
+    try { var hit = JSON.parse(sessionStorage.getItem(key)); if (hit && now - hit.t < KEEP_MS && hit.rel) return Promise.resolve(hit.rel); } catch (e) {}
+    return fetch("https://api.github.com/repos/senisinx/" + repo + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (rel) {
+        var keep = { tag_name: rel.tag_name, published_at: rel.published_at, assets: (rel.assets || []).map(function (a) {
+          return { name: a.name, size: a.size, browser_download_url: a.browser_download_url }; }) };
+        try { sessionStorage.setItem(key, JSON.stringify({ t: now, rel: keep })); } catch (e) {}
+        return keep;
+      });
+  }
   function fmtDate(s) { try { return new Date(s).toLocaleDateString(S.locale, { day: "numeric", month: "short", year: "numeric" }); } catch (e) { return ""; } }
   Object.keys(TOOLS).forEach(function (t) {
     var repo = "fog-" + t, as = doc.querySelectorAll('a[data-dl="' + repo + '"]'), meta = doc.querySelector('[data-meta="' + repo + '"]');
-    fetch("https://api.github.com/repos/senisinx/" + repo + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    latest(repo)
       .then(function (rel) {
         var asset = (rel.assets || []).filter(function (x) { return /setup.*\.exe$/i.test(x.name); })[0]; if (!asset) return;
         Array.prototype.forEach.call(as, function (a) { a.href = asset.browser_download_url; });

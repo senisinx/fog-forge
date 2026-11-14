@@ -54,9 +54,18 @@
   });
 })();
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" href="/fonts/big-shoulders-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Big Shoulders Display"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/fonts/big-shoulders-display-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Big Shoulders Display"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/fonts/big-shoulders-display-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/fonts/instrument-sans-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/fonts/instrument-sans-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/fonts/jetbrains-mono-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/fonts/jetbrains-mono-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/fonts/jetbrains-mono-cyrillic-wght-normal.woff2) format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url(/fonts/jetbrains-mono-cyrillic-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F; }
+</style>
 <style>
 /* Same tokens and bar as the landing page; three maps, each drawn in the six map styles, with a large view. */
 :root {
@@ -196,34 +205,34 @@ footer a { text-underline-offset: 3px; }
     <section class="set">
       <div class="set-head"><h2>Faulige Felder</h2><p>Coldwind Farm</p></div>
       <ul class="grid">
-        <li><a href="/img/maps/rotten-fields-classic.webp"><img src="/img/maps/t/rotten-fields-classic.webp" width="360" height="396" alt=""><b>Original</b></a></li>
-        <li><a href="/img/maps/rotten-fields-dark.webp"><img src="/img/maps/t/rotten-fields-dark.webp" width="360" height="396" alt=""><b>Dunkel</b></a></li>
-        <li><a href="/img/maps/rotten-fields-grey.webp"><img src="/img/maps/t/rotten-fields-grey.webp" width="360" height="396" alt=""><b>Grau</b></a></li>
-        <li><a href="/img/maps/rotten-fields-grey-edge.webp"><img src="/img/maps/t/rotten-fields-grey-edge.webp" width="360" height="396" alt=""><b>Grau mit Rand</b></a></li>
-        <li><a href="/img/maps/rotten-fields-lilac.webp"><img src="/img/maps/t/rotten-fields-lilac.webp" width="360" height="396" alt=""><b>Lila dunkel</b></a></li>
-        <li><a href="/img/maps/rotten-fields-lilac-glass.webp"><img src="/img/maps/t/rotten-fields-lilac-glass.webp" width="360" height="396" alt=""><b>Lila transparent</b></a></li>
+        <li><a href="/img/maps/rotten-fields-classic.webp"><img src="/img/maps/t/rotten-fields-classic.webp" width="360" height="396" alt="" decoding="async"><b>Original</b></a></li>
+        <li><a href="/img/maps/rotten-fields-dark.webp"><img src="/img/maps/t/rotten-fields-dark.webp" width="360" height="396" alt="" decoding="async"><b>Dunkel</b></a></li>
+        <li><a href="/img/maps/rotten-fields-grey.webp"><img src="/img/maps/t/rotten-fields-grey.webp" width="360" height="396" alt="" decoding="async"><b>Grau</b></a></li>
+        <li><a href="/img/maps/rotten-fields-grey-edge.webp"><img src="/img/maps/t/rotten-fields-grey-edge.webp" width="360" height="396" alt="" decoding="async"><b>Grau mit Rand</b></a></li>
+        <li><a href="/img/maps/rotten-fields-lilac.webp"><img src="/img/maps/t/rotten-fields-lilac.webp" width="360" height="396" alt="" decoding="async"><b>Lila dunkel</b></a></li>
+        <li><a href="/img/maps/rotten-fields-lilac-glass.webp"><img src="/img/maps/t/rotten-fields-lilac-glass.webp" width="360" height="396" alt="" decoding="async"><b>Lila transparent</b></a></li>
       </ul>
     </section>
     <section class="set">
       <div class="set-head"><h2>Dead Dawg Saloon</h2><p>Grab von Glenvale</p></div>
       <ul class="grid">
-        <li><a href="/img/maps/dead-dawg-saloon-classic.webp"><img src="/img/maps/t/dead-dawg-saloon-classic.webp" width="360" height="396" alt=""><b>Original</b></a></li>
-        <li><a href="/img/maps/dead-dawg-saloon-dark.webp"><img src="/img/maps/t/dead-dawg-saloon-dark.webp" width="360" height="396" alt=""><b>Dunkel</b></a></li>
-        <li><a href="/img/maps/dead-dawg-saloon-grey.webp"><img src="/img/maps/t/dead-dawg-saloon-grey.webp" width="360" height="396" alt=""><b>Grau</b></a></li>
-        <li><a href="/img/maps/dead-dawg-saloon-grey-edge.webp"><img src="/img/maps/t/dead-dawg-saloon-grey-edge.webp" width="360" height="396" alt=""><b>Grau mit Rand</b></a></li>
-        <li><a href="/img/maps/dead-dawg-saloon-lilac.webp"><img src="/img/maps/t/dead-dawg-saloon-lilac.webp" width="360" height="396" alt=""><b>Lila dunkel</b></a></li>
-        <li><a href="/img/maps/dead-dawg-saloon-lilac-glass.webp"><img src="/img/maps/t/dead-dawg-saloon-lilac-glass.webp" width="360" height="396" alt=""><b>Lila transparent</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-classic.webp"><img src="/img/maps/t/dead-dawg-saloon-classic.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Original</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-dark.webp"><img src="/img/maps/t/dead-dawg-saloon-dark.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Dunkel</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-grey.webp"><img src="/img/maps/t/dead-dawg-saloon-grey.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Grau</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-grey-edge.webp"><img src="/img/maps/t/dead-dawg-saloon-grey-edge.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Grau mit Rand</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-lilac.webp"><img src="/img/maps/t/dead-dawg-saloon-lilac.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Lila dunkel</b></a></li>
+        <li><a href="/img/maps/dead-dawg-saloon-lilac-glass.webp"><img src="/img/maps/t/dead-dawg-saloon-lilac-glass.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Lila transparent</b></a></li>
       </ul>
     </section>
     <section class="set">
       <div class="set-head"><h2>Seufzendes Lagerhaus</h2><p>Das MacMillan-Anwesen</p></div>
       <ul class="grid">
-        <li><a href="/img/maps/groaning-storehouse-classic.webp"><img src="/img/maps/t/groaning-storehouse-classic.webp" width="360" height="396" alt=""><b>Original</b></a></li>
-        <li><a href="/img/maps/groaning-storehouse-dark.webp"><img src="/img/maps/t/groaning-storehouse-dark.webp" width="360" height="396" alt=""><b>Dunkel</b></a></li>
-        <li><a href="/img/maps/groaning-storehouse-grey.webp"><img src="/img/maps/t/groaning-storehouse-grey.webp" width="360" height="396" alt=""><b>Grau</b></a></li>
-        <li><a href="/img/maps/groaning-storehouse-grey-edge.webp"><img src="/img/maps/t/groaning-storehouse-grey-edge.webp" width="360" height="396" alt=""><b>Grau mit Rand</b></a></li>
-        <li><a href="/img/maps/groaning-storehouse-lilac.webp"><img src="/img/maps/t/groaning-storehouse-lilac.webp" width="360" height="396" alt=""><b>Lila dunkel</b></a></li>
-        <li><a href="/img/maps/groaning-storehouse-lilac-glass.webp"><img src="/img/maps/t/groaning-storehouse-lilac-glass.webp" width="360" height="396" alt=""><b>Lila transparent</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-classic.webp"><img src="/img/maps/t/groaning-storehouse-classic.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Original</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-dark.webp"><img src="/img/maps/t/groaning-storehouse-dark.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Dunkel</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-grey.webp"><img src="/img/maps/t/groaning-storehouse-grey.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Grau</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-grey-edge.webp"><img src="/img/maps/t/groaning-storehouse-grey-edge.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Grau mit Rand</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-lilac.webp"><img src="/img/maps/t/groaning-storehouse-lilac.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Lila dunkel</b></a></li>
+        <li><a href="/img/maps/groaning-storehouse-lilac-glass.webp"><img src="/img/maps/t/groaning-storehouse-lilac-glass.webp" width="360" height="396" alt="" loading="lazy" decoding="async"><b>Lila transparent</b></a></li>
       </ul>
     </section>
   </main>
