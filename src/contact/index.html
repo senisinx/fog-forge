@@ -14,7 +14,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Fog Forge: two free tools for Dead by Daylight, Fog Scout and Fog Translate">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#11171a">
+<meta name="theme-color" content="#e9e5db">
 <link rel="icon" href="/img/icon.svg" type="image/svg+xml">
 <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -24,15 +24,15 @@
 <style>
 /* Same tokens and bar as the landing page; one section with two ways to reach out. */
 :root {
-  color-scheme: dark;
-  --ground: #11171a;
-  --ground-2: #182125;
-  --mist: #c9d6d6;
-  --haze: #8a9c9f;
-  --line: #2b383d;
-  --ember: #e39a55;
-  --ember-ink: #1a1109;
-  --ok: #86c79a;
+  color-scheme: light;
+  --ground: #e9e5db;
+  --ground-2: #dfdacd;
+  --mist: #14181a;
+  --haze: #575e5b;
+  --line: rgba(20, 24, 26, .28);
+  --ember: #b94f17;
+  --ember-ink: #fff;
+  --ok: #2c6a44;
   --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
   --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
@@ -47,7 +47,6 @@ a { color: inherit; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
 
-#fog { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; filter: blur(18px); transform: scale(1.08); }
 .wrap { position: relative; z-index: 1; max-width: 78rem; margin-inline: auto; min-height: 100vh; display: flex; flex-direction: column;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 
@@ -122,11 +121,30 @@ footer a { text-underline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* paper look, as on the start page: ink rules and buttons, no glow, no blur */
+.bar-in, header { border-bottom-color: var(--mist); }
+.mark { letter-spacing: .03em; font-size: 1.55rem; }
+.mark img { display: none; }
+h1 { animation: none; font-weight: 900; }
+h1 span { color: var(--ember); -webkit-text-stroke: 0; }
+.btn:hover { transform: none; border-color: var(--mist); box-shadow: none; }
+.btn.go, main > .btn { background: var(--mist); border-color: var(--mist); color: var(--ground); }
+.btn.go:hover, main > .btn:hover { background: var(--ember); border-color: var(--ember); color: #fff; box-shadow: none; }
+.btn.go::after { content: none; }
+.lang ul { box-shadow: none; border-color: var(--mist); }
+.bar nav .lang a:hover { background: var(--ground-2); }
+.handle code { background: var(--ground-2); }
+.way, .way:hover { background: var(--ground); }
+.ways { background: var(--mist); border-color: var(--mist); animation: none; }
+.grid a:hover img, .grid a:focus-visible img { transform: none; }
+.lb { color: #e9e5db; }
+.lb-cap span { color: rgba(233, 229, 219, .6); }
+.lb button { background: #14181a; color: #e9e5db; border-color: rgba(233, 229, 219, .3); }
+.lb button:hover { border-color: #e9e5db; }
 </style>
 </head>
 <body>
-
-<canvas id="fog" aria-hidden="true"></canvas>
 
 <div class="wrap">
   <header class="bar">
@@ -193,32 +211,6 @@ footer a { text-underline-offset: 3px; }
   var doc = document;
   var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* fog canvas, same as the landing page */
-  (function fog() {
-    var c = doc.getElementById("fog"), x = c.getContext("2d"); if (!x) return;
-    var W, H, blobs = [], px = -9999, py = -9999, K = 8;
-    function size() { W = c.width = Math.ceil(innerWidth / K); H = c.height = Math.ceil(innerHeight / K); }
-    size(); addEventListener("resize", size);
-    for (var i = 0; i < 16; i++) blobs.push({ x: Math.random(), y: Math.random(), r: .18 + Math.random() * .22,
-      vx: (Math.random() - .5) * .00035, vy: (Math.random() - .5) * .0002, warm: i % 6 === 0, a: .06 + Math.random() * .08 });
-    addEventListener("pointermove", function (e) { px = e.clientX / innerWidth; py = e.clientY / innerHeight; }, { passive: true });
-    function draw() {
-      x.clearRect(0, 0, W, H); x.globalCompositeOperation = "lighter";
-      for (var i = 0; i < blobs.length; i++) {
-        var b = blobs[i], dx = b.x - px, dy = b.y - py, d = Math.sqrt(dx * dx + dy * dy);
-        if (d < .25 && d > 0) { b.x += dx / d * (.25 - d) * .02; b.y += dy / d * (.25 - d) * .02; }
-        b.x += b.vx; b.y += b.vy;
-        if (b.x < -.3) b.x = 1.3; if (b.x > 1.3) b.x = -.3; if (b.y < -.3) b.y = 1.3; if (b.y > 1.3) b.y = -.3;
-        var cx = b.x * W, cy = b.y * H, r = b.r * Math.max(W, H);
-        var g = x.createRadialGradient(cx, cy, 0, cx, cy, r), col = b.warm ? "227,154,85" : "165,190,192";
-        g.addColorStop(0, "rgba(" + col + "," + b.a + ")"); g.addColorStop(1, "rgba(" + col + ",0)");
-        x.fillStyle = g; x.fillRect(cx - r, cy - r, r * 2, r * 2);
-      }
-      if (!still && !doc.hidden) requestAnimationFrame(draw);
-    }
-    draw();
-    doc.addEventListener("visibilitychange", function () { if (!doc.hidden && !still) requestAnimationFrame(draw); });
-  })();
 
   /* copy the Discord username */
   /* texts made by script; tools/build.py swaps this line per language */
