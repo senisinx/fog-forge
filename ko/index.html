@@ -318,8 +318,10 @@ p.sub { color: var(--haze); }
 .stats dd { margin: 0; font: 800 clamp(2.25rem, 5vw, 3.25rem)/1 var(--display); color: var(--ember); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* fog translate screenshots */
-.tr-pair { display: grid; grid-template-columns: 862fr 935fr; gap: var(--gap); align-items: start; }
+/* the game is the picture; the program's window floats over its lower right corner, as it does on the desktop */
+.tr-pair { display: grid; grid-template-columns: minmax(0, 713fr) minmax(0, 470fr); align-items: end; max-width: 68rem; margin-inline: auto; }
 .tr-pair img { display: block; width: 100%; height: auto; }
+.tr-pair > .screen + .screen { z-index: 1; margin: 0 0 3rem -3.5rem; border-radius: 8px; border-color: rgba(255, 255, 255, .14); box-shadow: 0 40px 90px -20px rgba(0, 0, 0, .9), 0 0 0 1px rgba(0, 0, 0, .5); }
 .tag.below span { left: -1px; top: 100%; margin: .4rem 0 0; }
 .tag.tr1 { left: 1.6%; top: .8%; width: 32.6%; height: 44.8%; }
 .tag.tr2 { left: 20%; top: 53%; width: 64%; height: 22.4%; }
@@ -422,7 +424,8 @@ footer a { text-underline-offset: 3px; }
 @media (max-width: 860px) {
   .build-side, .build-main, .hero-name, .hero-side, .tool-head, .tool-body, .rules-head, .never, .gal-tabs, .gal-view { grid-column: 1 / -1; }
   .stage { aspect-ratio: 4 / 3; }
-  .tr-pair { grid-template-columns: minmax(0, 1fr); max-width: 30rem; }
+  .tr-pair { grid-template-columns: minmax(0, 1fr); max-width: 30rem; margin-inline: 0; }
+  .tr-pair > .screen + .screen { margin: -2.5rem 0 0 2rem; }
   .bar nav a.plain { display: none; }
   .tag { display: none; }
   .spot.r, .spot.wide-only { display: none; }
@@ -532,7 +535,7 @@ footer a { text-underline-offset: 3px; }
             <div class="tag below tr1" aria-hidden="true"><span>Fog Translate</span></div>
             <div class="tag below tr2" aria-hidden="true"><span>게임 채팅</span></div>
           </div>
-          <div class="screen"><button type="button" class="zoom" aria-label="이미지 확대"><img src="/img/translate-app.webp" loading="lazy" decoding="async" width="562" height="601" alt="Fog Translate 창의 ‘Service’ 탭: 위쪽에 상태와 다음 단계, 그 아래에 대상 언어, 서비스, 모델, API 키, 일일 한도, 그리고 서비스로 전송되는 내용에 대한 안내."></button></div>
+          <div class="screen"><button type="button" class="zoom" aria-label="이미지 확대"><img src="/img/translate-app.webp" loading="lazy" decoding="async" width="829" height="828" alt="Fog Translate 창의 ‘Service’ 탭: 위쪽에 상태와 다음 단계, 그 아래에 대상 언어, 서비스, 모델, API 키, 일일 한도, 그리고 서비스로 전송되는 내용에 대한 안내."></button></div>
         </div>
         <figcaption class="note">왼쪽: 사용자 지정 게임의 테스트 메시지. 각각 언어 태그가 있고 아래에 원문이 있습니다. 오른쪽: 창의 ‘Service’ 탭. 아래쪽에 요청 횟수와 예상 비용이 있습니다.</figcaption>
       </figure>
