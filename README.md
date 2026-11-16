@@ -18,8 +18,14 @@ The HTML in the repository root and in the language folders (`de/`, `fr/`, …) 
 - `fonts/`: the three fonts (Big Shoulders Display, Instrument Sans, JetBrains Mono) as variable WOFF2, latin and
   latin-ext (JetBrains Mono also Cyrillic), from Fontsource, under the SIL Open Font License (`fonts/OFL-*.txt`).
   The page loads nothing from Google.
-- Hero screenshots: each `img/match-*.webp` also exists as `-960` and `-1600` for `srcset`; after a new screenshot,
-  make both sizes (WebP, quality 80). Only the first screenshot loads with the page, the others when they are shown.
+- Design: a printed field sheet. Paper (`#e9e5db`), ink (`#14181a`) and one rust colour (`#b94f17`); rules and tables
+  instead of cards, figures with numbers, no gradients, shadows or scroll effects. Both tools are on the one start page:
+  the opening names them, then a chapter each, fair play and download. The sub pages use the same colours.
+- Game picture of the start page: `img/match-rotten-fields.webp`, also as `-960` and `-1600` for `srcset`; after a new
+  screenshot, make both sizes (WebP, quality 80). The other `img/match-*.webp` are not shown at the moment.
+- Pictures of the programs (`img/maps.webp`, `overlay`, `statistics`, `recordings`, `calculator`, `overview`, `server`,
+  `translate-app`): screenshots of the real windows with made-up data, 1560×1180 for Fog Scout. No real rounds, pings
+  or keys may be in them.
 - `data/maps.json`, `img/maps/`: three callout maps in the six map styles for `/maps/`, made from Fog Scout. Do not edit
   them; run `python3 tools/import_maps.py <path to a fog-scout checkout>` to show other maps or after a change to the
   styles (needs Pillow, NumPy and OpenCV), then the build.
@@ -61,8 +67,15 @@ The programs ship the PNGs from `tools/icons/png/`; copy them into each reposito
 ## Link preview
 
 `img/og.jpg` (1200×630) is the picture Discord and other sites show for a link to the page. Its source is
-`tools/og.html`; open it in a browser window of 1200×630 and save a screenshot as `img/og.jpg`. After a change,
-raise `?v=` at `og:image` in the three `src/` pages so that sites fetch the new picture.
+`tools/og.html`, in the look of the start page; it uses the fonts in `fonts/` and loads nothing from the net. Render it
+at 1200×630 with a Chromium browser without a window, for example Edge on Windows, and save the PNG as JPEG
+(quality 88) to `img/og.jpg`:
+
+```bash
+msedge --headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=og.png tools/og.html
+```
+
+After a change, raise `?v=` at `og:image` in the three `src/` pages so that sites fetch the new picture.
 
 English visitors whose browser prefers one of the other languages are sent to that version once;
 a choice in the language menu is remembered.
