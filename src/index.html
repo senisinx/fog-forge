@@ -475,8 +475,9 @@ footer a { text-underline-offset: 3px; }
           <ul class="feat">
             <li><b>Automatic callout maps</b><span>56 map pictures, layouts like Coal Tower II told apart, in a click-through window.</span> <a class="more" href="/maps/">See the six map styles →</a></li>
             <li><b>Server region</b><span>Choose which regions you connect to and see the game server you are on.</span></li>
-            <li><b>Match statistics</b><span>Role, killer, kills, escapes and bloodpoints per round, kept on your PC.</span></li>
-            <li><b>Recording with OBS</b><span>Starts and labels recordings per match, with a clip editor for the highlights.</span></li>
+            <li><b>Match statistics</b><span>Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.</span></li>
+            <li><b>Recording with OBS</b><span>Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.</span></li>
+            <li><b>Perk calculator</b><span>Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.</span></li>
             <li><b>Discord and Spotify</b><span>Optional: show map and role as Discord status, see your Spotify queue.</span></li>
             <li><b>Detects the game language</b><span>Map names in English, German, French, Spanish, Italian, Polish, Portuguese, Turkish, Russian, Chinese, Japanese and Korean. Fog Scout spots the game language by itself.</span></li>
             <li><b>Seven languages</b><span>The app in German, English, Italian, Russian, Chinese, Japanese and Korean. Follows the Windows language, switchable in the settings.</span></li>
@@ -489,13 +490,15 @@ footer a { text-underline-offset: 3px; }
       <div class="gal-tabs" data-rv>
         <h3>Inside the app</h3>
         <button type="button" class="gal-tab" id="gal-maps" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."><b>Maps</b><span>All 56 callout maps in six styles, with your rounds and kills per map.</span></button>
-        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture."><b>Overlay</b><span>Place map, timer, system values and music where you want them.</span></button>
+        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture."><b>Overlay</b><span>Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.</span></button>
         <button type="button" class="gal-tab" id="gal-statistics" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps."><b>Statistics</b><span>Rounds, kills, escapes and bloodpoints, stored on this PC only.</span></button>
+        <button type="button" class="gal-tab" id="gal-recordings" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size."><b>Recordings</b><span>Recorded rounds, clips and screenshots: play, cut and tidy up.</span></button>
+        <button type="button" class="gal-tab" id="gal-calculator" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right."><b>Calculator</b><span>Combine perks and see what they give after diminishing returns.</span></button>
         <button type="button" class="gal-tab" id="gal-overview" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout Overview page: current map, feature switches, this week's numbers, system values and last rounds."><b>Overview</b><span>Current map, your week and the system values at a glance.</span></button>
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout Server page: a list of 15 server regions with checkboxes, two of them allowed."><b>Server</b><span>Tick the regions DBD may search in. "Allow all" undoes it.</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Enlarge picture"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1555" height="1178" alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."></button></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Enlarge picture"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."></button></div>
       </figure>
     </section>
 

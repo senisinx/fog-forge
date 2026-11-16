@@ -565,8 +565,9 @@ footer a { text-underline-offset: 3px; }
           <ul class="feat">
             <li><b>자동 콜아웃 맵</b><span>56개의 맵 이미지. Coal Tower II 같은 레이아웃도 구분하며, 클릭이 통과되는 창에 표시합니다.</span> <a class="more" href="/ko/maps/">여섯 가지 맵 스타일 보기 →</a></li>
             <li><b>서버 지역</b><span>접속할 지역을 고르고 현재 게임 서버를 확인할 수 있습니다.</span></li>
-            <li><b>매치 통계</b><span>라운드별 역할, 살인마, 처치, 탈출, 블러드포인트를 PC에 저장합니다.</span></li>
-            <li><b>OBS로 녹화</b><span>매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다.</span></li>
+            <li><b>매치 통계</b><span>라운드별 역할, 살인마, 처치, 탈출, 블러드포인트와 함께 요일·시간대별 성적, 퍽 조합, 대기 시간까지. 모두 PC에 저장합니다.</span></li>
+            <li><b>OBS로 녹화</b><span>매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다. 라운드 중에 남긴 표시는 각각 별도의 클립으로 저장할 수 있습니다.</span></li>
+            <li><b>퍽 계산기</b><span>생존자 최대 네 명과 살인마의 퍽, 아이템, 애드온을 조합하고, 효과 감소를 적용한 뒤 실제 효과를 확인하세요.</span></li>
             <li><b>Discord와 Spotify</b><span>선택 사항: 맵과 역할을 Discord 상태로 표시하고, Spotify 재생 대기열을 볼 수 있습니다.</span></li>
             <li><b>게임 언어 자동 인식</b><span>영어, 독일어, 프랑스어, 스페인어, 이탈리아어, 폴란드어, 포르투갈어, 터키어, 러시아어, 중국어, 일본어, 한국어 맵 이름을 인식합니다. Fog Scout가 게임 언어를 스스로 알아냅니다.</span></li>
             <li><b>7개 언어</b><span>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</span></li>
@@ -579,13 +580,15 @@ footer a { text-underline-offset: 3px; }
       <div class="gal-tabs" data-rv>
         <h3>앱 살펴보기</h3>
         <button type="button" class="gal-tab" id="gal-maps" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout 맵 페이지: 모든 콜아웃 맵을 렐름별로 묶고, 맵별 라운드 수와 평균 처치 수를 표시합니다."><b>맵</b><span>56개 콜아웃 맵 전체를 6가지 스타일로, 맵별 라운드 수와 처치 수와 함께 보여줍니다.</span></button>
-        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout 오버레이 페이지: 맵, 시스템 수치, 오늘, 음악을 게임 화면 주변에 배치하는 레이아웃 편집기."><b>오버레이</b><span>맵, 타이머, 시스템 수치, 음악을 원하는 곳에 배치하세요.</span></button>
+        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout 오버레이 페이지: 맵, 시스템 수치, 오늘, 음악을 게임 화면 주변에 배치하는 레이아웃 편집기."><b>오버레이</b><span>맵, 타이머, 시스템 수치, 음악을 원하는 곳에 배치하세요. 선택 항목으로 FPS, 해당 맵에서의 지난 결과, 세션 연속 기록을 표시할 수 있습니다.</span></button>
         <button type="button" class="gal-tab" id="gal-statistics" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout 통계 페이지: 라운드 수, 평균 처치 수, 탈출률, 블러드포인트, 가장 많이 플레이한 맵."><b>통계</b><span>라운드, 처치, 탈출, 블러드포인트를 이 PC에만 저장합니다.</span></button>
+        <button type="button" class="gal-tab" id="gal-recordings" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout 녹화 페이지: 녹화 상태와 맵, 역할, 결과, 길이, 크기가 표시된 녹화 라운드 목록."><b>녹화</b><span>녹화한 라운드, 클립, 스크린샷을 재생하고 자르고 정리하세요.</span></button>
+        <button type="button" class="gal-tab" id="gal-calculator" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout 계산기 페이지: 왼쪽에 생존자와 살인마 빌드, 오른쪽에 발전기 수리 시간과 각 보너스가 반영되는 비율."><b>계산기</b><span>퍽을 조합하고 효과 감소를 적용한 뒤의 효과를 확인하세요.</span></button>
         <button type="button" class="gal-tab" id="gal-overview" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout 개요 페이지: 현재 맵, 기능 스위치, 이번 주 수치, 시스템 수치, 최근 라운드."><b>개요</b><span>현재 맵, 이번 주 기록, 시스템 수치를 한눈에 볼 수 있습니다.</span></button>
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout 서버 페이지: 15개 서버 지역의 체크박스 목록, 그중 두 곳이 허용됨."><b>서버</b><span>DBD가 검색할 수 있는 지역을 체크하세요. ‘Allow all’을 누르면 되돌릴 수 있습니다.</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="이미지 확대"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1555" height="1178" alt="Fog Scout 맵 페이지: 모든 콜아웃 맵을 렐름별로 묶고, 맵별 라운드 수와 평균 처치 수를 표시합니다."></button></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="이미지 확대"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout 맵 페이지: 모든 콜아웃 맵을 렐름별로 묶고, 맵별 라운드 수와 평균 처치 수를 표시합니다."></button></div>
       </figure>
     </section>
 

@@ -565,8 +565,9 @@ footer a { text-underline-offset: 3px; }
           <ul class="feat">
             <li><b>自動コールアウトマップ</b><span>56 枚のマップ画像。Coal Tower II などのレイアウトも見分け、クリックが透過するウィンドウに表示します。</span> <a class="more" href="/ja/maps/">6 種類のマップスタイルを見る →</a></li>
             <li><b>サーバー地域</b><span>接続する地域を選び、今いるゲームサーバーを確認できます。</span></li>
-            <li><b>マッチ統計</b><span>ラウンドごとの役割、キラー、キル数、脱出数、ブラッドポイントを PC に保存します。</span></li>
-            <li><b>OBS で録画</b><span>マッチごとに録画を開始して名前を付けます。ハイライト用のクリップエディター付きです。</span></li>
+            <li><b>マッチ統計</b><span>ラウンドごとの役割、キラー、キル数、脱出数、ブラッドポイントに加え、曜日・時間帯ごとの調子、パークの組み合わせ、待ち時間も。すべて PC に保存します。</span></li>
+            <li><b>OBS で録画</b><span>マッチごとに録画を開始して名前を付けます。ハイライト用のクリップエディター付きです。ラウンド中に付けたマークは、それぞれ個別のクリップにできます。</span></li>
+            <li><b>パーク計算機</b><span>最大 4 人のサバイバーとキラーのパーク、アイテム、アドオンを組み合わせ、効果逓減後の実際の効果を確認できます。</span></li>
             <li><b>Discord と Spotify</b><span>オプション：マップと役割を Discord のステータスに表示し、Spotify の再生キューを確認できます。</span></li>
             <li><b>ゲームの言語を自動認識</b><span>英語・ドイツ語・フランス語・スペイン語・イタリア語・ポーランド語・ポルトガル語・トルコ語・ロシア語・中国語・日本語・韓国語のマップ名に対応。Fog Scout はゲームの言語を自動で認識します。</span></li>
             <li><b>7 つの言語</b><span>アプリはドイツ語・英語・イタリア語・ロシア語・中国語・日本語・韓国語に対応。Windows の言語に合わせて表示され、設定で切り替えられます。</span></li>
@@ -579,13 +580,15 @@ footer a { text-underline-offset: 3px; }
       <div class="gal-tabs" data-rv>
         <h3>アプリの中身</h3>
         <button type="button" class="gal-tab" id="gal-maps" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout のマップページ：すべてのコールアウトマップをレルムごとにまとめ、マップごとのラウンド数と平均キル数を表示。"><b>マップ</b><span>全 56 枚のコールアウトマップを 6 種類のスタイルで。マップごとのラウンド数とキル数も表示します。</span></button>
-        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout のオーバーレイページ：マップ、システム値、今日、音楽をゲーム画面の周りに配置するレイアウトエディター。"><b>オーバーレイ</b><span>マップ、タイマー、システム値、音楽を好きな場所に配置できます。</span></button>
+        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout のオーバーレイページ：マップ、システム値、今日、音楽をゲーム画面の周りに配置するレイアウトエディター。"><b>オーバーレイ</b><span>マップ、タイマー、システム値、音楽を好きな場所に配置できます。オプションの行で FPS、そのマップでの前回の結果、セッションの連続記録を表示できます。</span></button>
         <button type="button" class="gal-tab" id="gal-statistics" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout の統計ページ：ラウンド数、平均キル数、脱出率、ブラッドポイント、よく遊ぶマップ。"><b>統計</b><span>ラウンド、キル、脱出、ブラッドポイントを、この PC にだけ保存します。</span></button>
+        <button type="button" class="gal-tab" id="gal-recordings" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout の録画ページ：録画の状態と、マップ、役割、結果、長さ、サイズが並ぶ録画済みラウンドの一覧。"><b>録画</b><span>録画したラウンド、クリップ、スクリーンショットを再生、カット、整理できます。</span></button>
+        <button type="button" class="gal-tab" id="gal-calculator" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout の計算機ページ：左にサバイバーとキラーのビルド、右に発電機の修理時間と各ボーナスが反映される割合。"><b>計算機</b><span>パークを組み合わせ、効果逓減後の効果を確認できます。</span></button>
         <button type="button" class="gal-tab" id="gal-overview" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout の概要ページ：現在のマップ、機能のオン／オフ、今週の数値、システム値、最近のラウンド。"><b>概要</b><span>現在のマップ、今週の成績、システム値をひと目で確認できます。</span></button>
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout のサーバーページ：15 のサーバー地域のチェックボックス一覧。そのうち 2 つが許可されています。"><b>サーバー</b><span>DBD が検索してよい地域にチェックを入れます。「Allow all」で元に戻せます。</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="画像を拡大"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1555" height="1178" alt="Fog Scout のマップページ：すべてのコールアウトマップをレルムごとにまとめ、マップごとのラウンド数と平均キル数を表示。"></button></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="画像を拡大"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout のマップページ：すべてのコールアウトマップをレルムごとにまとめ、マップごとのラウンド数と平均キル数を表示。"></button></div>
       </figure>
     </section>
 

@@ -43,7 +43,6 @@
   "Server region": "Région du serveur",
   "Choose which regions you connect to and see the game server you are on.": "Choisis les régions auxquelles tu te connectes et vois sur quel serveur de jeu tu es.",
   "Match statistics": "Statistiques des parties",
-  "Role, killer, kills, escapes and bloodpoints per round, kept on your PC.": "Rôle, tueur, kills, évasions et points de sang par manche, conservés sur ton PC.",
   "Recording with OBS": "Enregistrement avec OBS",
   "Starts and labels recordings per match, with a clip editor for the highlights.": "Lance et nomme les enregistrements par partie, avec un éditeur de clips pour les meilleurs moments.",
   "Discord and Spotify": "Discord et Spotify",
@@ -59,7 +58,6 @@
   "All 56 callout maps in six styles, with your rounds and kills per map.": "Les 56 cartes de callouts en six styles, avec tes manches et tes kills par map.",
   "Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture.": "Page Overlay de Fog Scout : un éditeur de disposition avec la carte, les valeurs système, le jour et la musique placés autour de l’image du jeu.",
   "Overlay": "Overlay",
-  "Place map, timer, system values and music where you want them.": "Place la carte, le chrono, les valeurs système et la musique où tu veux.",
   "Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps.": "Page Statistiques de Fog Scout : manches, moyenne de kills, taux d’évasion, points de sang et maps les plus jouées.",
   "Statistics": "Statistiques",
   "Rounds, kills, escapes and bloodpoints, stored on this PC only.": "Manches, kills, évasions et points de sang, stockés uniquement sur ce PC.",
@@ -179,5 +177,16 @@
   "Lilac see-through": "Lilas transparent",
   "Page not found": "Page introuvable",
   "This page does not exist, or it has moved.": "Cette page n'existe pas ou a été déplacée.",
-  "To the start page": "Vers la page d'accueil"
+  "To the start page": "Vers la page d'accueil",
+  "Perk calculator": "Calculateur de perks",
+  "Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.": "Combine perks, objets et add-ons pour jusqu’à quatre survivants et un tueur, et vois ce qu’ils apportent après les rendements décroissants.",
+  "Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.": "Rôle, tueur, kills, évasions et points de sang par manche, ta forme selon le jour et l’heure, paires de perks et temps d’attente. Conservés sur ton PC.",
+  "Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.": "Lance et nomme les enregistrements par partie, avec un éditeur de clips pour les meilleurs moments. Chaque repère posé dans une manche peut devenir un clip à part.",
+  "Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.": "Place la carte, le chrono, les valeurs système et la musique où tu veux. Des lignes en option affichent les FPS, ton dernier résultat sur la map et la série de ta session.",
+  "Recordings": "Enregistrements",
+  "Recorded rounds, clips and screenshots: play, cut and tidy up.": "Manches enregistrées, clips et captures : lire, couper et ranger.",
+  "Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size.": "Page Enregistrements de Fog Scout : l’état de l’enregistrement et une liste de manches enregistrées avec map, rôle, résultat, durée et taille.",
+  "Calculator": "Calculateur",
+  "Combine perks and see what they give after diminishing returns.": "Combine des perks et vois ce qu’ils apportent après les rendements décroissants.",
+  "Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right.": "Page Calculateur de Fog Scout : à gauche les builds des survivants et du tueur, à droite les temps de générateur et la part pour laquelle compte chaque bonus."
 }

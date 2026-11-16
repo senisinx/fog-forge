@@ -43,7 +43,6 @@
   "Server region": "Regione del server",
   "Choose which regions you connect to and see the game server you are on.": "Scegli a quali regioni collegarti e vedi su quale server di gioco sei.",
   "Match statistics": "Statistiche delle partite",
-  "Role, killer, kills, escapes and bloodpoints per round, kept on your PC.": "Ruolo, killer, uccisioni, fughe e punti sangue per round, salvati sul tuo PC.",
   "Recording with OBS": "Registrazione con OBS",
   "Starts and labels recordings per match, with a clip editor for the highlights.": "Avvia e nomina le registrazioni per partita, con un editor di clip per i momenti migliori.",
   "Discord and Spotify": "Discord e Spotify",
@@ -59,7 +58,6 @@
   "All 56 callout maps in six styles, with your rounds and kills per map.": "Tutte le 56 mappe dei callout in sei stili, con i tuoi round e le tue uccisioni per mappa.",
   "Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture.": "Pagina Overlay di Fog Scout: un editor di layout con mappa, valori di sistema, oggi e musica disposti intorno all’immagine del gioco.",
   "Overlay": "Overlay",
-  "Place map, timer, system values and music where you want them.": "Posiziona mappa, timer, valori di sistema e musica dove vuoi.",
   "Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps.": "Pagina Statistiche di Fog Scout: round, media di uccisioni, percentuale di fughe, punti sangue e mappe più giocate.",
   "Statistics": "Statistiche",
   "Rounds, kills, escapes and bloodpoints, stored on this PC only.": "Round, uccisioni, fughe e punti sangue, salvati solo su questo PC.",
@@ -179,5 +177,16 @@
   "Lilac see-through": "Lilla trasparente",
   "Page not found": "Pagina non trovata",
   "This page does not exist, or it has moved.": "Questa pagina non esiste o è stata spostata.",
-  "To the start page": "Alla pagina iniziale"
+  "To the start page": "Alla pagina iniziale",
+  "Perk calculator": "Calcolatore di perk",
+  "Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.": "Combina perk, oggetti e add-on per un massimo di quattro sopravvissuti e un killer e guarda cosa danno dopo i rendimenti decrescenti.",
+  "Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.": "Ruolo, killer, uccisioni, fughe e punti sangue per round, la tua forma per giorno della settimana e ora, coppie di perk e tempi di attesa. Salvati sul tuo PC.",
+  "Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.": "Avvia e nomina le registrazioni per partita, con un editor di clip per i momenti migliori. Ogni segno che metti in un round può diventare una clip a sé.",
+  "Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.": "Posiziona mappa, timer, valori di sistema e musica dove vuoi. Righe opzionali mostrano gli FPS, il tuo ultimo risultato sulla mappa e la serie della sessione.",
+  "Recordings": "Registrazioni",
+  "Recorded rounds, clips and screenshots: play, cut and tidy up.": "Round registrati, clip e screenshot: riproduci, taglia e riordina.",
+  "Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size.": "Pagina Registrazioni di Fog Scout: lo stato della registrazione e un elenco di round registrati con mappa, ruolo, risultato, durata e dimensione.",
+  "Calculator": "Calcolatore",
+  "Combine perks and see what they give after diminishing returns.": "Combina i perk e guarda cosa danno dopo i rendimenti decrescenti.",
+  "Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right.": "Pagina Calcolatore di Fog Scout: a sinistra le build di sopravvissuti e killer, a destra i tempi dei generatori e la quota con cui conta ogni bonus."
 }

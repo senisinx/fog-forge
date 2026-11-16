@@ -565,8 +565,9 @@ footer a { text-underline-offset: 3px; }
           <ul class="feat">
             <li><b>Otomatik callout haritaları</b><span>56 harita görüntüsü, Coal Tower II gibi varyantlar ayırt edilir, click-through bir pencerede.</span> <a class="more" href="/tr/maps/">Altı harita stilini gör →</a></li>
             <li><b>Sunucu bölgesi</b><span>Hangi bölgelere bağlanacağını seç ve hangi oyun sunucusunda olduğunu gör.</span></li>
-            <li><b>Maç istatistikleri</b><span>Tur başına rol, katil, öldürmeler, kaçışlar ve kan puanı; senin bilgisayarında saklanır.</span></li>
-            <li><b>OBS ile kayıt</b><span>Kayıtları maç başına başlatır ve adlandırır, öne çıkan anlar için bir klip düzenleyici içerir.</span></li>
+            <li><b>Maç istatistikleri</b><span>Tur başına rol, katil, öldürmeler, kaçışlar ve kan puanı; haftanın gününe ve saate göre formun, perk çiftleri ve bekleme süreleri. Senin bilgisayarında saklanır.</span></li>
+            <li><b>OBS ile kayıt</b><span>Kayıtları maç başına başlatır ve adlandırır, öne çıkan anlar için bir klip düzenleyici içerir. Bir turda koyduğun her işaret ayrı bir klip olabilir.</span></li>
+            <li><b>Perk hesaplayıcı</b><span>En fazla dört hayatta kalan ve bir katil için perkleri, eşyaları ve eklentileri birleştir; azalan getiriden sonra ne kazandırdıklarını gör.</span></li>
             <li><b>Discord ve Spotify</b><span>İsteğe bağlı: harita ve rolünü Discord durumu olarak göster, Spotify sıranı gör.</span></li>
             <li><b>Oyun dilini tanır</b><span>İngilizce, Almanca, Fransızca, İspanyolca, İtalyanca, Lehçe, Portekizce, Türkçe, Rusça, Çince, Japonca ve Korece harita adları. Fog Scout oyun dilini kendisi tanır.</span></li>
             <li><b>Yedi dil</b><span>Uygulama Almanca, İngilizce, İtalyanca, Rusça, Çince, Japonca ve Korece. Windows dilini izler, ayarlardan değiştirilebilir.</span></li>
@@ -579,13 +580,15 @@ footer a { text-underline-offset: 3px; }
       <div class="gal-tabs" data-rv>
         <h3>Uygulamanın içi</h3>
         <button type="button" class="gal-tab" id="gal-maps" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout Haritalar sayfası: diyara göre gruplanmış tüm callout haritaları, harita başına tur sayısı ve ortalama öldürme."><b>Haritalar</b><span>Altı stilde 56 callout haritasının tamamı, harita başına turların ve öldürmelerinle.</span></button>
-        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout Overlay sayfası: harita, sistem değerleri, bugün ve müziğin oyun görüntüsünün çevresine yerleştirildiği bir düzen editörü."><b>Overlay</b><span>Haritayı, sayacı, sistem değerlerini ve müziği istediğin yere koy.</span></button>
+        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout Overlay sayfası: harita, sistem değerleri, bugün ve müziğin oyun görüntüsünün çevresine yerleştirildiği bir düzen editörü."><b>Overlay</b><span>Haritayı, sayacı, sistem değerlerini ve müziği istediğin yere koy. İsteğe bağlı satırlar FPS'i, haritadaki son sonucunu ve oturum serini gösterir.</span></button>
         <button type="button" class="gal-tab" id="gal-statistics" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout İstatistikler sayfası: turlar, ortalama öldürme, kaçış oranı, kan puanı ve en çok oynanan haritalar."><b>İstatistikler</b><span>Turlar, öldürmeler, kaçışlar ve kan puanı; yalnızca bu bilgisayarda saklanır.</span></button>
+        <button type="button" class="gal-tab" id="gal-recordings" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout Kayıtlar sayfası: kayıt durumu ve harita, rol, sonuç, süre ve boyutla kaydedilmiş turların listesi."><b>Kayıtlar</b><span>Kaydedilen turlar, klipler ve ekran görüntüleri: oynat, kes ve düzenle.</span></button>
+        <button type="button" class="gal-tab" id="gal-calculator" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout Hesaplayıcı sayfası: solda hayatta kalan ve katil buildleri, sağda jeneratör süreleri ve her bonusun sayıldığı pay."><b>Hesaplayıcı</b><span>Perkleri birleştir ve azalan getiriden sonra ne kazandırdıklarını gör.</span></button>
         <button type="button" class="gal-tab" id="gal-overview" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout Genel Bakış sayfası: mevcut harita, özellik anahtarları, bu haftanın rakamları, sistem değerleri ve son turlar."><b>Genel bakış</b><span>Mevcut harita, haftan ve sistem değerleri tek bakışta.</span></button>
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout Sunucu sayfası: onay kutulu 15 sunucu bölgesinin listesi, ikisine izin verilmiş."><b>Sunucu</b><span>DBD'nin arama yapabileceği bölgeleri işaretle. "Allow all" bunu geri alır.</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Görseli büyüt"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1555" height="1178" alt="Fog Scout Haritalar sayfası: diyara göre gruplanmış tüm callout haritaları, harita başına tur sayısı ve ortalama öldürme."></button></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Görseli büyüt"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout Haritalar sayfası: diyara göre gruplanmış tüm callout haritaları, harita başına tur sayısı ve ortalama öldürme."></button></div>
       </figure>
     </section>
 

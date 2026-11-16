@@ -43,7 +43,6 @@
   "Server region": "서버 지역",
   "Choose which regions you connect to and see the game server you are on.": "접속할 지역을 고르고 현재 게임 서버를 확인할 수 있습니다.",
   "Match statistics": "매치 통계",
-  "Role, killer, kills, escapes and bloodpoints per round, kept on your PC.": "라운드별 역할, 살인마, 처치, 탈출, 블러드포인트를 PC에 저장합니다.",
   "Recording with OBS": "OBS로 녹화",
   "Starts and labels recordings per match, with a clip editor for the highlights.": "매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다.",
   "Discord and Spotify": "Discord와 Spotify",
@@ -59,7 +58,6 @@
   "All 56 callout maps in six styles, with your rounds and kills per map.": "56개 콜아웃 맵 전체를 6가지 스타일로, 맵별 라운드 수와 처치 수와 함께 보여줍니다.",
   "Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture.": "Fog Scout 오버레이 페이지: 맵, 시스템 수치, 오늘, 음악을 게임 화면 주변에 배치하는 레이아웃 편집기.",
   "Overlay": "오버레이",
-  "Place map, timer, system values and music where you want them.": "맵, 타이머, 시스템 수치, 음악을 원하는 곳에 배치하세요.",
   "Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps.": "Fog Scout 통계 페이지: 라운드 수, 평균 처치 수, 탈출률, 블러드포인트, 가장 많이 플레이한 맵.",
   "Statistics": "통계",
   "Rounds, kills, escapes and bloodpoints, stored on this PC only.": "라운드, 처치, 탈출, 블러드포인트를 이 PC에만 저장합니다.",
@@ -179,5 +177,16 @@
   "Lilac see-through": "반투명 라일락",
   "Page not found": "페이지를 찾을 수 없습니다",
   "This page does not exist, or it has moved.": "이 페이지는 없거나 다른 곳으로 옮겨졌습니다.",
-  "To the start page": "첫 페이지로"
+  "To the start page": "첫 페이지로",
+  "Perk calculator": "퍽 계산기",
+  "Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.": "생존자 최대 네 명과 살인마의 퍽, 아이템, 애드온을 조합하고, 효과 감소를 적용한 뒤 실제 효과를 확인하세요.",
+  "Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.": "라운드별 역할, 살인마, 처치, 탈출, 블러드포인트와 함께 요일·시간대별 성적, 퍽 조합, 대기 시간까지. 모두 PC에 저장합니다.",
+  "Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.": "매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다. 라운드 중에 남긴 표시는 각각 별도의 클립으로 저장할 수 있습니다.",
+  "Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.": "맵, 타이머, 시스템 수치, 음악을 원하는 곳에 배치하세요. 선택 항목으로 FPS, 해당 맵에서의 지난 결과, 세션 연속 기록을 표시할 수 있습니다.",
+  "Recordings": "녹화",
+  "Recorded rounds, clips and screenshots: play, cut and tidy up.": "녹화한 라운드, 클립, 스크린샷을 재생하고 자르고 정리하세요.",
+  "Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size.": "Fog Scout 녹화 페이지: 녹화 상태와 맵, 역할, 결과, 길이, 크기가 표시된 녹화 라운드 목록.",
+  "Calculator": "계산기",
+  "Combine perks and see what they give after diminishing returns.": "퍽을 조합하고 효과 감소를 적용한 뒤의 효과를 확인하세요.",
+  "Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right.": "Fog Scout 계산기 페이지: 왼쪽에 생존자와 살인마 빌드, 오른쪽에 발전기 수리 시간과 각 보너스가 반영되는 비율."
 }

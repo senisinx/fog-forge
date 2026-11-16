@@ -43,7 +43,6 @@
   "Server region": "Region serwera",
   "Choose which regions you connect to and see the game server you are on.": "Wybierz, z którymi regionami się łączysz, i zobacz, na jakim serwerze gry jesteś.",
   "Match statistics": "Statystyki meczów",
-  "Role, killer, kills, escapes and bloodpoints per round, kept on your PC.": "Rola, zabójca, zabójstwa, ucieczki i punkty krwi na rundę, zapisane na twoim PC.",
   "Recording with OBS": "Nagrywanie z OBS",
   "Starts and labels recordings per match, with a clip editor for the highlights.": "Uruchamia i nazywa nagrania dla każdego meczu, z edytorem klipów do najlepszych momentów.",
   "Discord and Spotify": "Discord i Spotify",
@@ -59,7 +58,6 @@
   "All 56 callout maps in six styles, with your rounds and kills per map.": "Wszystkie 56 map calloutów w sześciu stylach, z twoimi rundami i zabójstwami na mapę.",
   "Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture.": "Strona Overlay w Fog Scout: edytor układu z mapą, wartościami systemu, dniem dzisiejszym i muzyką rozmieszczonymi wokół obrazu gry.",
   "Overlay": "Nakładka",
-  "Place map, timer, system values and music where you want them.": "Umieść mapę, licznik czasu, wartości systemu i muzykę tam, gdzie chcesz.",
   "Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps.": "Strona Statystyki w Fog Scout: rundy, średnia zabójstw, odsetek ucieczek, punkty krwi i najczęściej grane mapy.",
   "Statistics": "Statystyki",
   "Rounds, kills, escapes and bloodpoints, stored on this PC only.": "Rundy, zabójstwa, ucieczki i punkty krwi, zapisane tylko na tym PC.",
@@ -179,5 +177,16 @@
   "Lilac see-through": "Liliowy przezroczysty",
   "Page not found": "Nie znaleziono strony",
   "This page does not exist, or it has moved.": "Ta strona nie istnieje lub została przeniesiona.",
-  "To the start page": "Na stronę główną"
+  "To the start page": "Na stronę główną",
+  "Perk calculator": "Kalkulator perków",
+  "Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.": "Łącz perki, przedmioty i dodatki dla maksymalnie czterech ocalałych i zabójcy i zobacz, ile dają po uwzględnieniu malejących korzyści.",
+  "Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.": "Rola, zabójca, zabójstwa, ucieczki i punkty krwi na rundę, twoja forma według dnia tygodnia i pory dnia, pary perków i czasy oczekiwania. Zapisane na twoim PC.",
+  "Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.": "Uruchamia i nazywa nagrania dla każdego meczu, z edytorem klipów do najlepszych momentów. Każdy znacznik ustawiony w rundzie może stać się osobnym klipem.",
+  "Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.": "Umieść mapę, licznik czasu, wartości systemu i muzykę tam, gdzie chcesz. Opcjonalne wiersze pokazują FPS, twój ostatni wynik na mapie i serię z sesji.",
+  "Recordings": "Nagrania",
+  "Recorded rounds, clips and screenshots: play, cut and tidy up.": "Nagrane rundy, klipy i zrzuty ekranu: odtwarzaj, tnij i porządkuj.",
+  "Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size.": "Strona Nagrania w Fog Scout: stan nagrywania i lista nagranych rund z mapą, rolą, wynikiem, długością i rozmiarem.",
+  "Calculator": "Kalkulator",
+  "Combine perks and see what they give after diminishing returns.": "Łącz perki i zobacz, ile dają po uwzględnieniu malejących korzyści.",
+  "Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right.": "Strona Kalkulator w Fog Scout: po lewej buildy ocalałych i zabójcy, po prawej czasy generatorów i udział, z jakim liczy się każdy bonus."
 }

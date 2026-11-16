@@ -43,7 +43,6 @@
   "Server region": "服务器区域",
   "Choose which regions you connect to and see the game server you are on.": "选择要连接的区域，并查看你所在的游戏服务器。",
   "Match statistics": "对局统计",
-  "Role, killer, kills, escapes and bloodpoints per round, kept on your PC.": "每局的角色、杀手、击杀、逃脱和血点，保存在你的电脑上。",
   "Recording with OBS": "使用 OBS 录制",
   "Starts and labels recordings per match, with a clip editor for the highlights.": "按对局开始并命名录制，附带用于剪辑精彩片段的编辑器。",
   "Discord and Spotify": "Discord 和 Spotify",
@@ -59,7 +58,6 @@
   "All 56 callout maps in six styles, with your rounds and kills per map.": "全部 56 张报点地图，六种样式，附带你在每张地图上的回合数和击杀数。",
   "Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture.": "Fog Scout 叠加层页面：布局编辑器，地图、系统数值、今日和音乐摆放在游戏画面周围。",
   "Overlay": "叠加层",
-  "Place map, timer, system values and music where you want them.": "把地图、计时器、系统数值和音乐放在你想要的位置。",
   "Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps.": "Fog Scout 统计页面：回合数、平均击杀、逃脱率、血点和最常玩的地图。",
   "Statistics": "统计",
   "Rounds, kills, escapes and bloodpoints, stored on this PC only.": "回合、击杀、逃脱和血点，仅保存在这台电脑上。",
@@ -179,5 +177,16 @@
   "Lilac see-through": "丁香紫透明",
   "Page not found": "找不到页面",
   "This page does not exist, or it has moved.": "此页面不存在，或已移动。",
-  "To the start page": "返回首页"
+  "To the start page": "返回首页",
+  "Perk calculator": "技能计算器",
+  "Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.": "为最多四名逃生者和一名杀手搭配技能、道具和配件，查看收益递减后的实际效果。",
+  "Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.": "每局的角色、杀手、击杀、逃脱和血点，以及按星期和时段统计的状态、技能组合和等待时间。保存在你的电脑上。",
+  "Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.": "按对局开始并命名录制，附带用于剪辑精彩片段的编辑器。你在一局中设置的每个标记都可以单独保存为片段。",
+  "Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.": "把地图、计时器、系统数值和音乐放在你想要的位置。可选的行可显示 FPS、你上次在该地图的结果和本次连续记录。",
+  "Recordings": "录制",
+  "Recorded rounds, clips and screenshots: play, cut and tidy up.": "已录制的回合、片段和截图：播放、剪辑和整理。",
+  "Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size.": "Fog Scout 录制页面：录制状态，以及带有地图、角色、结果、时长和大小的已录制回合列表。",
+  "Calculator": "计算器",
+  "Combine perks and see what they give after diminishing returns.": "搭配技能，查看收益递减后的效果。",
+  "Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right.": "Fog Scout 计算器页面：左侧是逃生者和杀手的配置，右侧是发电机用时和每项加成计入的比例。"
 }

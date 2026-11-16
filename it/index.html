@@ -565,8 +565,9 @@ footer a { text-underline-offset: 3px; }
           <ul class="feat">
             <li><b>Mappe dei callout automatiche</b><span>56 immagini di mappe, varianti come Coal Tower II distinte correttamente, in una finestra click-through.</span> <a class="more" href="/it/maps/">Vedi i sei stili di mappa →</a></li>
             <li><b>Regione del server</b><span>Scegli a quali regioni collegarti e vedi su quale server di gioco sei.</span></li>
-            <li><b>Statistiche delle partite</b><span>Ruolo, killer, uccisioni, fughe e punti sangue per round, salvati sul tuo PC.</span></li>
-            <li><b>Registrazione con OBS</b><span>Avvia e nomina le registrazioni per partita, con un editor di clip per i momenti migliori.</span></li>
+            <li><b>Statistiche delle partite</b><span>Ruolo, killer, uccisioni, fughe e punti sangue per round, la tua forma per giorno della settimana e ora, coppie di perk e tempi di attesa. Salvati sul tuo PC.</span></li>
+            <li><b>Registrazione con OBS</b><span>Avvia e nomina le registrazioni per partita, con un editor di clip per i momenti migliori. Ogni segno che metti in un round può diventare una clip a sé.</span></li>
+            <li><b>Calcolatore di perk</b><span>Combina perk, oggetti e add-on per un massimo di quattro sopravvissuti e un killer e guarda cosa danno dopo i rendimenti decrescenti.</span></li>
             <li><b>Discord e Spotify</b><span>Opzionale: mostra mappa e ruolo come stato Discord, vedi la tua coda di Spotify.</span></li>
             <li><b>Riconosce la lingua del gioco</b><span>Nomi delle mappe in inglese, tedesco, francese, spagnolo, italiano, polacco, portoghese, turco, russo, cinese, giapponese e coreano. Fog Scout riconosce da solo la lingua del gioco.</span></li>
             <li><b>Sette lingue</b><span>L’app in tedesco, inglese, italiano, russo, cinese, giapponese e coreano. Segue la lingua di Windows, modificabile nelle impostazioni.</span></li>
@@ -579,13 +580,15 @@ footer a { text-underline-offset: 3px; }
       <div class="gal-tabs" data-rv>
         <h3>Dentro l’app</h3>
         <button type="button" class="gal-tab" id="gal-maps" aria-pressed="true" data-src="/img/maps.webp" data-alt="Pagina Mappe di Fog Scout: tutte le mappe dei callout raggruppate per reame, con round e media di uccisioni per mappa."><b>Mappe</b><span>Tutte le 56 mappe dei callout in sei stili, con i tuoi round e le tue uccisioni per mappa.</span></button>
-        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Pagina Overlay di Fog Scout: un editor di layout con mappa, valori di sistema, oggi e musica disposti intorno all’immagine del gioco."><b>Overlay</b><span>Posiziona mappa, timer, valori di sistema e musica dove vuoi.</span></button>
+        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Pagina Overlay di Fog Scout: un editor di layout con mappa, valori di sistema, oggi e musica disposti intorno all’immagine del gioco."><b>Overlay</b><span>Posiziona mappa, timer, valori di sistema e musica dove vuoi. Righe opzionali mostrano gli FPS, il tuo ultimo risultato sulla mappa e la serie della sessione.</span></button>
         <button type="button" class="gal-tab" id="gal-statistics" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Pagina Statistiche di Fog Scout: round, media di uccisioni, percentuale di fughe, punti sangue e mappe più giocate."><b>Statistiche</b><span>Round, uccisioni, fughe e punti sangue, salvati solo su questo PC.</span></button>
+        <button type="button" class="gal-tab" id="gal-recordings" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Pagina Registrazioni di Fog Scout: lo stato della registrazione e un elenco di round registrati con mappa, ruolo, risultato, durata e dimensione."><b>Registrazioni</b><span>Round registrati, clip e screenshot: riproduci, taglia e riordina.</span></button>
+        <button type="button" class="gal-tab" id="gal-calculator" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Pagina Calcolatore di Fog Scout: a sinistra le build di sopravvissuti e killer, a destra i tempi dei generatori e la quota con cui conta ogni bonus."><b>Calcolatore</b><span>Combina i perk e guarda cosa danno dopo i rendimenti decrescenti.</span></button>
         <button type="button" class="gal-tab" id="gal-overview" aria-pressed="false" data-src="/img/overview.webp" data-alt="Pagina Panoramica di Fog Scout: mappa attuale, interruttori delle funzioni, numeri della settimana, valori di sistema e ultimi round."><b>Panoramica</b><span>Mappa attuale, la tua settimana e i valori di sistema a colpo d’occhio.</span></button>
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Pagina Server di Fog Scout: un elenco di 15 regioni server con caselle di spunta, due delle quali consentite."><b>Server</b><span>Spunta le regioni in cui DBD può cercare. “Allow all” annulla tutto.</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Ingrandisci immagine"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1555" height="1178" alt="Pagina Mappe di Fog Scout: tutte le mappe dei callout raggruppate per reame, con round e media di uccisioni per mappa."></button></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Ingrandisci immagine"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Pagina Mappe di Fog Scout: tutte le mappe dei callout raggruppate per reame, con round e media di uccisioni per mappa."></button></div>
       </figure>
     </section>
 

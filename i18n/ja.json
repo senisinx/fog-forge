@@ -43,7 +43,6 @@
   "Server region": "サーバー地域",
   "Choose which regions you connect to and see the game server you are on.": "接続する地域を選び、今いるゲームサーバーを確認できます。",
   "Match statistics": "マッチ統計",
-  "Role, killer, kills, escapes and bloodpoints per round, kept on your PC.": "ラウンドごとの役割、キラー、キル数、脱出数、ブラッドポイントを PC に保存します。",
   "Recording with OBS": "OBS で録画",
   "Starts and labels recordings per match, with a clip editor for the highlights.": "マッチごとに録画を開始して名前を付けます。ハイライト用のクリップエディター付きです。",
   "Discord and Spotify": "Discord と Spotify",
@@ -59,7 +58,6 @@
   "All 56 callout maps in six styles, with your rounds and kills per map.": "全 56 枚のコールアウトマップを 6 種類のスタイルで。マップごとのラウンド数とキル数も表示します。",
   "Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture.": "Fog Scout のオーバーレイページ：マップ、システム値、今日、音楽をゲーム画面の周りに配置するレイアウトエディター。",
   "Overlay": "オーバーレイ",
-  "Place map, timer, system values and music where you want them.": "マップ、タイマー、システム値、音楽を好きな場所に配置できます。",
   "Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps.": "Fog Scout の統計ページ：ラウンド数、平均キル数、脱出率、ブラッドポイント、よく遊ぶマップ。",
   "Statistics": "統計",
   "Rounds, kills, escapes and bloodpoints, stored on this PC only.": "ラウンド、キル、脱出、ブラッドポイントを、この PC にだけ保存します。",
@@ -179,5 +177,16 @@
   "Lilac see-through": "ライラック（透過）",
   "Page not found": "ページが見つかりません",
   "This page does not exist, or it has moved.": "このページは存在しないか、移動しました。",
-  "To the start page": "トップページへ"
+  "To the start page": "トップページへ",
+  "Perk calculator": "パーク計算機",
+  "Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.": "最大 4 人のサバイバーとキラーのパーク、アイテム、アドオンを組み合わせ、効果逓減後の実際の効果を確認できます。",
+  "Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.": "ラウンドごとの役割、キラー、キル数、脱出数、ブラッドポイントに加え、曜日・時間帯ごとの調子、パークの組み合わせ、待ち時間も。すべて PC に保存します。",
+  "Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.": "マッチごとに録画を開始して名前を付けます。ハイライト用のクリップエディター付きです。ラウンド中に付けたマークは、それぞれ個別のクリップにできます。",
+  "Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.": "マップ、タイマー、システム値、音楽を好きな場所に配置できます。オプションの行で FPS、そのマップでの前回の結果、セッションの連続記録を表示できます。",
+  "Recordings": "録画",
+  "Recorded rounds, clips and screenshots: play, cut and tidy up.": "録画したラウンド、クリップ、スクリーンショットを再生、カット、整理できます。",
+  "Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size.": "Fog Scout の録画ページ：録画の状態と、マップ、役割、結果、長さ、サイズが並ぶ録画済みラウンドの一覧。",
+  "Calculator": "計算機",
+  "Combine perks and see what they give after diminishing returns.": "パークを組み合わせ、効果逓減後の効果を確認できます。",
+  "Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right.": "Fog Scout の計算機ページ：左にサバイバーとキラーのビルド、右に発電機の修理時間と各ボーナスが反映される割合。"
 }

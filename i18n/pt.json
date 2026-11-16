@@ -43,7 +43,6 @@
   "Server region": "Região do servidor",
   "Choose which regions you connect to and see the game server you are on.": "Escolha a quais regiões você se conecta e veja em qual servidor do jogo você está.",
   "Match statistics": "Estatísticas das partidas",
-  "Role, killer, kills, escapes and bloodpoints per round, kept on your PC.": "Papel, assassino, abates, fugas e pontos de sangue por rodada, guardados no seu PC.",
   "Recording with OBS": "Gravação com OBS",
   "Starts and labels recordings per match, with a clip editor for the highlights.": "Inicia e nomeia as gravações por partida, com um editor de clipes para os melhores momentos.",
   "Discord and Spotify": "Discord e Spotify",
@@ -59,7 +58,6 @@
   "All 56 callout maps in six styles, with your rounds and kills per map.": "Todos os 56 callout maps em seis estilos, com suas rodadas e abates por mapa.",
   "Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture.": "Página Overlay do Fog Scout: um editor de layout com mapa, valores do sistema, hoje e música posicionados ao redor da imagem do jogo.",
   "Overlay": "Overlay",
-  "Place map, timer, system values and music where you want them.": "Posicione mapa, cronômetro, valores do sistema e música onde quiser.",
   "Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps.": "Página Estatísticas do Fog Scout: rodadas, média de abates, taxa de fuga, pontos de sangue e os mapas mais jogados.",
   "Statistics": "Estatísticas",
   "Rounds, kills, escapes and bloodpoints, stored on this PC only.": "Rodadas, abates, fugas e pontos de sangue, guardados apenas neste PC.",
@@ -179,5 +177,16 @@
   "Lilac see-through": "Lilás transparente",
   "Page not found": "Página não encontrada",
   "This page does not exist, or it has moved.": "Esta página não existe ou foi movida.",
-  "To the start page": "Para a página inicial"
+  "To the start page": "Para a página inicial",
+  "Perk calculator": "Calculadora de perks",
+  "Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.": "Combine perks, itens e complementos para até quatro sobreviventes e um assassino e veja o que eles rendem depois dos retornos decrescentes.",
+  "Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.": "Papel, assassino, abates, fugas e pontos de sangue por rodada, sua forma por dia da semana e horário, pares de perks e tempos de espera. Guardados no seu PC.",
+  "Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.": "Inicia e nomeia as gravações por partida, com um editor de clipes para os melhores momentos. Cada marca que você põe em uma rodada pode virar um clipe próprio.",
+  "Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.": "Posicione mapa, cronômetro, valores do sistema e música onde quiser. Linhas opcionais mostram o FPS, seu último resultado no mapa e a sequência da sessão.",
+  "Recordings": "Gravações",
+  "Recorded rounds, clips and screenshots: play, cut and tidy up.": "Rodadas gravadas, clipes e capturas de tela: reproduza, corte e organize.",
+  "Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size.": "Página Gravações do Fog Scout: o estado da gravação e uma lista de rodadas gravadas com mapa, papel, resultado, duração e tamanho.",
+  "Calculator": "Calculadora",
+  "Combine perks and see what they give after diminishing returns.": "Combine perks e veja o que eles rendem depois dos retornos decrescentes.",
+  "Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right.": "Página Calculadora do Fog Scout: à esquerda as builds de sobreviventes e assassino, à direita os tempos de gerador e a parcela com que cada bônus conta."
 }
