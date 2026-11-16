@@ -1,36 +1,35 @@
 <!doctype html>
 <!-- Source of img/og.jpg, the picture shown in link previews (Discord, X, ...).
-     Render at 1200x630: see README, "Link preview". -->
+     Render at 1200x630: see README, "Link preview". Same look as the start page: paper, ink, one rust colour. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Instrument+Sans:wght@500;600&display=swap">
 <style>
+@font-face { font-family: "Big Shoulders Display"; font-weight: 100 900; src: url(../fonts/big-shoulders-display-latin-wght-normal.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url(../fonts/jetbrains-mono-latin-wght-normal.woff2) format("woff2"); }
 * { box-sizing: border-box; margin: 0; }
 html, body { width: 1200px; height: 630px; }
-body { background: #11171a; color: #c9d6d6; font-family: "Instrument Sans", sans-serif; overflow: hidden; position: relative; }
-body::before { content: ""; position: absolute; inset: 0;
-  background: radial-gradient(900px 500px at 12% 0%, rgba(227,154,85,.20), transparent 62%),
-              radial-gradient(800px 500px at 100% 100%, rgba(138,156,159,.16), transparent 60%); }
-.left { position: absolute; left: 64px; top: 0; bottom: 0; width: 470px; display: flex; flex-direction: column; justify-content: center; }
-.brand { display: flex; align-items: center; gap: 22px; }
-.brand img { width: 104px; height: 104px; border-radius: 22px; box-shadow: 0 0 0 2px #2b383d; }
-h1 { font-family: "Big Shoulders Display", sans-serif; font-weight: 800; font-size: 124px; line-height: .86; letter-spacing: .01em; text-transform: uppercase; color: #fff; }
-.tag { margin-top: 34px; font-size: 38px; line-height: 1.18; font-weight: 600; color: #e39a55; }
-.sub { margin-top: 16px; font-size: 27px; font-weight: 500; color: #c9d6d6; }
-.right { position: absolute; left: 580px; right: 0; top: 0; bottom: 0; }
-.shot { position: absolute; border-radius: 16px; overflow: hidden; border: 2px solid #2b383d; background: #000 center/cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.6); }
-.shot b { position: absolute; left: 0; top: 0; padding: 9px 18px 10px; font-family: "Big Shoulders Display", sans-serif; font-weight: 800; font-size: 34px; letter-spacing: .04em; text-transform: uppercase; color: #1a1109; background: #e39a55; border-bottom-right-radius: 14px; }
-.scout { left: 0; top: 40px; width: 700px; height: 372px; background-image: url(../img/match-rotten-fields.webp); background-size: 1500px auto; background-position: -10px -128px; }
-.translate { left: 222px; top: 330px; width: 420px; height: 262px; background-image: url(../img/translate-ingame.webp); background-size: 700px auto; background-position: 0 46px; background-color: #150c12; }
-.translate b { background: #c9d6d6; }
+body { background: #e9e5db; color: #14181a; overflow: hidden; position: relative; }
+.top { position: absolute; left: 0; right: 0; top: 0; height: 68px; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #14181a; }
+.name { font: 800 38px/1 "Big Shoulders Display", sans-serif; letter-spacing: .03em; text-transform: uppercase; }
+.mono { font: 500 19px/1.3 "JetBrains Mono", monospace; letter-spacing: .04em; text-transform: uppercase; color: #575e5b; }
+.left { position: absolute; left: 48px; top: 68px; bottom: 0; width: 520px; display: flex; flex-direction: column; justify-content: center; gap: 26px; padding-bottom: 6px; }
+.left .mono { font-size: 17px; white-space: nowrap; }
+h1 { font: 900 127px/.83 "Big Shoulders Display", sans-serif; text-transform: uppercase; }
+h1 span { display: block; color: #b94f17; }
+.right { position: absolute; left: 600px; right: 0; top: 68px; bottom: 0; border-left: 2px solid #14181a; display: grid; grid-template-rows: 1fr 1fr; }
+.shot { position: relative; background: #000 no-repeat; }
+.shot + .shot { border-top: 2px solid #14181a; }
+.shot b { position: absolute; left: 0; bottom: 0; padding: 8px 16px 9px; background: #e9e5db; border-top: 2px solid #14181a; border-right: 2px solid #14181a; font: 800 30px/1 "Big Shoulders Display", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+.scout { background-image: url(../img/match-rotten-fields.webp); background-size: 1500px auto; background-position: -10px -150px; }
+.translate { background-image: url(../img/translate-ingame.webp); background-size: 640px auto; background-position: 0 -4px; background-color: #150c12; }
 </style>
 </head>
 <body>
+<div class="top"><span class="name">Fog Forge</span><span class="mono">fogforge.app</span></div>
 <div class="left">
-  <div class="brand"><img src="../img/icon-512.png" alt=""><h1>Fog<br>Forge</h1></div>
-  <p class="tag">Two free tools for Dead&nbsp;by&nbsp;Daylight</p>
-  <p class="sub">Callout maps and live chat translation</p>
+  <h1>Know<br>the map.<span>Read<br>the chat.</span></h1>
+  <p class="mono">Two free Windows tools for Dead by Daylight</p>
 </div>
 <div class="right">
   <div class="shot scout"><b>Fog Scout</b></div>
