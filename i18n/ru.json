@@ -43,7 +43,6 @@
   "Server region": "Регион сервера",
   "Choose which regions you connect to and see the game server you are on.": "Выбирайте, к каким регионам подключаться, и смотрите, на каком игровом сервере вы находитесь.",
   "Match statistics": "Статистика матчей",
-  "Role, killer, kills, escapes and bloodpoints per round, kept on your PC.": "Роль, убийца, убийства, побеги и очки крови за каждый раунд — хранятся на вашем ПК.",
   "Recording with OBS": "Запись через OBS",
   "Starts and labels recordings per match, with a clip editor for the highlights.": "Запускает и подписывает записи для каждого матча, есть редактор клипов для лучших моментов.",
   "Discord and Spotify": "Discord и Spotify",
@@ -59,7 +58,6 @@
   "All 56 callout maps in six styles, with your rounds and kills per map.": "Все 56 callout-карт в шести стилях, с вашими раундами и убийствами на каждой карте.",
   "Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture.": "Страница «Оверлей» в Fog Scout: редактор раскладки, где карта, системные показатели, «Сегодня» и музыка расставлены вокруг изображения игры.",
   "Overlay": "Оверлей",
-  "Place map, timer, system values and music where you want them.": "Размещайте карту, таймер, системные показатели и музыку где угодно.",
   "Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps.": "Страница «Статистика» в Fog Scout: раунды, среднее число убийств, доля побегов, очки крови и самые частые карты.",
   "Statistics": "Статистика",
   "Rounds, kills, escapes and bloodpoints, stored on this PC only.": "Раунды, убийства, побеги и очки крови — хранятся только на этом ПК.",
@@ -179,5 +177,16 @@
   "Lilac see-through": "Сиреневый прозрачный",
   "Page not found": "Страница не найдена",
   "This page does not exist, or it has moved.": "Такой страницы нет, или она переехала.",
-  "To the start page": "На главную"
+  "To the start page": "На главную",
+  "Perk calculator": "Калькулятор навыков",
+  "Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.": "Сочетайте навыки, предметы и улучшения для выживших (до четырёх) и убийцы и смотрите, что они дают с учётом убывающей отдачи.",
+  "Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.": "Роль, убийца, убийства, побеги и очки крови за каждый раунд, ваша форма по дням недели и времени суток, пары навыков и время ожидания — хранятся на вашем ПК.",
+  "Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.": "Запускает и подписывает записи для каждого матча, есть редактор клипов для лучших моментов. Каждую метку, поставленную в раунде, можно сохранить отдельным клипом.",
+  "Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.": "Размещайте карту, таймер, системные показатели и музыку где угодно. Дополнительные строки показывают FPS, ваш прошлый результат на карте и серию за сессию.",
+  "Recordings": "Записи",
+  "Recorded rounds, clips and screenshots: play, cut and tidy up.": "Записанные раунды, клипы и скриншоты: смотрите, режьте и наводите порядок.",
+  "Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size.": "Страница «Записи» в Fog Scout: состояние записи и список записанных раундов с картой, ролью, результатом, длительностью и размером.",
+  "Calculator": "Калькулятор",
+  "Combine perks and see what they give after diminishing returns.": "Сочетайте навыки и смотрите, что они дают с учётом убывающей отдачи.",
+  "Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right.": "Страница «Калькулятор» в Fog Scout: слева сборки выживших и убийцы, справа время починки генераторов и доля, с которой учитывается каждый бонус."
 }

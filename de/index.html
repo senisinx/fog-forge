@@ -565,8 +565,9 @@ footer a { text-underline-offset: 3px; }
           <ul class="feat">
             <li><b>Automatische Callout-Maps</b><span>56 Map-Bilder, Varianten wie Coal Tower II werden unterschieden, in einem Click-through-Fenster.</span> <a class="more" href="/de/maps/">Die sechs Map-Stile ansehen →</a></li>
             <li><b>Server-Region</b><span>Wähle, mit welchen Regionen du dich verbindest, und sieh, auf welchem Spielserver du bist.</span></li>
-            <li><b>Match-Statistiken</b><span>Rolle, Killer, Kills, Entkommen und Blutpunkte pro Runde, gespeichert auf deinem PC.</span></li>
-            <li><b>Aufnehmen mit OBS</b><span>Startet und benennt Aufnahmen pro Match, mit einem Clip-Editor für die Highlights.</span></li>
+            <li><b>Match-Statistiken</b><span>Rolle, Killer, Kills, Entkommen und Blutpunkte pro Runde, deine Form nach Wochentag und Tageszeit, Perk-Paare und Wartezeiten. Gespeichert auf deinem PC.</span></li>
+            <li><b>Aufnehmen mit OBS</b><span>Startet und benennt Aufnahmen pro Match, mit einem Clip-Editor für die Highlights. Jede Marke, die du in einer Runde setzt, kann ein eigener Clip werden.</span></li>
+            <li><b>Perk-Rechner</b><span>Kombiniere Perks, Items und Add-ons für bis zu vier Survivor und einen Killer und sieh, was nach Diminishing Returns davon übrig bleibt.</span></li>
             <li><b>Discord und Spotify</b><span>Optional: Map und Rolle als Discord-Status zeigen, deine Spotify-Warteschlange sehen.</span></li>
             <li><b>Erkennt die Spielsprache</b><span>Map-Namen auf Englisch, Deutsch, Französisch, Spanisch, Italienisch, Polnisch, Portugiesisch, Türkisch, Russisch, Chinesisch, Japanisch und Koreanisch. Fog Scout erkennt die Spielsprache von selbst.</span></li>
             <li><b>Sieben Sprachen</b><span>Die App auf Deutsch, Englisch, Italienisch, Russisch, Chinesisch, Japanisch und Koreanisch. Folgt der Windows-Sprache, umschaltbar in den Einstellungen.</span></li>
@@ -579,13 +580,15 @@ footer a { text-underline-offset: 3px; }
       <div class="gal-tabs" data-rv>
         <h3>Ein Blick in die App</h3>
         <button type="button" class="gal-tab" id="gal-maps" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog-Scout-Seite Maps: alle Callout-Maps nach Reich gruppiert, mit Runden und durchschnittlichen Kills pro Map."><b>Maps</b><span>Alle 56 Callout-Maps in sechs Stilen, mit deinen Runden und Kills pro Map.</span></button>
-        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog-Scout-Seite Overlay: ein Layout-Editor mit Map, Systemwerten, Heute und Musik rund um das Spielbild platziert."><b>Overlay</b><span>Platziere Map, Timer, Systemwerte und Musik, wo du willst.</span></button>
+        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog-Scout-Seite Overlay: ein Layout-Editor mit Map, Systemwerten, Heute und Musik rund um das Spielbild platziert."><b>Overlay</b><span>Platziere Map, Timer, Systemwerte und Musik, wo du willst. Optionale Zeilen zeigen FPS, dein letztes Ergebnis auf der Map und die Serie deiner Sitzung.</span></button>
         <button type="button" class="gal-tab" id="gal-statistics" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog-Scout-Seite Statistiken: Runden, durchschnittliche Kills, Entkommensrate, Blutpunkte und die meistgespielten Maps."><b>Statistiken</b><span>Runden, Kills, Entkommen und Blutpunkte, nur auf diesem PC gespeichert.</span></button>
+        <button type="button" class="gal-tab" id="gal-recordings" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout Seite Aufnahmen: der Aufnahme-Status und eine Liste aufgenommener Runden mit Map, Rolle, Ergebnis, Länge und Grösse."><b>Aufnahmen</b><span>Aufgenommene Runden, Clips und Screenshots: abspielen, schneiden und aufräumen.</span></button>
+        <button type="button" class="gal-tab" id="gal-calculator" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout Seite Rechner: links Survivor- und Killer-Builds, rechts Generator-Zeiten und der Anteil, mit dem jeder Bonus zählt."><b>Rechner</b><span>Kombiniere Perks und sieh, was sie nach Diminishing Returns bringen.</span></button>
         <button type="button" class="gal-tab" id="gal-overview" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog-Scout-Seite Übersicht: aktuelle Map, Funktionsschalter, die Zahlen dieser Woche, Systemwerte und letzte Runden."><b>Übersicht</b><span>Aktuelle Map, deine Woche und die Systemwerte auf einen Blick.</span></button>
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog-Scout-Seite Server: eine Liste von 15 Server-Regionen mit Kontrollkästchen, zwei davon erlaubt."><b>Server</b><span>Hak die Regionen an, in denen DBD suchen darf. „Allow all“ macht es rückgängig.</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Bild vergrößern"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1555" height="1178" alt="Fog-Scout-Seite Maps: alle Callout-Maps nach Reich gruppiert, mit Runden und durchschnittlichen Kills pro Map."></button></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Bild vergrößern"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog-Scout-Seite Maps: alle Callout-Maps nach Reich gruppiert, mit Runden und durchschnittlichen Kills pro Map."></button></div>
       </figure>
     </section>
 

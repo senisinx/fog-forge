@@ -565,8 +565,9 @@ footer a { text-underline-offset: 3px; }
           <ul class="feat">
             <li><b>Автоматические callout-карты</b><span>56 изображений карт, различает варианты вроде Coal Tower II, в окне, пропускающем клики (click-through).</span> <a class="more" href="/ru/maps/">Посмотреть шесть стилей карт →</a></li>
             <li><b>Регион сервера</b><span>Выбирайте, к каким регионам подключаться, и смотрите, на каком игровом сервере вы находитесь.</span></li>
-            <li><b>Статистика матчей</b><span>Роль, убийца, убийства, побеги и очки крови за каждый раунд — хранятся на вашем ПК.</span></li>
-            <li><b>Запись через OBS</b><span>Запускает и подписывает записи для каждого матча, есть редактор клипов для лучших моментов.</span></li>
+            <li><b>Статистика матчей</b><span>Роль, убийца, убийства, побеги и очки крови за каждый раунд, ваша форма по дням недели и времени суток, пары навыков и время ожидания — хранятся на вашем ПК.</span></li>
+            <li><b>Запись через OBS</b><span>Запускает и подписывает записи для каждого матча, есть редактор клипов для лучших моментов. Каждую метку, поставленную в раунде, можно сохранить отдельным клипом.</span></li>
+            <li><b>Калькулятор навыков</b><span>Сочетайте навыки, предметы и улучшения для выживших (до четырёх) и убийцы и смотрите, что они дают с учётом убывающей отдачи.</span></li>
             <li><b>Discord и Spotify</b><span>По желанию: показывайте карту и роль в статусе Discord, смотрите свою очередь в Spotify.</span></li>
             <li><b>Определяет язык игры</b><span>Названия карт на английском, немецком, французском, испанском, итальянском, польском, португальском, турецком, русском, китайском, японском и корейском. Fog Scout сам определяет язык игры.</span></li>
             <li><b>Семь языков</b><span>Приложение на немецком, английском, итальянском, русском, китайском, японском и корейском. Следует языку Windows, переключается в настройках.</span></li>
@@ -579,13 +580,15 @@ footer a { text-underline-offset: 3px; }
       <div class="gal-tabs" data-rv>
         <h3>Внутри программы</h3>
         <button type="button" class="gal-tab" id="gal-maps" aria-pressed="true" data-src="/img/maps.webp" data-alt="Страница «Карты» в Fog Scout: все callout-карты, сгруппированные по мирам, с числом раундов и средним числом убийств на каждой карте."><b>Карты</b><span>Все 56 callout-карт в шести стилях, с вашими раундами и убийствами на каждой карте.</span></button>
-        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Страница «Оверлей» в Fog Scout: редактор раскладки, где карта, системные показатели, «Сегодня» и музыка расставлены вокруг изображения игры."><b>Оверлей</b><span>Размещайте карту, таймер, системные показатели и музыку где угодно.</span></button>
+        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Страница «Оверлей» в Fog Scout: редактор раскладки, где карта, системные показатели, «Сегодня» и музыка расставлены вокруг изображения игры."><b>Оверлей</b><span>Размещайте карту, таймер, системные показатели и музыку где угодно. Дополнительные строки показывают FPS, ваш прошлый результат на карте и серию за сессию.</span></button>
         <button type="button" class="gal-tab" id="gal-statistics" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Страница «Статистика» в Fog Scout: раунды, среднее число убийств, доля побегов, очки крови и самые частые карты."><b>Статистика</b><span>Раунды, убийства, побеги и очки крови — хранятся только на этом ПК.</span></button>
+        <button type="button" class="gal-tab" id="gal-recordings" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Страница «Записи» в Fog Scout: состояние записи и список записанных раундов с картой, ролью, результатом, длительностью и размером."><b>Записи</b><span>Записанные раунды, клипы и скриншоты: смотрите, режьте и наводите порядок.</span></button>
+        <button type="button" class="gal-tab" id="gal-calculator" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Страница «Калькулятор» в Fog Scout: слева сборки выживших и убийцы, справа время починки генераторов и доля, с которой учитывается каждый бонус."><b>Калькулятор</b><span>Сочетайте навыки и смотрите, что они дают с учётом убывающей отдачи.</span></button>
         <button type="button" class="gal-tab" id="gal-overview" aria-pressed="false" data-src="/img/overview.webp" data-alt="Страница «Обзор» в Fog Scout: текущая карта, переключатели функций, цифры за неделю, системные показатели и последние раунды."><b>Обзор</b><span>Текущая карта, ваша неделя и системные показатели — с одного взгляда.</span></button>
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Страница «Сервер» в Fog Scout: список из 15 регионов серверов с флажками, два из них разрешены."><b>Сервер</b><span>Отметьте регионы, в которых DBD может искать матч. «Allow all» отменяет выбор.</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Увеличить изображение"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1555" height="1178" alt="Страница «Карты» в Fog Scout: все callout-карты, сгруппированные по мирам, с числом раундов и средним числом убийств на каждой карте."></button></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="Увеличить изображение"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Страница «Карты» в Fog Scout: все callout-карты, сгруппированные по мирам, с числом раундов и средним числом убийств на каждой карте."></button></div>
       </figure>
     </section>
 

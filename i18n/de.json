@@ -43,7 +43,6 @@
   "Server region": "Server-Region",
   "Choose which regions you connect to and see the game server you are on.": "Wähle, mit welchen Regionen du dich verbindest, und sieh, auf welchem Spielserver du bist.",
   "Match statistics": "Match-Statistiken",
-  "Role, killer, kills, escapes and bloodpoints per round, kept on your PC.": "Rolle, Killer, Kills, Entkommen und Blutpunkte pro Runde, gespeichert auf deinem PC.",
   "Recording with OBS": "Aufnehmen mit OBS",
   "Starts and labels recordings per match, with a clip editor for the highlights.": "Startet und benennt Aufnahmen pro Match, mit einem Clip-Editor für die Highlights.",
   "Discord and Spotify": "Discord und Spotify",
@@ -59,7 +58,6 @@
   "All 56 callout maps in six styles, with your rounds and kills per map.": "Alle 56 Callout-Maps in sechs Stilen, mit deinen Runden und Kills pro Map.",
   "Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture.": "Fog-Scout-Seite Overlay: ein Layout-Editor mit Map, Systemwerten, Heute und Musik rund um das Spielbild platziert.",
   "Overlay": "Overlay",
-  "Place map, timer, system values and music where you want them.": "Platziere Map, Timer, Systemwerte und Musik, wo du willst.",
   "Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps.": "Fog-Scout-Seite Statistiken: Runden, durchschnittliche Kills, Entkommensrate, Blutpunkte und die meistgespielten Maps.",
   "Statistics": "Statistiken",
   "Rounds, kills, escapes and bloodpoints, stored on this PC only.": "Runden, Kills, Entkommen und Blutpunkte, nur auf diesem PC gespeichert.",
@@ -179,5 +177,16 @@
   "Lilac see-through": "Lila transparent",
   "Page not found": "Seite nicht gefunden",
   "This page does not exist, or it has moved.": "Diese Seite gibt es nicht, oder sie ist umgezogen.",
-  "To the start page": "Zur Startseite"
+  "To the start page": "Zur Startseite",
+  "Perk calculator": "Perk-Rechner",
+  "Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.": "Kombiniere Perks, Items und Add-ons für bis zu vier Survivor und einen Killer und sieh, was nach Diminishing Returns davon übrig bleibt.",
+  "Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.": "Rolle, Killer, Kills, Entkommen und Blutpunkte pro Runde, deine Form nach Wochentag und Tageszeit, Perk-Paare und Wartezeiten. Gespeichert auf deinem PC.",
+  "Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.": "Startet und benennt Aufnahmen pro Match, mit einem Clip-Editor für die Highlights. Jede Marke, die du in einer Runde setzt, kann ein eigener Clip werden.",
+  "Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.": "Platziere Map, Timer, Systemwerte und Musik, wo du willst. Optionale Zeilen zeigen FPS, dein letztes Ergebnis auf der Map und die Serie deiner Sitzung.",
+  "Recordings": "Aufnahmen",
+  "Recorded rounds, clips and screenshots: play, cut and tidy up.": "Aufgenommene Runden, Clips und Screenshots: abspielen, schneiden und aufräumen.",
+  "Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size.": "Fog Scout Seite Aufnahmen: der Aufnahme-Status und eine Liste aufgenommener Runden mit Map, Rolle, Ergebnis, Länge und Grösse.",
+  "Calculator": "Rechner",
+  "Combine perks and see what they give after diminishing returns.": "Kombiniere Perks und sieh, was sie nach Diminishing Returns bringen.",
+  "Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right.": "Fog Scout Seite Rechner: links Survivor- und Killer-Builds, rechts Generator-Zeiten und der Anteil, mit dem jeder Bonus zählt."
 }

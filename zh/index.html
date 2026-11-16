@@ -565,8 +565,9 @@ footer a { text-underline-offset: 3px; }
           <ul class="feat">
             <li><b>自动报点地图</b><span>56 张地图图片，能区分 Coal Tower II 等不同布局，显示在可点击穿透的窗口中。</span> <a class="more" href="/zh/maps/">查看六种地图样式 →</a></li>
             <li><b>服务器区域</b><span>选择要连接的区域，并查看你所在的游戏服务器。</span></li>
-            <li><b>对局统计</b><span>每局的角色、杀手、击杀、逃脱和血点，保存在你的电脑上。</span></li>
-            <li><b>使用 OBS 录制</b><span>按对局开始并命名录制，附带用于剪辑精彩片段的编辑器。</span></li>
+            <li><b>对局统计</b><span>每局的角色、杀手、击杀、逃脱和血点，以及按星期和时段统计的状态、技能组合和等待时间。保存在你的电脑上。</span></li>
+            <li><b>使用 OBS 录制</b><span>按对局开始并命名录制，附带用于剪辑精彩片段的编辑器。你在一局中设置的每个标记都可以单独保存为片段。</span></li>
+            <li><b>技能计算器</b><span>为最多四名逃生者和一名杀手搭配技能、道具和配件，查看收益递减后的实际效果。</span></li>
             <li><b>Discord 和 Spotify</b><span>可选：将地图和角色显示为 Discord 状态，查看你的 Spotify 播放队列。</span></li>
             <li><b>自动识别游戏语言</b><span>支持英语、德语、法语、西班牙语、意大利语、波兰语、葡萄牙语、土耳其语、俄语、中文、日语和韩语的地图名称。Fog Scout 会自动识别游戏语言。</span></li>
             <li><b>七种语言</b><span>应用界面支持德语、英语、意大利语、俄语、中文、日语和韩语。跟随 Windows 语言，可在设置中切换。</span></li>
@@ -579,13 +580,15 @@ footer a { text-underline-offset: 3px; }
       <div class="gal-tabs" data-rv>
         <h3>应用内部</h3>
         <button type="button" class="gal-tab" id="gal-maps" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout 地图页面：所有报点地图按领域分组，显示每张地图的回合数和平均击杀。"><b>地图</b><span>全部 56 张报点地图，六种样式，附带你在每张地图上的回合数和击杀数。</span></button>
-        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout 叠加层页面：布局编辑器，地图、系统数值、今日和音乐摆放在游戏画面周围。"><b>叠加层</b><span>把地图、计时器、系统数值和音乐放在你想要的位置。</span></button>
+        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout 叠加层页面：布局编辑器，地图、系统数值、今日和音乐摆放在游戏画面周围。"><b>叠加层</b><span>把地图、计时器、系统数值和音乐放在你想要的位置。可选的行可显示 FPS、你上次在该地图的结果和本次连续记录。</span></button>
         <button type="button" class="gal-tab" id="gal-statistics" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout 统计页面：回合数、平均击杀、逃脱率、血点和最常玩的地图。"><b>统计</b><span>回合、击杀、逃脱和血点，仅保存在这台电脑上。</span></button>
+        <button type="button" class="gal-tab" id="gal-recordings" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout 录制页面：录制状态，以及带有地图、角色、结果、时长和大小的已录制回合列表。"><b>录制</b><span>已录制的回合、片段和截图：播放、剪辑和整理。</span></button>
+        <button type="button" class="gal-tab" id="gal-calculator" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout 计算器页面：左侧是逃生者和杀手的配置，右侧是发电机用时和每项加成计入的比例。"><b>计算器</b><span>搭配技能，查看收益递减后的效果。</span></button>
         <button type="button" class="gal-tab" id="gal-overview" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout 概览页面：当前地图、功能开关、本周数据、系统数值和最近的回合。"><b>概览</b><span>当前地图、你的本周数据和系统数值，一目了然。</span></button>
         <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout 服务器页面：15 个服务器区域的复选框列表，其中两个被允许。"><b>服务器</b><span>勾选 DBD 可以搜索的区域。“Allow all”可撤销设置。</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="放大图片"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1555" height="1178" alt="Fog Scout 地图页面：所有报点地图按领域分组，显示每张地图的回合数和平均击杀。"></button></div>
+        <div class="screen"><button type="button" class="zoom" data-zoom="gal" aria-label="放大图片"><img id="galImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout 地图页面：所有报点地图按领域分组，显示每张地图的回合数和平均击杀。"></button></div>
       </figure>
     </section>
 

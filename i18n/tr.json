@@ -43,7 +43,6 @@
   "Server region": "Sunucu bölgesi",
   "Choose which regions you connect to and see the game server you are on.": "Hangi bölgelere bağlanacağını seç ve hangi oyun sunucusunda olduğunu gör.",
   "Match statistics": "Maç istatistikleri",
-  "Role, killer, kills, escapes and bloodpoints per round, kept on your PC.": "Tur başına rol, katil, öldürmeler, kaçışlar ve kan puanı; senin bilgisayarında saklanır.",
   "Recording with OBS": "OBS ile kayıt",
   "Starts and labels recordings per match, with a clip editor for the highlights.": "Kayıtları maç başına başlatır ve adlandırır, öne çıkan anlar için bir klip düzenleyici içerir.",
   "Discord and Spotify": "Discord ve Spotify",
@@ -59,7 +58,6 @@
   "All 56 callout maps in six styles, with your rounds and kills per map.": "Altı stilde 56 callout haritasının tamamı, harita başına turların ve öldürmelerinle.",
   "Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture.": "Fog Scout Overlay sayfası: harita, sistem değerleri, bugün ve müziğin oyun görüntüsünün çevresine yerleştirildiği bir düzen editörü.",
   "Overlay": "Overlay",
-  "Place map, timer, system values and music where you want them.": "Haritayı, sayacı, sistem değerlerini ve müziği istediğin yere koy.",
   "Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps.": "Fog Scout İstatistikler sayfası: turlar, ortalama öldürme, kaçış oranı, kan puanı ve en çok oynanan haritalar.",
   "Statistics": "İstatistikler",
   "Rounds, kills, escapes and bloodpoints, stored on this PC only.": "Turlar, öldürmeler, kaçışlar ve kan puanı; yalnızca bu bilgisayarda saklanır.",
@@ -179,5 +177,16 @@
   "Lilac see-through": "Saydam lila",
   "Page not found": "Sayfa bulunamadı",
   "This page does not exist, or it has moved.": "Bu sayfa yok ya da taşındı.",
-  "To the start page": "Ana sayfaya"
+  "To the start page": "Ana sayfaya",
+  "Perk calculator": "Perk hesaplayıcı",
+  "Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns.": "En fazla dört hayatta kalan ve bir katil için perkleri, eşyaları ve eklentileri birleştir; azalan getiriden sonra ne kazandırdıklarını gör.",
+  "Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.": "Tur başına rol, katil, öldürmeler, kaçışlar ve kan puanı; haftanın gününe ve saate göre formun, perk çiftleri ve bekleme süreleri. Senin bilgisayarında saklanır.",
+  "Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own.": "Kayıtları maç başına başlatır ve adlandırır, öne çıkan anlar için bir klip düzenleyici içerir. Bir turda koyduğun her işaret ayrı bir klip olabilir.",
+  "Place map, timer, system values and music where you want them. Optional rows show FPS, your last result on the map and your session streak.": "Haritayı, sayacı, sistem değerlerini ve müziği istediğin yere koy. İsteğe bağlı satırlar FPS'i, haritadaki son sonucunu ve oturum serini gösterir.",
+  "Recordings": "Kayıtlar",
+  "Recorded rounds, clips and screenshots: play, cut and tidy up.": "Kaydedilen turlar, klipler ve ekran görüntüleri: oynat, kes ve düzenle.",
+  "Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size.": "Fog Scout Kayıtlar sayfası: kayıt durumu ve harita, rol, sonuç, süre ve boyutla kaydedilmiş turların listesi.",
+  "Calculator": "Hesaplayıcı",
+  "Combine perks and see what they give after diminishing returns.": "Perkleri birleştir ve azalan getiriden sonra ne kazandırdıklarını gör.",
+  "Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right.": "Fog Scout Hesaplayıcı sayfası: solda hayatta kalan ve katil buildleri, sağda jeneratör süreleri ve her bonusun sayıldığı pay."
 }
