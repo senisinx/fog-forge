@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Page not found · Fog Forge</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#11171a">
+<meta name="theme-color" content="#e9e5db">
 <link rel="icon" href="/img/icon.svg" type="image/svg+xml">
 <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32">
 <!-- fonts:head -->
 <style>
 :root {
-  color-scheme: dark;
-  --ground: #11171a;
-  --mist: #c9d6d6;
-  --haze: #8a9c9f;
-  --line: #2b383d;
-  --ember: #e39a55;
-  --ember-ink: #1a1109;
+  color-scheme: light;
+  --ground: #e9e5db;
+  --mist: #14181a;
+  --haze: #575e5b;
+  --line: rgba(20, 24, 26, .28);
+  --ember: #b94f17;
+  --ember-ink: #fff;
   --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
   --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
@@ -45,6 +45,27 @@ main p { margin: 0; max-width: 46ch; font-size: 1.25rem; line-height: 1.4; color
 :lang(ko) { --body: "Instrument Sans", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; --display: "Big Shoulders Display", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; word-break: keep-all; }
 :lang(zh) h1, :lang(ja) h1, :lang(ko) h1 { line-height: 1.15; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* paper look, as on the start page: ink rules and buttons, no glow, no blur */
+.bar-in, header { border-bottom-color: var(--mist); }
+.mark { letter-spacing: .03em; font-size: 1.55rem; }
+.mark img { display: none; }
+h1 { animation: none; font-weight: 900; }
+h1 span { color: var(--ember); -webkit-text-stroke: 0; }
+.btn:hover { transform: none; border-color: var(--mist); box-shadow: none; }
+.btn.go, main > .btn { background: var(--mist); border-color: var(--mist); color: var(--ground); }
+.btn.go:hover, main > .btn:hover { background: var(--ember); border-color: var(--ember); color: #fff; box-shadow: none; }
+.btn.go::after { content: none; }
+.lang ul { box-shadow: none; border-color: var(--mist); }
+.bar nav .lang a:hover { background: var(--ground-2); }
+.handle code { background: var(--ground-2); }
+.way, .way:hover { background: var(--ground); }
+.ways { background: var(--mist); border-color: var(--mist); animation: none; }
+.grid a:hover img, .grid a:focus-visible img { transform: none; }
+.lb { color: #e9e5db; }
+.lb-cap span { color: rgba(233, 229, 219, .6); }
+.lb button { background: #14181a; color: #e9e5db; border-color: rgba(233, 229, 219, .3); }
+.lb button:hover { border-color: #e9e5db; }
 </style>
 </head>
 <body>
