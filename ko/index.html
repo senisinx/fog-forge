@@ -391,13 +391,14 @@ footer p { max-width: 58rem; }
 
       <dl class="rows">
         <div><span class="n">01</span><dt>자동 콜아웃 맵</dt><dd>56개의 맵 이미지. Coal Tower II 같은 레이아웃도 구분하며, 클릭이 통과되는 창에 표시합니다. <a href="/ko/maps/">여섯 가지 맵 스타일 보기 →</a></dd></div>
-        <div><span class="n">02</span><dt>서버 지역</dt><dd>접속할 지역을 고르고 현재 게임 서버를 확인할 수 있습니다.</dd></div>
-        <div><span class="n">03</span><dt>매치 통계</dt><dd>라운드별 역할, 살인마, 처치, 탈출, 블러드포인트와 함께 요일·시간대별 성적, 퍽 조합, 대기 시간까지. 모두 PC에 저장합니다.</dd></div>
-        <div><span class="n">04</span><dt>OBS로 녹화</dt><dd>매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다. 라운드 중에 남긴 표시는 각각 별도의 클립으로 저장할 수 있습니다.</dd></div>
-        <div><span class="n">05</span><dt>퍽 계산기</dt><dd>생존자 최대 네 명과 살인마의 퍽, 아이템, 애드온을 조합하고, 효과 감소를 적용한 뒤 실제 효과를 확인하세요.</dd></div>
-        <div><span class="n">06</span><dt>Discord와 Spotify</dt><dd>선택 사항: 맵과 역할을 Discord 상태로 표시하고, Spotify 재생 대기열을 볼 수 있습니다.</dd></div>
-        <div><span class="n">07</span><dt>게임 언어 자동 인식</dt><dd>영어, 독일어, 프랑스어, 스페인어, 이탈리아어, 폴란드어, 포르투갈어, 터키어, 러시아어, 중국어, 일본어, 한국어 맵 이름을 인식합니다. Fog Scout가 게임 언어를 스스로 알아냅니다.</dd></div>
-        <div><span class="n">08</span><dt>7개 언어</dt><dd>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</dd></div>
+        <div><span class="n">02</span><dt>팀원의 로드아웃</dt><dd>생존자로 매치 중에 Esc를 한 번 누르면 Fog Scout가 일시정지 메뉴에서 다른 생존자들의 퍽, 아이템, 애드온, 공물을 읽어 각자 옆에 표시합니다. 선택 기능입니다.</dd></div>
+        <div><span class="n">03</span><dt>서버 지역</dt><dd>접속할 지역을 고르고 현재 게임 서버를 확인할 수 있습니다.</dd></div>
+        <div><span class="n">04</span><dt>매치 통계</dt><dd>라운드별 역할, 살인마, 처치, 탈출, 블러드포인트와 함께 요일·시간대별 성적, 퍽 조합, 대기 시간까지. 모두 PC에 저장합니다.</dd></div>
+        <div><span class="n">05</span><dt>OBS로 녹화</dt><dd>매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다. 라운드 중에 남긴 표시는 각각 별도의 클립으로 저장할 수 있으며, 드라이브에 몇 라운드를 더 저장할 수 있는지도 보여 줍니다.</dd></div>
+        <div><span class="n">06</span><dt>퍽 계산기</dt><dd>생존자 최대 네 명과 살인마의 퍽, 아이템, 애드온을 조합하고, 효과 감소를 적용한 뒤 실제 효과를 확인하세요. 스킬 체크도 계산에 포함됩니다.</dd></div>
+        <div><span class="n">07</span><dt>Discord와 Spotify</dt><dd>선택 사항: 맵과 역할을 Discord 상태로 표시하고, Spotify 재생 대기열을 볼 수 있습니다.</dd></div>
+        <div><span class="n">08</span><dt>게임 언어 자동 인식</dt><dd>영어, 독일어, 프랑스어, 스페인어, 이탈리아어, 폴란드어, 포르투갈어, 터키어, 러시아어, 중국어, 일본어, 한국어 맵 이름을 인식합니다. Fog Scout가 게임 언어를 스스로 알아냅니다.</dd></div>
+        <div><span class="n">09</span><dt>7개 언어</dt><dd>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</dd></div>
       </dl>
 
       <div class="app">
@@ -405,7 +406,7 @@ footer p { max-width: 58rem; }
           <h3>앱 살펴보기</h3>
           <div id="idx" role="group" aria-label="앱 살펴보기">
             <button type="button" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout 맵 페이지: 모든 콜아웃 맵을 렐름별로 묶고, 맵별 라운드 수와 평균 처치 수를 표시합니다."><i>01</i>맵<span>56개 콜아웃 맵 전체를 6가지 스타일로, 맵별 라운드 수와 처치 수와 함께 보여줍니다.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout 오버레이 페이지: 맵, 시스템 수치, 오늘, 음악을 게임 화면 주변에 배치하는 레이아웃 편집기."><i>02</i>오버레이<span>맵, 타이머, 시스템 수치, 음악을 원하는 곳에 배치하세요. 선택 항목으로 FPS, 해당 맵에서의 지난 결과, 세션 연속 기록을 표시할 수 있습니다.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout 오버레이 페이지: 맵, 시스템 수치, 오늘, 음악을 게임 화면 주변에 배치하는 레이아웃 편집기."><i>02</i>오버레이<span>맵, 타이머, 시스템 수치, 음악, 팀원의 로드아웃을 원하는 곳에 배치하세요. 선택 항목으로 FPS, 해당 맵에서의 지난 결과, 세션 연속 기록을 표시할 수 있습니다.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout 통계 페이지: 라운드 수, 평균 처치 수, 탈출률, 블러드포인트, 가장 많이 플레이한 맵."><i>03</i>통계<span>라운드, 처치, 탈출, 블러드포인트를 이 PC에만 저장합니다.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout 녹화 페이지: 녹화 상태와 맵, 역할, 결과, 길이, 크기가 표시된 녹화 라운드 목록."><i>04</i>녹화<span>녹화한 라운드, 클립, 스크린샷을 재생하고 자르고 정리하세요.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout 계산기 페이지: 왼쪽에 생존자와 살인마 빌드, 오른쪽에 발전기 수리 시간과 각 보너스가 반영되는 비율."><i>05</i>계산기<span>퍽을 조합하고 효과 감소를 적용한 뒤의 효과를 확인하세요.</span></button>
@@ -491,7 +492,7 @@ footer p { max-width: 58rem; }
         <li><em>하지 않음</em><span>게임에 대한 키보드나 마우스 입력, 게임 동작의 자동화.</span></li>
         <li><em>하지 않음</em><span>게임 프로세스 접근: 메모리 읽기도, 인젝션도 없습니다.</span></li>
         <li><em>하지 않음</em><span>게임 파일 읽기 또는 변경.</span></li>
-        <li><em>하지 않음</em><span>숨겨진 정보. 콜아웃 맵은 정적인 커뮤니티 맵이며, 발전기나 위치 정보가 없습니다.</span></li>
+        <li><em>하지 않음</em><span>숨겨진 정보. 콜아웃 맵은 정적인 커뮤니티 맵이며, 발전기나 위치 정보가 없습니다. 팀원의 로드아웃은 게임이 직접 보여 주는 일시정지 메뉴에서 읽습니다.</span></li>
         <li class="yes"><em>변경하는 것</em><span>서버 지역 기능을 사용할 때만: Windows hosts 파일. ‘Allow all’로 원래대로 돌아갑니다.</span></li>
       </ul>
     </div>
