@@ -136,6 +136,9 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* a figure with its caption beside it */
+.side { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1rem var(--pad); align-items: end; margin-top: clamp(2.5rem, 5vw, 4rem); }
+.side figcaption { flex-direction: column; gap: .35rem; padding: 0; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -202,7 +205,7 @@ footer p + p { margin-top: .75rem; }
 footer p { max-width: 58rem; }
 
 @media (max-width: 60rem) {
-  .open, .ch-h, .tr, .cols, .app, footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .open, .ch-h, .tr, .cols, .app, .side, footer .wrap { grid-template-columns: minmax(0, 1fr); }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
@@ -311,6 +314,11 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>Seven languages</dt><dd>The app in German, English, Italian, Russian, Chinese, Japanese and Korean. Follows the Windows language, switchable in the settings.</dd></div>
       </dl>
 
+      <figure class="side">
+        <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="900" height="630" alt="Dead by Daylight survivor list during a match. Left of three teammates' portraits, Fog Scout shows each one's four perks as a diamond and their offering, item and add-ons as small squares."></div>
+        <figcaption><b>Fig. 2</b><span>Teammates' loadouts in a real match at 3440×1440, beside DBD's survivor list: perks as a diamond, offering, item and add-ons on its left. Read from the pause menu; names painted over.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>Inside the app</h3>
@@ -326,7 +334,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."></div>
-          <figcaption><b>Fig. 2</b><span>The control window, filled with made-up rounds.</span></figcaption>
+          <figcaption><b>Fig. 3</b><span>The control window, filled with made-up rounds.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Text recognition runs on your PC. Map detection and the overlay open no internet connection.</span> <span>Not signed: SmartScreen shows "More info", then "Run anyway". Asks for administrator rights once. Set DBD to Windowed Fullscreen.</span></p>

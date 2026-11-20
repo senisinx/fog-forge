@@ -226,6 +226,9 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* a figure with its caption beside it */
+.side { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1rem var(--pad); align-items: end; margin-top: clamp(2.5rem, 5vw, 4rem); }
+.side figcaption { flex-direction: column; gap: .35rem; padding: 0; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -292,7 +295,7 @@ footer p + p { margin-top: .75rem; }
 footer p { max-width: 58rem; }
 
 @media (max-width: 60rem) {
-  .open, .ch-h, .tr, .cols, .app, footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .open, .ch-h, .tr, .cols, .app, .side, footer .wrap { grid-template-columns: minmax(0, 1fr); }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
@@ -401,6 +404,11 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>Sieben Sprachen</dt><dd>Die App auf Deutsch, Englisch, Italienisch, Russisch, Chinesisch, Japanisch und Koreanisch. Folgt der Windows-Sprache, umschaltbar in den Einstellungen.</dd></div>
       </dl>
 
+      <figure class="side">
+        <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="900" height="630" alt="Survivor-Liste von Dead by Daylight in einem Match. Links neben den Porträts von drei Mitspielern zeigt Fog Scout je vier Perks als Raute und Opfergabe, Item und Add-ons als kleine Felder."></div>
+        <figcaption><b>Fig. 2</b><span>Loadouts der Mitspieler in einem echten Match bei 3440×1440, neben DBDs Survivor-Liste: Perks als Raute, links davon Opfergabe, Item und Add-ons. Aus dem Pausenmenü gelesen; Namen übermalt.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>Ein Blick in die App</h3>
@@ -416,7 +424,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog-Scout-Seite Maps: alle Callout-Maps nach Reich gruppiert, mit Runden und durchschnittlichen Kills pro Map."></div>
-          <figcaption><b>Fig. 2</b><span>Das Steuerfenster, gefüllt mit erfundenen Runden.</span></figcaption>
+          <figcaption><b>Fig. 3</b><span>Das Steuerfenster, gefüllt mit erfundenen Runden.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Die Texterkennung läuft auf deinem PC. Map-Erkennung und Overlay bauen keine Internetverbindung auf.</span> <span>Nicht signiert: SmartScreen zeigt „Weitere Informationen“, dann „Trotzdem ausführen“. Fragt einmal nach Administratorrechten. Stell DBD auf Vollbild im Fenstermodus.</span></p>

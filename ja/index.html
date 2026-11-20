@@ -226,6 +226,9 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* a figure with its caption beside it */
+.side { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1rem var(--pad); align-items: end; margin-top: clamp(2.5rem, 5vw, 4rem); }
+.side figcaption { flex-direction: column; gap: .35rem; padding: 0; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -292,7 +295,7 @@ footer p + p { margin-top: .75rem; }
 footer p { max-width: 58rem; }
 
 @media (max-width: 60rem) {
-  .open, .ch-h, .tr, .cols, .app, footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .open, .ch-h, .tr, .cols, .app, .side, footer .wrap { grid-template-columns: minmax(0, 1fr); }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
@@ -401,6 +404,11 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>7 つの言語</dt><dd>アプリはドイツ語・英語・イタリア語・ロシア語・中国語・日本語・韓国語に対応。Windows の言語に合わせて表示され、設定で切り替えられます。</dd></div>
       </dl>
 
+      <figure class="side">
+        <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="900" height="630" alt="マッチ中の Dead by Daylight のサバイバー一覧。3 人の味方の肖像の左に、Fog Scout がそれぞれの 4 つのパークをひし形で、オファリング、アイテム、アドオンを小さな枠で表示しています。"></div>
+        <figcaption><b>Fig. 2</b><span>3440×1440 の実際のマッチでの味方のロードアウト。DBD のサバイバー一覧の横に、パークをひし形で、その左にオファリング、アイテム、アドオンを表示。ポーズメニューから読み取り、名前は塗りつぶしています。</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>アプリの中身</h3>
@@ -416,7 +424,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout のマップページ：すべてのコールアウトマップをレルムごとにまとめ、マップごとのラウンド数と平均キル数を表示。"></div>
-          <figcaption><b>Fig. 2</b><span>架空のラウンドを入れたコントロールウィンドウ。</span></figcaption>
+          <figcaption><b>Fig. 3</b><span>架空のラウンドを入れたコントロールウィンドウ。</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>文字認識はお使いの PC 上で動きます。マップの検出とオーバーレイはインターネットに接続しません。</span> <span>署名なし：SmartScreen で「詳細情報」、次に「実行」を選んでください。管理者権限を一度だけ求めます。DBD は「ウィンドウ化フルスクリーン」に設定してください。</span></p>

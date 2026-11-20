@@ -31,6 +31,8 @@
   "56 map pictures, layouts like Coal Tower II told apart, in a click-through window.": "56 枚のマップ画像。Coal Tower II などのレイアウトも見分け、クリックが透過するウィンドウに表示します。",
   "Teammates' loadouts": "味方のロードアウト",
   "As a survivor, press Esc once in the match: Fog Scout reads the other survivors' perks, item, add-ons and offering from the pause menu and shows them next to each of them. Optional.": "サバイバーとしてマッチ中に一度 Esc を押すだけ：Fog Scout がポーズメニューからほかのサバイバーのパーク、アイテム、アドオン、オファリングを読み取り、それぞれの横に表示します。オプションです。",
+  "Teammates' loadouts in a real match at 3440×1440, beside DBD's survivor list: perks as a diamond, offering, item and add-ons on its left. Read from the pause menu; names painted over.": "3440×1440 の実際のマッチでの味方のロードアウト。DBD のサバイバー一覧の横に、パークをひし形で、その左にオファリング、アイテム、アドオンを表示。ポーズメニューから読み取り、名前は塗りつぶしています。",
+  "Dead by Daylight survivor list during a match. Left of three teammates' portraits, Fog Scout shows each one's four perks as a diamond and their offering, item and add-ons as small squares.": "マッチ中の Dead by Daylight のサバイバー一覧。3 人の味方の肖像の左に、Fog Scout がそれぞれの 4 つのパークをひし形で、オファリング、アイテム、アドオンを小さな枠で表示しています。",
   "Server region": "サーバー地域",
   "Choose which regions you connect to and see the game server you are on.": "接続する地域を選び、今いるゲームサーバーを確認できます。",
   "Match statistics": "マッチ統計",

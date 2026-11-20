@@ -226,6 +226,9 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* a figure with its caption beside it */
+.side { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1rem var(--pad); align-items: end; margin-top: clamp(2.5rem, 5vw, 4rem); }
+.side figcaption { flex-direction: column; gap: .35rem; padding: 0; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -292,7 +295,7 @@ footer p + p { margin-top: .75rem; }
 footer p { max-width: 58rem; }
 
 @media (max-width: 60rem) {
-  .open, .ch-h, .tr, .cols, .app, footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .open, .ch-h, .tr, .cols, .app, .side, footer .wrap { grid-template-columns: minmax(0, 1fr); }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
@@ -401,6 +404,11 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>7개 언어</dt><dd>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</dd></div>
       </dl>
 
+      <figure class="side">
+        <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="900" height="630" alt="매치 중 Dead by Daylight 생존자 목록. 팀원 세 명의 초상화 왼쪽에 Fog Scout가 각자의 퍽 네 개를 마름모로, 공물, 아이템, 애드온을 작은 칸으로 보여 줍니다."></div>
+        <figcaption><b>Fig. 2</b><span>3440×1440 실제 매치에서 본 팀원의 로드아웃. DBD 생존자 목록 옆에 퍽은 마름모로, 그 왼쪽에 공물, 아이템, 애드온을 표시합니다. 일시정지 메뉴에서 읽었으며 이름은 가렸습니다.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>앱 살펴보기</h3>
@@ -416,7 +424,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout 맵 페이지: 모든 콜아웃 맵을 렐름별로 묶고, 맵별 라운드 수와 평균 처치 수를 표시합니다."></div>
-          <figcaption><b>Fig. 2</b><span>가상의 라운드로 채운 제어 창.</span></figcaption>
+          <figcaption><b>Fig. 3</b><span>가상의 라운드로 채운 제어 창.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>문자 인식은 사용자의 PC에서 실행됩니다. 맵 감지와 오버레이는 인터넷에 연결하지 않습니다.</span> <span>서명되지 않음: SmartScreen에서 ‘추가 정보’, 이어서 ‘실행’을 누르세요. 관리자 권한을 한 번 요청합니다. DBD를 ‘창 모드 전체 화면’으로 설정하세요.</span></p>

@@ -226,6 +226,9 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* a figure with its caption beside it */
+.side { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1rem var(--pad); align-items: end; margin-top: clamp(2.5rem, 5vw, 4rem); }
+.side figcaption { flex-direction: column; gap: .35rem; padding: 0; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -292,7 +295,7 @@ footer p + p { margin-top: .75rem; }
 footer p { max-width: 58rem; }
 
 @media (max-width: 60rem) {
-  .open, .ch-h, .tr, .cols, .app, footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .open, .ch-h, .tr, .cols, .app, .side, footer .wrap { grid-template-columns: minmax(0, 1fr); }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
@@ -401,6 +404,11 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>Sept langues</dt><dd>L’app en allemand, anglais, italien, russe, chinois, japonais et coréen. Suit la langue de Windows, modifiable dans les paramètres.</dd></div>
       </dl>
 
+      <figure class="side">
+        <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="900" height="630" alt="Liste des survivants de Dead by Daylight pendant une partie. À gauche des portraits de trois coéquipiers, Fog Scout affiche leurs quatre perks en losange et leur offrande, objet et add-ons en petites cases."></div>
+        <figcaption><b>Fig. 2</b><span>Loadouts des coéquipiers dans une vraie partie en 3440×1440, à côté de la liste des survivants de DBD : perks en losange, offrande, objet et add-ons à gauche. Lus dans le menu pause ; noms masqués.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>Dans l’appli</h3>
@@ -416,7 +424,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Page Cartes de Fog Scout : toutes les cartes de callouts regroupées par royaume, avec les manches et la moyenne de kills par map."></div>
-          <figcaption><b>Fig. 2</b><span>La fenêtre de contrôle, remplie de manches inventées.</span></figcaption>
+          <figcaption><b>Fig. 3</b><span>La fenêtre de contrôle, remplie de manches inventées.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>La reconnaissance de texte tourne sur ton PC. La détection de la map et l’overlay n’ouvrent aucune connexion Internet.</span> <span>Non signé : SmartScreen affiche « Informations complémentaires », puis « Exécuter quand même ». Demande une seule fois les droits administrateur. Mets DBD en Plein écran fenêtré.</span></p>

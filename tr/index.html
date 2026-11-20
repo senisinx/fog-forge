@@ -226,6 +226,9 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* a figure with its caption beside it */
+.side { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1rem var(--pad); align-items: end; margin-top: clamp(2.5rem, 5vw, 4rem); }
+.side figcaption { flex-direction: column; gap: .35rem; padding: 0; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -292,7 +295,7 @@ footer p + p { margin-top: .75rem; }
 footer p { max-width: 58rem; }
 
 @media (max-width: 60rem) {
-  .open, .ch-h, .tr, .cols, .app, footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .open, .ch-h, .tr, .cols, .app, .side, footer .wrap { grid-template-columns: minmax(0, 1fr); }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
@@ -401,6 +404,11 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>Yedi dil</dt><dd>Uygulama Almanca, İngilizce, İtalyanca, Rusça, Çince, Japonca ve Korece. Windows dilini izler, ayarlardan değiştirilebilir.</dd></div>
       </dl>
 
+      <figure class="side">
+        <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="900" height="630" alt="Maç sırasında Dead by Daylight hayatta kalan listesi. Fog Scout, üç takım arkadaşının portresinin solunda her birinin dört perkini eşkenar dörtgen olarak, adağını, eşyasını ve eklentilerini küçük kareler olarak gösteriyor."></div>
+        <figcaption><b>Fig. 2</b><span>3440×1440'te gerçek bir maçta takım arkadaşlarının loadout'ları, DBD'nin hayatta kalan listesinin yanında: perkler eşkenar dörtgen, solunda adak, eşya ve eklentiler. Duraklatma menüsünden okundu; isimler boyandı.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>Uygulamanın içi</h3>
@@ -416,7 +424,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout Haritalar sayfası: diyara göre gruplanmış tüm callout haritaları, harita başına tur sayısı ve ortalama öldürme."></div>
-          <figcaption><b>Fig. 2</b><span>Uydurma turlarla doldurulmuş kontrol penceresi.</span></figcaption>
+          <figcaption><b>Fig. 3</b><span>Uydurma turlarla doldurulmuş kontrol penceresi.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Metin tanıma senin bilgisayarında çalışır. Harita tespiti ve overlay hiçbir internet bağlantısı açmaz.</span> <span>İmzasız: SmartScreen önce "Ek bilgi", sonra "Yine de çalıştır" gösterir. Bir kez yönetici izni ister. DBD'yi Pencereli Tam Ekran moduna al.</span></p>
