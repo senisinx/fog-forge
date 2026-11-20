@@ -226,9 +226,10 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
-/* a figure with its caption beside it */
-.side { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1rem var(--pad); align-items: end; margin-top: clamp(2.5rem, 5vw, 4rem); }
-.side figcaption { flex-direction: column; gap: .35rem; padding: 0; }
+/* two pictures side by side, one caption */
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
+.pair p { padding-top: .65rem; }
+.pair figcaption { grid-column: 1 / -1; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -295,7 +296,7 @@ footer p + p { margin-top: .75rem; }
 footer p { max-width: 58rem; }
 
 @media (max-width: 60rem) {
-  .open, .ch-h, .tr, .cols, .app, .side, footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .open, .ch-h, .tr, .cols, .app, footer .wrap { grid-template-columns: minmax(0, 1fr); }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
@@ -318,6 +319,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
+ .pair { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -404,9 +406,16 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>Sette lingue</dt><dd>L’app in tedesco, inglese, italiano, russo, cinese, giapponese e coreano. Segue la lingua di Windows, modificabile nelle impostazioni.</dd></div>
       </dl>
 
-      <figure class="side">
-        <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="900" height="630" alt="Lista dei sopravvissuti di Dead by Daylight durante una partita. A sinistra dei ritratti di tre compagni, Fog Scout mostra i loro quattro perk a rombo e offerta, oggetto e add-on in piccoli riquadri."></div>
-        <figcaption><b>Fig. 2</b><span>Loadout dei compagni in una partita vera a 3440×1440, accanto alla lista dei sopravvissuti di DBD: perk a rombo, a sinistra offerta, oggetto e add-on. Letti dal menu di pausa; nomi coperti.</span></figcaption>
+      <figure class="pair">
+        <div>
+          <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="700" height="630" alt="Lista dei sopravvissuti di Dead by Daylight durante una partita. A sinistra dei ritratti di tre compagni, Fog Scout mostra i loro quattro perk a rombo e offerta, oggetto e add-on in piccoli riquadri."></div>
+          <p class="mono dim">Accanto alla lista</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="La stessa lista dei sopravvissuti. Sopra il nome di tre compagni, Fog Scout mostra i loro quattro perk in fila, seguiti da offerta, oggetto e add-on."></div>
+          <p class="mono dim">Sopra il nome</p>
+        </div>
+        <figcaption><b>Fig. 2</b><span>Loadout dei compagni in una partita vera a 3440×1440, letti dal menu di pausa. A sinistra: accanto alla lista dei sopravvissuti di DBD, i perk a rombo con offerta, oggetto e add-on. A destra: in fila sopra ogni nome. Nomi coperti.</span></figcaption>
       </figure>
 
       <div class="app">

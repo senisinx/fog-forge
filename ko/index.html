@@ -226,9 +226,10 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
-/* a figure with its caption beside it */
-.side { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1rem var(--pad); align-items: end; margin-top: clamp(2.5rem, 5vw, 4rem); }
-.side figcaption { flex-direction: column; gap: .35rem; padding: 0; }
+/* two pictures side by side, one caption */
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
+.pair p { padding-top: .65rem; }
+.pair figcaption { grid-column: 1 / -1; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -295,7 +296,7 @@ footer p + p { margin-top: .75rem; }
 footer p { max-width: 58rem; }
 
 @media (max-width: 60rem) {
-  .open, .ch-h, .tr, .cols, .app, .side, footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .open, .ch-h, .tr, .cols, .app, footer .wrap { grid-template-columns: minmax(0, 1fr); }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
@@ -318,6 +319,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
+ .pair { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -404,9 +406,16 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>7개 언어</dt><dd>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</dd></div>
       </dl>
 
-      <figure class="side">
-        <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="900" height="630" alt="매치 중 Dead by Daylight 생존자 목록. 팀원 세 명의 초상화 왼쪽에 Fog Scout가 각자의 퍽 네 개를 마름모로, 공물, 아이템, 애드온을 작은 칸으로 보여 줍니다."></div>
-        <figcaption><b>Fig. 2</b><span>3440×1440 실제 매치에서 본 팀원의 로드아웃. DBD 생존자 목록 옆에 퍽은 마름모로, 그 왼쪽에 공물, 아이템, 애드온을 표시합니다. 일시정지 메뉴에서 읽었으며 이름은 가렸습니다.</span></figcaption>
+      <figure class="pair">
+        <div>
+          <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="700" height="630" alt="매치 중 Dead by Daylight 생존자 목록. 팀원 세 명의 초상화 왼쪽에 Fog Scout가 각자의 퍽 네 개를 마름모로, 공물, 아이템, 애드온을 작은 칸으로 보여 줍니다."></div>
+          <p class="mono dim">목록 옆</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="같은 생존자 목록. 팀원 세 명의 이름 위에 Fog Scout가 각자의 퍽 네 개를 한 줄로, 이어서 공물, 아이템, 애드온을 보여 줍니다."></div>
+          <p class="mono dim">이름 위</p>
+        </div>
+        <figcaption><b>Fig. 2</b><span>3440×1440 실제 매치에서 본 팀원의 로드아웃으로, 일시정지 메뉴에서 읽었습니다. 왼쪽: DBD 생존자 목록 옆에 퍽을 마름모로, 공물, 아이템, 애드온과 함께 표시. 오른쪽: 각 이름 위에 한 줄로 표시. 이름은 가렸습니다.</span></figcaption>
       </figure>
 
       <div class="app">

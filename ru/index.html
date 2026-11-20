@@ -226,9 +226,10 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
-/* a figure with its caption beside it */
-.side { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1rem var(--pad); align-items: end; margin-top: clamp(2.5rem, 5vw, 4rem); }
-.side figcaption { flex-direction: column; gap: .35rem; padding: 0; }
+/* two pictures side by side, one caption */
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
+.pair p { padding-top: .65rem; }
+.pair figcaption { grid-column: 1 / -1; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -295,7 +296,7 @@ footer p + p { margin-top: .75rem; }
 footer p { max-width: 58rem; }
 
 @media (max-width: 60rem) {
-  .open, .ch-h, .tr, .cols, .app, .side, footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .open, .ch-h, .tr, .cols, .app, footer .wrap { grid-template-columns: minmax(0, 1fr); }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
@@ -318,6 +319,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
+ .pair { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -404,9 +406,16 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>Семь языков</dt><dd>Приложение на немецком, английском, итальянском, русском, китайском, японском и корейском. Следует языку Windows, переключается в настройках.</dd></div>
       </dl>
 
-      <figure class="side">
-        <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="900" height="630" alt="Список выживших Dead by Daylight во время матча. Слева от портретов трёх союзников Fog Scout показывает их четыре навыка ромбом, а подношение, предмет и улучшения — маленькими клетками."></div>
-        <figcaption><b>Fig. 2</b><span>Сборки союзников в настоящем матче при 3440×1440, рядом со списком выживших DBD: навыки ромбом, слева подношение, предмет и улучшения. Считаны из меню паузы; имена закрашены.</span></figcaption>
+      <figure class="pair">
+        <div>
+          <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="700" height="630" alt="Список выживших Dead by Daylight во время матча. Слева от портретов трёх союзников Fog Scout показывает их четыре навыка ромбом, а подношение, предмет и улучшения — маленькими клетками."></div>
+          <p class="mono dim">Рядом со списком</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="Тот же список выживших. Над именем каждого из трёх союзников Fog Scout показывает четыре навыка в ряд, а за ними подношение, предмет и улучшения."></div>
+          <p class="mono dim">Над именем</p>
+        </div>
+        <figcaption><b>Fig. 2</b><span>Сборки союзников в настоящем матче при 3440×1440, считанные из меню паузы. Слева: рядом со списком выживших DBD, навыки ромбом с подношением, предметом и улучшениями. Справа: в ряд над каждым именем. Имена закрашены.</span></figcaption>
       </figure>
 
       <div class="app">
