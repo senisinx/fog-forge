@@ -226,6 +226,10 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* two pictures side by side, one caption */
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
+.pair p { padding-top: .65rem; }
+.pair figcaption { grid-column: 1 / -1; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -315,6 +319,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
+ .pair { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -401,6 +406,18 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>Sieben Sprachen</dt><dd>Die App auf Deutsch, Englisch, Italienisch, Russisch, Chinesisch, Japanisch und Koreanisch. Folgt der Windows-Sprache, umschaltbar in den Einstellungen.</dd></div>
       </dl>
 
+      <figure class="pair">
+        <div>
+          <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="700" height="630" alt="Survivor-Liste von Dead by Daylight in einem Match. Links neben den Porträts von drei Mitspielern zeigt Fog Scout je vier Perks als Raute und Opfergabe, Item und Add-ons als kleine Felder."></div>
+          <p class="mono dim">Neben der Liste</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="Dieselbe Survivor-Liste. Über dem Namen von drei Mitspielern zeigt Fog Scout je vier Perks in einer Reihe, danach Opfergabe, Item und Add-ons."></div>
+          <p class="mono dim">Über dem Namen</p>
+        </div>
+        <figcaption><b>Fig. 2</b><span>Loadouts der Mitspieler in einem echten Match bei 3440×1440, aus dem Pausenmenü gelesen. Links: neben DBDs Survivor-Liste, Perks als Raute mit Opfergabe, Item und Add-ons. Rechts: in einer Reihe über jedem Namen. Namen übermalt.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>Ein Blick in die App</h3>
@@ -416,7 +433,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog-Scout-Seite Maps: alle Callout-Maps nach Reich gruppiert, mit Runden und durchschnittlichen Kills pro Map."></div>
-          <figcaption><b>Fig. 2</b><span>Das Steuerfenster, gefüllt mit erfundenen Runden.</span></figcaption>
+          <figcaption><b>Fig. 3</b><span>Das Steuerfenster, gefüllt mit erfundenen Runden.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Die Texterkennung läuft auf deinem PC. Map-Erkennung und Overlay bauen keine Internetverbindung auf.</span> <span>Nicht signiert: SmartScreen zeigt „Weitere Informationen“, dann „Trotzdem ausführen“. Fragt einmal nach Administratorrechten. Stell DBD auf Vollbild im Fenstermodus.</span></p>

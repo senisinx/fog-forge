@@ -226,6 +226,10 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* two pictures side by side, one caption */
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
+.pair p { padding-top: .65rem; }
+.pair figcaption { grid-column: 1 / -1; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -315,6 +319,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
+ .pair { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -401,6 +406,18 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>Zeven talen</dt><dd>De app in het Duits, Engels, Italiaans, Russisch, Chinees, Japans en Koreaans. Volgt de taal van Windows, te wijzigen in de instellingen.</dd></div>
       </dl>
 
+      <figure class="pair">
+        <div>
+          <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="700" height="630" alt="Overlevendenlijst van Dead by Daylight tijdens een match. Links van de portretten van drie teamgenoten toont Fog Scout hun vier perks als ruit en hun offer, item en add-ons als kleine vakjes."></div>
+          <p class="mono dim">Naast de lijst</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="Dezelfde overlevendenlijst. Boven de naam van drie teamgenoten toont Fog Scout hun vier perks op een rij, gevolgd door offer, item en add-ons."></div>
+          <p class="mono dim">Boven de naam</p>
+        </div>
+        <figcaption><b>Fig. 2</b><span>Loadouts van teamgenoten in een echte match op 3440×1440, gelezen uit het pauzemenu. Links: naast de overlevendenlijst van DBD, de perks als ruit met offer, item en add-ons. Rechts: op een rij boven elke naam. Namen overgeschilderd.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>In de app</h3>
@@ -416,7 +433,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Pagina Maps van Fog Scout: alle callout maps gegroepeerd per rijk, met rondes en gemiddelde kills per map."></div>
-          <figcaption><b>Fig. 2</b><span>Het bedieningsvenster, gevuld met verzonnen rondes.</span></figcaption>
+          <figcaption><b>Fig. 3</b><span>Het bedieningsvenster, gevuld met verzonnen rondes.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Tekstherkenning draait op je pc. Mapherkenning en de overlay maken geen internetverbinding.</span> <span>Niet ondertekend: SmartScreen toont "Meer informatie" en daarna "Toch uitvoeren". Vraagt één keer om beheerdersrechten. Zet DBD op Volledig scherm in venster.</span></p>

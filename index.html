@@ -226,6 +226,10 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* two pictures side by side, one caption */
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
+.pair p { padding-top: .65rem; }
+.pair figcaption { grid-column: 1 / -1; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -315,6 +319,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
+ .pair { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -401,6 +406,18 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>Seven languages</dt><dd>The app in German, English, Italian, Russian, Chinese, Japanese and Korean. Follows the Windows language, switchable in the settings.</dd></div>
       </dl>
 
+      <figure class="pair">
+        <div>
+          <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="700" height="630" alt="Dead by Daylight survivor list during a match. Left of three teammates' portraits, Fog Scout shows each one's four perks as a diamond and their offering, item and add-ons as small squares."></div>
+          <p class="mono dim">Beside the list</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="The same survivor list. Above the name of each of three teammates, Fog Scout shows their four perks in a row, followed by offering, item and add-ons."></div>
+          <p class="mono dim">Above the name</p>
+        </div>
+        <figcaption><b>Fig. 2</b><span>Teammates' loadouts in a real match at 3440×1440, read from the pause menu. Left: beside DBD's survivor list, the perks as a diamond with offering, item and add-ons. Right: in a row above each name. Names painted over.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>Inside the app</h3>
@@ -416,7 +433,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."></div>
-          <figcaption><b>Fig. 2</b><span>The control window, filled with made-up rounds.</span></figcaption>
+          <figcaption><b>Fig. 3</b><span>The control window, filled with made-up rounds.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Text recognition runs on your PC. Map detection and the overlay open no internet connection.</span> <span>Not signed: SmartScreen shows "More info", then "Run anyway". Asks for administrator rights once. Set DBD to Windowed Fullscreen.</span></p>

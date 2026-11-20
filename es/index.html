@@ -226,6 +226,10 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* two pictures side by side, one caption */
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
+.pair p { padding-top: .65rem; }
+.pair figcaption { grid-column: 1 / -1; }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -315,6 +319,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
+ .pair { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -401,6 +406,18 @@ footer p { max-width: 58rem; }
         <div><span class="n">09</span><dt>Siete idiomas</dt><dd>La app en alemán, inglés, italiano, ruso, chino, japonés y coreano. Sigue el idioma de Windows; se puede cambiar en los ajustes.</dd></div>
       </dl>
 
+      <figure class="pair">
+        <div>
+          <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="700" height="630" alt="Lista de supervivientes de Dead by Daylight durante una partida. A la izquierda de los retratos de tres compañeros, Fog Scout muestra sus cuatro perks en rombo y su ofrenda, objeto y accesorios en casillas pequeñas."></div>
+          <p class="mono dim">Junto a la lista</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="La misma lista de supervivientes. Sobre el nombre de tres compañeros, Fog Scout muestra sus cuatro perks en fila, seguidos de ofrenda, objeto y accesorios."></div>
+          <p class="mono dim">Sobre el nombre</p>
+        </div>
+        <figcaption><b>Fig. 2</b><span>Loadouts de los compañeros en una partida real a 3440×1440, leídos del menú de pausa. Izquierda: junto a la lista de supervivientes de DBD, los perks en rombo con ofrenda, objeto y accesorios. Derecha: en fila sobre cada nombre. Nombres tapados.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>Dentro de la app</h3>
@@ -416,7 +433,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Página Mapas de Fog Scout: todos los mapas de callouts agrupados por reino, con rondas y media de muertes por mapa."></div>
-          <figcaption><b>Fig. 2</b><span>La ventana de control, rellenada con rondas inventadas.</span></figcaption>
+          <figcaption><b>Fig. 3</b><span>La ventana de control, rellenada con rondas inventadas.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>El reconocimiento de texto se ejecuta en tu PC. La detección del mapa y el overlay no abren ninguna conexión a Internet.</span> <span>Sin firmar: SmartScreen muestra «Más información» y luego «Ejecutar de todas formas». Pide permisos de administrador una vez. Pon DBD en Pantalla completa en ventana.</span></p>
