@@ -404,6 +404,9 @@ footer p { max-width: 58rem; }
         <div><span class="n">07</span><dt>Discord と Spotify</dt><dd>オプション：マップと役割を Discord のステータスに表示し、Spotify の再生キューを確認できます。</dd></div>
         <div><span class="n">08</span><dt>ゲームの言語を自動認識</dt><dd>英語・ドイツ語・フランス語・スペイン語・イタリア語・ポーランド語・ポルトガル語・トルコ語・ロシア語・中国語・日本語・韓国語のマップ名に対応。Fog Scout はゲームの言語を自動で認識します。</dd></div>
         <div><span class="n">09</span><dt>7 つの言語</dt><dd>アプリはドイツ語・英語・イタリア語・ロシア語・中国語・日本語・韓国語に対応。Windows の言語に合わせて表示され、設定で切り替えられます。</dd></div>
+        <div><span class="n">10</span><dt>ラウンドタイマーと通知</dt><dd>ラウンド中はマップの下にタイマー、待機中はマッチング時間を表示。ロビーが見つかったときやブラッドポイントが上限で増えなくなったときに音で知らせます。</dd></div>
+        <div><span class="n">11</span><dt>ゲームの周りのカード</dt><dd>マップの横に、システム値、今日のラウンド、再生中の音楽を表示するカードを追加できます。オーバーレイエディターで配置し、画面サイズごとにレイアウトを保存します。</dd></div>
+        <div><span class="n">12</span><dt>安全なアップデートとバックアップ</dt><dd>アップデートは GitHub のリリースから取得し、インストール前に SHA-256 で確認します。設定とラウンドは 1 つのバックアップファイルにまとめられます。</dd></div>
       </dl>
 
       <figure class="pair">
@@ -424,11 +427,16 @@ footer p { max-width: 58rem; }
           <div id="idx" role="group" aria-label="アプリの中身">
             <button type="button" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout のマップページ：すべてのコールアウトマップをレルムごとにまとめ、マップごとのラウンド数と平均キル数を表示。"><i>01</i>マップ<span>全 56 枚のコールアウトマップを 6 種類のスタイルで。マップごとのラウンド数とキル数も表示します。</span></button>
             <button type="button" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout のオーバーレイページ：マップ、システム値、今日、音楽をゲーム画面の周りに配置するレイアウトエディター。"><i>02</i>オーバーレイ<span>マップ、タイマー、システム値、音楽、味方のロードアウトを好きな場所に配置できます。オプションの行で FPS、そのマップでの前回の結果、セッションの連続記録を表示できます。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout の統計ページ：ラウンド数、平均キル数、脱出率、ブラッドポイント、よく遊ぶマップ。"><i>03</i>統計<span>ラウンド、キル、脱出、ブラッドポイントを、この PC にだけ保存します。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout の録画ページ：録画の状態と、マップ、役割、結果、長さ、サイズが並ぶ録画済みラウンドの一覧。"><i>04</i>録画<span>録画したラウンド、クリップ、スクリーンショットを再生、カット、整理できます。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout の計算機ページ：左にサバイバーとキラーのビルド、右に発電機の修理時間と各ボーナスが反映される割合。"><i>05</i>計算機<span>パークを組み合わせ、効果逓減後の効果を確認できます。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout の概要ページ：現在のマップ、機能のオン／オフ、今週の数値、システム値、最近のラウンド。"><i>06</i>概要<span>現在のマップ、今週の成績、システム値をひと目で確認できます。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout のサーバーページ：15 のサーバー地域のチェックボックス一覧。そのうち 2 つが許可されています。"><i>07</i>サーバー<span>DBD が検索してよい地域にチェックを入れます。「Allow all」で元に戻せます。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overlay-system.webp" data-alt="Fog Scout のオーバーレイページで「システム値」カードを選択した状態：CPU、GPU、ホットスポット、VRAM、RAM、FPS の行が黒帯の右上にあります。"><i>03</i>システム値<span>CPU と GPU の温度と負荷、VRAM と RAM をゲームの横に表示し、FPS は HWiNFO から取得します。表示する行は自由に選べます。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout の統計ページ：ラウンド数、平均キル数、脱出率、ブラッドポイント、よく遊ぶマップ。"><i>04</i>統計<span>ラウンド、キル、脱出、ブラッドポイントを、この PC にだけ保存します。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/stats-rounds.webp" data-alt="Fog Scout の統計「最近のラウンド」：日付、マップ、長さ、待ち時間、役割またはキラー、サーバー地域と ping を並べた表。"><i>05</i>ラウンド履歴<span>すべてのラウンドをマップ、長さ、待ち時間、役割、サーバーとともに記録。右クリックでラウンドを修正できます。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/stats-waiting.webp" data-alt="Fog Scout の統計「待ち時間」：平均、中央値、最短と最長の待ち時間、曜日ごとの表、キラーとサバイバーの週ごとのグラフ。"><i>06</i>待ち時間<span>マッチングにかかる時間を曜日と役割ごとに、ゲームの予想時間と比べて表示します。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout の録画ページ：録画の状態と、マップ、役割、結果、長さ、サイズが並ぶ録画済みラウンドの一覧。"><i>07</i>録画<span>録画したラウンド、クリップ、スクリーンショットを再生、カット、整理できます。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout の計算機ページ：左にサバイバーとキラーのビルド、右に発電機の修理時間と各ボーナスが反映される割合。"><i>08</i>計算機<span>パークを組み合わせ、効果逓減後の効果を確認できます。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout の概要ページ：現在のマップ、機能のオン／オフ、今週の数値、システム値、最近のラウンド。"><i>09</i>概要<span>現在のマップ、今週の成績、システム値をひと目で確認できます。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout のサーバーページ：15 のサーバー地域のチェックボックス一覧。そのうち 2 つが許可されています。"><i>10</i>サーバー<span>DBD が検索してよい地域にチェックを入れます。「Allow all」で元に戻せます。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/settings.webp" data-alt="Fog Scout の設定「検出」タブ：検出のスイッチ、マップ名のゲーム言語、通知。"><i>11</i>設定<span>Fog Scout のすべての機能を一か所に。Ctrl+F で検索できます。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/setup.webp" data-alt="Fog Scout の初期設定、ステップ 2/8：黒帯にマップのプレビューを表示したオーバーレイの位置と、システム値の配置。"><i>12</i>初期設定<span>初回起動時の 8 つの短いステップ：ゲーム言語、オーバーレイ、ホットキー、通知、マッチデータ、OBS、接続、サーバー。</span></button>
           </div>
         </div>
         <figure>

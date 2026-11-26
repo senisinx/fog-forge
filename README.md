@@ -24,7 +24,7 @@ The HTML in the repository root and in the language folders (`de/`, `fr/`, …) 
 - Game picture of the start page: `img/match-rotten-fields.webp`, also as `-960` and `-1600` for `srcset`; after a new
   screenshot, make both sizes (WebP, quality 80). The other `img/match-*.webp` are not shown at the moment.
 - Pictures of the programs (`img/maps.webp`, `overlay`, `statistics`, `recordings`, `calculator`, `overview`, `server`,
-  `translate-app`): screenshots of the real windows with made-up data, 1560×1180 for Fog Scout. No real rounds, pings
+  `overlay-system`, `stats-rounds`, `stats-waiting`, `settings`, `setup`, `translate-app`): screenshots of the real windows with made-up data, 1560×1180 for Fog Scout. No real rounds, pings
   or keys may be in them.
 - `data/maps.json`, `img/maps/`: three callout maps in the six map styles for `/maps/`, made from Fog Scout. Do not edit
   them; run `python3 tools/import_maps.py <path to a fog-scout checkout>` to show other maps or after a change to the
