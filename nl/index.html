@@ -227,6 +227,15 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* the features of a tool in groups: two columns of groups, one below the other on a phone */
+.kit { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
+.kit section { margin-top: clamp(2rem, 4vw, 3rem); }
+.kit h3 { display: flex; align-items: baseline; gap: .8rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ink); }
+.kit h3 span { font: 500 .78rem/1 var(--mono); letter-spacing: .06em; color: var(--rust); }
+.kit .rows { grid-template-columns: 1fr; }
+.tr-rows { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.score { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 48rem; }
+
 /* two pictures side by side, one caption */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
@@ -304,6 +313,7 @@ footer p { max-width: 58rem; }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
+  .kit { grid-template-columns: minmax(0, 1fr); }
   .idx { position: static; }
   .idx div { display: flex; flex-wrap: wrap; gap: .35rem; }
   .idx button { display: block; width: auto; padding: .5rem .8rem; border: 1px solid var(--hair) !important; font-size: .9375rem; }
@@ -398,20 +408,61 @@ footer p { max-width: 58rem; }
         <p>Als een match begint, leest Fog Scout de mapnaam linksonder op het scherm en legt de bijbehorende callout map over het spel. Na de ronde verdwijnt de map weer.</p>
       </div>
 
-      <dl class="rows">
-        <div><dt>Automatische callout maps</dt><dd>56 mapafbeeldingen, varianten zoals Coal Tower II worden onderscheiden, in een click-through-venster. <a href="/nl/maps/">Bekijk de zes mapstijlen →</a></dd></div>
-        <div><dt>Loadouts van je teamgenoten</dt><dd>Druk als overlevende één keer op Esc in de match: Fog Scout leest de perks, het item, de add-ons en het offer van de andere overlevenden uit het pauzemenu en toont ze naast elk van hen. Optioneel.</dd></div>
-        <div><dt>Serverregio</dt><dd>Kies met welke regio's je verbindt en zie op welke gameserver je zit.</dd></div>
-        <div><dt>Matchstatistieken</dt><dd>Rol, moordenaar, kills, ontsnappingen en bloedpunten per ronde, je vorm per weekdag en tijdstip, perk-paren en wachttijden. Opgeslagen op je pc.</dd></div>
-        <div><dt>Opnemen met OBS</dt><dd>Start en benoemt opnames per match, met een clip-editor voor de hoogtepunten. Elke markering die je in een ronde zet, kan een eigen clip worden, en Fog Scout toont hoeveel rondes er nog op de schijf passen.</dd></div>
-        <div><dt>Perk-calculator</dt><dd>Combineer perks, items en add-ons voor maximaal vier overlevenden en een moordenaar en zie wat ze opleveren na afnemende meeropbrengsten, skill checks inbegrepen.</dd></div>
-        <div><dt>Discord en Spotify</dt><dd>Optioneel: map en rol als Discord-status tonen, je Spotify-wachtrij zien.</dd></div>
-        <div><dt>Herkent de speltaal</dt><dd>Mapnamen in het Engels, Duits, Frans, Spaans, Italiaans, Pools, Portugees, Turks, Russisch, Chinees, Japans en Koreaans. Fog Scout herkent de speltaal zelf.</dd></div>
-        <div><dt>Zeven talen</dt><dd>De app in het Duits, Engels, Italiaans, Russisch, Chinees, Japans en Koreaans. Volgt de taal van Windows, te wijzigen in de instellingen.</dd></div>
-        <div><dt>Rondetimer en meldingen</dt><dd>Een timer onder de map zolang de ronde loopt, de zoektijd terwijl je wacht, en een geluid als de lobby gevonden is of je bloedpunten bij het maximum niet meer stijgen.</dd></div>
-        <div><dt>Kaarten rond het spel</dt><dd>Naast de map tonen optionele kaarten systeemwaarden, de rondes van vandaag en de muziek die speelt. Je plaatst ze in de overlay-editor, één indeling per schermformaat.</dd></div>
-        <div><dt>Veilige updates en back-ups</dt><dd>Updates komen uit de GitHub-release en worden vóór de installatie met SHA-256 gecontroleerd. Instellingen en rondes gaan in één back-upbestand.</dd></div>
-      </dl>
+      <div class="kit">
+        <div>
+          <section aria-labelledby="k-match">
+            <h3 id="k-match"><span>A</span>In de match</h3>
+            <dl class="rows">
+              <div><dt>Automatische callout maps</dt><dd>56 mapafbeeldingen, varianten zoals Coal Tower II worden onderscheiden, in een click-through-venster. <a href="/nl/maps/">Bekijk de zes mapstijlen →</a></dd></div>
+              <div><dt>Rondetimer en meldingen</dt><dd>Een timer onder de map zolang de ronde loopt, de zoektijd terwijl je wacht, en een geluid als de lobby gevonden is of je bloedpunten bij het maximum niet meer stijgen.</dd></div>
+              <div><dt>Scoreteller</dt><dd>Telt tijdens het spelen de score events rechtsboven en telt elke categorie op: als ringen, balken of één regel naast de map. Een volle categorie toont MAX.</dd></div>
+              <div><dt>Loadouts van je teamgenoten</dt><dd>Druk als overlevende één keer op Esc in de match: Fog Scout leest de perks, het item, de add-ons en het offer van de andere overlevenden uit het pauzemenu en toont ze naast elk van hen. Optioneel.</dd></div>
+              <div><dt>Kaarten rond het spel</dt><dd>Naast de map tonen optionele kaarten systeemwaarden, de rondes van vandaag en de muziek die speelt. Je plaatst ze in de overlay-editor, één indeling per schermformaat.</dd></div>
+              <div><dt>Toetsen en controller in beeld</dt><dd>Optioneel: laat zien welke bewegingstoetsen, muisknoppen en controllerknoppen je vasthoudt. Bij een opname worden ze naast de video bewaard en in de clip-editor weer getoond.</dd></div>
+              <div><dt>Notities per map en moordenaar</dt><dd>Een korte eigen notitie voor elke map en elke moordenaar, in de ronde op de mapkaart.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-rec">
+            <h3 id="k-rec"><span>B</span>Opnames en clips</h3>
+            <dl class="rows">
+              <div><dt>Opnemen met OBS</dt><dd>Start en benoemt opnames per match, met een clip-editor voor de hoogtepunten. Elke markering die je in een ronde zet, kan een eigen clip worden, en Fog Scout toont hoeveel rondes er nog op de schijf passen.</dd></div>
+              <div><dt>Clip-editor</dt><dd>Knippen, namen verbergen, ondertitels, muziek en je eigen stem toevoegen, clips uit meerdere rondes samenvoegen of een staande short maken.</dd></div>
+              <div><dt>Momenten</dt><dd>Vindt rustige stukken en donkere laadschermen in een opname en biedt aan ze eruit te knippen.</dd></div>
+              <div><dt>Steam-screenshots</dt><dd>Je F12-screenshots in één galerij: bijsnijden, erop tekenen en namen verbergen. Fog Scout bewaart een bewerkte kopie en laat het origineel ongemoeid.</dd></div>
+              <div><dt>YouTube-upload</dt><dd>Optioneel: uploadt een ronde of clip naar je kanaal en pauzeert zolang je in een lobby zit.</dd></div>
+            </dl>
+          </section>
+        </div>
+        <div>
+          <section aria-labelledby="k-stats">
+            <h3 id="k-stats"><span>C</span>Statistieken</h3>
+            <dl class="rows">
+              <div><dt>Matchstatistieken</dt><dd>Rol, moordenaar, kills, ontsnappingen en bloedpunten per ronde, je vorm per weekdag en tijdstip, perk-paren en wachttijden. Opgeslagen op je pc.</dd></div>
+              <div><dt>Records en sessies</dt><dd>Reeksen, je beste week en elke sessie, met een korte samenvatting als je DBD sluit.</dd></div>
+              <div><dt>Bloedpunten en farming</dt><dd>Bloedpunten per uur, en farmingrondes apart geteld of met één schakelaar verborgen.</dd></div>
+              <div><dt>Exporteren</dt><dd>Rondes als CSV-bestand, gefilterd op periode, rol, moordenaar of map.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-tools">
+            <h3 id="k-tools"><span>D</span>Hulpmiddelen</h3>
+            <dl class="rows">
+              <div><dt>Serverregio</dt><dd>Kies met welke regio's je verbindt en zie op welke gameserver je zit.</dd></div>
+              <div><dt>Perk-calculator</dt><dd>Combineer perks, items en add-ons voor maximaal vier overlevenden en een moordenaar en zie wat ze opleveren na afnemende meeropbrengsten, skill checks inbegrepen.</dd></div>
+              <div><dt>Discord en Spotify</dt><dd>Optioneel: map en rol als Discord-status tonen, je Spotify-wachtrij zien.</dd></div>
+              <div><dt>Alles doorzoeken</dt><dd>Ctrl+F vindt elke pagina, instelling, map en ronde.</dd></div>
+              <div><dt>Claude vragen</dt><dd>Optioneel, met je eigen API-sleutel: vragen over je statistieken en voorstellen in de clip-editor. Alleen cijfers en vaste teksten worden verstuurd, nooit spelersnamen.</dd></div>
+              <div><dt>Herkent de speltaal</dt><dd>Mapnamen in het Engels, Duits, Frans, Spaans, Italiaans, Pools, Portugees, Turks, Russisch, Chinees, Japans en Koreaans. Fog Scout herkent de speltaal zelf.</dd></div>
+              <div><dt>Zeven talen</dt><dd>De app in het Duits, Engels, Italiaans, Russisch, Chinees, Japans en Koreaans. Volgt de taal van Windows, te wijzigen in de instellingen.</dd></div>
+              <div><dt>Veilige updates en back-ups</dt><dd>Updates komen uit de GitHub-release en worden vóór de installatie met SHA-256 gecontroleerd. Instellingen en rondes gaan in één back-upbestand.</dd></div>
+            </dl>
+          </section>
+        </div>
+      </div>
+
+      <figure class="score">
+        <div class="fig"><img src="/img/score.webp" loading="lazy" decoding="async" width="1117" height="492" alt="De scoreteller in drie weergaven: vier survivor-categorieën als ringen met iconen en waarden, vier moordenaar-categorieën als balken en de survivor-waarden op één regel. Altruïsme en Jager zijn vol en tonen MAX in goud."></div>
+        <figcaption><b>Fig. 2</b><span>De scoreteller met verzonnen punten, getekend door Fog Scout: ringen, balken of één regel. Een volle categorie wordt goud. De iconen zijn van Fog Scout zelf.</span></figcaption>
+      </figure>
 
       <figure class="pair">
         <div>
@@ -422,7 +473,7 @@ footer p { max-width: 58rem; }
           <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="Dezelfde overlevendenlijst. Boven de naam van drie teamgenoten toont Fog Scout hun vier perks op een rij, gevolgd door offer, item en add-ons."></div>
           <p class="mono dim">Boven de naam</p>
         </div>
-        <figcaption><b>Fig. 2</b><span>Loadouts van teamgenoten in een echte match op 3440×1440, gelezen uit het pauzemenu. Links: naast de overlevendenlijst van DBD, de perks als ruit met offer, item en add-ons. Rechts: op een rij boven elke naam. Namen overgeschilderd.</span></figcaption>
+        <figcaption><b>Fig. 3</b><span>Loadouts van teamgenoten in een echte match op 3440×1440, gelezen uit het pauzemenu. Links: naast de overlevendenlijst van DBD, de perks als ruit met offer, item en add-ons. Rechts: op een rij boven elke naam. Namen overgeschilderd.</span></figcaption>
       </figure>
 
       <div class="app">
@@ -445,7 +496,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Pagina Maps van Fog Scout: alle callout maps gegroepeerd per rijk, met rondes en gemiddelde kills per map."></div>
-          <figcaption><b>Fig. 3</b><span>Het bedieningsvenster, gevuld met verzonnen rondes.</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>Het bedieningsvenster, gevuld met verzonnen rondes.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Tekstherkenning draait op je pc. Mapherkenning en de overlay maken geen internetverbinding.</span> <span>Niet ondertekend: SmartScreen toont "Meer informatie" en daarna "Toch uitvoeren". Vraagt één keer om beheerdersrechten. Zet DBD op Volledig scherm in venster.</span></p>
@@ -461,6 +512,15 @@ footer p { max-width: 58rem; }
         </div>
         <p>Vertaalt de Dead by Daylight-chat terwijl je speelt. Het leest elk schrift, ook Cyrillisch, Koreaans, Japans en Chinees, en toont de vertaling in een klein click-through-venster boven het spel.</p>
       </div>
+
+      <dl class="rows tr-rows">
+        <div><dt>Elk schrift</dt><dd>Cyrillisch, Koreaans, Japans, Chinees, Latijns met accenten: het AI-model leest de chat, herkent de taal en vertaalt.</dd></div>
+        <div><dt>13 doeltalen</dt><dd>Engels, Duits, Frans, Spaans, Italiaans, Portugees, Pools, Russisch, Turks, Nederlands, Chinees, Japans en Koreaans.</dd></div>
+        <div><dt>Alleen nieuwe regels</dt><dd>Stuurt alleen de strook met de nieuwe regels en niets zolang de chat dicht is. Gaat de chat snel, dan verzamelt het de regels en stuurt ze samen, zodat er geen verloren gaat.</dd></div>
+        <div><dt>Vlak boven de chat</dt><dd>Alleen zichtbaar zolang de chat in beeld is. Kies een andere plek, verberg het met Ctrl+Alt+T of houd het uit screenshots en opnames.</dd></div>
+        <div><dt>Kosten onder controle</dt><dd>Een daglimiet, standaard 300 verzoeken, een test met een verzonnen chat en de tijd van elk antwoord. Er gaat niets weg voordat je bevestigt wat naar de dienst gaat.</dd></div>
+        <div><dt>Snel ingesteld</dt><dd>Een installatiehulp voor dienst en sleutel, updates gecontroleerd met SHA-256, geen beheerdersrechten. Het venster in zes talen, licht of donker.</dd></div>
+      </dl>
 
       <div class="tr">
         <div class="replay">

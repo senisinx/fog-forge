@@ -227,6 +227,15 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* the features of a tool in groups: two columns of groups, one below the other on a phone */
+.kit { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
+.kit section { margin-top: clamp(2rem, 4vw, 3rem); }
+.kit h3 { display: flex; align-items: baseline; gap: .8rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ink); }
+.kit h3 span { font: 500 .78rem/1 var(--mono); letter-spacing: .06em; color: var(--rust); }
+.kit .rows { grid-template-columns: 1fr; }
+.tr-rows { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.score { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 48rem; }
+
 /* two pictures side by side, one caption */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
@@ -304,6 +313,7 @@ footer p { max-width: 58rem; }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
+  .kit { grid-template-columns: minmax(0, 1fr); }
   .idx { position: static; }
   .idx div { display: flex; flex-wrap: wrap; gap: .35rem; }
   .idx button { display: block; width: auto; padding: .5rem .8rem; border: 1px solid var(--hair) !important; font-size: .9375rem; }
@@ -398,20 +408,61 @@ footer p { max-width: 58rem; }
         <p>对局开始时，Fog Scout 读取屏幕左下角的地图名称，并将对应的报点地图叠加在游戏画面上。回合结束后地图会再次消失。</p>
       </div>
 
-      <dl class="rows">
-        <div><dt>自动报点地图</dt><dd>56 张地图图片，能区分 Coal Tower II 等不同布局，显示在可点击穿透的窗口中。 <a href="/zh/maps/">查看六种地图样式 →</a></dd></div>
-        <div><dt>队友的配装</dt><dd>作为逃生者，在对局中按一次 Esc：Fog Scout 从暂停菜单读取其他逃生者的技能、道具、配件和祭品，并显示在每个人旁边。可选功能。</dd></div>
-        <div><dt>服务器区域</dt><dd>选择要连接的区域，并查看你所在的游戏服务器。</dd></div>
-        <div><dt>对局统计</dt><dd>每局的角色、杀手、击杀、逃脱和血点，以及按星期和时段统计的状态、技能组合和等待时间。保存在你的电脑上。</dd></div>
-        <div><dt>使用 OBS 录制</dt><dd>按对局开始并命名录制，附带用于剪辑精彩片段的编辑器。你在一局中设置的每个标记都可以单独保存为片段，并会显示磁盘还能容纳多少局。</dd></div>
-        <div><dt>技能计算器</dt><dd>为最多四名逃生者和一名杀手搭配技能、道具和配件，查看收益递减后的实际效果，包括技能检定。</dd></div>
-        <div><dt>Discord 和 Spotify</dt><dd>可选：将地图和角色显示为 Discord 状态，查看你的 Spotify 播放队列。</dd></div>
-        <div><dt>自动识别游戏语言</dt><dd>支持英语、德语、法语、西班牙语、意大利语、波兰语、葡萄牙语、土耳其语、俄语、中文、日语和韩语的地图名称。Fog Scout 会自动识别游戏语言。</dd></div>
-        <div><dt>七种语言</dt><dd>应用界面支持德语、英语、意大利语、俄语、中文、日语和韩语。跟随 Windows 语言，可在设置中切换。</dd></div>
-        <div><dt>回合计时与提醒</dt><dd>回合进行时地图下方显示计时，等待时显示匹配时间；找到大厅或血点到达上限不再增加时会响起提示音。</dd></div>
-        <div><dt>游戏周围的卡片</dt><dd>地图旁可选的卡片显示系统数值、今天的回合和正在播放的音乐。在叠加层编辑器中摆放它们，每种屏幕尺寸一套布局。</dd></div>
-        <div><dt>安全更新与备份</dt><dd>更新来自 GitHub 发布版本，安装前会用 SHA-256 校验。设置和回合记录可保存到一个备份文件中。</dd></div>
-      </dl>
+      <div class="kit">
+        <div>
+          <section aria-labelledby="k-match">
+            <h3 id="k-match"><span>A</span>对局中</h3>
+            <dl class="rows">
+              <div><dt>自动报点地图</dt><dd>56 张地图图片，能区分 Coal Tower II 等不同布局，显示在可点击穿透的窗口中。 <a href="/zh/maps/">查看六种地图样式 →</a></dd></div>
+              <div><dt>回合计时与提醒</dt><dd>回合进行时地图下方显示计时，等待时显示匹配时间；找到大厅或血点到达上限不再增加时会响起提示音。</dd></div>
+              <div><dt>得分统计</dt><dd>游戏时统计右上角的得分事件，并按类别累加：以圆环、条形或一行显示在地图旁。某一类别满分时显示 MAX。</dd></div>
+              <div><dt>队友的配装</dt><dd>作为逃生者，在对局中按一次 Esc：Fog Scout 从暂停菜单读取其他逃生者的技能、道具、配件和祭品，并显示在每个人旁边。可选功能。</dd></div>
+              <div><dt>游戏周围的卡片</dt><dd>地图旁可选的卡片显示系统数值、今天的回合和正在播放的音乐。在叠加层编辑器中摆放它们，每种屏幕尺寸一套布局。</dd></div>
+              <div><dt>屏幕上的按键与手柄</dt><dd>可选：显示你按住的移动键、鼠标键和手柄按键。录像时会保存在视频旁边，并在片段编辑器里再次显示。</dd></div>
+              <div><dt>每张地图和杀手的备注</dt><dd>为每张地图和每个杀手写一条自己的简短备注，对局中显示在地图卡片上。</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-rec">
+            <h3 id="k-rec"><span>B</span>录像与片段</h3>
+            <dl class="rows">
+              <div><dt>使用 OBS 录制</dt><dd>按对局开始并命名录制，附带用于剪辑精彩片段的编辑器。你在一局中设置的每个标记都可以单独保存为片段，并会显示磁盘还能容纳多少局。</dd></div>
+              <div><dt>片段编辑器</dt><dd>剪辑、遮挡名字、添加字幕、音乐和你自己的声音，把多局的片段拼在一起，或做成竖屏短视频。</dd></div>
+              <div><dt>精彩时刻</dt><dd>找出录像中平静的片段和黑暗的加载画面，并提议把它们剪掉。</dd></div>
+              <div><dt>Steam 截图</dt><dd>你的 F12 截图集中在一个图库里：裁剪、在上面画图、遮挡名字。Fog Scout 保存编辑后的副本，从不改动原图。</dd></div>
+              <div><dt>上传到 YouTube</dt><dd>可选：把一局或一个片段上传到你的频道，在大厅中时暂停上传。</dd></div>
+            </dl>
+          </section>
+        </div>
+        <div>
+          <section aria-labelledby="k-stats">
+            <h3 id="k-stats"><span>C</span>统计</h3>
+            <dl class="rows">
+              <div><dt>对局统计</dt><dd>每局的角色、杀手、击杀、逃脱和血点，以及按星期和时段统计的状态、技能组合和等待时间。保存在你的电脑上。</dd></div>
+              <div><dt>纪录与游戏时段</dt><dd>连胜、你最好的一周和每个游戏时段，关闭 DBD 时给出简短总结。</dd></div>
+              <div><dt>血点与刷分</dt><dd>每小时血点，刷分对局可单独统计，或用一个开关隐藏。</dd></div>
+              <div><dt>导出</dt><dd>把对局导出为 CSV 文件，可按时间段、角色、杀手或地图筛选。</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-tools">
+            <h3 id="k-tools"><span>D</span>工具</h3>
+            <dl class="rows">
+              <div><dt>服务器区域</dt><dd>选择要连接的区域，并查看你所在的游戏服务器。</dd></div>
+              <div><dt>技能计算器</dt><dd>为最多四名逃生者和一名杀手搭配技能、道具和配件，查看收益递减后的实际效果，包括技能检定。</dd></div>
+              <div><dt>Discord 和 Spotify</dt><dd>可选：将地图和角色显示为 Discord 状态，查看你的 Spotify 播放队列。</dd></div>
+              <div><dt>全局搜索</dt><dd>Ctrl+F 可找到每个页面、设置、地图和对局。</dd></div>
+              <div><dt>询问 Claude</dt><dd>可选，使用你自己的 API 密钥：询问你的统计数据，并在片段编辑器中获得建议。只发送数字和固定文本，绝不发送玩家名字。</dd></div>
+              <div><dt>自动识别游戏语言</dt><dd>支持英语、德语、法语、西班牙语、意大利语、波兰语、葡萄牙语、土耳其语、俄语、中文、日语和韩语的地图名称。Fog Scout 会自动识别游戏语言。</dd></div>
+              <div><dt>七种语言</dt><dd>应用界面支持德语、英语、意大利语、俄语、中文、日语和韩语。跟随 Windows 语言，可在设置中切换。</dd></div>
+              <div><dt>安全更新与备份</dt><dd>更新来自 GitHub 发布版本，安装前会用 SHA-256 校验。设置和回合记录可保存到一个备份文件中。</dd></div>
+            </dl>
+          </section>
+        </div>
+      </div>
+
+      <figure class="score">
+        <div class="fig"><img src="/img/score.webp" loading="lazy" decoding="async" width="1117" height="492" alt="得分统计的三种外观：四个逃生者类别以带图标和数值的圆环显示，四个杀手类别以条形显示，逃生者数值显示为一行。利他和猎手已满，以金色显示 MAX。"></div>
+        <figcaption><b>Fig. 2</b><span>使用虚构分数、由 Fog Scout 绘制的得分统计：圆环、条形或一行。满分的类别变为金色。图标是 Fog Scout 自己绘制的。</span></figcaption>
+      </figure>
 
       <figure class="pair">
         <div>
@@ -422,7 +473,7 @@ footer p { max-width: 58rem; }
           <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="同一个逃生者列表。在三名队友的名字上方，Fog Scout 将每人的四个技能排成一行，后面是祭品、道具和配件。"></div>
           <p class="mono dim">名字上方</p>
         </div>
-        <figcaption><b>Fig. 2</b><span>3440×1440 真实对局中的队友配装，从暂停菜单读取。左：在 DBD 逃生者列表旁，技能呈菱形，并附祭品、道具和配件。右：在每个名字上方排成一行。名字已涂掉。</span></figcaption>
+        <figcaption><b>Fig. 3</b><span>3440×1440 真实对局中的队友配装，从暂停菜单读取。左：在 DBD 逃生者列表旁，技能呈菱形，并附祭品、道具和配件。右：在每个名字上方排成一行。名字已涂掉。</span></figcaption>
       </figure>
 
       <div class="app">
@@ -445,7 +496,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout 地图页面：所有报点地图按领域分组，显示每张地图的回合数和平均击杀。"></div>
-          <figcaption><b>Fig. 3</b><span>填入虚构回合的控制窗口。</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>填入虚构回合的控制窗口。</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>文字识别在你的电脑上运行。地图识别和叠加层不建立任何网络连接。</span> <span>未签名：SmartScreen 会显示“更多信息”，然后点击“仍要运行”。首次需要一次管理员权限。请将 DBD 设置为窗口化全屏。</span></p>
@@ -461,6 +512,15 @@ footer p { max-width: 58rem; }
         </div>
         <p>在你游戏时翻译 Dead by Daylight 聊天。它能读取任何文字，包括西里尔字母、韩文、日文和中文，并在游戏上方一个可点击穿透的小窗口中显示译文。</p>
       </div>
+
+      <dl class="rows tr-rows">
+        <div><dt>任何文字</dt><dd>西里尔文、韩文、日文、中文、带重音的拉丁文：AI 模型读取聊天、识别语言并翻译。</dd></div>
+        <div><dt>13 种目标语言</dt><dd>英语、德语、法语、西班牙语、意大利语、葡萄牙语、波兰语、俄语、土耳其语、荷兰语、中文、日语和韩语。</dd></div>
+        <div><dt>只发送新行</dt><dd>只发送包含新行的那一条区域，聊天关闭时什么也不发送。聊天刷得很快时，会把各行收集起来一起发送，一行都不会丢。</dd></div>
+        <div><dt>就在聊天上方</dt><dd>只在聊天可见时显示。可以选择其他位置，用 Ctrl+Alt+T 隐藏，或让它不出现在截图和录像中。</dd></div>
+        <div><dt>费用可控</dt><dd>每日上限（默认 300 次请求）、用虚构聊天进行的测试，以及每次回答所用的时间。在你确认发送给服务的内容之前，不会发送任何东西。</dd></div>
+        <div><dt>轻松设置</dt><dd>设置向导帮你选择服务和填写密钥，更新经 SHA-256 校验，无需管理员权限。窗口支持六种语言，浅色或深色。</dd></div>
+      </dl>
 
       <div class="tr">
         <div class="replay">
