@@ -227,6 +227,15 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* the features of a tool in groups: two columns of groups, one below the other on a phone */
+.kit { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
+.kit section { margin-top: clamp(2rem, 4vw, 3rem); }
+.kit h3 { display: flex; align-items: baseline; gap: .8rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ink); }
+.kit h3 span { font: 500 .78rem/1 var(--mono); letter-spacing: .06em; color: var(--rust); }
+.kit .rows { grid-template-columns: 1fr; }
+.tr-rows { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.score { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 48rem; }
+
 /* two pictures side by side, one caption */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
@@ -304,6 +313,7 @@ footer p { max-width: 58rem; }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
+  .kit { grid-template-columns: minmax(0, 1fr); }
   .idx { position: static; }
   .idx div { display: flex; flex-wrap: wrap; gap: .35rem; }
   .idx button { display: block; width: auto; padding: .5rem .8rem; border: 1px solid var(--hair) !important; font-size: .9375rem; }
@@ -398,20 +408,61 @@ footer p { max-width: 58rem; }
         <p>Au début d’une partie, Fog Scout lit le nom de la map en bas à gauche de l’écran et affiche la carte de callouts correspondante par-dessus le jeu. Après la manche, la carte disparaît.</p>
       </div>
 
-      <dl class="rows">
-        <div><dt>Cartes de callouts automatiques</dt><dd>56 images de maps, des variantes comme Coal Tower II bien distinguées, dans une fenêtre click-through. <a href="/fr/maps/">Voir les six styles de carte →</a></dd></div>
-        <div><dt>Loadouts de tes coéquipiers</dt><dd>En survivant, appuie une fois sur Échap pendant la partie : Fog Scout lit les perks, l’objet, les add-ons et l’offrande des autres survivants dans le menu pause et les affiche à côté de chacun. En option.</dd></div>
-        <div><dt>Région du serveur</dt><dd>Choisis les régions auxquelles tu te connectes et vois sur quel serveur de jeu tu es.</dd></div>
-        <div><dt>Statistiques des parties</dt><dd>Rôle, tueur, kills, évasions et points de sang par manche, ta forme selon le jour et l’heure, paires de perks et temps d’attente. Conservés sur ton PC.</dd></div>
-        <div><dt>Enregistrement avec OBS</dt><dd>Lance et nomme les enregistrements par partie, avec un éditeur de clips pour les meilleurs moments. Chaque repère posé dans une manche peut devenir un clip à part, et Fog Scout indique combien de manches tiennent encore sur le disque.</dd></div>
-        <div><dt>Calculateur de perks</dt><dd>Combine perks, objets et add-ons pour jusqu’à quatre survivants et un tueur, et vois ce qu’ils apportent après les rendements décroissants, tests d’habileté compris.</dd></div>
-        <div><dt>Discord et Spotify</dt><dd>En option : affiche la map et ton rôle dans ton statut Discord, vois ta file d’attente Spotify.</dd></div>
-        <div><dt>Détecte la langue du jeu</dt><dd>Noms de maps en anglais, allemand, français, espagnol, italien, polonais, portugais, turc, russe, chinois, japonais et coréen. Fog Scout détecte tout seul la langue du jeu.</dd></div>
-        <div><dt>Sept langues</dt><dd>L’app en allemand, anglais, italien, russe, chinois, japonais et coréen. Suit la langue de Windows, modifiable dans les paramètres.</dd></div>
-        <div><dt>Chrono de manche et alertes</dt><dd>Un chrono sous la map pendant la manche, le temps de recherche pendant l'attente, et un son quand le lobby est trouvé ou quand tes points de sang n'augmentent plus au plafond.</dd></div>
-        <div><dt>Cartes autour du jeu</dt><dd>À côté de la map, des cartes optionnelles affichent les valeurs système, les manches du jour et la musique en cours. Place-les dans l'éditeur d'overlay, une disposition par taille d'écran.</dd></div>
-        <div><dt>Mises à jour sûres et sauvegardes</dt><dd>Les mises à jour viennent de la release GitHub et sont vérifiées par SHA-256 avant l'installation. Paramètres et manches tiennent dans un seul fichier de sauvegarde.</dd></div>
-      </dl>
+      <div class="kit">
+        <div>
+          <section aria-labelledby="k-match">
+            <h3 id="k-match"><span>A</span>Pendant la partie</h3>
+            <dl class="rows">
+              <div><dt>Cartes de callouts automatiques</dt><dd>56 images de maps, des variantes comme Coal Tower II bien distinguées, dans une fenêtre click-through. <a href="/fr/maps/">Voir les six styles de carte →</a></dd></div>
+              <div><dt>Chrono de manche et alertes</dt><dd>Un chrono sous la map pendant la manche, le temps de recherche pendant l'attente, et un son quand le lobby est trouvé ou quand tes points de sang n'augmentent plus au plafond.</dd></div>
+              <div><dt>Suivi du score</dt><dd>Compte les score events en haut à droite pendant que tu joues et additionne chaque catégorie : en anneaux, en barres ou sur une ligne à côté de la carte. Une catégorie pleine affiche MAX.</dd></div>
+              <div><dt>Loadouts de tes coéquipiers</dt><dd>En survivant, appuie une fois sur Échap pendant la partie : Fog Scout lit les perks, l’objet, les add-ons et l’offrande des autres survivants dans le menu pause et les affiche à côté de chacun. En option.</dd></div>
+              <div><dt>Cartes autour du jeu</dt><dd>À côté de la map, des cartes optionnelles affichent les valeurs système, les manches du jour et la musique en cours. Place-les dans l'éditeur d'overlay, une disposition par taille d'écran.</dd></div>
+              <div><dt>Touches et manette à l’écran</dt><dd>Optionnel : montre les touches de déplacement, les boutons de souris et de manette que tu maintiens. Avec un enregistrement, ils sont gardés à côté de la vidéo et réaffichés dans l’éditeur de clips.</dd></div>
+              <div><dt>Notes par carte et par tueur</dt><dd>Une courte note personnelle pour chaque carte et chaque tueur, affichée sur la carte pendant la manche.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-rec">
+            <h3 id="k-rec"><span>B</span>Enregistrements et clips</h3>
+            <dl class="rows">
+              <div><dt>Enregistrement avec OBS</dt><dd>Lance et nomme les enregistrements par partie, avec un éditeur de clips pour les meilleurs moments. Chaque repère posé dans une manche peut devenir un clip à part, et Fog Scout indique combien de manches tiennent encore sur le disque.</dd></div>
+              <div><dt>Éditeur de clips</dt><dd>Couper, masquer les noms, ajouter des sous-titres, de la musique et ta voix, assembler des clips de plusieurs manches ou faire un short vertical.</dd></div>
+              <div><dt>Moments</dt><dd>Trouve les passages calmes et les écrans de chargement sombres d’un enregistrement et propose de les couper.</dd></div>
+              <div><dt>Captures Steam</dt><dd>Tes captures F12 dans une galerie : recadrer, dessiner, masquer les noms. Fog Scout enregistre une copie modifiée et ne touche jamais l’original.</dd></div>
+              <div><dt>Envoi sur YouTube</dt><dd>Optionnel : envoie une manche ou un clip sur ta chaîne et se met en pause quand tu es dans un lobby.</dd></div>
+            </dl>
+          </section>
+        </div>
+        <div>
+          <section aria-labelledby="k-stats">
+            <h3 id="k-stats"><span>C</span>Statistiques</h3>
+            <dl class="rows">
+              <div><dt>Statistiques des parties</dt><dd>Rôle, tueur, kills, évasions et points de sang par manche, ta forme selon le jour et l’heure, paires de perks et temps d’attente. Conservés sur ton PC.</dd></div>
+              <div><dt>Records et sessions</dt><dd>Séries, ta meilleure semaine et chaque session, avec un court bilan quand tu fermes DBD.</dd></div>
+              <div><dt>Points de sang et farming</dt><dd>Points de sang par heure, et les manches de farming comptées à part ou masquées d’un seul interrupteur.</dd></div>
+              <div><dt>Export</dt><dd>Les manches en fichier CSV, filtrées par période, rôle, tueur ou carte.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-tools">
+            <h3 id="k-tools"><span>D</span>Outils</h3>
+            <dl class="rows">
+              <div><dt>Région du serveur</dt><dd>Choisis les régions auxquelles tu te connectes et vois sur quel serveur de jeu tu es.</dd></div>
+              <div><dt>Calculateur de perks</dt><dd>Combine perks, objets et add-ons pour jusqu’à quatre survivants et un tueur, et vois ce qu’ils apportent après les rendements décroissants, tests d’habileté compris.</dd></div>
+              <div><dt>Discord et Spotify</dt><dd>En option : affiche la map et ton rôle dans ton statut Discord, vois ta file d’attente Spotify.</dd></div>
+              <div><dt>Tout rechercher</dt><dd>Ctrl+F trouve chaque page, réglage, carte et manche.</dd></div>
+              <div><dt>Demander à Claude</dt><dd>Optionnel, avec ta propre clé API : des questions sur tes statistiques et des suggestions dans l’éditeur de clips. Seuls des chiffres et des textes fixes sont envoyés, jamais de noms de joueurs.</dd></div>
+              <div><dt>Détecte la langue du jeu</dt><dd>Noms de maps en anglais, allemand, français, espagnol, italien, polonais, portugais, turc, russe, chinois, japonais et coréen. Fog Scout détecte tout seul la langue du jeu.</dd></div>
+              <div><dt>Sept langues</dt><dd>L’app en allemand, anglais, italien, russe, chinois, japonais et coréen. Suit la langue de Windows, modifiable dans les paramètres.</dd></div>
+              <div><dt>Mises à jour sûres et sauvegardes</dt><dd>Les mises à jour viennent de la release GitHub et sont vérifiées par SHA-256 avant l'installation. Paramètres et manches tiennent dans un seul fichier de sauvegarde.</dd></div>
+            </dl>
+          </section>
+        </div>
+      </div>
+
+      <figure class="score">
+        <div class="fig"><img src="/img/score.webp" loading="lazy" decoding="async" width="1117" height="492" alt="Le suivi du score sous trois formes : quatre catégories survivant en anneaux avec icônes et valeurs, quatre catégories tueur en barres, et les valeurs survivant sur une ligne. Altruisme et Chasseur sont pleins et affichent MAX en or."></div>
+        <figcaption><b>Fig. 2</b><span>Le suivi du score avec des points inventés, dessiné par Fog Scout : anneaux, barres ou une ligne. Une catégorie pleine passe en or. Les icônes sont celles de Fog Scout.</span></figcaption>
+      </figure>
 
       <figure class="pair">
         <div>
@@ -422,7 +473,7 @@ footer p { max-width: 58rem; }
           <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="La même liste des survivants. Au-dessus du nom de trois coéquipiers, Fog Scout affiche leurs quatre perks en ligne, puis offrande, objet et add-ons."></div>
           <p class="mono dim">Au-dessus du nom</p>
         </div>
-        <figcaption><b>Fig. 2</b><span>Loadouts des coéquipiers dans une vraie partie en 3440×1440, lus dans le menu pause. À gauche : à côté de la liste des survivants de DBD, les perks en losange avec offrande, objet et add-ons. À droite : en ligne au-dessus de chaque nom. Noms masqués.</span></figcaption>
+        <figcaption><b>Fig. 3</b><span>Loadouts des coéquipiers dans une vraie partie en 3440×1440, lus dans le menu pause. À gauche : à côté de la liste des survivants de DBD, les perks en losange avec offrande, objet et add-ons. À droite : en ligne au-dessus de chaque nom. Noms masqués.</span></figcaption>
       </figure>
 
       <div class="app">
@@ -445,7 +496,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Page Cartes de Fog Scout : toutes les cartes de callouts regroupées par royaume, avec les manches et la moyenne de kills par map."></div>
-          <figcaption><b>Fig. 3</b><span>La fenêtre de contrôle, remplie de manches inventées.</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>La fenêtre de contrôle, remplie de manches inventées.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>La reconnaissance de texte tourne sur ton PC. La détection de la map et l’overlay n’ouvrent aucune connexion Internet.</span> <span>Non signé : SmartScreen affiche « Informations complémentaires », puis « Exécuter quand même ». Demande une seule fois les droits administrateur. Mets DBD en Plein écran fenêtré.</span></p>
@@ -461,6 +512,15 @@ footer p { max-width: 58rem; }
         </div>
         <p>Traduit le chat de Dead by Daylight pendant que tu joues. Il lit tous les alphabets, y compris le cyrillique, le coréen, le japonais et le chinois, et affiche la traduction dans une petite fenêtre click-through par-dessus le jeu.</p>
       </div>
+
+      <dl class="rows tr-rows">
+        <div><dt>Toutes les écritures</dt><dd>Cyrillique, coréen, japonais, chinois, latin avec accents : le modèle d’IA lit le chat, reconnaît la langue et traduit.</dd></div>
+        <div><dt>13 langues cibles</dt><dd>Anglais, allemand, français, espagnol, italien, portugais, polonais, russe, turc, néerlandais, chinois, japonais et coréen.</dd></div>
+        <div><dt>Seulement les nouvelles lignes</dt><dd>N’envoie que la bande avec les nouvelles lignes, et rien tant que le chat est fermé. Quand le chat défile vite, il regroupe les lignes et les envoie ensemble, pour n’en perdre aucune.</dd></div>
+        <div><dt>Juste au-dessus du chat</dt><dd>Affiché seulement tant que le chat est visible. Choisis un autre endroit, masque-le avec Ctrl+Alt+T ou garde-le hors des captures et des enregistrements.</dd></div>
+        <div><dt>Coûts maîtrisés</dt><dd>Une limite par jour, 300 requêtes par défaut, un test avec un chat inventé et le temps de chaque réponse. Rien n’est envoyé avant que tu confirmes ce qui part vers le service.</dd></div>
+        <div><dt>Facile à installer</dt><dd>Un assistant pour le service et la clé, des mises à jour vérifiées par SHA-256, sans droits administrateur. La fenêtre en six langues, claire ou sombre.</dd></div>
+      </dl>
 
       <div class="tr">
         <div class="replay">

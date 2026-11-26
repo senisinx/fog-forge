@@ -227,6 +227,15 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* the features of a tool in groups: two columns of groups, one below the other on a phone */
+.kit { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
+.kit section { margin-top: clamp(2rem, 4vw, 3rem); }
+.kit h3 { display: flex; align-items: baseline; gap: .8rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ink); }
+.kit h3 span { font: 500 .78rem/1 var(--mono); letter-spacing: .06em; color: var(--rust); }
+.kit .rows { grid-template-columns: 1fr; }
+.tr-rows { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.score { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 48rem; }
+
 /* two pictures side by side, one caption */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
@@ -304,6 +313,7 @@ footer p { max-width: 58rem; }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
+  .kit { grid-template-columns: minmax(0, 1fr); }
   .idx { position: static; }
   .idx div { display: flex; flex-wrap: wrap; gap: .35rem; }
   .idx button { display: block; width: auto; padding: .5rem .8rem; border: 1px solid var(--hair) !important; font-size: .9375rem; }
@@ -398,20 +408,61 @@ footer p { max-width: 58rem; }
         <p>Gdy mecz się zaczyna, Fog Scout odczytuje nazwę mapy w lewym dolnym rogu ekranu i nakłada na grę pasującą mapę calloutów. Po rundzie mapa znika.</p>
       </div>
 
-      <dl class="rows">
-        <div><dt>Automatyczne mapy calloutów</dt><dd>56 obrazów map, warianty takie jak Coal Tower II są rozróżniane, w oknie click-through. <a href="/pl/maps/">Zobacz sześć stylów map →</a></dd></div>
-        <div><dt>Loadouty współgraczy</dt><dd>Jako ocalały wystarczy raz nacisnąć Esc w meczu: Fog Scout odczytuje z menu pauzy perki, przedmiot, dodatki i ofiarę pozostałych ocalałych i pokazuje je obok każdego z nich. Opcjonalnie.</dd></div>
-        <div><dt>Region serwera</dt><dd>Wybierz, z którymi regionami się łączysz, i zobacz, na jakim serwerze gry jesteś.</dd></div>
-        <div><dt>Statystyki meczów</dt><dd>Rola, zabójca, zabójstwa, ucieczki i punkty krwi na rundę, twoja forma według dnia tygodnia i pory dnia, pary perków i czasy oczekiwania. Zapisane na twoim PC.</dd></div>
-        <div><dt>Nagrywanie z OBS</dt><dd>Uruchamia i nazywa nagrania dla każdego meczu, z edytorem klipów do najlepszych momentów. Każdy znacznik ustawiony w rundzie może stać się osobnym klipem, a Fog Scout pokazuje, ile jeszcze rund zmieści się na dysku.</dd></div>
-        <div><dt>Kalkulator perków</dt><dd>Łącz perki, przedmioty i dodatki dla maksymalnie czterech ocalałych i zabójcy i zobacz, ile dają po uwzględnieniu malejących korzyści, łącznie z testami umiejętności.</dd></div>
-        <div><dt>Discord i Spotify</dt><dd>Opcjonalnie: pokaż mapę i rolę jako status na Discordzie, zobacz swoją kolejkę w Spotify.</dd></div>
-        <div><dt>Rozpoznaje język gry</dt><dd>Nazwy map po angielsku, niemiecku, francusku, hiszpańsku, włosku, polsku, portugalsku, turecku, rosyjsku, chińsku, japońsku i koreańsku. Fog Scout sam rozpoznaje język gry.</dd></div>
-        <div><dt>Siedem języków</dt><dd>Aplikacja po niemiecku, angielsku, włosku, rosyjsku, chińsku, japońsku i koreańsku. Używa języka Windows, można go zmienić w ustawieniach.</dd></div>
-        <div><dt>Licznik rundy i alerty</dt><dd>Licznik pod mapą w trakcie rundy, czas szukania, gdy czekasz, i dźwięk, gdy lobby zostanie znalezione albo twoje punkty krwi przestaną rosnąć na limicie.</dd></div>
-        <div><dt>Karty wokół gry</dt><dd>Obok mapy opcjonalne karty pokazują wartości systemu, dzisiejsze rundy i grającą muzykę. Ustawiasz je w edytorze overlaya, jeden układ na rozmiar ekranu.</dd></div>
-        <div><dt>Bezpieczne aktualizacje i kopie</dt><dd>Aktualizacje pochodzą z wydania na GitHubie i przed instalacją są sprawdzane sumą SHA-256. Ustawienia i rundy trafiają do jednego pliku kopii.</dd></div>
-      </dl>
+      <div class="kit">
+        <div>
+          <section aria-labelledby="k-match">
+            <h3 id="k-match"><span>A</span>W meczu</h3>
+            <dl class="rows">
+              <div><dt>Automatyczne mapy calloutów</dt><dd>56 obrazów map, warianty takie jak Coal Tower II są rozróżniane, w oknie click-through. <a href="/pl/maps/">Zobacz sześć stylów map →</a></dd></div>
+              <div><dt>Licznik rundy i alerty</dt><dd>Licznik pod mapą w trakcie rundy, czas szukania, gdy czekasz, i dźwięk, gdy lobby zostanie znalezione albo twoje punkty krwi przestaną rosnąć na limicie.</dd></div>
+              <div><dt>Licznik punktów</dt><dd>Liczy score eventy w prawym górnym rogu podczas gry i sumuje każdą kategorię: jako pierścienie, paski lub jedną linię obok mapy. Pełna kategoria pokazuje MAX.</dd></div>
+              <div><dt>Loadouty współgraczy</dt><dd>Jako ocalały wystarczy raz nacisnąć Esc w meczu: Fog Scout odczytuje z menu pauzy perki, przedmiot, dodatki i ofiarę pozostałych ocalałych i pokazuje je obok każdego z nich. Opcjonalnie.</dd></div>
+              <div><dt>Karty wokół gry</dt><dd>Obok mapy opcjonalne karty pokazują wartości systemu, dzisiejsze rundy i grającą muzykę. Ustawiasz je w edytorze overlaya, jeden układ na rozmiar ekranu.</dd></div>
+              <div><dt>Klawisze i pad na ekranie</dt><dd>Opcjonalnie: pokazuje, które klawisze ruchu, przyciski myszy i pada trzymasz. Przy nagraniu zapisują się obok wideo i pojawiają się znowu w edytorze klipów.</dd></div>
+              <div><dt>Notatki do map i zabójców</dt><dd>Krótka własna notatka do każdej mapy i każdego zabójcy, widoczna na karcie mapy w rundzie.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-rec">
+            <h3 id="k-rec"><span>B</span>Nagrania i klipy</h3>
+            <dl class="rows">
+              <div><dt>Nagrywanie z OBS</dt><dd>Uruchamia i nazywa nagrania dla każdego meczu, z edytorem klipów do najlepszych momentów. Każdy znacznik ustawiony w rundzie może stać się osobnym klipem, a Fog Scout pokazuje, ile jeszcze rund zmieści się na dysku.</dd></div>
+              <div><dt>Edytor klipów</dt><dd>Przycinaj, zasłaniaj nazwy, dodawaj napisy, muzykę i własny głos, łącz klipy z kilku rund albo zrób pionowy short.</dd></div>
+              <div><dt>Momenty</dt><dd>Znajduje spokojne fragmenty i ciemne ekrany ładowania w nagraniu i proponuje je wyciąć.</dd></div>
+              <div><dt>Zrzuty ze Steama</dt><dd>Twoje zrzuty F12 w jednej galerii: przycinaj, rysuj i zasłaniaj nazwy. Fog Scout zapisuje edytowaną kopię i nigdy nie rusza oryginału.</dd></div>
+              <div><dt>Wysyłanie na YouTube</dt><dd>Opcjonalnie: wysyła rundę lub klip na twój kanał i robi pauzę, gdy jesteś w lobby.</dd></div>
+            </dl>
+          </section>
+        </div>
+        <div>
+          <section aria-labelledby="k-stats">
+            <h3 id="k-stats"><span>C</span>Statystyki</h3>
+            <dl class="rows">
+              <div><dt>Statystyki meczów</dt><dd>Rola, zabójca, zabójstwa, ucieczki i punkty krwi na rundę, twoja forma według dnia tygodnia i pory dnia, pary perków i czasy oczekiwania. Zapisane na twoim PC.</dd></div>
+              <div><dt>Rekordy i sesje</dt><dd>Serie, twój najlepszy tydzień i każda sesja, z krótkim podsumowaniem po zamknięciu DBD.</dd></div>
+              <div><dt>Punkty krwi i farming</dt><dd>Punkty krwi na godzinę, a rundy farmingu liczone osobno lub ukryte jednym przełącznikiem.</dd></div>
+              <div><dt>Eksport</dt><dd>Rundy jako plik CSV, filtrowane według okresu, roli, zabójcy lub mapy.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-tools">
+            <h3 id="k-tools"><span>D</span>Narzędzia</h3>
+            <dl class="rows">
+              <div><dt>Region serwera</dt><dd>Wybierz, z którymi regionami się łączysz, i zobacz, na jakim serwerze gry jesteś.</dd></div>
+              <div><dt>Kalkulator perków</dt><dd>Łącz perki, przedmioty i dodatki dla maksymalnie czterech ocalałych i zabójcy i zobacz, ile dają po uwzględnieniu malejących korzyści, łącznie z testami umiejętności.</dd></div>
+              <div><dt>Discord i Spotify</dt><dd>Opcjonalnie: pokaż mapę i rolę jako status na Discordzie, zobacz swoją kolejkę w Spotify.</dd></div>
+              <div><dt>Szukaj wszędzie</dt><dd>Ctrl+F znajduje każdą stronę, ustawienie, mapę i rundę.</dd></div>
+              <div><dt>Zapytaj Claude’a</dt><dd>Opcjonalnie, z własnym kluczem API: pytania o twoje statystyki i propozycje w edytorze klipów. Wysyłane są tylko liczby i stałe teksty, nigdy nazwy graczy.</dd></div>
+              <div><dt>Rozpoznaje język gry</dt><dd>Nazwy map po angielsku, niemiecku, francusku, hiszpańsku, włosku, polsku, portugalsku, turecku, rosyjsku, chińsku, japońsku i koreańsku. Fog Scout sam rozpoznaje język gry.</dd></div>
+              <div><dt>Siedem języków</dt><dd>Aplikacja po niemiecku, angielsku, włosku, rosyjsku, chińsku, japońsku i koreańsku. Używa języka Windows, można go zmienić w ustawieniach.</dd></div>
+              <div><dt>Bezpieczne aktualizacje i kopie</dt><dd>Aktualizacje pochodzą z wydania na GitHubie i przed instalacją są sprawdzane sumą SHA-256. Ustawienia i rundy trafiają do jednego pliku kopii.</dd></div>
+            </dl>
+          </section>
+        </div>
+      </div>
+
+      <figure class="score">
+        <div class="fig"><img src="/img/score.webp" loading="lazy" decoding="async" width="1117" height="492" alt="Licznik punktów w trzech widokach: cztery kategorie ocalałego jako pierścienie z ikonami i wartościami, cztery kategorie zabójcy jako paski i wartości ocalałego w jednej linii. Altruizm i Łowca są pełne i pokazują MAX na złoto."></div>
+        <figcaption><b>Fig. 2</b><span>Licznik punktów z wymyślonymi punktami, narysowany przez Fog Scout: pierścienie, paski lub jedna linia. Pełna kategoria robi się złota. Ikony są własne Fog Scout.</span></figcaption>
+      </figure>
 
       <figure class="pair">
         <div>
@@ -422,7 +473,7 @@ footer p { max-width: 58rem; }
           <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="Ta sama lista ocalałych. Nad nazwą trzech współgraczy Fog Scout pokazuje ich cztery perki w rzędzie, a po nich ofiarę, przedmiot i dodatki."></div>
           <p class="mono dim">Nad nazwą</p>
         </div>
-        <figcaption><b>Fig. 2</b><span>Loadouty współgraczy w prawdziwym meczu w 3440×1440, odczytane z menu pauzy. Po lewej: obok listy ocalałych DBD, perki jako romb z ofiarą, przedmiotem i dodatkami. Po prawej: w rzędzie nad każdą nazwą. Nazwy zamalowane.</span></figcaption>
+        <figcaption><b>Fig. 3</b><span>Loadouty współgraczy w prawdziwym meczu w 3440×1440, odczytane z menu pauzy. Po lewej: obok listy ocalałych DBD, perki jako romb z ofiarą, przedmiotem i dodatkami. Po prawej: w rzędzie nad każdą nazwą. Nazwy zamalowane.</span></figcaption>
       </figure>
 
       <div class="app">
@@ -445,7 +496,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Strona Maps w Fog Scout: wszystkie mapy calloutów pogrupowane według krain, z rundami i średnią zabójstw na mapę."></div>
-          <figcaption><b>Fig. 3</b><span>Okno sterowania wypełnione zmyślonymi rundami.</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>Okno sterowania wypełnione zmyślonymi rundami.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Rozpoznawanie tekstu działa na twoim PC. Wykrywanie mapy i nakładka nie łączą się z internetem.</span> <span>Bez podpisu: SmartScreen pokaże „Więcej informacji”, potem „Uruchom mimo to”. Raz prosi o uprawnienia administratora. Ustaw w DBD tryb Pełny ekran w oknie.</span></p>
@@ -461,6 +512,15 @@ footer p { max-width: 58rem; }
         </div>
         <p>Tłumaczy czat Dead by Daylight podczas gry. Czyta każdy alfabet, także cyrylicę, koreański, japoński i chiński, i pokazuje tłumaczenie w małym oknie click-through nad grą.</p>
       </div>
+
+      <dl class="rows tr-rows">
+        <div><dt>Każde pismo</dt><dd>Cyrylica, koreański, japoński, chiński, łacinka z akcentami: model AI czyta czat, rozpoznaje język i tłumaczy.</dd></div>
+        <div><dt>13 języków docelowych</dt><dd>Angielski, niemiecki, francuski, hiszpański, włoski, portugalski, polski, rosyjski, turecki, niderlandzki, chiński, japoński i koreański.</dd></div>
+        <div><dt>Tylko nowe linie</dt><dd>Wysyła tylko pasek z nowymi liniami i nic, gdy czat jest zamknięty. Gdy czat leci szybko, zbiera linie i wysyła je razem, żeby żadna nie zginęła.</dd></div>
+        <div><dt>Tuż nad czatem</dt><dd>Widoczne tylko, gdy widać czat. Wybierz inne miejsce, ukryj skrótem Ctrl+Alt+T albo nie pokazuj na zrzutach i nagraniach.</dd></div>
+        <div><dt>Koszty pod kontrolą</dt><dd>Dzienny limit, domyślnie 300 zapytań, test z wymyślonym czatem i czas każdej odpowiedzi. Nic nie jest wysyłane, zanim nie potwierdzisz, co trafia do usługi.</dd></div>
+        <div><dt>Łatwa konfiguracja</dt><dd>Kreator usługi i klucza, aktualizacje sprawdzane przez SHA-256, bez praw administratora. Okno w sześciu językach, jasne lub ciemne.</dd></div>
+      </dl>
 
       <div class="tr">
         <div class="replay">

@@ -137,6 +137,15 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* the features of a tool in groups: two columns of groups, one below the other on a phone */
+.kit { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
+.kit section { margin-top: clamp(2rem, 4vw, 3rem); }
+.kit h3 { display: flex; align-items: baseline; gap: .8rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ink); }
+.kit h3 span { font: 500 .78rem/1 var(--mono); letter-spacing: .06em; color: var(--rust); }
+.kit .rows { grid-template-columns: 1fr; }
+.tr-rows { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.score { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 48rem; }
+
 /* two pictures side by side, one caption */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
@@ -214,6 +223,7 @@ footer p { max-width: 58rem; }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
+  .kit { grid-template-columns: minmax(0, 1fr); }
   .idx { position: static; }
   .idx div { display: flex; flex-wrap: wrap; gap: .35rem; }
   .idx button { display: block; width: auto; padding: .5rem .8rem; border: 1px solid var(--hair) !important; font-size: .9375rem; }
@@ -308,20 +318,61 @@ footer p { max-width: 58rem; }
         <p>When a match starts, Fog Scout reads the map name at the bottom left of the screen and puts the matching callout map on top of the game. After the round the map goes away again.</p>
       </div>
 
-      <dl class="rows">
-        <div><dt>Automatic callout maps</dt><dd>56 map pictures, layouts like Coal Tower II told apart, in a click-through window. <a href="/maps/">See the six map styles →</a></dd></div>
-        <div><dt>Teammates' loadouts</dt><dd>As a survivor, press Esc once in the match: Fog Scout reads the other survivors' perks, item, add-ons and offering from the pause menu and shows them next to each of them. Optional.</dd></div>
-        <div><dt>Server region</dt><dd>Choose which regions you connect to and see the game server you are on.</dd></div>
-        <div><dt>Match statistics</dt><dd>Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.</dd></div>
-        <div><dt>Recording with OBS</dt><dd>Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own, and Fog Scout shows how many more rounds fit on the drive.</dd></div>
-        <div><dt>Perk calculator</dt><dd>Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns, skill checks included.</dd></div>
-        <div><dt>Discord and Spotify</dt><dd>Optional: show map and role as Discord status, see your Spotify queue.</dd></div>
-        <div><dt>Detects the game language</dt><dd>Map names in English, German, French, Spanish, Italian, Polish, Portuguese, Turkish, Russian, Chinese, Japanese and Korean. Fog Scout spots the game language by itself.</dd></div>
-        <div><dt>Seven languages</dt><dd>The app in German, English, Italian, Russian, Chinese, Japanese and Korean. Follows the Windows language, switchable in the settings.</dd></div>
-        <div><dt>Round timer and alerts</dt><dd>A timer below the map while the round runs, the search time while you wait, and a sound when the lobby is found or your bloodpoints stop going up at the cap.</dd></div>
-        <div><dt>Cards around the game</dt><dd>Next to the map, optional cards show system values, today's rounds and the music that is playing. Arrange them in the overlay editor, one layout per screen size.</dd></div>
-        <div><dt>Safe updates and backups</dt><dd>Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.</dd></div>
-      </dl>
+      <div class="kit">
+        <div>
+          <section aria-labelledby="k-match">
+            <h3 id="k-match"><span>A</span>In the match</h3>
+            <dl class="rows">
+              <div><dt>Automatic callout maps</dt><dd>56 map pictures, layouts like Coal Tower II told apart, in a click-through window. <a href="/maps/">See the six map styles →</a></dd></div>
+              <div><dt>Round timer and alerts</dt><dd>A timer below the map while the round runs, the search time while you wait, and a sound when the lobby is found or your bloodpoints stop going up at the cap.</dd></div>
+              <div><dt>Score tracker</dt><dd>Counts the score events at the top right while you play and adds up each category: as rings, bars or one line next to the map. A full category shows MAX.</dd></div>
+              <div><dt>Teammates' loadouts</dt><dd>As a survivor, press Esc once in the match: Fog Scout reads the other survivors' perks, item, add-ons and offering from the pause menu and shows them next to each of them. Optional.</dd></div>
+              <div><dt>Cards around the game</dt><dd>Next to the map, optional cards show system values, today's rounds and the music that is playing. Arrange them in the overlay editor, one layout per screen size.</dd></div>
+              <div><dt>Keys and controller on screen</dt><dd>Optional: shows which movement keys, mouse buttons and controller buttons you hold. With a recording, they are saved next to the video and shown again in the clip editor.</dd></div>
+              <div><dt>Notes per map and killer</dt><dd>A short note of your own for each map and each killer, shown on the map card in the round.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-rec">
+            <h3 id="k-rec"><span>B</span>Recordings and clips</h3>
+            <dl class="rows">
+              <div><dt>Recording with OBS</dt><dd>Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own, and Fog Scout shows how many more rounds fit on the drive.</dd></div>
+              <div><dt>Clip editor</dt><dd>Cut, hide names, add subtitles, music and your own voice, join clips from several rounds or make a vertical short.</dd></div>
+              <div><dt>Moments</dt><dd>Finds quiet stretches and dark loading screens in a recording and offers to cut them out.</dd></div>
+              <div><dt>Steam screenshots</dt><dd>Your F12 screenshots in one gallery: crop, draw on them and hide names. Fog Scout saves an edited copy and never touches the original.</dd></div>
+              <div><dt>YouTube upload</dt><dd>Optional: uploads a round or a clip to your channel and pauses while you are in a lobby.</dd></div>
+            </dl>
+          </section>
+        </div>
+        <div>
+          <section aria-labelledby="k-stats">
+            <h3 id="k-stats"><span>C</span>Statistics</h3>
+            <dl class="rows">
+              <div><dt>Match statistics</dt><dd>Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.</dd></div>
+              <div><dt>Records and sessions</dt><dd>Streaks, your best week and every session, with a short summary when you close DBD.</dd></div>
+              <div><dt>Bloodpoints and farming</dt><dd>Bloodpoints per hour, and farming rounds counted apart or hidden with one switch.</dd></div>
+              <div><dt>Export</dt><dd>Rounds as a CSV file, filtered by period, role, killer or map.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-tools">
+            <h3 id="k-tools"><span>D</span>Tools</h3>
+            <dl class="rows">
+              <div><dt>Server region</dt><dd>Choose which regions you connect to and see the game server you are on.</dd></div>
+              <div><dt>Perk calculator</dt><dd>Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns, skill checks included.</dd></div>
+              <div><dt>Discord and Spotify</dt><dd>Optional: show map and role as Discord status, see your Spotify queue.</dd></div>
+              <div><dt>Search everything</dt><dd>Ctrl+F finds every page, setting, map and round.</dd></div>
+              <div><dt>Ask Claude</dt><dd>Optional, with your own API key: questions about your statistics and suggestions in the clip editor. Only figures and fixed texts are sent, never player names.</dd></div>
+              <div><dt>Detects the game language</dt><dd>Map names in English, German, French, Spanish, Italian, Polish, Portuguese, Turkish, Russian, Chinese, Japanese and Korean. Fog Scout spots the game language by itself.</dd></div>
+              <div><dt>Seven languages</dt><dd>The app in German, English, Italian, Russian, Chinese, Japanese and Korean. Follows the Windows language, switchable in the settings.</dd></div>
+              <div><dt>Safe updates and backups</dt><dd>Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.</dd></div>
+            </dl>
+          </section>
+        </div>
+      </div>
+
+      <figure class="score">
+        <div class="fig"><img src="/img/score.webp" loading="lazy" decoding="async" width="1117" height="492" alt="Score tracker in three looks: four survivor categories as rings with icons and values, four killer categories as bars, and the survivor values in one line. Altruism and Hunter are full and show MAX in gold."></div>
+        <figcaption><b>Fig. 2</b><span>The score tracker with made-up points, drawn by Fog Scout: rings, bars or one line. A full category turns gold. The icons are Fog Scout's own.</span></figcaption>
+      </figure>
 
       <figure class="pair">
         <div>
@@ -332,7 +383,7 @@ footer p { max-width: 58rem; }
           <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="The same survivor list. Above the name of each of three teammates, Fog Scout shows their four perks in a row, followed by offering, item and add-ons."></div>
           <p class="mono dim">Above the name</p>
         </div>
-        <figcaption><b>Fig. 2</b><span>Teammates' loadouts in a real match at 3440×1440, read from the pause menu. Left: beside DBD's survivor list, the perks as a diamond with offering, item and add-ons. Right: in a row above each name. Names painted over.</span></figcaption>
+        <figcaption><b>Fig. 3</b><span>Teammates' loadouts in a real match at 3440×1440, read from the pause menu. Left: beside DBD's survivor list, the perks as a diamond with offering, item and add-ons. Right: in a row above each name. Names painted over.</span></figcaption>
       </figure>
 
       <div class="app">
@@ -355,7 +406,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."></div>
-          <figcaption><b>Fig. 3</b><span>The control window, filled with made-up rounds.</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>The control window, filled with made-up rounds.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Text recognition runs on your PC. Map detection and the overlay open no internet connection.</span> <span>Not signed: SmartScreen shows "More info", then "Run anyway". Asks for administrator rights once. Set DBD to Windowed Fullscreen.</span></p>
@@ -371,6 +422,15 @@ footer p { max-width: 58rem; }
         </div>
         <p>Translates the Dead by Daylight chat while you play. It reads any script, including Cyrillic, Korean, Japanese and Chinese, and shows the translation in a small click-through window on top of the game.</p>
       </div>
+
+      <dl class="rows tr-rows">
+        <div><dt>Any script</dt><dd>Cyrillic, Korean, Japanese, Chinese, Latin with accents: the AI model reads the chat, spots the language and translates it.</dd></div>
+        <div><dt>13 target languages</dt><dd>English, German, French, Spanish, Italian, Portuguese, Polish, Russian, Turkish, Dutch, Chinese, Japanese and Korean.</dd></div>
+        <div><dt>Only new lines</dt><dd>Sends only the strip with the new lines and nothing while the chat is closed. When the chat moves fast, it collects the lines and sends them together, so none is lost.</dd></div>
+        <div><dt>Right above the chat</dt><dd>Shown only while the chat is visible. Pick another spot, hide it with Ctrl+Alt+T, or keep it out of screenshots and recordings.</dd></div>
+        <div><dt>Costs under control</dt><dd>A daily limit, 300 requests by default, a test with a made-up chat and the time each answer took. Nothing is sent before you confirm what goes to the service.</dd></div>
+        <div><dt>Easy to set up</dt><dd>A setup assistant for service and key, updates checked against a SHA-256, no administrator rights. The window in six languages, light or dark.</dd></div>
+      </dl>
 
       <div class="tr">
         <div class="replay">

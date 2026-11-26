@@ -227,6 +227,15 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* the features of a tool in groups: two columns of groups, one below the other on a phone */
+.kit { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
+.kit section { margin-top: clamp(2rem, 4vw, 3rem); }
+.kit h3 { display: flex; align-items: baseline; gap: .8rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ink); }
+.kit h3 span { font: 500 .78rem/1 var(--mono); letter-spacing: .06em; color: var(--rust); }
+.kit .rows { grid-template-columns: 1fr; }
+.tr-rows { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.score { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 48rem; }
+
 /* two pictures side by side, one caption */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
@@ -304,6 +313,7 @@ footer p { max-width: 58rem; }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
+  .kit { grid-template-columns: minmax(0, 1fr); }
   .idx { position: static; }
   .idx div { display: flex; flex-wrap: wrap; gap: .35rem; }
   .idx button { display: block; width: auto; padding: .5rem .8rem; border: 1px solid var(--hair) !important; font-size: .9375rem; }
@@ -398,20 +408,61 @@ footer p { max-width: 58rem; }
         <p>マッチが始まると、Fog Scout は画面左下のマップ名を読み取り、対応するコールアウトマップをゲームの上に表示します。ラウンドが終わるとマップは消えます。</p>
       </div>
 
-      <dl class="rows">
-        <div><dt>自動コールアウトマップ</dt><dd>56 枚のマップ画像。Coal Tower II などのレイアウトも見分け、クリックが透過するウィンドウに表示します。 <a href="/ja/maps/">6 種類のマップスタイルを見る →</a></dd></div>
-        <div><dt>味方のロードアウト</dt><dd>サバイバーとしてマッチ中に一度 Esc を押すだけ：Fog Scout がポーズメニューからほかのサバイバーのパーク、アイテム、アドオン、オファリングを読み取り、それぞれの横に表示します。オプションです。</dd></div>
-        <div><dt>サーバー地域</dt><dd>接続する地域を選び、今いるゲームサーバーを確認できます。</dd></div>
-        <div><dt>マッチ統計</dt><dd>ラウンドごとの役割、キラー、キル数、脱出数、ブラッドポイントに加え、曜日・時間帯ごとの調子、パークの組み合わせ、待ち時間も。すべて PC に保存します。</dd></div>
-        <div><dt>OBS で録画</dt><dd>マッチごとに録画を開始して名前を付けます。ハイライト用のクリップエディター付きです。ラウンド中に付けたマークは、それぞれ個別のクリップにできます。ドライブにあと何ラウンド分入るかも表示します。</dd></div>
-        <div><dt>パーク計算機</dt><dd>最大 4 人のサバイバーとキラーのパーク、アイテム、アドオンを組み合わせ、効果逓減後の実際の効果を確認できます。スキルチェックも計算に含まれます。</dd></div>
-        <div><dt>Discord と Spotify</dt><dd>オプション：マップと役割を Discord のステータスに表示し、Spotify の再生キューを確認できます。</dd></div>
-        <div><dt>ゲームの言語を自動認識</dt><dd>英語・ドイツ語・フランス語・スペイン語・イタリア語・ポーランド語・ポルトガル語・トルコ語・ロシア語・中国語・日本語・韓国語のマップ名に対応。Fog Scout はゲームの言語を自動で認識します。</dd></div>
-        <div><dt>7 つの言語</dt><dd>アプリはドイツ語・英語・イタリア語・ロシア語・中国語・日本語・韓国語に対応。Windows の言語に合わせて表示され、設定で切り替えられます。</dd></div>
-        <div><dt>ラウンドタイマーと通知</dt><dd>ラウンド中はマップの下にタイマー、待機中はマッチング時間を表示。ロビーが見つかったときやブラッドポイントが上限で増えなくなったときに音で知らせます。</dd></div>
-        <div><dt>ゲームの周りのカード</dt><dd>マップの横に、システム値、今日のラウンド、再生中の音楽を表示するカードを追加できます。オーバーレイエディターで配置し、画面サイズごとにレイアウトを保存します。</dd></div>
-        <div><dt>安全なアップデートとバックアップ</dt><dd>アップデートは GitHub のリリースから取得し、インストール前に SHA-256 で確認します。設定とラウンドは 1 つのバックアップファイルにまとめられます。</dd></div>
-      </dl>
+      <div class="kit">
+        <div>
+          <section aria-labelledby="k-match">
+            <h3 id="k-match"><span>A</span>マッチ中</h3>
+            <dl class="rows">
+              <div><dt>自動コールアウトマップ</dt><dd>56 枚のマップ画像。Coal Tower II などのレイアウトも見分け、クリックが透過するウィンドウに表示します。 <a href="/ja/maps/">6 種類のマップスタイルを見る →</a></dd></div>
+              <div><dt>ラウンドタイマーと通知</dt><dd>ラウンド中はマップの下にタイマー、待機中はマッチング時間を表示。ロビーが見つかったときやブラッドポイントが上限で増えなくなったときに音で知らせます。</dd></div>
+              <div><dt>スコアトラッカー</dt><dd>プレイ中に右上のスコアイベントを数え、カテゴリごとに合計します。マップの横にリング、バー、または1行で表示。カテゴリが満タンになると MAX と表示します。</dd></div>
+              <div><dt>味方のロードアウト</dt><dd>サバイバーとしてマッチ中に一度 Esc を押すだけ：Fog Scout がポーズメニューからほかのサバイバーのパーク、アイテム、アドオン、オファリングを読み取り、それぞれの横に表示します。オプションです。</dd></div>
+              <div><dt>ゲームの周りのカード</dt><dd>マップの横に、システム値、今日のラウンド、再生中の音楽を表示するカードを追加できます。オーバーレイエディターで配置し、画面サイズごとにレイアウトを保存します。</dd></div>
+              <div><dt>画面にキーとコントローラー</dt><dd>オプション：押している移動キー、マウスボタン、コントローラーのボタンを表示します。録画中は動画の横に保存され、クリップエディターで再び表示されます。</dd></div>
+              <div><dt>マップとキラーごとのメモ</dt><dd>マップとキラーごとに短い自分用メモを残せます。ラウンド中はマップカードに表示されます。</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-rec">
+            <h3 id="k-rec"><span>B</span>録画とクリップ</h3>
+            <dl class="rows">
+              <div><dt>OBS で録画</dt><dd>マッチごとに録画を開始して名前を付けます。ハイライト用のクリップエディター付きです。ラウンド中に付けたマークは、それぞれ個別のクリップにできます。ドライブにあと何ラウンド分入るかも表示します。</dd></div>
+              <div><dt>クリップエディター</dt><dd>カット、名前の非表示、字幕・音楽・自分の声の追加、複数ラウンドのクリップの結合、縦型ショートの作成。</dd></div>
+              <div><dt>モーメント</dt><dd>録画の中の静かな区間や暗いロード画面を見つけ、カットを提案します。</dd></div>
+              <div><dt>Steam のスクリーンショット</dt><dd>F12 のスクリーンショットを1つのギャラリーに。切り抜き、描き込み、名前の非表示ができます。Fog Scout は編集したコピーを保存し、元の画像には触れません。</dd></div>
+              <div><dt>YouTube へのアップロード</dt><dd>オプション：ラウンドやクリップを自分のチャンネルにアップロードし、ロビーにいる間は一時停止します。</dd></div>
+            </dl>
+          </section>
+        </div>
+        <div>
+          <section aria-labelledby="k-stats">
+            <h3 id="k-stats"><span>C</span>統計</h3>
+            <dl class="rows">
+              <div><dt>マッチ統計</dt><dd>ラウンドごとの役割、キラー、キル数、脱出数、ブラッドポイントに加え、曜日・時間帯ごとの調子、パークの組み合わせ、待ち時間も。すべて PC に保存します。</dd></div>
+              <div><dt>記録とセッション</dt><dd>連勝、最高の1週間、各セッション。DBD を閉じると短いまとめを表示します。</dd></div>
+              <div><dt>ブラッドポイントとファーミング</dt><dd>1時間あたりのブラッドポイント。ファーミングのラウンドは別に数えるか、スイッチ1つで非表示にできます。</dd></div>
+              <div><dt>エクスポート</dt><dd>ラウンドを CSV ファイルで。期間、役割、キラー、マップで絞り込めます。</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-tools">
+            <h3 id="k-tools"><span>D</span>ツール</h3>
+            <dl class="rows">
+              <div><dt>サーバー地域</dt><dd>接続する地域を選び、今いるゲームサーバーを確認できます。</dd></div>
+              <div><dt>パーク計算機</dt><dd>最大 4 人のサバイバーとキラーのパーク、アイテム、アドオンを組み合わせ、効果逓減後の実際の効果を確認できます。スキルチェックも計算に含まれます。</dd></div>
+              <div><dt>Discord と Spotify</dt><dd>オプション：マップと役割を Discord のステータスに表示し、Spotify の再生キューを確認できます。</dd></div>
+              <div><dt>すべてを検索</dt><dd>Ctrl+F で、すべてのページ、設定、マップ、ラウンドを検索できます。</dd></div>
+              <div><dt>Claude に質問</dt><dd>オプション、自分の API キーで：統計についての質問と、クリップエディターでの提案。送るのは数値と決まったテキストだけで、プレイヤー名は決して送りません。</dd></div>
+              <div><dt>ゲームの言語を自動認識</dt><dd>英語・ドイツ語・フランス語・スペイン語・イタリア語・ポーランド語・ポルトガル語・トルコ語・ロシア語・中国語・日本語・韓国語のマップ名に対応。Fog Scout はゲームの言語を自動で認識します。</dd></div>
+              <div><dt>7 つの言語</dt><dd>アプリはドイツ語・英語・イタリア語・ロシア語・中国語・日本語・韓国語に対応。Windows の言語に合わせて表示され、設定で切り替えられます。</dd></div>
+              <div><dt>安全なアップデートとバックアップ</dt><dd>アップデートは GitHub のリリースから取得し、インストール前に SHA-256 で確認します。設定とラウンドは 1 つのバックアップファイルにまとめられます。</dd></div>
+            </dl>
+          </section>
+        </div>
+      </div>
+
+      <figure class="score">
+        <div class="fig"><img src="/img/score.webp" loading="lazy" decoding="async" width="1117" height="492" alt="3つの表示のスコアトラッカー：サバイバーの4カテゴリをアイコンと数値付きのリングで、キラーの4カテゴリをバーで、サバイバーの数値を1行で。博愛とハンターは満タンで、金色の MAX を表示しています。"></div>
+        <figcaption><b>Fig. 2</b><span>架空のポイントで Fog Scout が描いたスコアトラッカー：リング、バー、または1行。満タンのカテゴリは金色になります。アイコンは Fog Scout 独自のものです。</span></figcaption>
+      </figure>
 
       <figure class="pair">
         <div>
@@ -422,7 +473,7 @@ footer p { max-width: 58rem; }
           <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="同じサバイバー一覧。3 人の味方の名前の上に、Fog Scout がそれぞれの 4 つのパークを一列に、続けてオファリング、アイテム、アドオンを表示しています。"></div>
           <p class="mono dim">名前の上</p>
         </div>
-        <figcaption><b>Fig. 2</b><span>3440×1440 の実際のマッチでの味方のロードアウト。ポーズメニューから読み取っています。左：DBD のサバイバー一覧の横に、パークをひし形で、オファリング、アイテム、アドオンとともに表示。右：各名前の上に一列で表示。名前は塗りつぶしています。</span></figcaption>
+        <figcaption><b>Fig. 3</b><span>3440×1440 の実際のマッチでの味方のロードアウト。ポーズメニューから読み取っています。左：DBD のサバイバー一覧の横に、パークをひし形で、オファリング、アイテム、アドオンとともに表示。右：各名前の上に一列で表示。名前は塗りつぶしています。</span></figcaption>
       </figure>
 
       <div class="app">
@@ -445,7 +496,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout のマップページ：すべてのコールアウトマップをレルムごとにまとめ、マップごとのラウンド数と平均キル数を表示。"></div>
-          <figcaption><b>Fig. 3</b><span>架空のラウンドを入れたコントロールウィンドウ。</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>架空のラウンドを入れたコントロールウィンドウ。</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>文字認識はお使いの PC 上で動きます。マップの検出とオーバーレイはインターネットに接続しません。</span> <span>署名なし：SmartScreen で「詳細情報」、次に「実行」を選んでください。管理者権限を一度だけ求めます。DBD は「ウィンドウ化フルスクリーン」に設定してください。</span></p>
@@ -461,6 +512,15 @@ footer p { max-width: 58rem; }
         </div>
         <p>プレイ中の Dead by Daylight のチャットを翻訳します。キリル文字、韓国語、日本語、中国語を含むあらゆる文字を読み取り、ゲームの上にクリックが透過する小さなウィンドウで翻訳を表示します。</p>
       </div>
+
+      <dl class="rows tr-rows">
+        <div><dt>あらゆる文字</dt><dd>キリル文字、韓国語、日本語、中国語、アクセント付きのラテン文字：AI モデルがチャットを読み、言語を判別して翻訳します。</dd></div>
+        <div><dt>13 の翻訳先言語</dt><dd>英語、ドイツ語、フランス語、スペイン語、イタリア語、ポルトガル語、ポーランド語、ロシア語、トルコ語、オランダ語、中国語、日本語、韓国語。</dd></div>
+        <div><dt>新しい行だけ</dt><dd>新しい行のある帯だけを送り、チャットが閉じている間は何も送りません。チャットが速く流れるときは行をまとめて一緒に送るので、1行も失われません。</dd></div>
+        <div><dt>チャットのすぐ上に</dt><dd>チャットが見えている間だけ表示されます。別の場所を選ぶ、Ctrl+Alt+T で隠す、スクリーンショットや録画に映さない、も選べます。</dd></div>
+        <div><dt>コストを管理</dt><dd>1日の上限（標準 300 リクエスト）、架空のチャットでのテスト、回答ごとの所要時間。サービスに何が送られるかを確認するまで、何も送りません。</dd></div>
+        <div><dt>かんたん設定</dt><dd>サービスとキーのためのセットアップアシスタント、SHA-256 で確認されるアップデート、管理者権限は不要。ウィンドウは6言語、ライトまたはダーク。</dd></div>
+      </dl>
 
       <div class="tr">
         <div class="replay">

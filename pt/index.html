@@ -227,6 +227,15 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* the features of a tool in groups: two columns of groups, one below the other on a phone */
+.kit { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
+.kit section { margin-top: clamp(2rem, 4vw, 3rem); }
+.kit h3 { display: flex; align-items: baseline; gap: .8rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ink); }
+.kit h3 span { font: 500 .78rem/1 var(--mono); letter-spacing: .06em; color: var(--rust); }
+.kit .rows { grid-template-columns: 1fr; }
+.tr-rows { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.score { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 48rem; }
+
 /* two pictures side by side, one caption */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
@@ -304,6 +313,7 @@ footer p { max-width: 58rem; }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
+  .kit { grid-template-columns: minmax(0, 1fr); }
   .idx { position: static; }
   .idx div { display: flex; flex-wrap: wrap; gap: .35rem; }
   .idx button { display: block; width: auto; padding: .5rem .8rem; border: 1px solid var(--hair) !important; font-size: .9375rem; }
@@ -398,20 +408,61 @@ footer p { max-width: 58rem; }
         <p>Quando uma partida começa, o Fog Scout lê o nome do mapa no canto inferior esquerdo da tela e coloca o callout map correspondente sobre o jogo. Depois da rodada, o mapa some de novo.</p>
       </div>
 
-      <dl class="rows">
-        <div><dt>Callout maps automáticos</dt><dd>56 imagens de mapa, variações como Coal Tower II diferenciadas, em uma janela click-through. <a href="/pt/maps/">Ver os seis estilos de mapa →</a></dd></div>
-        <div><dt>Loadouts dos colegas de equipe</dt><dd>Como sobrevivente, aperte Esc uma vez na partida: o Fog Scout lê os perks, o item, os complementos e a oferenda dos outros sobreviventes no menu de pausa e os mostra ao lado de cada um. Opcional.</dd></div>
-        <div><dt>Região do servidor</dt><dd>Escolha a quais regiões você se conecta e veja em qual servidor do jogo você está.</dd></div>
-        <div><dt>Estatísticas das partidas</dt><dd>Papel, assassino, abates, fugas e pontos de sangue por rodada, sua forma por dia da semana e horário, pares de perks e tempos de espera. Guardados no seu PC.</dd></div>
-        <div><dt>Gravação com OBS</dt><dd>Inicia e nomeia as gravações por partida, com um editor de clipes para os melhores momentos. Cada marca que você põe em uma rodada pode virar um clipe próprio, e o Fog Scout mostra quantas rodadas ainda cabem no disco.</dd></div>
-        <div><dt>Calculadora de perks</dt><dd>Combine perks, itens e complementos para até quatro sobreviventes e um assassino e veja o que eles rendem depois dos retornos decrescentes, testes de perícia incluídos.</dd></div>
-        <div><dt>Discord e Spotify</dt><dd>Opcional: mostre o mapa e o papel como status no Discord e veja sua fila do Spotify.</dd></div>
-        <div><dt>Detecta o idioma do jogo</dt><dd>Nomes de mapas em inglês, alemão, francês, espanhol, italiano, polonês, português, turco, russo, chinês, japonês e coreano. O Fog Scout detecta sozinho o idioma do jogo.</dd></div>
-        <div><dt>Sete idiomas</dt><dd>O app em alemão, inglês, italiano, russo, chinês, japonês e coreano. Segue o idioma do Windows e pode ser trocado nas configurações.</dd></div>
-        <div><dt>Cronômetro e avisos</dt><dd>Um cronômetro abaixo do mapa durante a rodada, o tempo de busca enquanto você espera e um som quando o lobby é encontrado ou seus pontos de sangue param de subir no limite.</dd></div>
-        <div><dt>Cartões ao redor do jogo</dt><dd>Ao lado do mapa, cartões opcionais mostram valores do sistema, as rodadas de hoje e a música tocando. Organize-os no editor de overlay, um layout por tamanho de tela.</dd></div>
-        <div><dt>Atualizações seguras e backups</dt><dd>As atualizações vêm da release do GitHub e são verificadas por SHA-256 antes de instalar. Configurações e rodadas vão para um único arquivo de backup.</dd></div>
-      </dl>
+      <div class="kit">
+        <div>
+          <section aria-labelledby="k-match">
+            <h3 id="k-match"><span>A</span>Na partida</h3>
+            <dl class="rows">
+              <div><dt>Callout maps automáticos</dt><dd>56 imagens de mapa, variações como Coal Tower II diferenciadas, em uma janela click-through. <a href="/pt/maps/">Ver os seis estilos de mapa →</a></dd></div>
+              <div><dt>Cronômetro e avisos</dt><dd>Um cronômetro abaixo do mapa durante a rodada, o tempo de busca enquanto você espera e um som quando o lobby é encontrado ou seus pontos de sangue param de subir no limite.</dd></div>
+              <div><dt>Contador de pontuação</dt><dd>Conta os score events no canto superior direito enquanto você joga e soma cada categoria: em anéis, barras ou uma linha ao lado do mapa. Uma categoria cheia mostra MAX.</dd></div>
+              <div><dt>Loadouts dos colegas de equipe</dt><dd>Como sobrevivente, aperte Esc uma vez na partida: o Fog Scout lê os perks, o item, os complementos e a oferenda dos outros sobreviventes no menu de pausa e os mostra ao lado de cada um. Opcional.</dd></div>
+              <div><dt>Cartões ao redor do jogo</dt><dd>Ao lado do mapa, cartões opcionais mostram valores do sistema, as rodadas de hoje e a música tocando. Organize-os no editor de overlay, um layout por tamanho de tela.</dd></div>
+              <div><dt>Teclas e controle na tela</dt><dd>Opcional: mostra quais teclas de movimento, botões do mouse e do controle você está segurando. Com uma gravação, eles ficam salvos ao lado do vídeo e aparecem de novo no editor de clipes.</dd></div>
+              <div><dt>Notas por mapa e assassino</dt><dd>Uma nota curta sua para cada mapa e cada assassino, mostrada no cartão do mapa durante a rodada.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-rec">
+            <h3 id="k-rec"><span>B</span>Gravações e clipes</h3>
+            <dl class="rows">
+              <div><dt>Gravação com OBS</dt><dd>Inicia e nomeia as gravações por partida, com um editor de clipes para os melhores momentos. Cada marca que você põe em uma rodada pode virar um clipe próprio, e o Fog Scout mostra quantas rodadas ainda cabem no disco.</dd></div>
+              <div><dt>Editor de clipes</dt><dd>Corte, esconda nomes, adicione legendas, música e sua própria voz, junte clipes de várias rodadas ou faça um short vertical.</dd></div>
+              <div><dt>Momentos</dt><dd>Encontra trechos parados e telas de carregamento escuras numa gravação e oferece cortá-los.</dd></div>
+              <div><dt>Capturas do Steam</dt><dd>Suas capturas F12 numa galeria: recorte, desenhe e esconda nomes. O Fog Scout salva uma cópia editada e nunca mexe no original.</dd></div>
+              <div><dt>Envio para o YouTube</dt><dd>Opcional: envia uma rodada ou um clipe para o seu canal e pausa enquanto você está num lobby.</dd></div>
+            </dl>
+          </section>
+        </div>
+        <div>
+          <section aria-labelledby="k-stats">
+            <h3 id="k-stats"><span>C</span>Estatísticas</h3>
+            <dl class="rows">
+              <div><dt>Estatísticas das partidas</dt><dd>Papel, assassino, abates, fugas e pontos de sangue por rodada, sua forma por dia da semana e horário, pares de perks e tempos de espera. Guardados no seu PC.</dd></div>
+              <div><dt>Recordes e sessões</dt><dd>Sequências, sua melhor semana e cada sessão, com um resumo curto quando você fecha o DBD.</dd></div>
+              <div><dt>Pontos de sangue e farming</dt><dd>Pontos de sangue por hora, e as rodadas de farming contadas à parte ou ocultas com um só botão.</dd></div>
+              <div><dt>Exportar</dt><dd>As rodadas como arquivo CSV, filtradas por período, papel, assassino ou mapa.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-tools">
+            <h3 id="k-tools"><span>D</span>Ferramentas</h3>
+            <dl class="rows">
+              <div><dt>Região do servidor</dt><dd>Escolha a quais regiões você se conecta e veja em qual servidor do jogo você está.</dd></div>
+              <div><dt>Calculadora de perks</dt><dd>Combine perks, itens e complementos para até quatro sobreviventes e um assassino e veja o que eles rendem depois dos retornos decrescentes, testes de perícia incluídos.</dd></div>
+              <div><dt>Discord e Spotify</dt><dd>Opcional: mostre o mapa e o papel como status no Discord e veja sua fila do Spotify.</dd></div>
+              <div><dt>Buscar em tudo</dt><dd>Ctrl+F encontra cada página, configuração, mapa e rodada.</dd></div>
+              <div><dt>Perguntar ao Claude</dt><dd>Opcional, com sua própria chave de API: perguntas sobre suas estatísticas e sugestões no editor de clipes. Só números e textos fixos são enviados, nunca nomes de jogadores.</dd></div>
+              <div><dt>Detecta o idioma do jogo</dt><dd>Nomes de mapas em inglês, alemão, francês, espanhol, italiano, polonês, português, turco, russo, chinês, japonês e coreano. O Fog Scout detecta sozinho o idioma do jogo.</dd></div>
+              <div><dt>Sete idiomas</dt><dd>O app em alemão, inglês, italiano, russo, chinês, japonês e coreano. Segue o idioma do Windows e pode ser trocado nas configurações.</dd></div>
+              <div><dt>Atualizações seguras e backups</dt><dd>As atualizações vêm da release do GitHub e são verificadas por SHA-256 antes de instalar. Configurações e rodadas vão para um único arquivo de backup.</dd></div>
+            </dl>
+          </section>
+        </div>
+      </div>
+
+      <figure class="score">
+        <div class="fig"><img src="/img/score.webp" loading="lazy" decoding="async" width="1117" height="492" alt="O contador de pontuação em três visuais: quatro categorias de sobrevivente como anéis com ícones e valores, quatro categorias de assassino como barras e os valores de sobrevivente numa linha. Altruísmo e Caçador estão cheios e mostram MAX em dourado."></div>
+        <figcaption><b>Fig. 2</b><span>O contador de pontuação com pontos inventados, desenhado pelo Fog Scout: anéis, barras ou uma linha. Uma categoria cheia fica dourada. Os ícones são do próprio Fog Scout.</span></figcaption>
+      </figure>
 
       <figure class="pair">
         <div>
@@ -422,7 +473,7 @@ footer p { max-width: 58rem; }
           <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="A mesma lista de sobreviventes. Acima do nome de três colegas, o Fog Scout mostra os quatro perks de cada um em linha, seguidos de oferenda, item e complementos."></div>
           <p class="mono dim">Acima do nome</p>
         </div>
-        <figcaption><b>Fig. 2</b><span>Loadouts dos colegas em uma partida real em 3440×1440, lidos do menu de pausa. À esquerda: ao lado da lista de sobreviventes do DBD, os perks em losango com oferenda, item e complementos. À direita: em linha acima de cada nome. Nomes cobertos.</span></figcaption>
+        <figcaption><b>Fig. 3</b><span>Loadouts dos colegas em uma partida real em 3440×1440, lidos do menu de pausa. À esquerda: ao lado da lista de sobreviventes do DBD, os perks em losango com oferenda, item e complementos. À direita: em linha acima de cada nome. Nomes cobertos.</span></figcaption>
       </figure>
 
       <div class="app">
@@ -445,7 +496,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Página Mapas do Fog Scout: todos os callout maps agrupados por reino, com rodadas e média de abates por mapa."></div>
-          <figcaption><b>Fig. 3</b><span>A janela de controle, preenchida com rodadas inventadas.</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>A janela de controle, preenchida com rodadas inventadas.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>O reconhecimento de texto roda no seu PC. A detecção do mapa e o overlay não abrem nenhuma conexão com a internet.</span> <span>Sem assinatura: o SmartScreen mostra "Mais informações" e depois "Executar assim mesmo". Pede direitos de administrador uma vez. Configure o DBD em Tela cheia em janela.</span></p>
@@ -461,6 +512,15 @@ footer p { max-width: 58rem; }
         </div>
         <p>Traduz o chat do Dead by Daylight enquanto você joga. Lê qualquer alfabeto, incluindo cirílico, coreano, japonês e chinês, e mostra a tradução em uma pequena janela click-through sobre o jogo.</p>
       </div>
+
+      <dl class="rows tr-rows">
+        <div><dt>Qualquer escrita</dt><dd>Cirílico, coreano, japonês, chinês, latim com acentos: o modelo de IA lê o chat, reconhece o idioma e traduz.</dd></div>
+        <div><dt>13 idiomas de destino</dt><dd>Inglês, alemão, francês, espanhol, italiano, português, polonês, russo, turco, holandês, chinês, japonês e coreano.</dd></div>
+        <div><dt>Só linhas novas</dt><dd>Envia só a faixa com as linhas novas e nada enquanto o chat está fechado. Quando o chat anda rápido, junta as linhas e envia tudo de uma vez, para nenhuma se perder.</dd></div>
+        <div><dt>Logo acima do chat</dt><dd>Aparece só enquanto o chat está visível. Escolha outro lugar, esconda com Ctrl+Alt+T ou deixe fora de capturas e gravações.</dd></div>
+        <div><dt>Custos sob controle</dt><dd>Um limite diário, 300 pedidos por padrão, um teste com um chat inventado e o tempo de cada resposta. Nada é enviado antes de você confirmar o que vai para o serviço.</dd></div>
+        <div><dt>Fácil de configurar</dt><dd>Um assistente para serviço e chave, atualizações verificadas por SHA-256, sem direitos de administrador. A janela em seis idiomas, clara ou escura.</dd></div>
+      </dl>
 
       <div class="tr">
         <div class="replay">

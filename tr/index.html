@@ -227,6 +227,15 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* the features of a tool in groups: two columns of groups, one below the other on a phone */
+.kit { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
+.kit section { margin-top: clamp(2rem, 4vw, 3rem); }
+.kit h3 { display: flex; align-items: baseline; gap: .8rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ink); }
+.kit h3 span { font: 500 .78rem/1 var(--mono); letter-spacing: .06em; color: var(--rust); }
+.kit .rows { grid-template-columns: 1fr; }
+.tr-rows { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.score { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 48rem; }
+
 /* two pictures side by side, one caption */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
@@ -304,6 +313,7 @@ footer p { max-width: 58rem; }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
+  .kit { grid-template-columns: minmax(0, 1fr); }
   .idx { position: static; }
   .idx div { display: flex; flex-wrap: wrap; gap: .35rem; }
   .idx button { display: block; width: auto; padding: .5rem .8rem; border: 1px solid var(--hair) !important; font-size: .9375rem; }
@@ -398,20 +408,61 @@ footer p { max-width: 58rem; }
         <p>Maç başladığında Fog Scout ekranın sol altındaki harita adını okur ve eşleşen callout haritasını oyunun üstüne yerleştirir. Tur bitince harita yine kaybolur.</p>
       </div>
 
-      <dl class="rows">
-        <div><dt>Otomatik callout haritaları</dt><dd>56 harita görüntüsü, Coal Tower II gibi varyantlar ayırt edilir, click-through bir pencerede. <a href="/tr/maps/">Altı harita stilini gör →</a></dd></div>
-        <div><dt>Takım arkadaşlarının loadout'ları</dt><dd>Hayatta kalan olarak maçta bir kez Esc'ye basman yeterli: Fog Scout diğer hayatta kalanların perklerini, eşyasını, eklentilerini ve adağını duraklatma menüsünden okur ve her birinin yanında gösterir. İsteğe bağlı.</dd></div>
-        <div><dt>Sunucu bölgesi</dt><dd>Hangi bölgelere bağlanacağını seç ve hangi oyun sunucusunda olduğunu gör.</dd></div>
-        <div><dt>Maç istatistikleri</dt><dd>Tur başına rol, katil, öldürmeler, kaçışlar ve kan puanı; haftanın gününe ve saate göre formun, perk çiftleri ve bekleme süreleri. Senin bilgisayarında saklanır.</dd></div>
-        <div><dt>OBS ile kayıt</dt><dd>Kayıtları maç başına başlatır ve adlandırır, öne çıkan anlar için bir klip düzenleyici içerir. Bir turda koyduğun her işaret ayrı bir klip olabilir; Fog Scout diske kaç tur daha sığacağını da gösterir.</dd></div>
-        <div><dt>Perk hesaplayıcı</dt><dd>En fazla dört hayatta kalan ve bir katil için perkleri, eşyaları ve eklentileri birleştir; azalan getiriden sonra ne kazandırdıklarını gör; beceri kontrolleri de dahil.</dd></div>
-        <div><dt>Discord ve Spotify</dt><dd>İsteğe bağlı: harita ve rolünü Discord durumu olarak göster, Spotify sıranı gör.</dd></div>
-        <div><dt>Oyun dilini tanır</dt><dd>İngilizce, Almanca, Fransızca, İspanyolca, İtalyanca, Lehçe, Portekizce, Türkçe, Rusça, Çince, Japonca ve Korece harita adları. Fog Scout oyun dilini kendisi tanır.</dd></div>
-        <div><dt>Yedi dil</dt><dd>Uygulama Almanca, İngilizce, İtalyanca, Rusça, Çince, Japonca ve Korece. Windows dilini izler, ayarlardan değiştirilebilir.</dd></div>
-        <div><dt>Tur sayacı ve uyarılar</dt><dd>Tur sürerken haritanın altında bir sayaç, beklerken arama süresi, lobi bulunduğunda ya da kan puanların sınırda artmayı bıraktığında bir ses.</dd></div>
-        <div><dt>Oyunun etrafındaki kartlar</dt><dd>Haritanın yanında isteğe bağlı kartlar sistem değerlerini, bugünkü turları ve çalan müziği gösterir. Onları overlay düzenleyicisinde yerleştirirsin, her ekran boyutu için bir düzen.</dd></div>
-        <div><dt>Güvenli güncellemeler ve yedekler</dt><dd>Güncellemeler GitHub sürümünden gelir ve kurulmadan önce SHA-256 ile kontrol edilir. Ayarlar ve turlar tek bir yedek dosyasına girer.</dd></div>
-      </dl>
+      <div class="kit">
+        <div>
+          <section aria-labelledby="k-match">
+            <h3 id="k-match"><span>A</span>Maçta</h3>
+            <dl class="rows">
+              <div><dt>Otomatik callout haritaları</dt><dd>56 harita görüntüsü, Coal Tower II gibi varyantlar ayırt edilir, click-through bir pencerede. <a href="/tr/maps/">Altı harita stilini gör →</a></dd></div>
+              <div><dt>Tur sayacı ve uyarılar</dt><dd>Tur sürerken haritanın altında bir sayaç, beklerken arama süresi, lobi bulunduğunda ya da kan puanların sınırda artmayı bıraktığında bir ses.</dd></div>
+              <div><dt>Skor takibi</dt><dd>Oynarken sağ üstteki score event'leri sayar ve her kategoriyi toplar: haritanın yanında halka, çubuk ya da tek satır olarak. Dolan bir kategori MAX gösterir.</dd></div>
+              <div><dt>Takım arkadaşlarının loadout'ları</dt><dd>Hayatta kalan olarak maçta bir kez Esc'ye basman yeterli: Fog Scout diğer hayatta kalanların perklerini, eşyasını, eklentilerini ve adağını duraklatma menüsünden okur ve her birinin yanında gösterir. İsteğe bağlı.</dd></div>
+              <div><dt>Oyunun etrafındaki kartlar</dt><dd>Haritanın yanında isteğe bağlı kartlar sistem değerlerini, bugünkü turları ve çalan müziği gösterir. Onları overlay düzenleyicisinde yerleştirirsin, her ekran boyutu için bir düzen.</dd></div>
+              <div><dt>Ekranda tuşlar ve kontrolcü</dt><dd>İsteğe bağlı: hangi hareket tuşlarını, fare tuşlarını ve kontrolcü düğmelerini basılı tuttuğunu gösterir. Kayıt varsa videonun yanına kaydedilir ve klip düzenleyicide yeniden gösterilir.</dd></div>
+              <div><dt>Harita ve katil başına notlar</dt><dd>Her harita ve her katil için kısa bir notun; turda harita kartında görünür.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-rec">
+            <h3 id="k-rec"><span>B</span>Kayıtlar ve klipler</h3>
+            <dl class="rows">
+              <div><dt>OBS ile kayıt</dt><dd>Kayıtları maç başına başlatır ve adlandırır, öne çıkan anlar için bir klip düzenleyici içerir. Bir turda koyduğun her işaret ayrı bir klip olabilir; Fog Scout diske kaç tur daha sığacağını da gösterir.</dd></div>
+              <div><dt>Klip düzenleyici</dt><dd>Kes, isimleri gizle, altyazı, müzik ve kendi sesini ekle, birkaç turun kliplerini birleştir ya da dikey bir short yap.</dd></div>
+              <div><dt>Anlar</dt><dd>Bir kayıttaki sakin bölümleri ve karanlık yükleme ekranlarını bulur ve kesip atmayı önerir.</dd></div>
+              <div><dt>Steam ekran görüntüleri</dt><dd>F12 ekran görüntülerin tek bir galeride: kırp, üzerine çiz ve isimleri gizle. Fog Scout düzenlenmiş bir kopya kaydeder, orijinale asla dokunmaz.</dd></div>
+              <div><dt>YouTube'a yükleme</dt><dd>İsteğe bağlı: bir turu ya da klibi kanalına yükler ve lobideyken duraklar.</dd></div>
+            </dl>
+          </section>
+        </div>
+        <div>
+          <section aria-labelledby="k-stats">
+            <h3 id="k-stats"><span>C</span>İstatistikler</h3>
+            <dl class="rows">
+              <div><dt>Maç istatistikleri</dt><dd>Tur başına rol, katil, öldürmeler, kaçışlar ve kan puanı; haftanın gününe ve saate göre formun, perk çiftleri ve bekleme süreleri. Senin bilgisayarında saklanır.</dd></div>
+              <div><dt>Rekorlar ve oturumlar</dt><dd>Seriler, en iyi haftan ve her oturum; DBD'yi kapattığında kısa bir özetle.</dd></div>
+              <div><dt>Kan puanı ve farming</dt><dd>Saat başına kan puanı; farming turları ayrı sayılır ya da tek bir anahtarla gizlenir.</dd></div>
+              <div><dt>Dışa aktar</dt><dd>Turlar CSV dosyası olarak; döneme, role, katile ya da haritaya göre filtrelenmiş.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-tools">
+            <h3 id="k-tools"><span>D</span>Araçlar</h3>
+            <dl class="rows">
+              <div><dt>Sunucu bölgesi</dt><dd>Hangi bölgelere bağlanacağını seç ve hangi oyun sunucusunda olduğunu gör.</dd></div>
+              <div><dt>Perk hesaplayıcı</dt><dd>En fazla dört hayatta kalan ve bir katil için perkleri, eşyaları ve eklentileri birleştir; azalan getiriden sonra ne kazandırdıklarını gör; beceri kontrolleri de dahil.</dd></div>
+              <div><dt>Discord ve Spotify</dt><dd>İsteğe bağlı: harita ve rolünü Discord durumu olarak göster, Spotify sıranı gör.</dd></div>
+              <div><dt>Her şeyde ara</dt><dd>Ctrl+F her sayfayı, ayarı, haritayı ve turu bulur.</dd></div>
+              <div><dt>Claude'a sor</dt><dd>İsteğe bağlı, kendi API anahtarınla: istatistiklerin hakkında sorular ve klip düzenleyicide öneriler. Yalnızca sayılar ve sabit metinler gönderilir, oyuncu adları asla.</dd></div>
+              <div><dt>Oyun dilini tanır</dt><dd>İngilizce, Almanca, Fransızca, İspanyolca, İtalyanca, Lehçe, Portekizce, Türkçe, Rusça, Çince, Japonca ve Korece harita adları. Fog Scout oyun dilini kendisi tanır.</dd></div>
+              <div><dt>Yedi dil</dt><dd>Uygulama Almanca, İngilizce, İtalyanca, Rusça, Çince, Japonca ve Korece. Windows dilini izler, ayarlardan değiştirilebilir.</dd></div>
+              <div><dt>Güvenli güncellemeler ve yedekler</dt><dd>Güncellemeler GitHub sürümünden gelir ve kurulmadan önce SHA-256 ile kontrol edilir. Ayarlar ve turlar tek bir yedek dosyasına girer.</dd></div>
+            </dl>
+          </section>
+        </div>
+      </div>
+
+      <figure class="score">
+        <div class="fig"><img src="/img/score.webp" loading="lazy" decoding="async" width="1117" height="492" alt="Üç görünümde skor takibi: dört hayatta kalan kategorisi simgeli ve değerli halkalar olarak, dört katil kategorisi çubuk olarak ve hayatta kalan değerleri tek satırda. Fedakârlık ve Avcı dolu ve altın renginde MAX gösteriyor."></div>
+        <figcaption><b>Fig. 2</b><span>Uydurma puanlarla, Fog Scout'un çizdiği skor takibi: halkalar, çubuklar ya da tek satır. Dolan kategori altın rengine döner. Simgeler Fog Scout'un kendisine ait.</span></figcaption>
+      </figure>
 
       <figure class="pair">
         <div>
@@ -422,7 +473,7 @@ footer p { max-width: 58rem; }
           <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="Aynı hayatta kalan listesi. Fog Scout, üç takım arkadaşının isminin üstünde dört perkini bir sırada, ardından adağını, eşyasını ve eklentilerini gösteriyor."></div>
           <p class="mono dim">İsmin üstünde</p>
         </div>
-        <figcaption><b>Fig. 2</b><span>3440×1440'te gerçek bir maçta takım arkadaşlarının loadout'ları, duraklatma menüsünden okundu. Solda: DBD'nin hayatta kalan listesinin yanında, perkler eşkenar dörtgen olarak adak, eşya ve eklentilerle. Sağda: her ismin üstünde bir sırada. İsimler boyandı.</span></figcaption>
+        <figcaption><b>Fig. 3</b><span>3440×1440'te gerçek bir maçta takım arkadaşlarının loadout'ları, duraklatma menüsünden okundu. Solda: DBD'nin hayatta kalan listesinin yanında, perkler eşkenar dörtgen olarak adak, eşya ve eklentilerle. Sağda: her ismin üstünde bir sırada. İsimler boyandı.</span></figcaption>
       </figure>
 
       <div class="app">
@@ -445,7 +496,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout Haritalar sayfası: diyara göre gruplanmış tüm callout haritaları, harita başına tur sayısı ve ortalama öldürme."></div>
-          <figcaption><b>Fig. 3</b><span>Uydurma turlarla doldurulmuş kontrol penceresi.</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>Uydurma turlarla doldurulmuş kontrol penceresi.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Metin tanıma senin bilgisayarında çalışır. Harita tespiti ve overlay hiçbir internet bağlantısı açmaz.</span> <span>İmzasız: SmartScreen önce "Ek bilgi", sonra "Yine de çalıştır" gösterir. Bir kez yönetici izni ister. DBD'yi Pencereli Tam Ekran moduna al.</span></p>
@@ -461,6 +512,15 @@ footer p { max-width: 58rem; }
         </div>
         <p>Sen oynarken Dead by Daylight sohbetini çevirir. Kiril, Korece, Japonca ve Çince dahil her alfabeyi okur ve çeviriyi oyunun üstünde küçük, click-through bir pencerede gösterir.</p>
       </div>
+
+      <dl class="rows tr-rows">
+        <div><dt>Her yazı sistemi</dt><dd>Kiril, Korece, Japonca, Çince, aksanlı Latin harfleri: yapay zekâ modeli sohbeti okur, dili tanır ve çevirir.</dd></div>
+        <div><dt>13 hedef dil</dt><dd>İngilizce, Almanca, Fransızca, İspanyolca, İtalyanca, Portekizce, Lehçe, Rusça, Türkçe, Felemenkçe, Çince, Japonca ve Korece.</dd></div>
+        <div><dt>Yalnızca yeni satırlar</dt><dd>Yalnızca yeni satırların olduğu şeridi gönderir, sohbet kapalıyken hiçbir şey göndermez. Sohbet hızlı akınca satırları toplar ve birlikte gönderir, böylece hiçbiri kaybolmaz.</dd></div>
+        <div><dt>Sohbetin hemen üstünde</dt><dd>Yalnızca sohbet görünürken görünür. Başka bir yer seç, Ctrl+Alt+T ile gizle ya da ekran görüntülerinin ve kayıtların dışında tut.</dd></div>
+        <div><dt>Maliyet kontrol altında</dt><dd>Günlük bir sınır (varsayılan 300 istek), uydurma bir sohbetle test ve her yanıtın süresi. Hizmete neyin gittiğini onaylamadan hiçbir şey gönderilmez.</dd></div>
+        <div><dt>Kolay kurulum</dt><dd>Hizmet ve anahtar için kurulum sihirbazı, SHA-256 ile doğrulanan güncellemeler, yönetici hakkı gerekmez. Pencere altı dilde, açık ya da koyu.</dd></div>
+      </dl>
 
       <div class="tr">
         <div class="replay">

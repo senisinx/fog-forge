@@ -227,6 +227,15 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
+/* the features of a tool in groups: two columns of groups, one below the other on a phone */
+.kit { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
+.kit section { margin-top: clamp(2rem, 4vw, 3rem); }
+.kit h3 { display: flex; align-items: baseline; gap: .8rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ink); }
+.kit h3 span { font: 500 .78rem/1 var(--mono); letter-spacing: .06em; color: var(--rust); }
+.kit .rows { grid-template-columns: 1fr; }
+.tr-rows { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.score { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 48rem; }
+
 /* two pictures side by side, one caption */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
@@ -304,6 +313,7 @@ footer p { max-width: 58rem; }
   .open-l { padding-right: 0; }
   .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
   .rows { grid-template-columns: 1fr; }
+  .kit { grid-template-columns: minmax(0, 1fr); }
   .idx { position: static; }
   .idx div { display: flex; flex-wrap: wrap; gap: .35rem; }
   .idx button { display: block; width: auto; padding: .5rem .8rem; border: 1px solid var(--hair) !important; font-size: .9375rem; }
@@ -398,20 +408,61 @@ footer p { max-width: 58rem; }
         <p>매치가 시작되면 Fog Scout가 화면 왼쪽 아래의 맵 이름을 읽고, 해당하는 콜아웃 맵을 게임 위에 띄웁니다. 라운드가 끝나면 맵은 다시 사라집니다.</p>
       </div>
 
-      <dl class="rows">
-        <div><dt>자동 콜아웃 맵</dt><dd>56개의 맵 이미지. Coal Tower II 같은 레이아웃도 구분하며, 클릭이 통과되는 창에 표시합니다. <a href="/ko/maps/">여섯 가지 맵 스타일 보기 →</a></dd></div>
-        <div><dt>팀원의 로드아웃</dt><dd>생존자로 매치 중에 Esc를 한 번 누르면 Fog Scout가 일시정지 메뉴에서 다른 생존자들의 퍽, 아이템, 애드온, 공물을 읽어 각자 옆에 표시합니다. 선택 기능입니다.</dd></div>
-        <div><dt>서버 지역</dt><dd>접속할 지역을 고르고 현재 게임 서버를 확인할 수 있습니다.</dd></div>
-        <div><dt>매치 통계</dt><dd>라운드별 역할, 살인마, 처치, 탈출, 블러드포인트와 함께 요일·시간대별 성적, 퍽 조합, 대기 시간까지. 모두 PC에 저장합니다.</dd></div>
-        <div><dt>OBS로 녹화</dt><dd>매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다. 라운드 중에 남긴 표시는 각각 별도의 클립으로 저장할 수 있으며, 드라이브에 몇 라운드를 더 저장할 수 있는지도 보여 줍니다.</dd></div>
-        <div><dt>퍽 계산기</dt><dd>생존자 최대 네 명과 살인마의 퍽, 아이템, 애드온을 조합하고, 효과 감소를 적용한 뒤 실제 효과를 확인하세요. 스킬 체크도 계산에 포함됩니다.</dd></div>
-        <div><dt>Discord와 Spotify</dt><dd>선택 사항: 맵과 역할을 Discord 상태로 표시하고, Spotify 재생 대기열을 볼 수 있습니다.</dd></div>
-        <div><dt>게임 언어 자동 인식</dt><dd>영어, 독일어, 프랑스어, 스페인어, 이탈리아어, 폴란드어, 포르투갈어, 터키어, 러시아어, 중국어, 일본어, 한국어 맵 이름을 인식합니다. Fog Scout가 게임 언어를 스스로 알아냅니다.</dd></div>
-        <div><dt>7개 언어</dt><dd>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</dd></div>
-        <div><dt>라운드 타이머와 알림</dt><dd>라운드 중에는 맵 아래에 타이머를, 기다리는 동안에는 매칭 시간을 보여 주고, 로비를 찾았을 때나 블러드포인트가 상한에서 더 오르지 않을 때 소리로 알립니다.</dd></div>
-        <div><dt>게임 주변의 카드</dt><dd>맵 옆에 시스템 값, 오늘의 라운드, 재생 중인 음악을 보여 주는 카드를 선택해 켤 수 있습니다. 오버레이 편집기에서 배치하며 화면 크기마다 레이아웃이 따로 있습니다.</dd></div>
-        <div><dt>안전한 업데이트와 백업</dt><dd>업데이트는 GitHub 릴리스에서 받아 설치 전에 SHA-256으로 확인합니다. 설정과 라운드는 하나의 백업 파일에 담깁니다.</dd></div>
-      </dl>
+      <div class="kit">
+        <div>
+          <section aria-labelledby="k-match">
+            <h3 id="k-match"><span>A</span>매치 중</h3>
+            <dl class="rows">
+              <div><dt>자동 콜아웃 맵</dt><dd>56개의 맵 이미지. Coal Tower II 같은 레이아웃도 구분하며, 클릭이 통과되는 창에 표시합니다. <a href="/ko/maps/">여섯 가지 맵 스타일 보기 →</a></dd></div>
+              <div><dt>라운드 타이머와 알림</dt><dd>라운드 중에는 맵 아래에 타이머를, 기다리는 동안에는 매칭 시간을 보여 주고, 로비를 찾았을 때나 블러드포인트가 상한에서 더 오르지 않을 때 소리로 알립니다.</dd></div>
+              <div><dt>점수 추적</dt><dd>플레이하는 동안 오른쪽 위의 점수 이벤트를 세고 카테고리별로 합산합니다. 맵 옆에 링, 막대 또는 한 줄로 표시. 카테고리가 가득 차면 MAX를 표시합니다.</dd></div>
+              <div><dt>팀원의 로드아웃</dt><dd>생존자로 매치 중에 Esc를 한 번 누르면 Fog Scout가 일시정지 메뉴에서 다른 생존자들의 퍽, 아이템, 애드온, 공물을 읽어 각자 옆에 표시합니다. 선택 기능입니다.</dd></div>
+              <div><dt>게임 주변의 카드</dt><dd>맵 옆에 시스템 값, 오늘의 라운드, 재생 중인 음악을 보여 주는 카드를 선택해 켤 수 있습니다. 오버레이 편집기에서 배치하며 화면 크기마다 레이아웃이 따로 있습니다.</dd></div>
+              <div><dt>화면에 키와 컨트롤러</dt><dd>선택: 누르고 있는 이동 키, 마우스 버튼, 컨트롤러 버튼을 보여줍니다. 녹화 중이면 영상 옆에 저장되고 클립 편집기에서 다시 표시됩니다.</dd></div>
+              <div><dt>맵과 살인마별 메모</dt><dd>맵마다, 살인마마다 짧은 나만의 메모. 라운드 중 맵 카드에 표시됩니다.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-rec">
+            <h3 id="k-rec"><span>B</span>녹화와 클립</h3>
+            <dl class="rows">
+              <div><dt>OBS로 녹화</dt><dd>매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다. 라운드 중에 남긴 표시는 각각 별도의 클립으로 저장할 수 있으며, 드라이브에 몇 라운드를 더 저장할 수 있는지도 보여 줍니다.</dd></div>
+              <div><dt>클립 편집기</dt><dd>자르기, 이름 가리기, 자막·음악·내 목소리 추가, 여러 라운드의 클립 합치기, 세로형 쇼츠 만들기.</dd></div>
+              <div><dt>모먼트</dt><dd>녹화에서 조용한 구간과 어두운 로딩 화면을 찾아 잘라낼지 제안합니다.</dd></div>
+              <div><dt>Steam 스크린샷</dt><dd>F12 스크린샷을 하나의 갤러리에. 자르기, 그리기, 이름 가리기. Fog Scout는 편집한 사본을 저장하고 원본은 절대 건드리지 않습니다.</dd></div>
+              <div><dt>YouTube 업로드</dt><dd>선택: 라운드나 클립을 내 채널에 올리고, 로비에 있는 동안은 일시 정지합니다.</dd></div>
+            </dl>
+          </section>
+        </div>
+        <div>
+          <section aria-labelledby="k-stats">
+            <h3 id="k-stats"><span>C</span>통계</h3>
+            <dl class="rows">
+              <div><dt>매치 통계</dt><dd>라운드별 역할, 살인마, 처치, 탈출, 블러드포인트와 함께 요일·시간대별 성적, 퍽 조합, 대기 시간까지. 모두 PC에 저장합니다.</dd></div>
+              <div><dt>기록과 세션</dt><dd>연속 기록, 최고의 한 주, 모든 세션. DBD를 닫으면 짧은 요약을 보여줍니다.</dd></div>
+              <div><dt>블러드포인트와 파밍</dt><dd>시간당 블러드포인트. 파밍 라운드는 따로 세거나 스위치 하나로 숨깁니다.</dd></div>
+              <div><dt>내보내기</dt><dd>라운드를 CSV 파일로. 기간, 역할, 살인마, 맵으로 필터링.</dd></div>
+            </dl>
+          </section>
+          <section aria-labelledby="k-tools">
+            <h3 id="k-tools"><span>D</span>도구</h3>
+            <dl class="rows">
+              <div><dt>서버 지역</dt><dd>접속할 지역을 고르고 현재 게임 서버를 확인할 수 있습니다.</dd></div>
+              <div><dt>퍽 계산기</dt><dd>생존자 최대 네 명과 살인마의 퍽, 아이템, 애드온을 조합하고, 효과 감소를 적용한 뒤 실제 효과를 확인하세요. 스킬 체크도 계산에 포함됩니다.</dd></div>
+              <div><dt>Discord와 Spotify</dt><dd>선택 사항: 맵과 역할을 Discord 상태로 표시하고, Spotify 재생 대기열을 볼 수 있습니다.</dd></div>
+              <div><dt>전체 검색</dt><dd>Ctrl+F로 모든 페이지, 설정, 맵, 라운드를 찾습니다.</dd></div>
+              <div><dt>Claude에게 묻기</dt><dd>선택, 내 API 키로: 통계에 대한 질문과 클립 편집기의 제안. 숫자와 정해진 문구만 보내며, 플레이어 이름은 절대 보내지 않습니다.</dd></div>
+              <div><dt>게임 언어 자동 인식</dt><dd>영어, 독일어, 프랑스어, 스페인어, 이탈리아어, 폴란드어, 포르투갈어, 터키어, 러시아어, 중국어, 일본어, 한국어 맵 이름을 인식합니다. Fog Scout가 게임 언어를 스스로 알아냅니다.</dd></div>
+              <div><dt>7개 언어</dt><dd>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</dd></div>
+              <div><dt>안전한 업데이트와 백업</dt><dd>업데이트는 GitHub 릴리스에서 받아 설치 전에 SHA-256으로 확인합니다. 설정과 라운드는 하나의 백업 파일에 담깁니다.</dd></div>
+            </dl>
+          </section>
+        </div>
+      </div>
+
+      <figure class="score">
+        <div class="fig"><img src="/img/score.webp" loading="lazy" decoding="async" width="1117" height="492" alt="세 가지 모양의 점수 추적: 생존자 4개 카테고리는 아이콘과 값이 있는 링으로, 살인마 4개 카테고리는 막대로, 생존자 값은 한 줄로. 이타심과 사냥꾼이 가득 차 금색 MAX를 표시합니다."></div>
+        <figcaption><b>Fig. 2</b><span>가상의 점수로 Fog Scout가 그린 점수 추적: 링, 막대 또는 한 줄. 가득 찬 카테고리는 금색이 됩니다. 아이콘은 Fog Scout 고유의 것입니다.</span></figcaption>
+      </figure>
 
       <figure class="pair">
         <div>
@@ -422,7 +473,7 @@ footer p { max-width: 58rem; }
           <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="같은 생존자 목록. 팀원 세 명의 이름 위에 Fog Scout가 각자의 퍽 네 개를 한 줄로, 이어서 공물, 아이템, 애드온을 보여 줍니다."></div>
           <p class="mono dim">이름 위</p>
         </div>
-        <figcaption><b>Fig. 2</b><span>3440×1440 실제 매치에서 본 팀원의 로드아웃으로, 일시정지 메뉴에서 읽었습니다. 왼쪽: DBD 생존자 목록 옆에 퍽을 마름모로, 공물, 아이템, 애드온과 함께 표시. 오른쪽: 각 이름 위에 한 줄로 표시. 이름은 가렸습니다.</span></figcaption>
+        <figcaption><b>Fig. 3</b><span>3440×1440 실제 매치에서 본 팀원의 로드아웃으로, 일시정지 메뉴에서 읽었습니다. 왼쪽: DBD 생존자 목록 옆에 퍽을 마름모로, 공물, 아이템, 애드온과 함께 표시. 오른쪽: 각 이름 위에 한 줄로 표시. 이름은 가렸습니다.</span></figcaption>
       </figure>
 
       <div class="app">
@@ -445,7 +496,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout 맵 페이지: 모든 콜아웃 맵을 렐름별로 묶고, 맵별 라운드 수와 평균 처치 수를 표시합니다."></div>
-          <figcaption><b>Fig. 3</b><span>가상의 라운드로 채운 제어 창.</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>가상의 라운드로 채운 제어 창.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>문자 인식은 사용자의 PC에서 실행됩니다. 맵 감지와 오버레이는 인터넷에 연결하지 않습니다.</span> <span>서명되지 않음: SmartScreen에서 ‘추가 정보’, 이어서 ‘실행’을 누르세요. 관리자 권한을 한 번 요청합니다. DBD를 ‘창 모드 전체 화면’으로 설정하세요.</span></p>
@@ -461,6 +512,15 @@ footer p { max-width: 58rem; }
         </div>
         <p>플레이 중 Dead by Daylight 채팅을 번역합니다. 키릴 문자, 한국어, 일본어, 중국어를 포함한 모든 문자를 읽고, 게임 위에 클릭이 통과되는 작은 창으로 번역을 보여줍니다.</p>
       </div>
+
+      <dl class="rows tr-rows">
+        <div><dt>모든 문자</dt><dd>키릴 문자, 한국어, 일본어, 중국어, 악센트가 있는 라틴 문자: AI 모델이 채팅을 읽고 언어를 알아내 번역합니다.</dd></div>
+        <div><dt>13개 번역 언어</dt><dd>영어, 독일어, 프랑스어, 스페인어, 이탈리아어, 포르투갈어, 폴란드어, 러시아어, 터키어, 네덜란드어, 중국어, 일본어, 한국어.</dd></div>
+        <div><dt>새 줄만</dt><dd>새 줄이 있는 띠만 보내고, 채팅이 닫혀 있으면 아무것도 보내지 않습니다. 채팅이 빠르게 올라가면 줄을 모아 함께 보내 한 줄도 놓치지 않습니다.</dd></div>
+        <div><dt>채팅 바로 위에</dt><dd>채팅이 보일 때만 표시됩니다. 다른 위치를 고르거나, Ctrl+Alt+T로 숨기거나, 스크린샷과 녹화에서 빼둘 수 있습니다.</dd></div>
+        <div><dt>비용 관리</dt><dd>일일 한도(기본 300회 요청), 가상의 채팅으로 하는 테스트, 답변마다 걸린 시간. 서비스로 무엇이 가는지 확인하기 전에는 아무것도 보내지 않습니다.</dd></div>
+        <div><dt>쉬운 설정</dt><dd>서비스와 키를 위한 설정 도우미, SHA-256으로 확인하는 업데이트, 관리자 권한 불필요. 창은 6개 언어, 밝게 또는 어둡게.</dd></div>
+      </dl>
 
       <div class="tr">
         <div class="replay">
