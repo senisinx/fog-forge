@@ -133,6 +133,37 @@ button { font: inherit; color: inherit; }
 .chip:hover { color: var(--mist); border-color: var(--haze); }
 .chip[aria-pressed="true"] { color: var(--ember-ink); background: var(--ember); border-color: var(--ember); }
 .note { margin: 0; font: 400 var(--step--1)/1.4 var(--mono); color: var(--haze); }
+.gal-group { margin: 1rem 0 .25rem; font: 500 .6875rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ember); }
+.gal-tabs h3 + .gal-group { margin-top: 0; }
+.zoom { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.js .gal-nav { flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: .75rem; }
+.gal-nav .chip { min-width: 2.5rem; }
+.gal-hint { margin-left: auto; }
+.gal-nav { display: none; }
+.js .gal-nav { display: flex; }
+
+/* lightbox */
+.lb { width: min(96vw, 1600px); max-width: none; max-height: 96vh; padding: 0; border: 1px solid var(--line); background: #0c1113; color: var(--mist); }
+.lb::backdrop { background: rgba(8, 11, 13, .86); backdrop-filter: blur(6px); }
+.lb img { display: block; width: 100%; height: auto; max-height: calc(96vh - 3.5rem); object-fit: contain; }
+.lb-bar { display: flex; align-items: center; gap: .6rem; padding: .6rem .75rem; border-top: 1px solid var(--line); }
+.lb-bar .note { flex: 1; }
+
+/* feature catalog */
+.catalog { border-top: 1px solid var(--line); padding-block: clamp(3rem, 7vw, 6rem); display: grid; gap: clamp(2rem, 4vw, 3rem); }
+.catalog-head { display: grid; gap: 1rem; max-width: 46rem; }
+.catalog-head p { margin: 0; }
+.groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.group { position: relative; padding: 1.4rem 1.4rem 1.6rem; background: var(--ground); transition: background .25s; }
+.group::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+.group:hover { background: var(--ground-2); }
+.group:hover::before { transform: scaleX(1); }
+.group h3 { display: flex; align-items: baseline; gap: .75rem; margin-bottom: 1rem; font: 800 1.6rem/1 var(--display); letter-spacing: .02em; color: var(--mist); }
+.group h3 span { font: 500 var(--step--1)/1 var(--mono); color: var(--ember); }
+.group ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .6rem; }
+.group li { padding-left: 1rem; position: relative; color: var(--haze); font-size: .9375rem; line-height: 1.5; }
+.group li::before { content: ""; position: absolute; left: 0; top: .62em; width: .35rem; height: 1px; background: var(--ember); }
+.group li b { color: var(--mist); font-weight: 600; }
 
 /* buttons */
 .btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: .6rem; padding: .85rem 1.2rem; border: 1px solid var(--line);
@@ -224,7 +255,8 @@ footer a { text-underline-offset: 3px; }
   .bar nav a.plain { display: none; }
   .tag { display: none; }
   .gal-tabs { flex-direction: row; flex-wrap: wrap; gap: .25rem 1rem; }
-  .gal-tabs h3 { flex-basis: 100%; }
+  .gal-tabs h3, .gal-group { flex-basis: 100%; }
+  .gal-hint { display: none; }
   .gal-tab { padding: .5rem 0 .5rem .75rem; }
   .gal-tab[aria-pressed="true"] { padding-left: .75rem; }
   .gal-tab[aria-pressed="true"] span { display: none; }
@@ -249,6 +281,7 @@ footer a { text-underline-offset: 3px; }
           <a href="#scout" data-tool="scout">Fog Scout</a>
           <a href="#translate" data-tool="translate">Fog Translate</a>
         </div>
+        <a class="plain" data-for="scout" href="#features">Features</a>
         <a class="plain" href="#fair-play">Fair play</a>
         <a class="plain" href="https://github.com/senisinx">GitHub</a>
         <a class="btn go" data-for="scout" data-dl="fog-scout" href="https://github.com/senisinx/fog-scout/releases/latest">Download</a>
@@ -265,7 +298,7 @@ footer a { text-underline-offset: 3px; }
           <div class="hero-tool" data-for="scout">
             <p class="kicker">Map overlay</p>
             <h2>Fog Scout</h2>
-            <p class="lede">Shows the callout map of the map you are on, right when the match starts.</p>
+            <p class="lede">Shows the callout map of the map you are on, right when the match starts. Plus round timer, statistics, recordings and server choice.</p>
             <a class="btn go" data-dl="fog-scout" href="https://github.com/senisinx/fog-scout/releases/latest">
               <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
               Download Fog Scout
@@ -336,31 +369,123 @@ footer a { text-underline-offset: 3px; }
         </div>
 
         <div data-rv>
-          <h3>What it does</h3>
+          <h3>At a glance</h3>
           <ul class="feat">
             <li><b>Automatic callout maps</b><span>56 map pictures, layouts like Coal Tower II told apart, in a click-through window.</span></li>
+            <li><b>Cards around the game</b><span>Round timer, system values, today's rounds, music and more, placed in the black bars.</span></li>
+            <li><b>Your statistics</b><span>Kills, escapes, bloodpoints, killers, builds and waiting times, kept on your PC.</span></li>
+            <li><b>Recording with OBS</b><span>One recording per match, instant clips on F8 and a clip editor for shorts.</span></li>
             <li><b>Server region</b><span>Choose which regions you connect to and see the game server you are on.</span></li>
-            <li><b>Match statistics</b><span>Role, killer, kills, escapes and bloodpoints per round, kept on your PC.</span></li>
-            <li><b>Recording with OBS</b><span>Starts and labels recordings per match, with a clip editor for the highlights.</span></li>
-            <li><b>Discord and Spotify</b><span>Optional: show map and role as Discord status, see your Spotify queue.</span></li>
-            <li><b>German and English</b><span>Follows the Windows language, switchable in the settings.</span></li>
+            <li><b>Seven languages</b><span>English, German, Italian, Russian, Chinese, Japanese and Korean.</span></li>
           </ul>
+          <p class="meta" style="margin-top:1rem"><a href="#tour">Take the tour</a> · <a href="#features">Full feature list</a></p>
         </div>
       </div>
     </section>
 
-    <section class="gallery" data-for="scout" aria-label="Fog Scout screenshots">
+    <section class="gallery" id="tour" data-for="scout" aria-label="Fog Scout screenshots">
       <div class="gal-tabs" data-rv>
         <h3>Inside the app</h3>
-        <button type="button" class="gal-tab" id="gal-maps" aria-pressed="true" data-src="img/maps.webp" data-alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."><b>Maps</b><span>All 56 callout maps in six styles, with your rounds and kills per map.</span></button>
-        <button type="button" class="gal-tab" id="gal-overlay" aria-pressed="false" data-src="img/overlay.webp" data-alt="Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture."><b>Overlay</b><span>Place map, timer, system values and music where you want them.</span></button>
-        <button type="button" class="gal-tab" id="gal-statistics" aria-pressed="false" data-src="img/statistics.webp" data-alt="Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps."><b>Statistics</b><span>Rounds, kills, escapes and bloodpoints, stored on this PC only.</span></button>
-        <button type="button" class="gal-tab" id="gal-overview" aria-pressed="false" data-src="img/overview.webp" data-alt="Fog Scout Overview page: current map, feature switches, this week's numbers, system values and last rounds."><b>Overview</b><span>Current map, your week and the system values at a glance.</span></button>
-        <button type="button" class="gal-tab" id="gal-server" aria-pressed="false" data-src="img/server.webp" data-alt="Fog Scout Server page: a list of 15 server regions with checkboxes, two of them allowed."><b>Server</b><span>Tick the regions DBD may search in. "Allow all" undoes it.</span></button>
+        <p class="gal-group">Start</p>
+        <button type="button" class="gal-tab" aria-pressed="true" data-src="img/overview.webp" data-alt="Fog Scout Overview page: current map, feature switches, today's and this week's numbers, system values, last rounds and rounds per day."><b>Overview</b><span>Current map, feature switches, today, this week and the system values on one page.</span></button>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/setup.webp" data-alt="Fog Scout setup assistant, step 2 of 8: overlay position with a preview of the map in the black bar and a Test overlay button."><b>Setup assistant</b><span>Eight short steps on the first start: game language, overlay, hotkeys, notifications, match data, OBS.</span></button>
+        <p class="gal-group">In the game</p>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/maps.webp" data-alt="Fog Scout Maps page: all 56 callout maps grouped by realm with a realm list and six map styles to choose from."><b>Maps</b><span>All 56 callout maps by realm, in six styles. Click to view, double-click to show it in the game.</span></button>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/overlay.webp" data-alt="Fog Scout Overlay editor: element list with map, info, system values, today and music, a preview of a 3440×1440 screen and the map's settings."><b>Overlay editor</b><span>Switch each card on or off, drag it into place, save layouts as presets. Per screen size.</span></button>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/overlay-system.webp" data-alt="Fog Scout Overlay editor with the System values card selected: rows for CPU, GPU, hot spot, VRAM, RAM and FPS."><b>System values</b><span>CPU and GPU temperature and load, VRAM, RAM and FPS (through HWiNFO) next to the game.</span></button>
+        <p class="gal-group">After the round</p>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/statistics.webp" data-alt="Fog Scout Statistics, Rounds overview: 300 rounds, average round length, average wait and the most played maps."><b>Statistics</b><span>Rounds, kills, escapes and bloodpoints, with filters by time, role and game mode.</span></button>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/stats-rounds.webp" data-alt="Fog Scout Statistics, Last rounds: a long table with date, map, length, wait, role, killer and server per round."><b>Round history</b><span>Every round with map, length, wait, role, killer and server. Correct or mark a round with a right-click.</span></button>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/recordings.webp" data-alt="Fog Scout Recordings page: 26 OBS recordings with date, map, role or killer, length, size, kept recordings and F8 marks, and the free space for more rounds."><b>Recordings</b><span>One OBS recording per round with map, role, length and your F8 marks. Old ones are cleaned up when space runs low.</span></button>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/stats-waiting.webp" data-alt="Fog Scout Statistics, Waiting time: average, median, shortest and longest wait, a table by weekday and charts per week for killer and survivor."><b>Waiting times</b><span>How long the queue takes, by weekday, time of day and role.</span></button>
+        <p class="gal-group">Tools</p>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/server.webp" data-alt="Fog Scout Server page: a list of 15 server regions grouped by continent with checkboxes and ping, two of them allowed."><b>Server</b><span>Tick the regions DBD may search in, with ping per region. "Allow all" undoes it.</span></button>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/calculator.webp" data-alt="Fog Scout Calculator: area, survivors in the team, survivor builds with items and add-ons, a killer build and assumptions."><b>Calculator</b><span>Combine survivor and killer builds and see what they do to repair speed after diminishing returns.</span></button>
+        <button type="button" class="gal-tab" aria-pressed="false" data-src="img/settings.webp" data-alt="Fog Scout Settings, Detection tab: detection switches, game languages of the map names and notifications."><b>Settings</b><span>Everything in one place and searchable with Ctrl+F: detection, hotkeys, recordings, connections.</span></button>
       </div>
       <figure class="gal-view" data-rv>
-        <div class="screen"><img id="galImg" src="img/maps.webp" width="1555" height="1178" alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."></div>
+        <div class="screen"><button type="button" class="zoom" id="galZoom" aria-label="View larger"><img id="galImg" src="img/overview.webp" width="1560" height="1176" alt="Fog Scout Overview page: current map, feature switches, today's and this week's numbers, system values, last rounds and rounds per day."></button></div>
+        <div class="gal-nav">
+          <button type="button" class="chip" id="galPrev" aria-label="Previous screenshot">←</button>
+          <span class="note" id="galCount" aria-live="polite">1 / 12</span>
+          <button type="button" class="chip" id="galNext" aria-label="Next screenshot">→</button>
+          <span class="note gal-hint">Click the picture to enlarge</span>
+        </div>
       </figure>
+    </section>
+
+    <section class="catalog" id="features" data-for="scout" aria-labelledby="features-h">
+      <div class="catalog-head" data-rv>
+        <p class="kicker">Everything it does</p>
+        <h2 id="features-h">One program for the whole match</h2>
+        <p class="sub">The map is the core. Everything else is optional: switch on what you need, the rest stays off.</p>
+      </div>
+      <div class="groups">
+        <article class="group" data-rv>
+          <h3><span>01</span>In the match</h3>
+          <ul>
+            <li><b>Callout map at the banner.</b> Read from the screen when the match starts, gone again after the round.</li>
+            <li><b>Floors and variants.</b> Midwich floors, rotated maps and layouts like Coal Tower II.</li>
+            <li><b>Round timer</b> right below the map, and the last round's time afterwards.</li>
+            <li><b>Waiting card</b> with search time and lobby state while no map is shown.</li>
+            <li><b>Lobby found.</b> Sound and notification when the search is over.</li>
+            <li><b>Bloodpoint cap.</b> Tells you when a round no longer adds bloodpoints.</li>
+          </ul>
+        </article>
+        <article class="group" data-rv>
+          <h3><span>02</span>Overlay cards</h3>
+          <ul>
+            <li><b>Layout editor</b> with presets, snapping and a layout per screen size.</li>
+            <li><b>System values:</b> CPU and GPU temperature and load, VRAM, RAM, FPS via HWiNFO.</li>
+            <li><b>Today:</b> rounds and play time of the day, the current streak.</li>
+            <li><b>Music:</b> what Windows is playing, with cover and Spotify "Up next".</li>
+            <li><b>Inputs:</b> the keys and gamepad buttons you hold, like on stream.</li>
+            <li><b>Teammates' loadouts:</b> perks, items and offerings read from the pause menu.</li>
+          </ul>
+        </article>
+        <article class="group" data-rv>
+          <h3><span>03</span>Statistics</h3>
+          <ul>
+            <li><b>Every round</b> with map, length, wait, role, killer and server region.</li>
+            <li><b>Kills, escapes and bloodpoints</b> from your official match data on stats.deadbydaylight.com.</li>
+            <li><b>Killers, opponents and builds:</b> who you met and what worked.</li>
+            <li><b>Records, sessions and form</b> by weekday and time of day.</li>
+            <li><b>Farming and prestige</b> tracked apart, so they do not skew your numbers.</li>
+            <li><b>Stays on your PC.</b> Export and backup when you want.</li>
+          </ul>
+        </article>
+        <article class="group" data-rv>
+          <h3><span>04</span>Recordings and clips</h3>
+          <ul>
+            <li><b>OBS records every match</b>, each round listed with its map and role.</li>
+            <li><b>F8 for an instant clip</b> of the last seconds.</li>
+            <li><b>Clip editor:</b> cut, slow motion, drawings, censor boxes for names, subtitles.</li>
+            <li><b>Shorts and TikTok</b> in 9:16, montages from several rounds, your own music.</li>
+            <li><b>Steam screenshots</b> to crop, draw on and censor. The originals stay untouched.</li>
+            <li><b>YouTube upload</b> if you want it.</li>
+          </ul>
+        </article>
+        <article class="group" data-rv>
+          <h3><span>05</span>Server</h3>
+          <ul>
+            <li><b>Pick your regions</b> from 15 GameLift regions, with ping for each.</li>
+            <li><b>Connected to:</b> the region and ping of the game server you are on.</li>
+            <li><b>Allow all</b> puts the Windows hosts file back the way it was.</li>
+            <li><b>Regions in the statistics:</b> wait and ping per region.</li>
+          </ul>
+        </article>
+        <article class="group" data-rv>
+          <h3><span>06</span>Comfort</h3>
+          <ul>
+            <li><b>Seven languages</b>, following Windows. Map names are translated too.</li>
+            <li><b>Hotkeys</b> for map, layout, floor, rotation and clips.</li>
+            <li><b>Tray icon</b> with a coloured dot for the current state.</li>
+            <li><b>Discord status</b> with map and role, through your local Discord app.</li>
+            <li><b>Updates</b> from GitHub, checked against a SHA-256 before installing.</li>
+            <li><b>Backup and restore</b> of settings and rounds in one ZIP.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="tool" id="translate" data-for="translate">
@@ -411,6 +536,7 @@ footer a { text-underline-offset: 3px; }
         <li><em>Never</em><span>Reading or changing game files.</span></li>
         <li><em>Never</em><span>Hidden information. The callout map is a static community map, with no generators or positions.</span></li>
         <li class="yes"><em>Changes</em><span>Only if you use the server region feature: the Windows hosts file, which "Allow all" puts back.</span></li>
+        <li class="yes"><em>Optional</em><span>OBS, Discord, Spotify, YouTube and the key display are off until you switch them on.</span></li>
       </ul>
     </section>
   </main>
@@ -505,16 +631,39 @@ footer a { text-underline-offset: 3px; }
   show(0); cycle();
 
   /* ---------- app screenshots: tabs, auto-advance until the viewer picks one ---------- */
-  var tabs = doc.querySelectorAll(".gal-tab"), galImg = doc.getElementById("galImg"), gi = 0, galTimer;
+  var tabs = doc.querySelectorAll(".gal-tab"), galImg = doc.getElementById("galImg"), galCount = doc.getElementById("galCount"), gi = 0, galTimer;
+  var lb = null, lbImg, lbNote;
   function pick(i) {
+    i = (i + tabs.length) % tabs.length;
     gi = i; var t = tabs[i], src = t.getAttribute("data-src"), pre = new Image();
     Array.prototype.forEach.call(tabs, function (b, k) { b.setAttribute("aria-pressed", k === i ? "true" : "false"); });
+    galCount.textContent = (i + 1) + " / " + tabs.length;
     galImg.style.opacity = 0;
     pre.onload = pre.onerror = function () { galImg.src = src; galImg.alt = t.getAttribute("data-alt"); galImg.style.opacity = 1; };
     pre.src = src;
+    if (lb && lb.open) { lbImg.src = src; lbImg.alt = t.getAttribute("data-alt"); lbNote.textContent = t.querySelector("b").textContent + " · " + galCount.textContent; }
   }
-  Array.prototype.forEach.call(tabs, function (b, i) { b.addEventListener("click", function () { clearInterval(galTimer); pick(i); }); });
-  if (!still) galTimer = setInterval(function () { if (!doc.hidden) pick((gi + 1) % tabs.length); }, 5500);
+  function stop() { clearInterval(galTimer); }
+  Array.prototype.forEach.call(tabs, function (b, i) { b.addEventListener("click", function () { stop(); pick(i); }); });
+  doc.getElementById("galPrev").addEventListener("click", function () { stop(); pick(gi - 1); });
+  doc.getElementById("galNext").addEventListener("click", function () { stop(); pick(gi + 1); });
+  /* keep the preview turning only while nobody is looking closely */
+  if (!still) galTimer = setInterval(function () { if (!doc.hidden && !(lb && lb.open)) pick(gi + 1); }, 6000);
+
+  /* lightbox: the picture at full size, arrows step through */
+  if (window.HTMLDialogElement) {
+    lb = doc.createElement("dialog"); lb.className = "lb"; lb.setAttribute("aria-label", "Screenshot");
+    lb.innerHTML = '<img alt=""><div class="lb-bar"><button type="button" class="chip" data-d="-1" aria-label="Previous screenshot">←</button><button type="button" class="chip" data-d="1" aria-label="Next screenshot">→</button><span class="note"></span><button type="button" class="chip" data-close aria-label="Close">Close</button></div>';
+    doc.body.appendChild(lb); lbImg = lb.querySelector("img"); lbNote = lb.querySelector(".note");
+    lb.addEventListener("click", function (e) {
+      var d = e.target.getAttribute("data-d");
+      if (d) pick(gi + +d); else if (e.target === lb || e.target.hasAttribute("data-close")) lb.close();
+    });
+    lb.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); pick(gi + 1); } else if (e.key === "ArrowLeft") { e.preventDefault(); pick(gi - 1); }
+    });
+    doc.getElementById("galZoom").addEventListener("click", function () { stop(); lb.showModal(); pick(gi); });
+  } else doc.getElementById("galZoom").addEventListener("click", function () { window.open(tabs[gi].getAttribute("data-src"), "_blank", "noopener"); });
 
   /* ---------- ticker: map names shipped with Fog Scout ---------- */
   var NAMES = ["Coal Tower", "Groaning Storehouse", "Ironworks of Misery", "Shelter Woods", "Suffocation Pit", "Azarov's Resting Place", "Blood Lodge", "Gas Heaven",
@@ -539,10 +688,10 @@ footer a { text-underline-offset: 3px; }
       });
     }, { threshold: .15 });
     Array.prototype.forEach.call(rv, function (el) { io.observe(el); });
-    var fair = doc.querySelector('.bar nav a[href="#fair-play"]');
-    new IntersectionObserver(function (es) {
-      es.forEach(function (e) { fair.classList.toggle("on", e.isIntersecting); });
-    }, { rootMargin: "-40% 0px -55% 0px" }).observe(doc.getElementById("fair-play"));
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { doc.querySelector('.bar nav a[href="#' + e.target.id + '"]').classList.toggle("on", e.isIntersecting); });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    ["features", "fair-play"].forEach(function (id) { spy.observe(doc.getElementById(id)); });
   } else Array.prototype.forEach.call(rv, function (el) { el.classList.add("in"); });
 
   /* ---------- download buttons: newest installer from the GitHub release ---------- */
