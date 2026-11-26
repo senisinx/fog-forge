@@ -184,5 +184,7 @@
   "Cards around the game": "Карточки вокруг игры",
   "Next to the map, optional cards show system values, today's rounds and the music that is playing. Arrange them in the overlay editor, one layout per screen size.": "Рядом с картой дополнительные карточки показывают системные значения, сегодняшние раунды и играющую музыку. Расставь их в редакторе оверлея — своя раскладка для каждого размера экрана.",
   "Safe updates and backups": "Надёжные обновления и резервные копии",
-  "Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.": "Обновления приходят из релиза на GitHub и перед установкой проверяются по SHA-256. Настройки и раунды сохраняются в один файл резервной копии."
+  "Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.": "Обновления приходят из релиза на GitHub и перед установкой проверяются по SHA-256. Настройки и раунды сохраняются в один файл резервной копии.",
+  "Pause": "Пауза",
+  "Play": "Воспроизвести"
 }

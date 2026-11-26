@@ -184,5 +184,7 @@
   "Cards around the game": "Cartões ao redor do jogo",
   "Next to the map, optional cards show system values, today's rounds and the music that is playing. Arrange them in the overlay editor, one layout per screen size.": "Ao lado do mapa, cartões opcionais mostram valores do sistema, as rodadas de hoje e a música tocando. Organize-os no editor de overlay, um layout por tamanho de tela.",
   "Safe updates and backups": "Atualizações seguras e backups",
-  "Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.": "As atualizações vêm da release do GitHub e são verificadas por SHA-256 antes de instalar. Configurações e rodadas vão para um único arquivo de backup."
+  "Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.": "As atualizações vêm da release do GitHub e são verificadas por SHA-256 antes de instalar. Configurações e rodadas vão para um único arquivo de backup.",
+  "Pause": "Pausar",
+  "Play": "Reproduzir"
 }

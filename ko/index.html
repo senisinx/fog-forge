@@ -122,7 +122,7 @@
   --ink: #14181a;
   --mid: #575e5b;
   --hair: rgba(20, 24, 26, .2);
-  --rust: #b94f17;
+  --rust: #a64715;  /* darkest rust that still reads as rust: 4.7:1 on paper (WCAG AA text), 3:1 on ink (focus ring) */
   --green: #2c6a44;
   --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
   --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
@@ -221,8 +221,9 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 
 /* feature rows */
 .rows { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
-.rows > div { display: grid; grid-template-columns: 2.2rem 1fr; gap: .2rem 0; padding: 1.15rem 0 1.2rem; border-bottom: 1px solid var(--hair); }
-.rows .n { grid-row: span 2; font: 500 .78rem/1.9 var(--mono); color: var(--rust); }
+.rows { counter-reset: row; }
+.rows > div { counter-increment: row; display: grid; align-content: start; grid-template-columns: 2.2rem 1fr; gap: .2rem 0; padding: 1.15rem 0 1.2rem; border-bottom: 1px solid var(--hair); }
+.rows > div::before { content: counter(row, decimal-leading-zero); grid-row: span 2; font: 500 .78rem/1.9 var(--mono); color: var(--rust); }
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
@@ -247,7 +248,7 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 /* translate */
 .tr { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); border-bottom: 1px solid var(--ink); }
 .replay { background: var(--ink); color: var(--paper); padding: clamp(1.25rem, 3vw, 2.25rem); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.25rem, 3vw, 2.5rem); min-height: 27rem; }
-.replay h4 { margin: 0 0 1rem; font: 500 .75rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: rgba(233, 229, 219, .55); }
+.replay h3 { margin: 0 0 1rem; letter-spacing: .07em; font: 500 .75rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: rgba(233, 229, 219, .55); }
 .chat p { font: 500 1.0625rem/1.45 "Segoe UI", Roboto, var(--body); color: #f1f1f1; overflow-wrap: anywhere; }
 .chat p b { color: #f4d83c; font-weight: 700; }
 .out { list-style: none; display: grid; gap: 1.1rem; align-content: start; }
@@ -257,7 +258,10 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .out em { display: block; margin-top: .15rem; font-style: normal; font-size: .875rem; color: rgba(233, 229, 219, .55); }
 .chat p, .out li { animation: in .35s ease-out backwards; }
 @keyframes in { from { opacity: 0; transform: translateY(6px); } }
-.replay .foot { grid-column: 1 / -1; align-self: end; font: 400 .78rem/1.5 var(--mono); color: rgba(233, 229, 219, .55); }
+.replay .end { grid-column: 1 / -1; align-self: end; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.replay .foot { font: 400 .78rem/1.5 var(--mono); color: rgba(233, 229, 219, .55); }
+.hold { flex: none; padding: .45rem .75rem; border: 1px solid rgba(233, 229, 219, .55); background: none; color: var(--paper); font: 500 .75rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; cursor: pointer; }
+.hold:hover { border-color: var(--paper); }
 .win { border-left: 1px solid var(--ink); background: var(--paper-2); display: grid; place-items: center; padding: 2rem; }
 .win img { width: min(24rem, 100%); border: 1px solid var(--ink); }
 .cols { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--pad); padding-top: clamp(2.5rem, 5vw, 4rem); }
@@ -395,18 +399,18 @@ footer p { max-width: 58rem; }
       </div>
 
       <dl class="rows">
-        <div><span class="n">01</span><dt>자동 콜아웃 맵</dt><dd>56개의 맵 이미지. Coal Tower II 같은 레이아웃도 구분하며, 클릭이 통과되는 창에 표시합니다. <a href="/ko/maps/">여섯 가지 맵 스타일 보기 →</a></dd></div>
-        <div><span class="n">02</span><dt>팀원의 로드아웃</dt><dd>생존자로 매치 중에 Esc를 한 번 누르면 Fog Scout가 일시정지 메뉴에서 다른 생존자들의 퍽, 아이템, 애드온, 공물을 읽어 각자 옆에 표시합니다. 선택 기능입니다.</dd></div>
-        <div><span class="n">03</span><dt>서버 지역</dt><dd>접속할 지역을 고르고 현재 게임 서버를 확인할 수 있습니다.</dd></div>
-        <div><span class="n">04</span><dt>매치 통계</dt><dd>라운드별 역할, 살인마, 처치, 탈출, 블러드포인트와 함께 요일·시간대별 성적, 퍽 조합, 대기 시간까지. 모두 PC에 저장합니다.</dd></div>
-        <div><span class="n">05</span><dt>OBS로 녹화</dt><dd>매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다. 라운드 중에 남긴 표시는 각각 별도의 클립으로 저장할 수 있으며, 드라이브에 몇 라운드를 더 저장할 수 있는지도 보여 줍니다.</dd></div>
-        <div><span class="n">06</span><dt>퍽 계산기</dt><dd>생존자 최대 네 명과 살인마의 퍽, 아이템, 애드온을 조합하고, 효과 감소를 적용한 뒤 실제 효과를 확인하세요. 스킬 체크도 계산에 포함됩니다.</dd></div>
-        <div><span class="n">07</span><dt>Discord와 Spotify</dt><dd>선택 사항: 맵과 역할을 Discord 상태로 표시하고, Spotify 재생 대기열을 볼 수 있습니다.</dd></div>
-        <div><span class="n">08</span><dt>게임 언어 자동 인식</dt><dd>영어, 독일어, 프랑스어, 스페인어, 이탈리아어, 폴란드어, 포르투갈어, 터키어, 러시아어, 중국어, 일본어, 한국어 맵 이름을 인식합니다. Fog Scout가 게임 언어를 스스로 알아냅니다.</dd></div>
-        <div><span class="n">09</span><dt>7개 언어</dt><dd>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</dd></div>
-        <div><span class="n">10</span><dt>라운드 타이머와 알림</dt><dd>라운드 중에는 맵 아래에 타이머를, 기다리는 동안에는 매칭 시간을 보여 주고, 로비를 찾았을 때나 블러드포인트가 상한에서 더 오르지 않을 때 소리로 알립니다.</dd></div>
-        <div><span class="n">11</span><dt>게임 주변의 카드</dt><dd>맵 옆에 시스템 값, 오늘의 라운드, 재생 중인 음악을 보여 주는 카드를 선택해 켤 수 있습니다. 오버레이 편집기에서 배치하며 화면 크기마다 레이아웃이 따로 있습니다.</dd></div>
-        <div><span class="n">12</span><dt>안전한 업데이트와 백업</dt><dd>업데이트는 GitHub 릴리스에서 받아 설치 전에 SHA-256으로 확인합니다. 설정과 라운드는 하나의 백업 파일에 담깁니다.</dd></div>
+        <div><dt>자동 콜아웃 맵</dt><dd>56개의 맵 이미지. Coal Tower II 같은 레이아웃도 구분하며, 클릭이 통과되는 창에 표시합니다. <a href="/ko/maps/">여섯 가지 맵 스타일 보기 →</a></dd></div>
+        <div><dt>팀원의 로드아웃</dt><dd>생존자로 매치 중에 Esc를 한 번 누르면 Fog Scout가 일시정지 메뉴에서 다른 생존자들의 퍽, 아이템, 애드온, 공물을 읽어 각자 옆에 표시합니다. 선택 기능입니다.</dd></div>
+        <div><dt>서버 지역</dt><dd>접속할 지역을 고르고 현재 게임 서버를 확인할 수 있습니다.</dd></div>
+        <div><dt>매치 통계</dt><dd>라운드별 역할, 살인마, 처치, 탈출, 블러드포인트와 함께 요일·시간대별 성적, 퍽 조합, 대기 시간까지. 모두 PC에 저장합니다.</dd></div>
+        <div><dt>OBS로 녹화</dt><dd>매치마다 녹화를 시작하고 이름을 붙이며, 하이라이트용 클립 편집기도 있습니다. 라운드 중에 남긴 표시는 각각 별도의 클립으로 저장할 수 있으며, 드라이브에 몇 라운드를 더 저장할 수 있는지도 보여 줍니다.</dd></div>
+        <div><dt>퍽 계산기</dt><dd>생존자 최대 네 명과 살인마의 퍽, 아이템, 애드온을 조합하고, 효과 감소를 적용한 뒤 실제 효과를 확인하세요. 스킬 체크도 계산에 포함됩니다.</dd></div>
+        <div><dt>Discord와 Spotify</dt><dd>선택 사항: 맵과 역할을 Discord 상태로 표시하고, Spotify 재생 대기열을 볼 수 있습니다.</dd></div>
+        <div><dt>게임 언어 자동 인식</dt><dd>영어, 독일어, 프랑스어, 스페인어, 이탈리아어, 폴란드어, 포르투갈어, 터키어, 러시아어, 중국어, 일본어, 한국어 맵 이름을 인식합니다. Fog Scout가 게임 언어를 스스로 알아냅니다.</dd></div>
+        <div><dt>7개 언어</dt><dd>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</dd></div>
+        <div><dt>라운드 타이머와 알림</dt><dd>라운드 중에는 맵 아래에 타이머를, 기다리는 동안에는 매칭 시간을 보여 주고, 로비를 찾았을 때나 블러드포인트가 상한에서 더 오르지 않을 때 소리로 알립니다.</dd></div>
+        <div><dt>게임 주변의 카드</dt><dd>맵 옆에 시스템 값, 오늘의 라운드, 재생 중인 음악을 보여 주는 카드를 선택해 켤 수 있습니다. 오버레이 편집기에서 배치하며 화면 크기마다 레이아웃이 따로 있습니다.</dd></div>
+        <div><dt>안전한 업데이트와 백업</dt><dd>업데이트는 GitHub 릴리스에서 받아 설치 전에 SHA-256으로 확인합니다. 설정과 라운드는 하나의 백업 파일에 담깁니다.</dd></div>
       </dl>
 
       <figure class="pair">
@@ -460,9 +464,9 @@ footer p { max-width: 58rem; }
 
       <div class="tr">
         <div class="replay">
-          <div><h4>게임 채팅</h4><div class="chat" id="chat"></div></div>
-          <div><h4>Fog Translate</h4><ol class="out" id="out" aria-live="polite"></ol></div>
-          <p class="foot">준비된 문장을 브라우저에서 재생합니다. 여기서는 어떤 서비스로도 아무것도 전송되지 않습니다.</p>
+          <div><h3>게임 채팅</h3><div class="chat" id="chat"></div></div>
+          <div><h3>Fog Translate</h3><ol class="out" id="out"></ol></div>
+          <div class="end"><p class="foot">준비된 문장을 브라우저에서 재생합니다. 여기서는 어떤 서비스로도 아무것도 전송되지 않습니다.</p><button type="button" class="hold" id="hold" hidden>일시정지</button></div>
           <ol id="lines" hidden>
             <li data-lang="ZH" data-name="xiaoyu_77" data-orig="谢谢你把我从钩子上救下来">갈고리에서 구해줘서 고마워요</li>
             <li data-lang="RU" data-name="volk_tumana" data-orig="извини, у меня лагало весь матч">미안, 매치 내내 렉이 걸렸어</li>
@@ -486,8 +490,8 @@ footer p { max-width: 58rem; }
           </ol>
         </div>
         <div>
-          <h3>서비스 선택</h3>
-          <div class="scroll">
+          <h3 id="services">서비스 선택</h3>
+          <div class="scroll" tabindex="0" role="region" aria-labelledby="services">
             <table>
               <thead><tr><th scope="col">서비스</th><th scope="col">필요한 것</th><th scope="col">비용</th><th scope="col">데이터 처리</th></tr></thead>
               <tbody>
@@ -567,7 +571,7 @@ footer p { max-width: 58rem; }
 <script>
 (function () {
   var doc = document, calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var S = {"version": "버전 %s", "installer": "Windows 설치 프로그램", "locale": "ko-KR"};
+  var S = {"version": "버전 %s", "installer": "Windows 설치 프로그램", "locale": "ko-KR", "pause": "일시정지", "play": "재생"};
 
   /* the app's pages */
   var idx = doc.querySelectorAll("#idx button"), app = doc.getElementById("appImg");
@@ -601,11 +605,14 @@ footer p { max-width: 58rem; }
   if (LINES.length) {
     say(); say(); say();
     if (!calm && "IntersectionObserver" in window) {
-      var run = null;
-      new IntersectionObserver(function (es) {
-        if (es[0].isIntersecting && !run) run = setInterval(say, 3000);
-        else if (!es[0].isIntersecting && run) { clearInterval(run); run = null; }
-      }).observe(doc.getElementById("translate"));
+      var run = null, seen = false, held = false, hold = doc.getElementById("hold");
+      function go() {
+        if (seen && !held && !run) run = setInterval(say, 3000);
+        else if ((!seen || held) && run) { clearInterval(run); run = null; }
+      }
+      new IntersectionObserver(function (es) { seen = es[0].isIntersecting; go(); }).observe(doc.getElementById("translate"));
+      hold.hidden = false;
+      hold.addEventListener("click", function () { held = !held; hold.textContent = held ? S.play : S.pause; go(); });
     }
   }
 

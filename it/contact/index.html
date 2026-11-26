@@ -75,7 +75,7 @@
   --mist: #14181a;
   --haze: #575e5b;
   --line: rgba(20, 24, 26, .28);
-  --ember: #b94f17;
+  --ember: #a64715;
   --ember-ink: #fff;
   --ok: #2c6a44;
   --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
@@ -121,12 +121,14 @@ button { font: inherit; color: inherit; }
 :lang(zh) { --display: "Big Shoulders Display", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; --body: "Instrument Sans", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; }
 :lang(ja) { --display: "Big Shoulders Display", "Yu Gothic", "Hiragino Sans", "Noto Sans JP", sans-serif; --body: "Instrument Sans", "Yu Gothic UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; }
 :lang(ko) { --display: "Big Shoulders Display", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; --body: "Instrument Sans", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; word-break: keep-all; }
+/* Cyrillic is wider in the fallback face: one word must fit 320 px */
+:lang(ru) h1 { font-size: clamp(2.75rem, 10vw, 7rem); }
 :lang(zh) h1, :lang(zh) h2, :lang(ja) h1, :lang(ja) h2, :lang(ko) h1, :lang(ko) h2 { line-height: 1.15; }
 
 main { flex: 1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); align-content: start; padding-block: clamp(2rem, 6vw, 5rem); }
 .head { grid-column: 1 / span 5; min-width: 0; display: grid; gap: 1rem; align-content: start; }
 .kicker { margin: 0; font: 500 var(--step--1)/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ember); }
-h1 { margin: 0; font: 800 clamp(3.5rem, 10vw, 7rem)/.85 var(--display); text-transform: uppercase; animation: emerge 1.4s var(--ease) backwards; }
+h1 { margin: 0; font: 800 clamp(3.5rem, 10vw, 7rem)/.85 var(--display); overflow-wrap: break-word; text-transform: uppercase; animation: emerge 1.4s var(--ease) backwards; }
 h1 span { display: block; color: transparent; -webkit-text-stroke: 1.5px var(--mist); }
 @keyframes emerge { from { opacity: 0; filter: blur(22px); transform: translateX(-.15em); } }
 .head p { margin: 0; max-width: 40ch; font-size: var(--step-1); line-height: 1.4; }
@@ -177,7 +179,7 @@ h1 span { color: var(--ember); -webkit-text-stroke: 0; }
 .btn.go, main > .btn { background: var(--mist); border-color: var(--mist); color: var(--ground); }
 .btn.go:hover, main > .btn:hover { background: var(--ember); border-color: var(--ember); color: #fff; box-shadow: none; }
 .btn.go::after { content: none; }
-.lang ul { box-shadow: none; border-color: var(--mist); }
+.lang ul { box-shadow: none; border-color: var(--mist); background: var(--ground); }
 .bar nav .lang a:hover { background: var(--ground-2); }
 .handle code { background: var(--ground-2); }
 .way, .way:hover { background: var(--ground); }
