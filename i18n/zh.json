@@ -184,5 +184,7 @@
   "Cards around the game": "游戏周围的卡片",
   "Next to the map, optional cards show system values, today's rounds and the music that is playing. Arrange them in the overlay editor, one layout per screen size.": "地图旁可选的卡片显示系统数值、今天的回合和正在播放的音乐。在叠加层编辑器中摆放它们，每种屏幕尺寸一套布局。",
   "Safe updates and backups": "安全更新与备份",
-  "Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.": "更新来自 GitHub 发布版本，安装前会用 SHA-256 校验。设置和回合记录可保存到一个备份文件中。"
+  "Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.": "更新来自 GitHub 发布版本，安装前会用 SHA-256 校验。设置和回合记录可保存到一个备份文件中。",
+  "Pause": "暂停",
+  "Play": "播放"
 }

@@ -184,5 +184,7 @@
   "Cards around the game": "Oyunun etrafındaki kartlar",
   "Next to the map, optional cards show system values, today's rounds and the music that is playing. Arrange them in the overlay editor, one layout per screen size.": "Haritanın yanında isteğe bağlı kartlar sistem değerlerini, bugünkü turları ve çalan müziği gösterir. Onları overlay düzenleyicisinde yerleştirirsin, her ekran boyutu için bir düzen.",
   "Safe updates and backups": "Güvenli güncellemeler ve yedekler",
-  "Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.": "Güncellemeler GitHub sürümünden gelir ve kurulmadan önce SHA-256 ile kontrol edilir. Ayarlar ve turlar tek bir yedek dosyasına girer."
+  "Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.": "Güncellemeler GitHub sürümünden gelir ve kurulmadan önce SHA-256 ile kontrol edilir. Ayarlar ve turlar tek bir yedek dosyasına girer.",
+  "Pause": "Duraklat",
+  "Play": "Oynat"
 }

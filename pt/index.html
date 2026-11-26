@@ -122,7 +122,7 @@
   --ink: #14181a;
   --mid: #575e5b;
   --hair: rgba(20, 24, 26, .2);
-  --rust: #b94f17;
+  --rust: #a64715;  /* darkest rust that still reads as rust: 4.7:1 on paper (WCAG AA text), 3:1 on ink (focus ring) */
   --green: #2c6a44;
   --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
   --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
@@ -221,8 +221,9 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 
 /* feature rows */
 .rows { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
-.rows > div { display: grid; grid-template-columns: 2.2rem 1fr; gap: .2rem 0; padding: 1.15rem 0 1.2rem; border-bottom: 1px solid var(--hair); }
-.rows .n { grid-row: span 2; font: 500 .78rem/1.9 var(--mono); color: var(--rust); }
+.rows { counter-reset: row; }
+.rows > div { counter-increment: row; display: grid; align-content: start; grid-template-columns: 2.2rem 1fr; gap: .2rem 0; padding: 1.15rem 0 1.2rem; border-bottom: 1px solid var(--hair); }
+.rows > div::before { content: counter(row, decimal-leading-zero); grid-row: span 2; font: 500 .78rem/1.9 var(--mono); color: var(--rust); }
 .rows dt { font-weight: 650; font-size: 1.0625rem; }
 .rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
 
@@ -247,7 +248,7 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 /* translate */
 .tr { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); border-bottom: 1px solid var(--ink); }
 .replay { background: var(--ink); color: var(--paper); padding: clamp(1.25rem, 3vw, 2.25rem); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.25rem, 3vw, 2.5rem); min-height: 27rem; }
-.replay h4 { margin: 0 0 1rem; font: 500 .75rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: rgba(233, 229, 219, .55); }
+.replay h3 { margin: 0 0 1rem; letter-spacing: .07em; font: 500 .75rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: rgba(233, 229, 219, .55); }
 .chat p { font: 500 1.0625rem/1.45 "Segoe UI", Roboto, var(--body); color: #f1f1f1; overflow-wrap: anywhere; }
 .chat p b { color: #f4d83c; font-weight: 700; }
 .out { list-style: none; display: grid; gap: 1.1rem; align-content: start; }
@@ -257,7 +258,10 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .out em { display: block; margin-top: .15rem; font-style: normal; font-size: .875rem; color: rgba(233, 229, 219, .55); }
 .chat p, .out li { animation: in .35s ease-out backwards; }
 @keyframes in { from { opacity: 0; transform: translateY(6px); } }
-.replay .foot { grid-column: 1 / -1; align-self: end; font: 400 .78rem/1.5 var(--mono); color: rgba(233, 229, 219, .55); }
+.replay .end { grid-column: 1 / -1; align-self: end; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.replay .foot { font: 400 .78rem/1.5 var(--mono); color: rgba(233, 229, 219, .55); }
+.hold { flex: none; padding: .45rem .75rem; border: 1px solid rgba(233, 229, 219, .55); background: none; color: var(--paper); font: 500 .75rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; cursor: pointer; }
+.hold:hover { border-color: var(--paper); }
 .win { border-left: 1px solid var(--ink); background: var(--paper-2); display: grid; place-items: center; padding: 2rem; }
 .win img { width: min(24rem, 100%); border: 1px solid var(--ink); }
 .cols { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--pad); padding-top: clamp(2.5rem, 5vw, 4rem); }
@@ -395,18 +399,18 @@ footer p { max-width: 58rem; }
       </div>
 
       <dl class="rows">
-        <div><span class="n">01</span><dt>Callout maps automáticos</dt><dd>56 imagens de mapa, variações como Coal Tower II diferenciadas, em uma janela click-through. <a href="/pt/maps/">Ver os seis estilos de mapa →</a></dd></div>
-        <div><span class="n">02</span><dt>Loadouts dos colegas de equipe</dt><dd>Como sobrevivente, aperte Esc uma vez na partida: o Fog Scout lê os perks, o item, os complementos e a oferenda dos outros sobreviventes no menu de pausa e os mostra ao lado de cada um. Opcional.</dd></div>
-        <div><span class="n">03</span><dt>Região do servidor</dt><dd>Escolha a quais regiões você se conecta e veja em qual servidor do jogo você está.</dd></div>
-        <div><span class="n">04</span><dt>Estatísticas das partidas</dt><dd>Papel, assassino, abates, fugas e pontos de sangue por rodada, sua forma por dia da semana e horário, pares de perks e tempos de espera. Guardados no seu PC.</dd></div>
-        <div><span class="n">05</span><dt>Gravação com OBS</dt><dd>Inicia e nomeia as gravações por partida, com um editor de clipes para os melhores momentos. Cada marca que você põe em uma rodada pode virar um clipe próprio, e o Fog Scout mostra quantas rodadas ainda cabem no disco.</dd></div>
-        <div><span class="n">06</span><dt>Calculadora de perks</dt><dd>Combine perks, itens e complementos para até quatro sobreviventes e um assassino e veja o que eles rendem depois dos retornos decrescentes, testes de perícia incluídos.</dd></div>
-        <div><span class="n">07</span><dt>Discord e Spotify</dt><dd>Opcional: mostre o mapa e o papel como status no Discord e veja sua fila do Spotify.</dd></div>
-        <div><span class="n">08</span><dt>Detecta o idioma do jogo</dt><dd>Nomes de mapas em inglês, alemão, francês, espanhol, italiano, polonês, português, turco, russo, chinês, japonês e coreano. O Fog Scout detecta sozinho o idioma do jogo.</dd></div>
-        <div><span class="n">09</span><dt>Sete idiomas</dt><dd>O app em alemão, inglês, italiano, russo, chinês, japonês e coreano. Segue o idioma do Windows e pode ser trocado nas configurações.</dd></div>
-        <div><span class="n">10</span><dt>Cronômetro e avisos</dt><dd>Um cronômetro abaixo do mapa durante a rodada, o tempo de busca enquanto você espera e um som quando o lobby é encontrado ou seus pontos de sangue param de subir no limite.</dd></div>
-        <div><span class="n">11</span><dt>Cartões ao redor do jogo</dt><dd>Ao lado do mapa, cartões opcionais mostram valores do sistema, as rodadas de hoje e a música tocando. Organize-os no editor de overlay, um layout por tamanho de tela.</dd></div>
-        <div><span class="n">12</span><dt>Atualizações seguras e backups</dt><dd>As atualizações vêm da release do GitHub e são verificadas por SHA-256 antes de instalar. Configurações e rodadas vão para um único arquivo de backup.</dd></div>
+        <div><dt>Callout maps automáticos</dt><dd>56 imagens de mapa, variações como Coal Tower II diferenciadas, em uma janela click-through. <a href="/pt/maps/">Ver os seis estilos de mapa →</a></dd></div>
+        <div><dt>Loadouts dos colegas de equipe</dt><dd>Como sobrevivente, aperte Esc uma vez na partida: o Fog Scout lê os perks, o item, os complementos e a oferenda dos outros sobreviventes no menu de pausa e os mostra ao lado de cada um. Opcional.</dd></div>
+        <div><dt>Região do servidor</dt><dd>Escolha a quais regiões você se conecta e veja em qual servidor do jogo você está.</dd></div>
+        <div><dt>Estatísticas das partidas</dt><dd>Papel, assassino, abates, fugas e pontos de sangue por rodada, sua forma por dia da semana e horário, pares de perks e tempos de espera. Guardados no seu PC.</dd></div>
+        <div><dt>Gravação com OBS</dt><dd>Inicia e nomeia as gravações por partida, com um editor de clipes para os melhores momentos. Cada marca que você põe em uma rodada pode virar um clipe próprio, e o Fog Scout mostra quantas rodadas ainda cabem no disco.</dd></div>
+        <div><dt>Calculadora de perks</dt><dd>Combine perks, itens e complementos para até quatro sobreviventes e um assassino e veja o que eles rendem depois dos retornos decrescentes, testes de perícia incluídos.</dd></div>
+        <div><dt>Discord e Spotify</dt><dd>Opcional: mostre o mapa e o papel como status no Discord e veja sua fila do Spotify.</dd></div>
+        <div><dt>Detecta o idioma do jogo</dt><dd>Nomes de mapas em inglês, alemão, francês, espanhol, italiano, polonês, português, turco, russo, chinês, japonês e coreano. O Fog Scout detecta sozinho o idioma do jogo.</dd></div>
+        <div><dt>Sete idiomas</dt><dd>O app em alemão, inglês, italiano, russo, chinês, japonês e coreano. Segue o idioma do Windows e pode ser trocado nas configurações.</dd></div>
+        <div><dt>Cronômetro e avisos</dt><dd>Um cronômetro abaixo do mapa durante a rodada, o tempo de busca enquanto você espera e um som quando o lobby é encontrado ou seus pontos de sangue param de subir no limite.</dd></div>
+        <div><dt>Cartões ao redor do jogo</dt><dd>Ao lado do mapa, cartões opcionais mostram valores do sistema, as rodadas de hoje e a música tocando. Organize-os no editor de overlay, um layout por tamanho de tela.</dd></div>
+        <div><dt>Atualizações seguras e backups</dt><dd>As atualizações vêm da release do GitHub e são verificadas por SHA-256 antes de instalar. Configurações e rodadas vão para um único arquivo de backup.</dd></div>
       </dl>
 
       <figure class="pair">
@@ -460,9 +464,9 @@ footer p { max-width: 58rem; }
 
       <div class="tr">
         <div class="replay">
-          <div><h4>Chat do jogo</h4><div class="chat" id="chat"></div></div>
-          <div><h4>Fog Translate</h4><ol class="out" id="out" aria-live="polite"></ol></div>
-          <p class="foot">Frases preparadas, reproduzidas no seu navegador. Nada é enviado a nenhum serviço aqui.</p>
+          <div><h3>Chat do jogo</h3><div class="chat" id="chat"></div></div>
+          <div><h3>Fog Translate</h3><ol class="out" id="out"></ol></div>
+          <div class="end"><p class="foot">Frases preparadas, reproduzidas no seu navegador. Nada é enviado a nenhum serviço aqui.</p><button type="button" class="hold" id="hold" hidden>Pausar</button></div>
           <ol id="lines" hidden>
             <li data-lang="ZH" data-name="xiaoyu_77" data-orig="谢谢你把我从钩子上救下来">Valeu por me tirar do gancho</li>
             <li data-lang="RU" data-name="volk_tumana" data-orig="извини, у меня лагало весь матч">Desculpa, tive lag a partida inteira</li>
@@ -486,8 +490,8 @@ footer p { max-width: 58rem; }
           </ol>
         </div>
         <div>
-          <h3>Escolha um serviço</h3>
-          <div class="scroll">
+          <h3 id="services">Escolha um serviço</h3>
+          <div class="scroll" tabindex="0" role="region" aria-labelledby="services">
             <table>
               <thead><tr><th scope="col">Serviço</th><th scope="col">Você precisa de</th><th scope="col">Custo</th><th scope="col">Seus dados</th></tr></thead>
               <tbody>
@@ -567,7 +571,7 @@ footer p { max-width: 58rem; }
 <script>
 (function () {
   var doc = document, calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var S = {"version": "Versão %s", "installer": "Instalador para Windows", "locale": "pt-BR"};
+  var S = {"version": "Versão %s", "installer": "Instalador para Windows", "locale": "pt-BR", "pause": "Pausar", "play": "Reproduzir"};
 
   /* the app's pages */
   var idx = doc.querySelectorAll("#idx button"), app = doc.getElementById("appImg");
@@ -601,11 +605,14 @@ footer p { max-width: 58rem; }
   if (LINES.length) {
     say(); say(); say();
     if (!calm && "IntersectionObserver" in window) {
-      var run = null;
-      new IntersectionObserver(function (es) {
-        if (es[0].isIntersecting && !run) run = setInterval(say, 3000);
-        else if (!es[0].isIntersecting && run) { clearInterval(run); run = null; }
-      }).observe(doc.getElementById("translate"));
+      var run = null, seen = false, held = false, hold = doc.getElementById("hold");
+      function go() {
+        if (seen && !held && !run) run = setInterval(say, 3000);
+        else if ((!seen || held) && run) { clearInterval(run); run = null; }
+      }
+      new IntersectionObserver(function (es) { seen = es[0].isIntersecting; go(); }).observe(doc.getElementById("translate"));
+      hold.hidden = false;
+      hold.addEventListener("click", function () { held = !held; hold.textContent = held ? S.play : S.pause; go(); });
     }
   }
 

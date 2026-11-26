@@ -184,5 +184,7 @@
   "Cards around the game": "ゲームの周りのカード",
   "Next to the map, optional cards show system values, today's rounds and the music that is playing. Arrange them in the overlay editor, one layout per screen size.": "マップの横に、システム値、今日のラウンド、再生中の音楽を表示するカードを追加できます。オーバーレイエディターで配置し、画面サイズごとにレイアウトを保存します。",
   "Safe updates and backups": "安全なアップデートとバックアップ",
-  "Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.": "アップデートは GitHub のリリースから取得し、インストール前に SHA-256 で確認します。設定とラウンドは 1 つのバックアップファイルにまとめられます。"
+  "Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.": "アップデートは GitHub のリリースから取得し、インストール前に SHA-256 で確認します。設定とラウンドは 1 つのバックアップファイルにまとめられます。",
+  "Pause": "一時停止",
+  "Play": "再生"
 }
