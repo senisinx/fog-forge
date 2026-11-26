@@ -54,7 +54,7 @@ LANGS = {
 # Names and handles stay as they are in every language.
 KEEP = {
     "Fog Forge", "Fog", "Forge", "Scout", "Translate", "Fog Scout", "Fog Translate", "GitHub", "Discord", "Claude", "Gemini", "Ollama",
-    "senisin", "github.com/senisinx", "hens333.com/callouts", "DBD Map Overlay", "fog-scout", "fog-translate", "Fig. 1", "Fig. 2", "Fig. 3",
+    "senisin", "github.com/senisinx", "hens333.com/callouts", "DBD Map Overlay", "fog-scout", "fog-translate", "Fig. 1", "Fig. 2", "Fig. 3", "Fig. 4",
 }
 # Keys that are not text in src/ but made by this build.
 # The six map styles of Fog Scout, in the order of data/maps.json "styles"; named as in the app.

@@ -230,6 +230,7 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
 .pair figcaption { grid-column: 1 / -1; }
+.pair.three { grid-template-columns: repeat(3, 1fr); }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -319,7 +320,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
- .pair { grid-template-columns: 1fr; row-gap: 1rem; }
+ .pair, .pair.three { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -395,15 +396,16 @@ footer p { max-width: 58rem; }
       </div>
 
       <dl class="rows">
-        <div><span class="n">01</span><dt>Automatische callout maps</dt><dd>56 mapafbeeldingen, varianten zoals Coal Tower II worden onderscheiden, in een click-through-venster. <a href="/nl/maps/">Bekijk de zes mapstijlen →</a></dd></div>
-        <div><span class="n">02</span><dt>Loadouts van je teamgenoten</dt><dd>Druk als overlevende één keer op Esc in de match: Fog Scout leest de perks, het item, de add-ons en het offer van de andere overlevenden uit het pauzemenu en toont ze naast elk van hen. Optioneel.</dd></div>
-        <div><span class="n">03</span><dt>Serverregio</dt><dd>Kies met welke regio's je verbindt en zie op welke gameserver je zit.</dd></div>
-        <div><span class="n">04</span><dt>Matchstatistieken</dt><dd>Rol, moordenaar, kills, ontsnappingen en bloedpunten per ronde, je vorm per weekdag en tijdstip, perk-paren en wachttijden. Opgeslagen op je pc.</dd></div>
-        <div><span class="n">05</span><dt>Opnemen met OBS</dt><dd>Start en benoemt opnames per match, met een clip-editor voor de hoogtepunten. Elke markering die je in een ronde zet, kan een eigen clip worden, en Fog Scout toont hoeveel rondes er nog op de schijf passen.</dd></div>
-        <div><span class="n">06</span><dt>Perk-calculator</dt><dd>Combineer perks, items en add-ons voor maximaal vier overlevenden en een moordenaar en zie wat ze opleveren na afnemende meeropbrengsten, skill checks inbegrepen.</dd></div>
-        <div><span class="n">07</span><dt>Discord en Spotify</dt><dd>Optioneel: map en rol als Discord-status tonen, je Spotify-wachtrij zien.</dd></div>
-        <div><span class="n">08</span><dt>Herkent de speltaal</dt><dd>Mapnamen in het Engels, Duits, Frans, Spaans, Italiaans, Pools, Portugees, Turks, Russisch, Chinees, Japans en Koreaans. Fog Scout herkent de speltaal zelf.</dd></div>
-        <div><span class="n">09</span><dt>Zeven talen</dt><dd>De app in het Duits, Engels, Italiaans, Russisch, Chinees, Japans en Koreaans. Volgt de taal van Windows, te wijzigen in de instellingen.</dd></div>
+        <div><span class="n">01</span><dt>Automatische callout maps</dt><dd>56 mapafbeeldingen, varianten zoals Coal Tower II worden onderscheiden, in een click-through-venster. Een nieuwe map waar nog geen afbeelding van is, zoals Hartshorne Mall, wordt ook herkend en krijgt de timer en de serverregel. <a href="/nl/maps/">Bekijk de zes mapstijlen →</a></dd></div>
+        <div><span class="n">02</span><dt>Loadouts van je teamgenoten</dt><dd>Druk als overlevende één keer op Esc in de match: Fog Scout leest de perks, het item, de add-ons en het offer van de andere overlevenden uit het pauzemenu en toont ze naast elk van hen. Als killer toont het de offers van de overlevenden. Optioneel.</dd></div>
+        <div><span class="n">03</span><dt>Punten per categorie</dt><dd>Fog Scout leest tijdens het spelen de score-events rechtsboven en telt je punten per categorie, met een ring die laat zien hoe vol elke categorie is. Optioneel, wordt bij de ronde bewaard.</dd></div>
+        <div><span class="n">04</span><dt>Serverregio</dt><dd>Kies met welke regio's je verbindt en zie op welke gameserver je zit.</dd></div>
+        <div><span class="n">05</span><dt>Matchstatistieken</dt><dd>Rol, moordenaar, kills, ontsnappingen en bloedpunten per ronde, je vorm per weekdag en tijdstip, perk-paren en wachttijden. Opgeslagen op je pc.</dd></div>
+        <div><span class="n">06</span><dt>Opnemen met OBS</dt><dd>Start en benoemt opnames per match, met een clip-editor voor de hoogtepunten. Elke markering die je in een ronde zet, kan een eigen clip worden, en Fog Scout toont hoeveel rondes er nog op de schijf passen. Het waarschuwt meteen als een opname zwart is of het beeld stilstaat.</dd></div>
+        <div><span class="n">07</span><dt>Perk-calculator</dt><dd>Combineer perks, items en add-ons voor maximaal vier overlevenden en een moordenaar en zie wat ze opleveren na afnemende meeropbrengsten, skill checks inbegrepen.</dd></div>
+        <div><span class="n">08</span><dt>Discord en Spotify</dt><dd>Optioneel: map en rol als Discord-status tonen, je Spotify-wachtrij zien.</dd></div>
+        <div><span class="n">09</span><dt>Herkent de speltaal</dt><dd>Mapnamen in het Engels, Duits, Frans, Spaans, Italiaans, Pools, Portugees, Turks, Russisch, Chinees, Japans en Koreaans. Fog Scout herkent de speltaal zelf.</dd></div>
+        <div><span class="n">10</span><dt>Zeven talen</dt><dd>De app in het Duits, Engels, Italiaans, Russisch, Chinees, Japans en Koreaans. Volgt de taal van Windows, te wijzigen in de instellingen.</dd></div>
       </dl>
 
       <figure class="pair">
@@ -418,12 +420,28 @@ footer p { max-width: 58rem; }
         <figcaption><b>Fig. 2</b><span>Loadouts van teamgenoten in een echte match op 3440×1440, gelezen uit het pauzemenu. Links: naast de overlevendenlijst van DBD, de perks als ruit met offer, item en add-ons. Rechts: op een rij boven elke naam. Namen overgeschilderd.</span></figcaption>
       </figure>
 
+      <figure class="pair three">
+        <div>
+          <div class="fig"><img src="/img/score-rings.webp" loading="lazy" decoding="async" width="640" height="440" alt="Infokaart van Fog Scout: rondetimer 07:32, server Frankfurt met 34 ms, daaronder vier ringen met iconen voor de puntencategorieën van de killer, drie deels rood met 4.3k, 1.5k en 8.3k, de vierde gesloten in goud met MAX."></div>
+          <p class="mono dim">Ringen</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/score-bars.webp" loading="lazy" decoding="async" width="640" height="440" alt="Dezelfde kaart met één balk per categorie: drie rode balken met 4.3k, 1.5k en 8.3k en een volle gouden balk met MAX."></div>
+          <p class="mono dim">Balken</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/score-line.webp" loading="lazy" decoding="async" width="640" height="440" alt="Dezelfde kaart met de punten op één regel: BRU 4.3k, DEV 1.5k, HUN 8.3k, SAC MAX."></div>
+          <p class="mono dim">Eén regel</p>
+        </div>
+        <figcaption><b>Fig. 3</b><span>Punten per categorie in de overlay, in de drie weergaven die je kunt kiezen. Getekend door Fog Scout met verzonnen punten. De iconen hier zijn eigen tekeningen; in het spel gebruikt het de iconen die het op je scherm heeft gezien.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>In de app</h3>
           <div id="idx" role="group" aria-label="In de app">
             <button type="button" aria-pressed="true" data-src="/img/maps.webp" data-alt="Pagina Maps van Fog Scout: alle callout maps gegroepeerd per rijk, met rondes en gemiddelde kills per map."><i>01</i>Maps<span>Alle 56 callout maps in zes stijlen, met je rondes en kills per map.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Pagina Overlay van Fog Scout: een lay-outeditor met map, systeemwaarden, vandaag en muziek rond het spelbeeld geplaatst."><i>02</i>Overlay<span>Zet map, timer, systeemwaarden, muziek en de loadouts van je teamgenoten waar je wilt. Optionele regels tonen FPS, je laatste resultaat op de map en de reeks van je sessie.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overlay.webp?v=2" data-alt="Pagina Overlay van Fog Scout: een lijst met elementen met elk een aan/uit-schakelaar, een voorbeeld met map, timer en puntenringen naast het spelbeeld, en de instellingen van het element Info."><i>02</i>Overlay<span>Zet elk element aan of uit en zet map, info, systeemwaarden, muziek en de loadouts van je teamgenoten waar je wilt. Optionele regels tonen FPS, je punten per categorie, je laatste resultaat op de map en de reeks van je sessie. Bewaar een indeling als je eigen voorinstelling.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Pagina Statistieken van Fog Scout: rondes, gemiddelde kills, ontsnappingspercentage, bloedpunten en de meest gespeelde maps."><i>03</i>Statistieken<span>Rondes, kills, ontsnappingen en bloedpunten, alleen op deze pc opgeslagen.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Pagina Opnames van Fog Scout: de opnamestatus en een lijst met opgenomen rondes met map, rol, resultaat, lengte en grootte."><i>04</i>Opnames<span>Opgenomen rondes, clips en screenshots: afspelen, knippen en opruimen.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Pagina Calculator van Fog Scout: links de builds van overlevenden en moordenaar, rechts de generatortijden en het aandeel waarmee elke bonus meetelt."><i>05</i>Calculator<span>Combineer perks en zie wat ze opleveren na afnemende meeropbrengsten.</span></button>
@@ -433,7 +451,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Pagina Maps van Fog Scout: alle callout maps gegroepeerd per rijk, met rondes en gemiddelde kills per map."></div>
-          <figcaption><b>Fig. 3</b><span>Het bedieningsvenster, gevuld met verzonnen rondes.</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>Het bedieningsvenster, gevuld met verzonnen rondes.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Tekstherkenning draait op je pc. Mapherkenning en de overlay maken geen internetverbinding.</span> <span>Niet ondertekend: SmartScreen toont "Meer informatie" en daarna "Toch uitvoeren". Vraagt één keer om beheerdersrechten. Zet DBD op Volledig scherm in venster.</span></p>

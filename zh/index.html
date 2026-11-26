@@ -230,6 +230,7 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
 .pair figcaption { grid-column: 1 / -1; }
+.pair.three { grid-template-columns: repeat(3, 1fr); }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -319,7 +320,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
- .pair { grid-template-columns: 1fr; row-gap: 1rem; }
+ .pair, .pair.three { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -395,15 +396,16 @@ footer p { max-width: 58rem; }
       </div>
 
       <dl class="rows">
-        <div><span class="n">01</span><dt>自动报点地图</dt><dd>56 张地图图片，能区分 Coal Tower II 等不同布局，显示在可点击穿透的窗口中。 <a href="/zh/maps/">查看六种地图样式 →</a></dd></div>
-        <div><span class="n">02</span><dt>队友的配装</dt><dd>作为逃生者，在对局中按一次 Esc：Fog Scout 从暂停菜单读取其他逃生者的技能、道具、配件和祭品，并显示在每个人旁边。可选功能。</dd></div>
-        <div><span class="n">03</span><dt>服务器区域</dt><dd>选择要连接的区域，并查看你所在的游戏服务器。</dd></div>
-        <div><span class="n">04</span><dt>对局统计</dt><dd>每局的角色、杀手、击杀、逃脱和血点，以及按星期和时段统计的状态、技能组合和等待时间。保存在你的电脑上。</dd></div>
-        <div><span class="n">05</span><dt>使用 OBS 录制</dt><dd>按对局开始并命名录制，附带用于剪辑精彩片段的编辑器。你在一局中设置的每个标记都可以单独保存为片段，并会显示磁盘还能容纳多少局。</dd></div>
-        <div><span class="n">06</span><dt>技能计算器</dt><dd>为最多四名逃生者和一名杀手搭配技能、道具和配件，查看收益递减后的实际效果，包括技能检定。</dd></div>
-        <div><span class="n">07</span><dt>Discord 和 Spotify</dt><dd>可选：将地图和角色显示为 Discord 状态，查看你的 Spotify 播放队列。</dd></div>
-        <div><span class="n">08</span><dt>自动识别游戏语言</dt><dd>支持英语、德语、法语、西班牙语、意大利语、波兰语、葡萄牙语、土耳其语、俄语、中文、日语和韩语的地图名称。Fog Scout 会自动识别游戏语言。</dd></div>
-        <div><span class="n">09</span><dt>七种语言</dt><dd>应用界面支持德语、英语、意大利语、俄语、中文、日语和韩语。跟随 Windows 语言，可在设置中切换。</dd></div>
+        <div><span class="n">01</span><dt>自动报点地图</dt><dd>56 张地图图片，能区分 Coal Tower II 等不同布局，显示在可点击穿透的窗口中。还没有图片的新地图（例如 Hartshorne Mall）同样能被识别，并显示计时器和服务器信息。 <a href="/zh/maps/">查看六种地图样式 →</a></dd></div>
+        <div><span class="n">02</span><dt>队友的配装</dt><dd>作为逃生者，在对局中按一次 Esc：Fog Scout 从暂停菜单读取其他逃生者的技能、道具、配件和祭品，并显示在每个人旁边。作为杀手时，会显示逃生者的祭品。可选功能。</dd></div>
+        <div><span class="n">03</span><dt>各类别分数</dt><dd>游戏过程中，Fog Scout 读取右上角的得分事件，按类别统计你的分数，并用圆环显示每个类别已满多少。可选功能，随该局一起保存。</dd></div>
+        <div><span class="n">04</span><dt>服务器区域</dt><dd>选择要连接的区域，并查看你所在的游戏服务器。</dd></div>
+        <div><span class="n">05</span><dt>对局统计</dt><dd>每局的角色、杀手、击杀、逃脱和血点，以及按星期和时段统计的状态、技能组合和等待时间。保存在你的电脑上。</dd></div>
+        <div><span class="n">06</span><dt>使用 OBS 录制</dt><dd>按对局开始并命名录制，附带用于剪辑精彩片段的编辑器。你在一局中设置的每个标记都可以单独保存为片段，并会显示磁盘还能容纳多少局。录制结果是黑屏或画面静止时，会立即提醒。</dd></div>
+        <div><span class="n">07</span><dt>技能计算器</dt><dd>为最多四名逃生者和一名杀手搭配技能、道具和配件，查看收益递减后的实际效果，包括技能检定。</dd></div>
+        <div><span class="n">08</span><dt>Discord 和 Spotify</dt><dd>可选：将地图和角色显示为 Discord 状态，查看你的 Spotify 播放队列。</dd></div>
+        <div><span class="n">09</span><dt>自动识别游戏语言</dt><dd>支持英语、德语、法语、西班牙语、意大利语、波兰语、葡萄牙语、土耳其语、俄语、中文、日语和韩语的地图名称。Fog Scout 会自动识别游戏语言。</dd></div>
+        <div><span class="n">10</span><dt>七种语言</dt><dd>应用界面支持德语、英语、意大利语、俄语、中文、日语和韩语。跟随 Windows 语言，可在设置中切换。</dd></div>
       </dl>
 
       <figure class="pair">
@@ -418,12 +420,28 @@ footer p { max-width: 58rem; }
         <figcaption><b>Fig. 2</b><span>3440×1440 真实对局中的队友配装，从暂停菜单读取。左：在 DBD 逃生者列表旁，技能呈菱形，并附祭品、道具和配件。右：在每个名字上方排成一行。名字已涂掉。</span></figcaption>
       </figure>
 
+      <figure class="pair three">
+        <div>
+          <div class="fig"><img src="/img/score-rings.webp" loading="lazy" decoding="async" width="640" height="440" alt="Fog Scout 的信息卡片：回合计时 07:32，服务器 Frankfurt，34 ms，下方是代表杀手分数类别的四个带图标圆环，其中三个部分为红色，分别是 4.3k、1.5k 和 8.3k，第四个为闭合的金色圆环并显示 MAX。"></div>
+          <p class="mono dim">圆环</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/score-bars.webp" loading="lazy" decoding="async" width="640" height="440" alt="同一张卡片，每个类别一条进度条：三条红色进度条，分别是 4.3k、1.5k 和 8.3k，还有一条填满的金色进度条显示 MAX。"></div>
+          <p class="mono dim">进度条</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/score-line.webp" loading="lazy" decoding="async" width="640" height="440" alt="同一张卡片，分数显示在一行：BRU 4.3k、DEV 1.5k、HUN 8.3k、SAC MAX。"></div>
+          <p class="mono dim">单行</p>
+        </div>
+        <figcaption><b>Fig. 3</b><span>叠加层中的各类别分数，有三种显示方式可选。由 Fog Scout 用虚构分数绘制。这里的图标是它自己绘制的；在游戏中，它使用在你屏幕上看到过的图标。</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>应用内部</h3>
           <div id="idx" role="group" aria-label="应用内部">
             <button type="button" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout 地图页面：所有报点地图按领域分组，显示每张地图的回合数和平均击杀。"><i>01</i>地图<span>全部 56 张报点地图，六种样式，附带你在每张地图上的回合数和击杀数。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout 叠加层页面：布局编辑器，地图、系统数值、今日和音乐摆放在游戏画面周围。"><i>02</i>叠加层<span>把地图、计时器、系统数值、音乐和队友的配装放在你想要的位置。可选的行可显示 FPS、你上次在该地图的结果和本次连续记录。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overlay.webp?v=2" data-alt="Fog Scout 叠加层页面：元素列表，每个元素都有开关，预览中地图、计时器和分数圆环位于游戏画面旁，以及“信息”元素的设置。"><i>02</i>叠加层<span>逐个开关各元素，并把地图、信息、系统数值、音乐和队友的配装放在你想要的位置。可选的行可显示 FPS、各类别分数、你上次在该地图的结果和本次连续记录。还可以把布局保存为自己的预设。</span></button>
             <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout 统计页面：回合数、平均击杀、逃脱率、血点和最常玩的地图。"><i>03</i>统计<span>回合、击杀、逃脱和血点，仅保存在这台电脑上。</span></button>
             <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout 录制页面：录制状态，以及带有地图、角色、结果、时长和大小的已录制回合列表。"><i>04</i>录制<span>已录制的回合、片段和截图：播放、剪辑和整理。</span></button>
             <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout 计算器页面：左侧是逃生者和杀手的配置，右侧是发电机用时和每项加成计入的比例。"><i>05</i>计算器<span>搭配技能，查看收益递减后的效果。</span></button>
@@ -433,7 +451,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout 地图页面：所有报点地图按领域分组，显示每张地图的回合数和平均击杀。"></div>
-          <figcaption><b>Fig. 3</b><span>填入虚构回合的控制窗口。</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>填入虚构回合的控制窗口。</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>文字识别在你的电脑上运行。地图识别和叠加层不建立任何网络连接。</span> <span>未签名：SmartScreen 会显示“更多信息”，然后点击“仍要运行”。首次需要一次管理员权限。请将 DBD 设置为窗口化全屏。</span></p>

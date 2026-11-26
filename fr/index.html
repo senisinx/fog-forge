@@ -230,6 +230,7 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
 .pair figcaption { grid-column: 1 / -1; }
+.pair.three { grid-template-columns: repeat(3, 1fr); }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -319,7 +320,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
- .pair { grid-template-columns: 1fr; row-gap: 1rem; }
+ .pair, .pair.three { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -395,15 +396,16 @@ footer p { max-width: 58rem; }
       </div>
 
       <dl class="rows">
-        <div><span class="n">01</span><dt>Cartes de callouts automatiques</dt><dd>56 images de maps, des variantes comme Coal Tower II bien distinguées, dans une fenêtre click-through. <a href="/fr/maps/">Voir les six styles de carte →</a></dd></div>
-        <div><span class="n">02</span><dt>Loadouts de tes coéquipiers</dt><dd>En survivant, appuie une fois sur Échap pendant la partie : Fog Scout lit les perks, l’objet, les add-ons et l’offrande des autres survivants dans le menu pause et les affiche à côté de chacun. En option.</dd></div>
-        <div><span class="n">03</span><dt>Région du serveur</dt><dd>Choisis les régions auxquelles tu te connectes et vois sur quel serveur de jeu tu es.</dd></div>
-        <div><span class="n">04</span><dt>Statistiques des parties</dt><dd>Rôle, tueur, kills, évasions et points de sang par manche, ta forme selon le jour et l’heure, paires de perks et temps d’attente. Conservés sur ton PC.</dd></div>
-        <div><span class="n">05</span><dt>Enregistrement avec OBS</dt><dd>Lance et nomme les enregistrements par partie, avec un éditeur de clips pour les meilleurs moments. Chaque repère posé dans une manche peut devenir un clip à part, et Fog Scout indique combien de manches tiennent encore sur le disque.</dd></div>
-        <div><span class="n">06</span><dt>Calculateur de perks</dt><dd>Combine perks, objets et add-ons pour jusqu’à quatre survivants et un tueur, et vois ce qu’ils apportent après les rendements décroissants, tests d’habileté compris.</dd></div>
-        <div><span class="n">07</span><dt>Discord et Spotify</dt><dd>En option : affiche la map et ton rôle dans ton statut Discord, vois ta file d’attente Spotify.</dd></div>
-        <div><span class="n">08</span><dt>Détecte la langue du jeu</dt><dd>Noms de maps en anglais, allemand, français, espagnol, italien, polonais, portugais, turc, russe, chinois, japonais et coréen. Fog Scout détecte tout seul la langue du jeu.</dd></div>
-        <div><span class="n">09</span><dt>Sept langues</dt><dd>L’app en allemand, anglais, italien, russe, chinois, japonais et coréen. Suit la langue de Windows, modifiable dans les paramètres.</dd></div>
+        <div><span class="n">01</span><dt>Cartes de callouts automatiques</dt><dd>56 images de maps, des variantes comme Coal Tower II bien distinguées, dans une fenêtre click-through. Une nouvelle map qui n’a pas encore d’image, comme Hartshorne Mall, est détectée quand même et reçoit le chrono et la ligne du serveur. <a href="/fr/maps/">Voir les six styles de carte →</a></dd></div>
+        <div><span class="n">02</span><dt>Loadouts de tes coéquipiers</dt><dd>En survivant, appuie une fois sur Échap pendant la partie : Fog Scout lit les perks, l’objet, les add-ons et l’offrande des autres survivants dans le menu pause et les affiche à côté de chacun. En tueur, il affiche les offrandes des survivants. En option.</dd></div>
+        <div><span class="n">03</span><dt>Points par catégorie</dt><dd>Fog Scout lit les événements de score en haut à droite pendant que tu joues et compte tes points par catégorie, avec un anneau qui montre à quel point chacune est remplie. En option, enregistré avec la manche.</dd></div>
+        <div><span class="n">04</span><dt>Région du serveur</dt><dd>Choisis les régions auxquelles tu te connectes et vois sur quel serveur de jeu tu es.</dd></div>
+        <div><span class="n">05</span><dt>Statistiques des parties</dt><dd>Rôle, tueur, kills, évasions et points de sang par manche, ta forme selon le jour et l’heure, paires de perks et temps d’attente. Conservés sur ton PC.</dd></div>
+        <div><span class="n">06</span><dt>Enregistrement avec OBS</dt><dd>Lance et nomme les enregistrements par partie, avec un éditeur de clips pour les meilleurs moments. Chaque repère posé dans une manche peut devenir un clip à part, et Fog Scout indique combien de manches tiennent encore sur le disque. Il avertit tout de suite si un enregistrement est noir ou figé.</dd></div>
+        <div><span class="n">07</span><dt>Calculateur de perks</dt><dd>Combine perks, objets et add-ons pour jusqu’à quatre survivants et un tueur, et vois ce qu’ils apportent après les rendements décroissants, tests d’habileté compris.</dd></div>
+        <div><span class="n">08</span><dt>Discord et Spotify</dt><dd>En option : affiche la map et ton rôle dans ton statut Discord, vois ta file d’attente Spotify.</dd></div>
+        <div><span class="n">09</span><dt>Détecte la langue du jeu</dt><dd>Noms de maps en anglais, allemand, français, espagnol, italien, polonais, portugais, turc, russe, chinois, japonais et coréen. Fog Scout détecte tout seul la langue du jeu.</dd></div>
+        <div><span class="n">10</span><dt>Sept langues</dt><dd>L’app en allemand, anglais, italien, russe, chinois, japonais et coréen. Suit la langue de Windows, modifiable dans les paramètres.</dd></div>
       </dl>
 
       <figure class="pair">
@@ -418,12 +420,28 @@ footer p { max-width: 58rem; }
         <figcaption><b>Fig. 2</b><span>Loadouts des coéquipiers dans une vraie partie en 3440×1440, lus dans le menu pause. À gauche : à côté de la liste des survivants de DBD, les perks en losange avec offrande, objet et add-ons. À droite : en ligne au-dessus de chaque nom. Noms masqués.</span></figcaption>
       </figure>
 
+      <figure class="pair three">
+        <div>
+          <div class="fig"><img src="/img/score-rings.webp" loading="lazy" decoding="async" width="640" height="440" alt="Carte d’infos de Fog Scout : chrono de manche 07:32, serveur Frankfurt à 34 ms, en dessous quatre anneaux avec des icônes pour les catégories de points du tueur, trois en partie rouges avec 4.3k, 1.5k et 8.3k, le quatrième fermé en or avec MAX."></div>
+          <p class="mono dim">Anneaux</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/score-bars.webp" loading="lazy" decoding="async" width="640" height="440" alt="La même carte avec une barre par catégorie : trois barres rouges avec 4.3k, 1.5k et 8.3k, et une barre dorée pleine avec MAX."></div>
+          <p class="mono dim">Barres</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/score-line.webp" loading="lazy" decoding="async" width="640" height="440" alt="La même carte avec les points sur une ligne : BRU 4.3k, DEV 1.5k, HUN 8.3k, SAC MAX."></div>
+          <p class="mono dim">Une ligne</p>
+        </div>
+        <figcaption><b>Fig. 3</b><span>Les points par catégorie dans l’overlay, dans les trois affichages au choix. Dessiné par Fog Scout avec des points inventés. Les icônes ici sont ses propres dessins ; en jeu, il utilise les icônes qu’il a vues sur ton écran.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>Dans l’appli</h3>
           <div id="idx" role="group" aria-label="Dans l’appli">
             <button type="button" aria-pressed="true" data-src="/img/maps.webp" data-alt="Page Cartes de Fog Scout : toutes les cartes de callouts regroupées par royaume, avec les manches et la moyenne de kills par map."><i>01</i>Cartes<span>Les 56 cartes de callouts en six styles, avec tes manches et tes kills par map.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Page Overlay de Fog Scout : un éditeur de disposition avec la carte, les valeurs système, le jour et la musique placés autour de l’image du jeu."><i>02</i>Overlay<span>Place la carte, le chrono, les valeurs système, la musique et les loadouts de tes coéquipiers où tu veux. Des lignes en option affichent les FPS, ton dernier résultat sur la map et la série de ta session.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overlay.webp?v=2" data-alt="Page Overlay de Fog Scout : une liste d’éléments avec chacun un interrupteur marche/arrêt, un aperçu avec la carte, le chrono et les anneaux de points à côté de l’image du jeu, et les réglages de l’élément Infos."><i>02</i>Overlay<span>Active ou désactive chaque élément et place la carte, les infos, les valeurs système, la musique et les loadouts de tes coéquipiers où tu veux. Des lignes en option affichent les FPS, tes points par catégorie, ton dernier résultat sur la map et la série de ta session. Enregistre une disposition comme ton propre préréglage.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Page Statistiques de Fog Scout : manches, moyenne de kills, taux d’évasion, points de sang et maps les plus jouées."><i>03</i>Statistiques<span>Manches, kills, évasions et points de sang, stockés uniquement sur ce PC.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Page Enregistrements de Fog Scout : l’état de l’enregistrement et une liste de manches enregistrées avec map, rôle, résultat, durée et taille."><i>04</i>Enregistrements<span>Manches enregistrées, clips et captures : lire, couper et ranger.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Page Calculateur de Fog Scout : à gauche les builds des survivants et du tueur, à droite les temps de générateur et la part pour laquelle compte chaque bonus."><i>05</i>Calculateur<span>Combine des perks et vois ce qu’ils apportent après les rendements décroissants.</span></button>
@@ -433,7 +451,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Page Cartes de Fog Scout : toutes les cartes de callouts regroupées par royaume, avec les manches et la moyenne de kills par map."></div>
-          <figcaption><b>Fig. 3</b><span>La fenêtre de contrôle, remplie de manches inventées.</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>La fenêtre de contrôle, remplie de manches inventées.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>La reconnaissance de texte tourne sur ton PC. La détection de la map et l’overlay n’ouvrent aucune connexion Internet.</span> <span>Non signé : SmartScreen affiche « Informations complémentaires », puis « Exécuter quand même ». Demande une seule fois les droits administrateur. Mets DBD en Plein écran fenêtré.</span></p>

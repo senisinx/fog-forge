@@ -26,6 +26,9 @@ The HTML in the repository root and in the language folders (`de/`, `fr/`, …) 
 - Pictures of the programs (`img/maps.webp`, `overlay`, `statistics`, `recordings`, `calculator`, `overview`, `server`,
   `translate-app`): screenshots of the real windows with made-up data, 1560×1180 for Fog Scout. No real rounds, pings
   or keys may be in them.
+- Points per category (`img/score-rings.webp`, `-bars`, `-line`, 640×440): the info card in the three looks, drawn by
+  Fog Scout itself (`overlay_render.info_card` with `scoreview.for_overlay`, style glass) on black, with made-up points
+  and Fog Scout's own drawn icons, never the game's.
 - `data/maps.json`, `img/maps/`: three callout maps in the six map styles for `/maps/`, made from Fog Scout. Do not edit
   them; run `python3 tools/import_maps.py <path to a fog-scout checkout>` to show other maps or after a change to the
   styles (needs Pillow, NumPy and OpenCV), then the build.

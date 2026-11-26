@@ -230,6 +230,7 @@ h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: u
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .pair p { padding-top: .65rem; }
 .pair figcaption { grid-column: 1 / -1; }
+.pair.three { grid-template-columns: repeat(3, 1fr); }
 /* the app's pages */
 .app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .idx { position: sticky; top: 5rem; }
@@ -319,7 +320,7 @@ footer p { max-width: 58rem; }
   .replay { grid-template-columns: 1fr; min-height: 0; }
   .law li { grid-template-columns: 1fr; gap: .25rem; }
   figcaption { flex-direction: column; gap: .15rem; }
- .pair { grid-template-columns: 1fr; row-gap: 1rem; }
+ .pair, .pair.three { grid-template-columns: 1fr; row-gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
 </style>
@@ -395,15 +396,16 @@ footer p { max-width: 58rem; }
       </div>
 
       <dl class="rows">
-        <div><span class="n">01</span><dt>Automatische Callout-Maps</dt><dd>56 Map-Bilder, Varianten wie Coal Tower II werden unterschieden, in einem Click-through-Fenster. <a href="/de/maps/">Die sechs Map-Stile ansehen →</a></dd></div>
-        <div><span class="n">02</span><dt>Loadouts der Mitspieler</dt><dd>Als Survivor reicht im Match einmal Esc: Fog Scout liest Perks, Item, Add-ons und Opfergabe der anderen Survivor aus dem Pausenmenü und zeigt sie neben jedem von ihnen. Optional.</dd></div>
-        <div><span class="n">03</span><dt>Server-Region</dt><dd>Wähle, mit welchen Regionen du dich verbindest, und sieh, auf welchem Spielserver du bist.</dd></div>
-        <div><span class="n">04</span><dt>Match-Statistiken</dt><dd>Rolle, Killer, Kills, Entkommen und Blutpunkte pro Runde, deine Form nach Wochentag und Tageszeit, Perk-Paare und Wartezeiten. Gespeichert auf deinem PC.</dd></div>
-        <div><span class="n">05</span><dt>Aufnehmen mit OBS</dt><dd>Startet und benennt Aufnahmen pro Match, mit einem Clip-Editor für die Highlights. Jede Marke, die du in einer Runde setzt, kann ein eigener Clip werden, und Fog Scout zeigt, wie viele Runden noch auf das Laufwerk passen.</dd></div>
-        <div><span class="n">06</span><dt>Perk-Rechner</dt><dd>Kombiniere Perks, Items und Add-ons für bis zu vier Survivor und einen Killer und sieh, was nach Diminishing Returns davon übrig bleibt – Skill Checks inklusive.</dd></div>
-        <div><span class="n">07</span><dt>Discord und Spotify</dt><dd>Optional: Map und Rolle als Discord-Status zeigen, deine Spotify-Warteschlange sehen.</dd></div>
-        <div><span class="n">08</span><dt>Erkennt die Spielsprache</dt><dd>Map-Namen auf Englisch, Deutsch, Französisch, Spanisch, Italienisch, Polnisch, Portugiesisch, Türkisch, Russisch, Chinesisch, Japanisch und Koreanisch. Fog Scout erkennt die Spielsprache von selbst.</dd></div>
-        <div><span class="n">09</span><dt>Sieben Sprachen</dt><dd>Die App auf Deutsch, Englisch, Italienisch, Russisch, Chinesisch, Japanisch und Koreanisch. Folgt der Windows-Sprache, umschaltbar in den Einstellungen.</dd></div>
+        <div><span class="n">01</span><dt>Automatische Callout-Maps</dt><dd>56 Map-Bilder, Varianten wie Coal Tower II werden unterschieden, in einem Click-through-Fenster. Eine neue Map, für die es noch kein Bild gibt, etwa Hartshorne Mall, wird trotzdem erkannt und bekommt Timer und Serverzeile. <a href="/de/maps/">Die sechs Map-Stile ansehen →</a></dd></div>
+        <div><span class="n">02</span><dt>Loadouts der Mitspieler</dt><dd>Als Survivor reicht im Match einmal Esc: Fog Scout liest Perks, Item, Add-ons und Opfergabe der anderen Survivor aus dem Pausenmenü und zeigt sie neben jedem von ihnen. Als Killer zeigt es die Opfergaben der Survivor. Optional.</dd></div>
+        <div><span class="n">03</span><dt>Punkte je Kategorie</dt><dd>Fog Scout liest beim Spielen die Score Events oben rechts und zählt deine Punkte je Kategorie mit, samt Ring, der zeigt, wie voll jede ist. Optional, wird bei der Runde gespeichert.</dd></div>
+        <div><span class="n">04</span><dt>Server-Region</dt><dd>Wähle, mit welchen Regionen du dich verbindest, und sieh, auf welchem Spielserver du bist.</dd></div>
+        <div><span class="n">05</span><dt>Match-Statistiken</dt><dd>Rolle, Killer, Kills, Entkommen und Blutpunkte pro Runde, deine Form nach Wochentag und Tageszeit, Perk-Paare und Wartezeiten. Gespeichert auf deinem PC.</dd></div>
+        <div><span class="n">06</span><dt>Aufnehmen mit OBS</dt><dd>Startet und benennt Aufnahmen pro Match, mit einem Clip-Editor für die Highlights. Jede Marke, die du in einer Runde setzt, kann ein eigener Clip werden, und Fog Scout zeigt, wie viele Runden noch auf das Laufwerk passen. Ist eine Aufnahme schwarz oder steht das Bild, kommt sofort eine Warnung.</dd></div>
+        <div><span class="n">07</span><dt>Perk-Rechner</dt><dd>Kombiniere Perks, Items und Add-ons für bis zu vier Survivor und einen Killer und sieh, was nach Diminishing Returns davon übrig bleibt – Skill Checks inklusive.</dd></div>
+        <div><span class="n">08</span><dt>Discord und Spotify</dt><dd>Optional: Map und Rolle als Discord-Status zeigen, deine Spotify-Warteschlange sehen.</dd></div>
+        <div><span class="n">09</span><dt>Erkennt die Spielsprache</dt><dd>Map-Namen auf Englisch, Deutsch, Französisch, Spanisch, Italienisch, Polnisch, Portugiesisch, Türkisch, Russisch, Chinesisch, Japanisch und Koreanisch. Fog Scout erkennt die Spielsprache von selbst.</dd></div>
+        <div><span class="n">10</span><dt>Sieben Sprachen</dt><dd>Die App auf Deutsch, Englisch, Italienisch, Russisch, Chinesisch, Japanisch und Koreanisch. Folgt der Windows-Sprache, umschaltbar in den Einstellungen.</dd></div>
       </dl>
 
       <figure class="pair">
@@ -418,12 +420,28 @@ footer p { max-width: 58rem; }
         <figcaption><b>Fig. 2</b><span>Loadouts der Mitspieler in einem echten Match bei 3440×1440, aus dem Pausenmenü gelesen. Links: neben DBDs Survivor-Liste, Perks als Raute mit Opfergabe, Item und Add-ons. Rechts: in einer Reihe über jedem Namen. Namen übermalt.</span></figcaption>
       </figure>
 
+      <figure class="pair three">
+        <div>
+          <div class="fig"><img src="/img/score-rings.webp" loading="lazy" decoding="async" width="640" height="440" alt="Info-Karte von Fog Scout: Rundenzeit 07:32, Server Frankfurt mit 34 ms, darunter vier Ringe mit Symbolen für die Punkte-Kategorien des Killers, drei teilweise rot mit 4.3k, 1.5k und 8.3k, der vierte geschlossen in Gold mit MAX."></div>
+          <p class="mono dim">Ringe</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/score-bars.webp" loading="lazy" decoding="async" width="640" height="440" alt="Dieselbe Karte mit einem Balken je Kategorie: drei rote Balken mit 4.3k, 1.5k und 8.3k und ein voller goldener Balken mit MAX."></div>
+          <p class="mono dim">Balken</p>
+        </div>
+        <div>
+          <div class="fig"><img src="/img/score-line.webp" loading="lazy" decoding="async" width="640" height="440" alt="Dieselbe Karte mit den Punkten in einer Zeile: BRU 4.3k, DEV 1.5k, HUN 8.3k, SAC MAX."></div>
+          <p class="mono dim">Eine Zeile</p>
+        </div>
+        <figcaption><b>Fig. 3</b><span>Punkte je Kategorie im Overlay, in den drei wählbaren Ansichten. Von Fog Scout gezeichnet, mit erfundenen Punkten. Die Symbole hier sind seine eigenen Zeichnungen; im Spiel nimmt es die Icons, die es auf deinem Bildschirm gesehen hat.</span></figcaption>
+      </figure>
+
       <div class="app">
         <div class="idx">
           <h3>Ein Blick in die App</h3>
           <div id="idx" role="group" aria-label="Ein Blick in die App">
             <button type="button" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog-Scout-Seite Maps: alle Callout-Maps nach Reich gruppiert, mit Runden und durchschnittlichen Kills pro Map."><i>01</i>Maps<span>Alle 56 Callout-Maps in sechs Stilen, mit deinen Runden und Kills pro Map.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog-Scout-Seite Overlay: ein Layout-Editor mit Map, Systemwerten, Heute und Musik rund um das Spielbild platziert."><i>02</i>Overlay<span>Platziere Map, Timer, Systemwerte, Musik und die Loadouts der Mitspieler, wo du willst. Optionale Zeilen zeigen FPS, dein letztes Ergebnis auf der Map und die Serie deiner Sitzung.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overlay.webp?v=2" data-alt="Fog-Scout-Seite Overlay: eine Liste der Elemente mit je einem Ein/Aus-Schalter, eine Vorschau mit Map, Timer und Punkte-Ringen neben dem Spielbild und die Einstellungen des Elements Infos."><i>02</i>Overlay<span>Schalte jedes Element ein oder aus und platziere Map, Infos, Systemwerte, Musik und die Loadouts der Mitspieler, wo du willst. Optionale Zeilen zeigen FPS, deine Punkte je Kategorie, dein letztes Ergebnis auf der Map und die Serie deiner Sitzung. Eine Anordnung lässt sich als eigene Vorlage speichern.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog-Scout-Seite Statistiken: Runden, durchschnittliche Kills, Entkommensrate, Blutpunkte und die meistgespielten Maps."><i>03</i>Statistiken<span>Runden, Kills, Entkommen und Blutpunkte, nur auf diesem PC gespeichert.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout Seite Aufnahmen: der Aufnahme-Status und eine Liste aufgenommener Runden mit Map, Rolle, Ergebnis, Länge und Grösse."><i>04</i>Aufnahmen<span>Aufgenommene Runden, Clips und Screenshots: abspielen, schneiden und aufräumen.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout Seite Rechner: links Survivor- und Killer-Builds, rechts Generator-Zeiten und der Anteil, mit dem jeder Bonus zählt."><i>05</i>Rechner<span>Kombiniere Perks und sieh, was sie nach Diminishing Returns bringen.</span></button>
@@ -433,7 +451,7 @@ footer p { max-width: 58rem; }
         </div>
         <figure>
           <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog-Scout-Seite Maps: alle Callout-Maps nach Reich gruppiert, mit Runden und durchschnittlichen Kills pro Map."></div>
-          <figcaption><b>Fig. 3</b><span>Das Steuerfenster, gefüllt mit erfundenen Runden.</span></figcaption>
+          <figcaption><b>Fig. 4</b><span>Das Steuerfenster, gefüllt mit erfundenen Runden.</span></figcaption>
         </figure>
       </div>
       <p class="note"><span>Die Texterkennung läuft auf deinem PC. Map-Erkennung und Overlay bauen keine Internetverbindung auf.</span> <span>Nicht signiert: SmartScreen zeigt „Weitere Informationen“, dann „Trotzdem ausführen“. Fragt einmal nach Administratorrechten. Stell DBD auf Vollbild im Fenstermodus.</span></p>
