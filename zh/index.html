@@ -404,6 +404,9 @@ footer p { max-width: 58rem; }
         <div><span class="n">07</span><dt>Discord 和 Spotify</dt><dd>可选：将地图和角色显示为 Discord 状态，查看你的 Spotify 播放队列。</dd></div>
         <div><span class="n">08</span><dt>自动识别游戏语言</dt><dd>支持英语、德语、法语、西班牙语、意大利语、波兰语、葡萄牙语、土耳其语、俄语、中文、日语和韩语的地图名称。Fog Scout 会自动识别游戏语言。</dd></div>
         <div><span class="n">09</span><dt>七种语言</dt><dd>应用界面支持德语、英语、意大利语、俄语、中文、日语和韩语。跟随 Windows 语言，可在设置中切换。</dd></div>
+        <div><span class="n">10</span><dt>回合计时与提醒</dt><dd>回合进行时地图下方显示计时，等待时显示匹配时间；找到大厅或血点到达上限不再增加时会响起提示音。</dd></div>
+        <div><span class="n">11</span><dt>游戏周围的卡片</dt><dd>地图旁可选的卡片显示系统数值、今天的回合和正在播放的音乐。在叠加层编辑器中摆放它们，每种屏幕尺寸一套布局。</dd></div>
+        <div><span class="n">12</span><dt>安全更新与备份</dt><dd>更新来自 GitHub 发布版本，安装前会用 SHA-256 校验。设置和回合记录可保存到一个备份文件中。</dd></div>
       </dl>
 
       <figure class="pair">
@@ -424,11 +427,16 @@ footer p { max-width: 58rem; }
           <div id="idx" role="group" aria-label="应用内部">
             <button type="button" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout 地图页面：所有报点地图按领域分组，显示每张地图的回合数和平均击杀。"><i>01</i>地图<span>全部 56 张报点地图，六种样式，附带你在每张地图上的回合数和击杀数。</span></button>
             <button type="button" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout 叠加层页面：布局编辑器，地图、系统数值、今日和音乐摆放在游戏画面周围。"><i>02</i>叠加层<span>把地图、计时器、系统数值、音乐和队友的配装放在你想要的位置。可选的行可显示 FPS、你上次在该地图的结果和本次连续记录。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout 统计页面：回合数、平均击杀、逃脱率、血点和最常玩的地图。"><i>03</i>统计<span>回合、击杀、逃脱和血点，仅保存在这台电脑上。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout 录制页面：录制状态，以及带有地图、角色、结果、时长和大小的已录制回合列表。"><i>04</i>录制<span>已录制的回合、片段和截图：播放、剪辑和整理。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout 计算器页面：左侧是逃生者和杀手的配置，右侧是发电机用时和每项加成计入的比例。"><i>05</i>计算器<span>搭配技能，查看收益递减后的效果。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout 概览页面：当前地图、功能开关、本周数据、系统数值和最近的回合。"><i>06</i>概览<span>当前地图、你的本周数据和系统数值，一目了然。</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout 服务器页面：15 个服务器区域的复选框列表，其中两个被允许。"><i>07</i>服务器<span>勾选 DBD 可以搜索的区域。“Allow all”可撤销设置。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overlay-system.webp" data-alt="Fog Scout 的叠加层页面，选中了系统数值卡片：CPU、GPU、热点、显存、内存和 FPS 几行，位于黑边右上方。"><i>03</i>系统数值<span>在游戏旁显示 CPU 和 GPU 的温度与负载、显存和内存，FPS 通过 HWiNFO 获取。显示哪些行由你决定。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout 统计页面：回合数、平均击杀、逃脱率、血点和最常玩的地图。"><i>04</i>统计<span>回合、击杀、逃脱和血点，仅保存在这台电脑上。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/stats-rounds.webp" data-alt="Fog Scout 统计中的“最近回合”：一张回合表格，包含日期、地图、时长、等待时间、阵营或杀手，以及服务器区域和延迟。"><i>05</i>回合记录<span>每局的地图、时长、等待时间、阵营和服务器。右键即可修正某一局。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/stats-waiting.webp" data-alt="Fog Scout 统计中的“等待时间”：平均、中位数、最短和最长等待，按星期的表格，以及杀手和幸存者的每周图表。"><i>06</i>等待时间<span>匹配要等多久，按星期和阵营统计，并与游戏的预估对比。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout 录制页面：录制状态，以及带有地图、角色、结果、时长和大小的已录制回合列表。"><i>07</i>录制<span>已录制的回合、片段和截图：播放、剪辑和整理。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout 计算器页面：左侧是逃生者和杀手的配置，右侧是发电机用时和每项加成计入的比例。"><i>08</i>计算器<span>搭配技能，查看收益递减后的效果。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout 概览页面：当前地图、功能开关、本周数据、系统数值和最近的回合。"><i>09</i>概览<span>当前地图、你的本周数据和系统数值，一目了然。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout 服务器页面：15 个服务器区域的复选框列表，其中两个被允许。"><i>10</i>服务器<span>勾选 DBD 可以搜索的区域。“Allow all”可撤销设置。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/settings.webp" data-alt="Fog Scout 设置的“识别”选项卡：识别开关、地图名称的游戏语言和通知。"><i>11</i>设置<span>Fog Scout 的所有功能集中在一处，可用 Ctrl+F 搜索。</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/setup.webp" data-alt="Fog Scout 初始设置第 2 步（共 8 步）：叠加层的位置，带有黑边中地图的预览，以及系统数值的位置。"><i>12</i>初始设置<span>首次启动时的八个简短步骤：游戏语言、叠加层、快捷键、通知、对局数据、OBS、连接和服务器。</span></button>
           </div>
         </div>
         <figure>

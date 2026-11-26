@@ -404,6 +404,9 @@ footer p { max-width: 58rem; }
         <div><span class="n">07</span><dt>Discord와 Spotify</dt><dd>선택 사항: 맵과 역할을 Discord 상태로 표시하고, Spotify 재생 대기열을 볼 수 있습니다.</dd></div>
         <div><span class="n">08</span><dt>게임 언어 자동 인식</dt><dd>영어, 독일어, 프랑스어, 스페인어, 이탈리아어, 폴란드어, 포르투갈어, 터키어, 러시아어, 중국어, 일본어, 한국어 맵 이름을 인식합니다. Fog Scout가 게임 언어를 스스로 알아냅니다.</dd></div>
         <div><span class="n">09</span><dt>7개 언어</dt><dd>앱은 독일어, 영어, 이탈리아어, 러시아어, 중국어, 일본어, 한국어를 지원합니다. Windows 언어를 따르며 설정에서 바꿀 수 있습니다.</dd></div>
+        <div><span class="n">10</span><dt>라운드 타이머와 알림</dt><dd>라운드 중에는 맵 아래에 타이머를, 기다리는 동안에는 매칭 시간을 보여 주고, 로비를 찾았을 때나 블러드포인트가 상한에서 더 오르지 않을 때 소리로 알립니다.</dd></div>
+        <div><span class="n">11</span><dt>게임 주변의 카드</dt><dd>맵 옆에 시스템 값, 오늘의 라운드, 재생 중인 음악을 보여 주는 카드를 선택해 켤 수 있습니다. 오버레이 편집기에서 배치하며 화면 크기마다 레이아웃이 따로 있습니다.</dd></div>
+        <div><span class="n">12</span><dt>안전한 업데이트와 백업</dt><dd>업데이트는 GitHub 릴리스에서 받아 설치 전에 SHA-256으로 확인합니다. 설정과 라운드는 하나의 백업 파일에 담깁니다.</dd></div>
       </dl>
 
       <figure class="pair">
@@ -424,11 +427,16 @@ footer p { max-width: 58rem; }
           <div id="idx" role="group" aria-label="앱 살펴보기">
             <button type="button" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout 맵 페이지: 모든 콜아웃 맵을 렐름별로 묶고, 맵별 라운드 수와 평균 처치 수를 표시합니다."><i>01</i>맵<span>56개 콜아웃 맵 전체를 6가지 스타일로, 맵별 라운드 수와 처치 수와 함께 보여줍니다.</span></button>
             <button type="button" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout 오버레이 페이지: 맵, 시스템 수치, 오늘, 음악을 게임 화면 주변에 배치하는 레이아웃 편집기."><i>02</i>오버레이<span>맵, 타이머, 시스템 수치, 음악, 팀원의 로드아웃을 원하는 곳에 배치하세요. 선택 항목으로 FPS, 해당 맵에서의 지난 결과, 세션 연속 기록을 표시할 수 있습니다.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout 통계 페이지: 라운드 수, 평균 처치 수, 탈출률, 블러드포인트, 가장 많이 플레이한 맵."><i>03</i>통계<span>라운드, 처치, 탈출, 블러드포인트를 이 PC에만 저장합니다.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout 녹화 페이지: 녹화 상태와 맵, 역할, 결과, 길이, 크기가 표시된 녹화 라운드 목록."><i>04</i>녹화<span>녹화한 라운드, 클립, 스크린샷을 재생하고 자르고 정리하세요.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout 계산기 페이지: 왼쪽에 생존자와 살인마 빌드, 오른쪽에 발전기 수리 시간과 각 보너스가 반영되는 비율."><i>05</i>계산기<span>퍽을 조합하고 효과 감소를 적용한 뒤의 효과를 확인하세요.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout 개요 페이지: 현재 맵, 기능 스위치, 이번 주 수치, 시스템 수치, 최근 라운드."><i>06</i>개요<span>현재 맵, 이번 주 기록, 시스템 수치를 한눈에 볼 수 있습니다.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout 서버 페이지: 15개 서버 지역의 체크박스 목록, 그중 두 곳이 허용됨."><i>07</i>서버<span>DBD가 검색할 수 있는 지역을 체크하세요. ‘Allow all’을 누르면 되돌릴 수 있습니다.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overlay-system.webp" data-alt="시스템 값 카드를 선택한 Fog Scout 오버레이 페이지: CPU, GPU, 핫스팟, VRAM, RAM, FPS 줄이 검은 띠 오른쪽 위에 있습니다."><i>03</i>시스템 값<span>게임 옆에 CPU와 GPU의 온도와 부하, VRAM과 RAM을 표시하고 FPS는 HWiNFO로 가져옵니다. 표시할 줄은 직접 고릅니다.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout 통계 페이지: 라운드 수, 평균 처치 수, 탈출률, 블러드포인트, 가장 많이 플레이한 맵."><i>04</i>통계<span>라운드, 처치, 탈출, 블러드포인트를 이 PC에만 저장합니다.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/stats-rounds.webp" data-alt="Fog Scout 통계의 최근 라운드: 날짜, 맵, 길이, 대기 시간, 역할 또는 살인마, 서버 지역과 핑이 담긴 라운드 표."><i>05</i>라운드 기록<span>모든 라운드를 맵, 길이, 대기 시간, 역할, 서버와 함께 기록합니다. 우클릭으로 라운드를 수정할 수 있습니다.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/stats-waiting.webp" data-alt="Fog Scout 통계의 대기 시간: 평균, 중앙값, 가장 짧은 대기와 가장 긴 대기, 요일별 표, 살인마와 생존자의 주별 차트."><i>06</i>대기 시간<span>매칭에 걸리는 시간을 요일과 역할별로, 게임의 예상 시간과 비교해 보여 줍니다.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout 녹화 페이지: 녹화 상태와 맵, 역할, 결과, 길이, 크기가 표시된 녹화 라운드 목록."><i>07</i>녹화<span>녹화한 라운드, 클립, 스크린샷을 재생하고 자르고 정리하세요.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout 계산기 페이지: 왼쪽에 생존자와 살인마 빌드, 오른쪽에 발전기 수리 시간과 각 보너스가 반영되는 비율."><i>08</i>계산기<span>퍽을 조합하고 효과 감소를 적용한 뒤의 효과를 확인하세요.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout 개요 페이지: 현재 맵, 기능 스위치, 이번 주 수치, 시스템 수치, 최근 라운드."><i>09</i>개요<span>현재 맵, 이번 주 기록, 시스템 수치를 한눈에 볼 수 있습니다.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout 서버 페이지: 15개 서버 지역의 체크박스 목록, 그중 두 곳이 허용됨."><i>10</i>서버<span>DBD가 검색할 수 있는 지역을 체크하세요. ‘Allow all’을 누르면 되돌릴 수 있습니다.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/settings.webp" data-alt="Fog Scout 설정의 인식 탭: 인식 스위치, 맵 이름의 게임 언어, 알림."><i>11</i>설정<span>Fog Scout의 모든 기능을 한곳에서, Ctrl+F로 검색할 수 있습니다.</span></button>
+            <button type="button" aria-pressed="false" data-src="/img/setup.webp" data-alt="Fog Scout 초기 설정 8단계 중 2단계: 검은 띠에 맵 미리보기가 있는 오버레이 위치와 시스템 값의 자리."><i>12</i>초기 설정<span>처음 실행할 때의 짧은 8단계: 게임 언어, 오버레이, 단축키, 알림, 매치 데이터, OBS, 연결, 서버.</span></button>
           </div>
         </div>
         <figure>
