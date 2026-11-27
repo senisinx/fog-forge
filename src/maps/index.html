@@ -9,181 +9,66 @@
 <meta property="og:description" content="The six map styles of Fog Scout for Dead by Daylight, shown on three callout maps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fogforge.app/maps/">
-<meta property="og:image" content="https://fogforge.app/img/og.jpg?v=4">
+<meta property="og:image" content="https://fogforge.app/img/og.jpg?v=5">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Fog Forge: two free tools for Dead by Daylight, Fog Scout and Fog Translate">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#e9e5db">
+<meta name="theme-color" content="#0e1418">
 <link rel="icon" href="/img/icon.svg" type="image/svg+xml">
 <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="canonical" href="https://fogforge.app/maps/">
 <!-- i18n:head -->
 <!-- fonts:head -->
-<style>
-/* Same tokens and bar as the landing page; three maps, each drawn in the six map styles, with a large view. */
-:root {
-  color-scheme: light;
-  --ground: #e9e5db;
-  --ground-2: #dfdacd;
-  --mist: #14181a;
-  --haze: #575e5b;
-  --line: rgba(20, 24, 26, .28);
-  --ember: #a64715;
-  --ember-ink: #fff;
-  --ok: #2c6a44;
-  --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
-  --step--1: 0.8125rem; --step-0: 1rem; --step-1: 1.25rem;
-  --step-4: clamp(4rem, 14vw, 9rem);
-  --gap: clamp(1rem, 2.5vw, 2rem);
-  --ease: cubic-bezier(.2, .7, .2, 1);
-}
-*, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; background: var(--ground); color: var(--mist); font: 400 var(--step-0)/1.6 var(--body); overflow-x: clip; }
-a { color: inherit; }
-button { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
-
-.wrap { position: relative; z-index: 1; max-width: 78rem; margin-inline: auto; min-height: 100vh; display: flex; flex-direction: column;
-  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-
-.bar-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .25rem 1.5rem; padding-block: .8rem; border-bottom: 1px solid var(--line); }
-.mark { display: inline-flex; align-items: center; gap: .6rem; font: 800 1.35rem/1 var(--display); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
-.mark img { width: 1.6rem; height: 1.6rem; }
-.bar nav { display: flex; flex-wrap: wrap; align-items: center; gap: .15rem 1.4rem; font-size: var(--step--1); color: var(--haze); }
-.bar nav a { position: relative; text-decoration: none; padding-block: .35rem; transition: color .2s; }
-.bar nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
-.bar nav a:hover, .bar nav a[aria-current="page"] { color: var(--mist); }
-.bar nav a:hover::after, .bar nav a[aria-current="page"]::after { transform: scaleX(1); }
-
-/* language menu (filled in by tools/build.py) */
-.lang { position: relative; }
-.lang summary { list-style: none; cursor: pointer; padding: .4rem .6rem; border: 1px solid var(--line); font: 500 var(--step--1)/1.2 var(--mono); letter-spacing: .08em; color: var(--haze); transition: color .2s, border-color .2s; }
-.lang summary::-webkit-details-marker { display: none; }
-.lang summary::after { content: ""; display: inline-block; margin-left: .45rem; width: .4rem; height: .4rem; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-.2rem) rotate(45deg); }
-.lang summary:hover, .lang[open] summary { color: var(--mist); border-color: var(--haze); }
-.lang ul { position: absolute; right: 0; top: calc(100% + .4rem); z-index: 6; margin: 0; padding: .3rem 0; list-style: none; min-width: 10.5rem; max-height: 70vh; overflow-y: auto;
-  background: var(--ground-2); border: 1px solid var(--line); box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .85); }
-.bar nav .lang a { display: block; padding: .45rem .9rem; font: 400 .9375rem/1.3 var(--body); color: var(--haze); text-decoration: none; }
-.bar nav .lang a::after { content: none; }
-.bar nav .lang a:hover { color: var(--mist); background: rgba(201, 214, 214, .05); }
-.bar nav .lang a[aria-current] { color: var(--ember); }
-/* scripts the display and body fonts do not cover */
-:lang(ru) { --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif; }
-:lang(zh) { --display: "Big Shoulders Display", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; --body: "Instrument Sans", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; }
-:lang(ja) { --display: "Big Shoulders Display", "Yu Gothic", "Hiragino Sans", "Noto Sans JP", sans-serif; --body: "Instrument Sans", "Yu Gothic UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; }
-:lang(ko) { --display: "Big Shoulders Display", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; --body: "Instrument Sans", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; word-break: keep-all; }
-:lang(zh) h1, :lang(zh) h2, :lang(ja) h1, :lang(ja) h2, :lang(ko) h1, :lang(ko) h2 { line-height: 1.15; }
-
-main { flex: 1; display: grid; gap: clamp(1.5rem, 3vw, 2.25rem); align-content: start; padding-block: clamp(2rem, 5vw, 4rem); }
-.head { display: grid; gap: .9rem; }
-.kicker { margin: 0; font: 500 var(--step--1)/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ember); }
-h1 { margin: 0; font: 800 clamp(3rem, 8vw, 5.5rem)/.9 var(--display); text-transform: uppercase; animation: emerge 1.4s var(--ease) backwards; }
-@keyframes emerge { from { opacity: 0; filter: blur(22px); transform: translateX(-.15em); } }
-.head p { margin: 0; max-width: 46ch; font-size: var(--step-1); line-height: 1.4; }
-
-/* one block per map: its name, then the six styles in a row. The pictures stand on black, as in the game's black bar. */
-.set { display: grid; gap: 1rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
-.set-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem 1rem; }
-h2 { margin: 0; font: 800 clamp(1.6rem, 3.2vw, 2.25rem)/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
-.set-head p { margin: 0; font: 400 var(--step--1)/1.3 var(--mono); color: var(--haze); }
-.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
-.grid a { display: grid; gap: .5rem; text-decoration: none; }
-.grid img { display: block; width: 100%; height: auto; padding: .4rem; border: 1px solid var(--line); background: #000; transition: border-color .2s, transform .3s var(--ease); }
-.grid a:hover img, .grid a:focus-visible img { border-color: var(--ember); transform: translateY(-3px); }
-.grid b { font: 500 var(--step--1)/1.3 var(--mono); color: var(--haze); transition: color .2s; }
-.grid a:hover b { color: var(--mist); }
-
-/* large view */
-.lb { width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mist); }
-.lb::backdrop { background: #000; }
-.lb-in { width: 100%; height: 100%; display: grid; grid-template-rows: minmax(0, 1fr) auto; justify-items: center; gap: .75rem; padding: 3.25rem 3.5rem 1.25rem; }
-.lb-in img { display: block; align-self: center; min-height: 0; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
-.lb-cap { margin: 0; text-align: center; }
-.lb-cap b { font-weight: 600; }
-.lb-cap span { display: block; font-size: var(--step--1); color: var(--haze); }
-.lb button { position: fixed; z-index: 1; width: 2.5rem; height: 2.5rem; padding: 0; border: 1px solid var(--line); background: var(--ground-2); font: 400 1.4rem/1 var(--body); cursor: pointer; }
-.lb button:hover { border-color: var(--haze); }
-.lb-x { top: .6rem; right: .8rem; }
-.lb-prev, .lb-next { top: 50%; margin-top: -1.25rem; }
-.lb-prev { left: .6rem; }
-.lb-next { right: .6rem; }
-
-footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; display: grid; gap: .75rem; color: var(--haze); font-size: var(--step--1); }
-footer p { margin: 0; max-width: 80ch; }
-footer a { text-underline-offset: 3px; }
-
-@media (max-width: 860px) {
-  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 560px) {
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .lb-in { padding-inline: .75rem; }
-  .lb-prev, .lb-next { top: auto; bottom: .9rem; }
-  .lb-cap { padding-inline: 3rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-}
-
-/* paper look, as on the start page: ink rules and buttons, no glow, no blur */
-.bar-in, header { border-bottom-color: var(--mist); }
-.mark { letter-spacing: .03em; font-size: 1.55rem; }
-.mark img { display: none; }
-h1 { animation: none; font-weight: 900; }
-h1 span { color: var(--ember); -webkit-text-stroke: 0; }
-.btn:hover { transform: none; border-color: var(--mist); box-shadow: none; }
-.btn.go, main > .btn { background: var(--mist); border-color: var(--mist); color: var(--ground); }
-.btn.go:hover, main > .btn:hover { background: var(--ember); border-color: var(--ember); color: #fff; box-shadow: none; }
-.btn.go::after { content: none; }
-.lang ul { box-shadow: none; border-color: var(--mist); background: var(--ground); }
-.bar nav .lang a:hover { background: var(--ground-2); }
-.handle code { background: var(--ground-2); }
-.way, .way:hover { background: var(--ground); }
-.ways { background: var(--mist); border-color: var(--mist); animation: none; }
-.grid a:hover img, .grid a:focus-visible img { transform: none; }
-.lb { color: #e9e5db; }
-.lb-cap span { color: rgba(233, 229, 219, .6); }
-.lb button { background: #14181a; color: #e9e5db; border-color: rgba(233, 229, 219, .3); }
-.lb button:hover { border-color: #e9e5db; }
-</style>
+<link rel="stylesheet" href="/css/site.css?v=1">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/icon.svg" alt="" width="28" height="28">Fog Forge</a>
+    <nav aria-label="Pages">
+      <a href="/scout/">Fog Scout</a>
+      <a href="/translate/">Fog Translate</a>
+      <a href="/maps/" aria-current="page">Maps</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <!-- i18n:switch -->
+    <a class="btn solid s" href="/#download">Download</a>
+  </div>
+</header>
 
-<div class="wrap">
-  <header class="bar">
-    <div class="bar-in">
-      <a class="mark" href="/"><img src="/img/icon.svg" alt="" width="26" height="26">Fog Forge</a>
-      <nav aria-label="Pages">
-        <a href="/#scout">Fog Scout</a>
-        <a href="/#translate">Fog Translate</a>
-        <a href="/maps/" aria-current="page">Maps</a>
-        <a href="/contact/">Contact</a>
-        <a href="https://github.com/senisinx">GitHub</a>
-        <!-- i18n:switch -->
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="head">
-      <p class="kicker">Fog Scout</p>
-      <h1>Map styles</h1>
-      <p>Fog Scout draws its callout maps in six styles. Three of its 56 map pictures as examples: click one to see it large.</p>
-    </div>
+<main id="main" class="wrap">
+  <div class="head">
+    <h1>Map styles</h1>
+    <p>Fog Scout draws its callout maps in six styles. Three of its 56 map pictures as examples: click one to see it large.</p>
+  </div>
 
 <!-- maps:grid -->
-  </main>
+</main>
 
-  <footer>
-    <p>Callout map pictures: Lethia, published on <a href="https://hens333.com/callouts/">hens333.com/callouts</a>, used with permission from Hens. Map names: Luca Fontanot, <a href="https://github.com/LucaFontanot/dbd-map-overlay">DBD Map Overlay</a>.</p>
-    <p>Fog Scout and Fog Translate are unofficial fan tools. They are not affiliated with, reviewed or approved by Behaviour Interactive or Epic Games.</p>
-    <p>© 2026 senisinx. <a href="/">Back to fogforge.app</a></p>
-  </footer>
-</div>
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/"><img src="/img/icon.svg" alt="" width="28" height="28">Fog Forge</a>
+      <nav aria-label="Sections">
+        <a href="/scout/">Fog Scout</a>
+        <a href="/translate/">Fog Translate</a>
+        <a href="/maps/">Maps</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://github.com/senisinx">GitHub</a>
+      </nav>
+    </div>
+    <div>
+      <p>Fog Scout and Fog Translate are unofficial fan tools. They are not affiliated with, reviewed or approved by Behaviour Interactive or Epic Games. Dead by Daylight and related names are trademarks of their owners. No warranty and no liability. There is no guarantee against warnings or bans.</p>
+      <p>Callout map pictures: Lethia, published on <a href="https://hens333.com/callouts/">hens333.com/callouts</a>, used with permission from Hens. Map names: Luca Fontanot, <a href="https://github.com/LucaFontanot/dbd-map-overlay">DBD Map Overlay</a>.</p>
+      <p>This page counts visits with Cloudflare Web Analytics. It sets no cookies.</p>
+      <p>Questions or bug reports? <a href="/contact/">Contact via Discord or GitHub</a>.</p>
+      <p>© 2026 senisinx. Terms of use are in each repository: <a href="https://github.com/senisinx/fog-scout">fog-scout</a>, <a href="https://github.com/senisinx/fog-translate">fog-translate</a>.</p>
+    </div>
+  </div>
+</footer>
 
 <dialog class="lb" id="lb">
   <button type="button" class="lb-x" id="lbClose" aria-label="Close">×</button>

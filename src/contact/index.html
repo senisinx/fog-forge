@@ -9,166 +9,41 @@
 <meta property="og:description" content="Contact the maker of Fog Scout and Fog Translate on Discord or GitHub.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fogforge.app/contact/">
-<meta property="og:image" content="https://fogforge.app/img/og.jpg?v=4">
+<meta property="og:image" content="https://fogforge.app/img/og.jpg?v=5">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Fog Forge: two free tools for Dead by Daylight, Fog Scout and Fog Translate">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#e9e5db">
+<meta name="theme-color" content="#0e1418">
 <link rel="icon" href="/img/icon.svg" type="image/svg+xml">
 <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="canonical" href="https://fogforge.app/contact/">
 <!-- i18n:head -->
 <!-- fonts:head -->
-<style>
-/* Same tokens and bar as the landing page; one section with two ways to reach out. */
-:root {
-  color-scheme: light;
-  --ground: #e9e5db;
-  --ground-2: #dfdacd;
-  --mist: #14181a;
-  --haze: #575e5b;
-  --line: rgba(20, 24, 26, .28);
-  --ember: #a64715;
-  --ember-ink: #fff;
-  --ok: #2c6a44;
-  --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
-  --step--1: 0.8125rem; --step-0: 1rem; --step-1: 1.25rem;
-  --step-4: clamp(4rem, 14vw, 9rem);
-  --gap: clamp(1rem, 2.5vw, 2rem);
-  --ease: cubic-bezier(.2, .7, .2, 1);
-}
-*, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; background: var(--ground); color: var(--mist); font: 400 var(--step-0)/1.6 var(--body); overflow-x: clip; }
-a { color: inherit; }
-button { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
-
-.wrap { position: relative; z-index: 1; max-width: 78rem; margin-inline: auto; min-height: 100vh; display: flex; flex-direction: column;
-  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-
-.bar-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .25rem 1.5rem; padding-block: .8rem; border-bottom: 1px solid var(--line); }
-.mark { display: inline-flex; align-items: center; gap: .6rem; font: 800 1.35rem/1 var(--display); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
-.mark img { width: 1.6rem; height: 1.6rem; }
-.bar nav { display: flex; flex-wrap: wrap; align-items: center; gap: .15rem 1.4rem; font-size: var(--step--1); color: var(--haze); }
-.bar nav a { position: relative; text-decoration: none; padding-block: .35rem; transition: color .2s; }
-.bar nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
-.bar nav a:hover, .bar nav a[aria-current="page"] { color: var(--mist); }
-.bar nav a:hover::after, .bar nav a[aria-current="page"]::after { transform: scaleX(1); }
-
-/* language menu (filled in by tools/build.py) */
-.lang { position: relative; }
-.lang summary { list-style: none; cursor: pointer; padding: .4rem .6rem; border: 1px solid var(--line); font: 500 var(--step--1)/1.2 var(--mono); letter-spacing: .08em; color: var(--haze); transition: color .2s, border-color .2s; }
-.lang summary::-webkit-details-marker { display: none; }
-.lang summary::after { content: ""; display: inline-block; margin-left: .45rem; width: .4rem; height: .4rem; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-.2rem) rotate(45deg); }
-.lang summary:hover, .lang[open] summary { color: var(--mist); border-color: var(--haze); }
-.lang ul { position: absolute; right: 0; top: calc(100% + .4rem); z-index: 6; margin: 0; padding: .3rem 0; list-style: none; min-width: 10.5rem; max-height: 70vh; overflow-y: auto;
-  background: var(--ground-2); border: 1px solid var(--line); box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .85); }
-.bar nav .lang a { display: block; padding: .45rem .9rem; font: 400 .9375rem/1.3 var(--body); color: var(--haze); text-decoration: none; }
-.bar nav .lang a::after { content: none; }
-.bar nav .lang a:hover { color: var(--mist); background: rgba(201, 214, 214, .05); }
-.bar nav .lang a[aria-current] { color: var(--ember); }
-/* scripts the display and body fonts do not cover */
-:lang(ru) { --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif; }
-:lang(zh) { --display: "Big Shoulders Display", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; --body: "Instrument Sans", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; }
-:lang(ja) { --display: "Big Shoulders Display", "Yu Gothic", "Hiragino Sans", "Noto Sans JP", sans-serif; --body: "Instrument Sans", "Yu Gothic UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; }
-:lang(ko) { --display: "Big Shoulders Display", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; --body: "Instrument Sans", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; word-break: keep-all; }
-/* Cyrillic is wider in the fallback face: one word must fit 320 px */
-:lang(ru) h1 { font-size: clamp(2.75rem, 10vw, 7rem); }
-:lang(zh) h1, :lang(zh) h2, :lang(ja) h1, :lang(ja) h2, :lang(ko) h1, :lang(ko) h2 { line-height: 1.15; }
-
-main { flex: 1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); align-content: start; padding-block: clamp(2rem, 6vw, 5rem); }
-.head { grid-column: 1 / span 5; min-width: 0; display: grid; gap: 1rem; align-content: start; }
-.kicker { margin: 0; font: 500 var(--step--1)/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ember); }
-h1 { margin: 0; font: 800 clamp(3.5rem, 10vw, 7rem)/.85 var(--display); overflow-wrap: break-word; text-transform: uppercase; animation: emerge 1.4s var(--ease) backwards; }
-h1 span { display: block; color: transparent; -webkit-text-stroke: 1.5px var(--mist); }
-@keyframes emerge { from { opacity: 0; filter: blur(22px); transform: translateX(-.15em); } }
-.head p { margin: 0; max-width: 40ch; font-size: var(--step-1); line-height: 1.4; }
-
-.ways { grid-column: 7 / -1; min-width: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); align-self: start; animation: rise .9s var(--ease) .3s backwards; }
-@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
-.way { position: relative; display: grid; gap: .9rem; padding: 1.5rem 1.4rem 1.6rem; background: var(--ground); transition: background .25s; }
-.way::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
-.way:hover { background: var(--ground-2); }
-.way:hover::before { transform: scaleX(1); }
-.way-top { display: flex; align-items: center; gap: .8rem; }
-.way-top svg { flex: none; color: var(--ember); }
-h2 { margin: 0; font: 800 clamp(1.75rem, 3.5vw, 2.25rem)/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
-.way p { margin: 0; color: var(--haze); max-width: 52ch; }
-.handle { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
-.handle code { padding: .55rem .8rem; border: 1px solid var(--line); background: #0c1113; font: 500 1.05rem/1.2 var(--mono); color: var(--mist); }
-.links { display: flex; flex-wrap: wrap; gap: .6rem; }
-
-.btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: .55rem; padding: .6rem 1rem; border: 1px solid var(--line); cursor: pointer;
-  font: 600 var(--step--1)/1.2 var(--body); text-decoration: none; color: var(--mist); background: transparent; transition: border-color .2s, transform .2s var(--ease), box-shadow .3s; }
-.btn:hover { border-color: var(--haze); transform: translateY(-2px); }
-.btn.go { background: var(--ember); border-color: var(--ember); color: var(--ember-ink); }
-.btn.go:hover { box-shadow: 0 10px 40px -8px rgba(227, 154, 85, .55); }
-.btn.go::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%); transform: translateX(-120%); transition: transform .7s var(--ease); }
-.btn.go:hover::after { transform: translateX(120%); }
-.btn svg { flex: none; position: relative; z-index: 1; }
-.btn.done { border-color: var(--ok); color: var(--ok); }
-.hint { margin: 0; font: 400 var(--step--1)/1.5 var(--mono); color: var(--haze); }
-
-footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; display: grid; gap: .75rem; color: var(--haze); font-size: var(--step--1); }
-footer p { margin: 0; max-width: 80ch; }
-footer a { text-underline-offset: 3px; }
-
-@media (max-width: 860px) {
-  .head, .ways { grid-column: 1 / -1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-}
-
-/* paper look, as on the start page: ink rules and buttons, no glow, no blur */
-.bar-in, header { border-bottom-color: var(--mist); }
-.mark { letter-spacing: .03em; font-size: 1.55rem; }
-.mark img { display: none; }
-h1 { animation: none; font-weight: 900; }
-h1 span { color: var(--ember); -webkit-text-stroke: 0; }
-.btn:hover { transform: none; border-color: var(--mist); box-shadow: none; }
-.btn.go, main > .btn { background: var(--mist); border-color: var(--mist); color: var(--ground); }
-.btn.go:hover, main > .btn:hover { background: var(--ember); border-color: var(--ember); color: #fff; box-shadow: none; }
-.btn.go::after { content: none; }
-.lang ul { box-shadow: none; border-color: var(--mist); background: var(--ground); }
-.bar nav .lang a:hover { background: var(--ground-2); }
-.handle code { background: var(--ground-2); }
-.way, .way:hover { background: var(--ground); }
-.ways { background: var(--mist); border-color: var(--mist); animation: none; }
-.grid a:hover img, .grid a:focus-visible img { transform: none; }
-.lb { color: #e9e5db; }
-.lb-cap span { color: rgba(233, 229, 219, .6); }
-.lb button { background: #14181a; color: #e9e5db; border-color: rgba(233, 229, 219, .3); }
-.lb button:hover { border-color: #e9e5db; }
-</style>
+<link rel="stylesheet" href="/css/site.css?v=1">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/icon.svg" alt="" width="28" height="28">Fog Forge</a>
+    <nav aria-label="Pages">
+      <a href="/scout/">Fog Scout</a>
+      <a href="/translate/">Fog Translate</a>
+      <a href="/maps/">Maps</a>
+      <a href="/contact/" aria-current="page">Contact</a>
+    </nav>
+    <!-- i18n:switch -->
+    <a class="btn solid s" href="/#download">Download</a>
+  </div>
+</header>
 
-<div class="wrap">
-  <header class="bar">
-    <div class="bar-in">
-      <a class="mark" href="/"><img src="/img/icon.svg" alt="" width="26" height="26">Fog Forge</a>
-      <nav aria-label="Pages">
-        <a href="/#scout">Fog Scout</a>
-        <a href="/#translate">Fog Translate</a>
-        <a href="/maps/">Maps</a>
-        <a href="/contact/" aria-current="page">Contact</a>
-        <a href="https://github.com/senisinx">GitHub</a>
-        <!-- i18n:switch -->
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="head">
-      <p class="kicker">Contact</p>
-      <h1>Get in <span>touch</span></h1>
-      <p>Questions, feedback or a map that is not recognized? Write on Discord or open an issue on GitHub.</p>
-    </div>
+<main id="main" class="wrap">
+  <div class="head">
+    <h1>Get in touch</h1>
+    <p>Questions, feedback or a map that is not recognized? Write on Discord or open an issue on GitHub.</p>
+  </div>
 
     <div class="ways">
       <section class="way" aria-labelledby="discord">
@@ -179,12 +54,12 @@ h1 span { color: var(--ember); -webkit-text-stroke: 0; }
         <p>For questions and quick feedback. Add me as a friend and send a direct message.</p>
         <div class="handle">
           <code id="dc-name">senisin</code>
-          <button class="btn go" type="button" id="copy" hidden>
+          <button class="btn solid s" type="button" id="copy" hidden>
             <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 2H2v9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
             <span>Copy username</span>
           </button>
         </div>
-        <p class="hint">In Discord: Friends → Add Friend → senisin</p>
+        <p class="small hint">In Discord: Friends → Add Friend → senisin</p>
       </section>
 
       <section class="way" aria-labelledby="github">
@@ -194,26 +69,40 @@ h1 span { color: var(--ember); -webkit-text-stroke: 0; }
         </div>
         <p>Best for bug reports and feature requests. Please include the tool version, your Windows version and a screenshot if you can.</p>
         <div class="links">
-          <a class="btn go" href="https://github.com/senisinx/fog-scout/issues/new">Fog Scout issue</a>
-          <a class="btn go" href="https://github.com/senisinx/fog-translate/issues/new">Fog Translate issue</a>
-          <a class="btn" href="https://github.com/senisinx">github.com/senisinx</a>
+          <a class="btn solid s" href="https://github.com/senisinx/fog-scout/issues/new">Fog Scout issue</a>
+          <a class="btn solid s" href="https://github.com/senisinx/fog-translate/issues/new">Fog Translate issue</a>
+          <a class="btn ghost s" href="https://github.com/senisinx">github.com/senisinx</a>
         </div>
       </section>
     </div>
-  </main>
+</main>
 
-  <footer>
-    <p>Fog Scout and Fog Translate are unofficial fan tools. They are not affiliated with, reviewed or approved by Behaviour Interactive or Epic Games.</p>
-    <p>© 2026 senisinx. <a href="/">Back to fogforge.app</a></p>
-  </footer>
-</div>
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/"><img src="/img/icon.svg" alt="" width="28" height="28">Fog Forge</a>
+      <nav aria-label="Sections">
+        <a href="/scout/">Fog Scout</a>
+        <a href="/translate/">Fog Translate</a>
+        <a href="/maps/">Maps</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://github.com/senisinx">GitHub</a>
+      </nav>
+    </div>
+    <div>
+      <p>Fog Scout and Fog Translate are unofficial fan tools. They are not affiliated with, reviewed or approved by Behaviour Interactive or Epic Games. Dead by Daylight and related names are trademarks of their owners. No warranty and no liability. There is no guarantee against warnings or bans.</p>
+      <p>Callout map pictures: Lethia, published on <a href="https://hens333.com/callouts/">hens333.com/callouts</a>, used with permission from Hens. Map names: Luca Fontanot, <a href="https://github.com/LucaFontanot/dbd-map-overlay">DBD Map Overlay</a>.</p>
+      <p>This page counts visits with Cloudflare Web Analytics. It sets no cookies.</p>
+      <p>Questions or bug reports? <a href="/contact/">Contact via Discord or GitHub</a>.</p>
+      <p>© 2026 senisinx. Terms of use are in each repository: <a href="https://github.com/senisinx/fog-scout">fog-scout</a>, <a href="https://github.com/senisinx/fog-translate">fog-translate</a>.</p>
+    </div>
+  </div>
+</footer>
 
 <script>
 (function () {
   var doc = document;
   var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-
   /* copy the Discord username */
   /* texts made by script; tools/build.py swaps this line per language */
   var S = {"copy": "Copy username", "copied": "Copied"};
@@ -222,8 +111,8 @@ h1 span { color: var(--ember); -webkit-text-stroke: 0; }
     btn.hidden = false;
     btn.addEventListener("click", function () {
       navigator.clipboard.writeText(name).then(function () {
-        btn.classList.remove("go"); btn.classList.add("done"); label.textContent = S.copied;
-        setTimeout(function () { btn.classList.add("go"); btn.classList.remove("done"); label.textContent = S.copy; }, 2000);
+        btn.classList.remove("solid"); btn.classList.add("done"); label.textContent = S.copied;
+        setTimeout(function () { btn.classList.add("solid"); btn.classList.remove("done"); label.textContent = S.copy; }, 2000);
       });
     });
   }

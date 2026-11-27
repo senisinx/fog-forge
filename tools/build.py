@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 I18N = ROOT / "i18n"
 SITE = "https://fogforge.app"
-PAGES = ["index.html", "contact/index.html", "maps/index.html"]
+PAGES = ["index.html", "scout/index.html", "translate/index.html", "contact/index.html", "maps/index.html"]
 DATA = ROOT / "data"
 
 # code: (html lang, name in its own language, locale for dates)
@@ -63,14 +63,12 @@ MAP_STYLES = ["Original", "Dark", "Grey", "Grey with edge", "Dark lilac", "Lilac
 NOT_FOUND = ["Page not found", "This page does not exist, or it has moved.", "To the start page"]
 EXTRA = ["Language"] + MAP_STYLES + NOT_FOUND
 
-# Self-hosted variable fonts (fonts/, SIL OFL 1.1, from Fontsource): family, file stem, weights, subsets.
-# Only latin is preloaded; the other subsets load when a page uses their characters (unicode-range).
+# Self-hosted variable font (fonts/, SIL OFL 1.1, from Fontsource): family, file stem, weights, widths, subsets.
+# Archivo with its width axis: the headlines are set wide. Only latin is preloaded; latin-ext loads when a page uses it.
 FONTS = [
-    ("Big Shoulders Display", "big-shoulders-display", "100 900", ["latin", "latin-ext"]),
-    ("Instrument Sans", "instrument-sans", "400 700", ["latin", "latin-ext"]),
-    ("JetBrains Mono", "jetbrains-mono", "100 800", ["latin", "latin-ext", "cyrillic", "cyrillic-ext"]),
+    ("Archivo", "archivo", "100 900", "62% 125%", ["latin", "latin-ext"]),
 ]
-PRELOAD = ["big-shoulders-display-latin", "instrument-sans-latin"]
+PRELOAD = ["archivo-latin-wdth-normal"]
 RANGES = {
     "latin": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,"
              "U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
@@ -164,13 +162,13 @@ def head_block(code, page):
 
 
 def fonts_block():
-    def face(family, stem, weight, sub):
-        return ("@font-face { font-family: \"%s\"; font-style: normal; font-weight: %s; font-display: swap; "
-                "src: url(/fonts/%s-%s-wght-normal.woff2) format(\"woff2\"); unicode-range: %s; }"
-                % (family, weight, stem, sub, RANGES[sub]))
-    lines = ['<link rel="preload" href="/fonts/%s-wght-normal.woff2" as="font" type="font/woff2" crossorigin>' % p
+    def face(family, stem, weight, width, sub):
+        return ("@font-face { font-family: \"%s\"; font-style: normal; font-weight: %s; font-stretch: %s; font-display: swap; "
+                "src: url(/fonts/%s-%s-wdth-normal.woff2) format(\"woff2\"); unicode-range: %s; }"
+                % (family, weight, width, stem, sub, RANGES[sub]))
+    lines = ['<link rel="preload" href="/fonts/%s.woff2" as="font" type="font/woff2" crossorigin>' % p
              for p in PRELOAD]
-    lines.append("<style>\n%s\n</style>" % "\n".join(face(f, st, w, sub) for f, st, w, subs in FONTS for sub in subs))
+    lines.append("<style>\n%s\n</style>" % "\n".join(face(f, st, w, wd, sub) for f, st, w, wd, subs in FONTS for sub in subs))
     return "\n".join(lines)
 
 
@@ -179,7 +177,7 @@ def ld_block(code, tr):
         "@context": "https://schema.org", "@type": "SoftwareApplication", "name": name,
         "description": tr(desc), "operatingSystem": "Windows",
         "applicationCategory": "UtilitiesApplication", "inLanguage": LANGS[code][0],
-        "url": SITE + page_url(code, "index.html") + "#" + repo.split("-")[1],
+        "url": SITE + page_url(code, "%s/index.html" % repo.split("-")[1]),
         "downloadUrl": "https://github.com/senisinx/%s/releases/latest" % repo,
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
         "author": {"@type": "Person", "name": "senisinx", "url": "https://github.com/senisinx"},
@@ -295,7 +293,7 @@ def render(code, page, src, table):
                                               if wanted(html.unescape(m.group(2))) else m.group(2)), tag)
         tag = META.sub(lambda m: m.group(1) + (html.escape(tr(html.unescape(m.group(2))))
                                                if wanted(html.unescape(m.group(2))) else m.group(2)) + m.group(3), tag)
-        tag = re.sub(r'href="/((?:contact/|maps/)?(?:#[^"]*)?)"', lambda m: 'href="/%s/%s"' % (code, m.group(1)), tag)
+        tag = re.sub(r'href="/((?:contact/|maps/|scout/|translate/)?(?:#[^"]*)?)"', lambda m: 'href="/%s/%s"' % (code, m.group(1)), tag)
         return tag
 
     def tr_script(part):
@@ -345,8 +343,10 @@ def main(argv):
         print(json.dumps({k: "" for k in keys}, ensure_ascii=False, indent=2))
         return 0
     check = "--check" in argv
+    # --only en (or en,de): build only these languages, e.g. for a preview while the translations are not done yet
+    only = argv[argv.index("--only") + 1].split(",") if "--only" in argv else list(LANGS)
     problems, outputs, tables = [], {}, {}
-    for code in LANGS:
+    for code in only:
         table = {}
         if code != "en":
             f = I18N / ("%s.json" % code)
@@ -369,9 +369,10 @@ def main(argv):
     if problems:
         print("\n".join(problems), file=sys.stderr)
         return 1
-    outputs[ROOT / "404.html"] = not_found(tables)
-    outputs[ROOT / "sitemap.xml"] = sitemap()
-    outputs[ROOT / "robots.txt"] = robots()
+    if len(tables) == len(LANGS):
+        outputs[ROOT / "404.html"] = not_found(tables)
+        outputs[ROOT / "sitemap.xml"] = sitemap()
+        outputs[ROOT / "robots.txt"] = robots()
     stale = []
     for dest, text in outputs.items():
         if check:

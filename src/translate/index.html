@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fog Translate · Fog Forge</title>
+<meta name="description" content="Fog Translate translates the Dead by Daylight chat while you play, from any script, in a small window above the chat. Free for Windows.">
+<meta property="og:title" content="Fog Translate · Fog Forge">
+<meta property="og:description" content="Fog Translate translates the Dead by Daylight chat while you play, from any script, in a small window above the chat. Free for Windows.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fogforge.app/translate/">
+<meta property="og:image" content="https://fogforge.app/img/og.jpg?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fog Forge: two free tools for Dead by Daylight, Fog Scout and Fog Translate">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e1418">
+<link rel="icon" href="/img/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="canonical" href="https://fogforge.app/translate/">
+<!-- i18n:head -->
+<!-- fonts:head -->
+<link rel="stylesheet" href="/css/site.css?v=1">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/icon.svg" alt="" width="28" height="28">Fog Forge</a>
+    <nav aria-label="Pages">
+      <a href="/scout/">Fog Scout</a>
+      <a href="/translate/" aria-current="page">Fog Translate</a>
+      <a href="/maps/">Maps</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <!-- i18n:switch -->
+    <a class="btn solid s" href="/#download">Download</a>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap page-head">
+    <div>
+      <div class="tool-head"><img src="/tools/icons/fog-translate.svg" alt="" width="64" height="64"><h1>Fog Translate</h1></div>
+      <p class="what">Translates the Dead by Daylight chat while you play. It reads any script, including Cyrillic, Korean, Japanese and Chinese, and shows the translation in a small click-through window on top of the game.</p>
+      <div class="ctas">
+        <a class="btn solid" data-dl="fog-translate" href="https://github.com/senisinx/fog-translate/releases/latest"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Download Fog Translate</a>
+        <a class="btn ghost" href="https://github.com/senisinx/fog-translate">GitHub</a>
+      </div>
+      <span class="small meta" data-meta="fog-translate">Windows installer from the latest GitHub release</span>
+    </div>
+    <div class="replay">
+      <div><h3>Game chat</h3><div class="chat" id="chat"></div></div>
+      <div><h3>Fog Translate</h3><ol class="out" id="out"></ol></div>
+      <div class="end"><p class="small">Prepared sentences, replayed in your browser. Nothing is sent to a service here.</p><button type="button" class="hold" id="hold" hidden>Pause</button></div>
+      <ol id="lines" hidden>
+        <li data-lang="ZH" data-name="xiaoyu_77" data-orig="谢谢你把我从钩子上救下来">Thanks for getting me off the hook</li>
+        <li data-lang="RU" data-name="volk_tumana" data-orig="извини, у меня лагало весь матч">Sorry, I was lagging the whole match</li>
+        <li data-lang="DE" data-name="nachtfalke" data-orig="gg, das war knapp am Ende">gg, that was close at the end</li>
+        <li data-lang="JA" data-name="kiri_no_neko" data-orig="最後のチェイス、すごかったです">That last chase was amazing</li>
+        <li data-lang="KO" data-name="angae_04" data-orig="발전기 같이 돌려줘서 고마워요">Thanks for doing the generators with me</li>
+        <li data-lang="ES" data-name="niebla_roja" data-orig="buena partida, ¿jugamos otra?">Good game, one more?</li>
+        <li data-lang="FR" data-name="brume_grise" data-orig="bien joué, tu m'as eu à la porte">Well played, you got me at the gate</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="sec" id="features" aria-labelledby="h-feat">
+      <div class="sec-head"><h2 id="h-feat">What it does</h2></div>
+      <dl class="feats three">
+          <div><dt>Any script</dt><dd>Cyrillic, Korean, Japanese, Chinese, Latin with accents: the AI model reads the chat, spots the language and translates it.</dd></div>
+          <div><dt>13 target languages</dt><dd>English, German, French, Spanish, Italian, Portuguese, Polish, Russian, Turkish, Dutch, Chinese, Japanese and Korean.</dd></div>
+          <div><dt>Only new lines</dt><dd>Sends only the strip with the new lines and nothing while the chat is closed. When the chat moves fast, it collects the lines and sends them together, so none is lost.</dd></div>
+          <div><dt>Right above the chat</dt><dd>Shown only while the chat is visible. Pick another spot, hide it with Ctrl+Alt+T, or keep it out of screenshots and recordings.</dd></div>
+          <div><dt>Costs under control</dt><dd>A daily limit, 300 requests by default, a test with a made-up chat and the time each answer took. Nothing is sent before you confirm what goes to the service.</dd></div>
+          <div><dt>Easy to set up</dt><dd>A setup assistant for service and key, updates checked against a SHA-256, no administrator rights. The window in six languages, light or dark.</dd></div>
+      </dl>
+    </section>
+
+    <section class="sec" id="how" aria-labelledby="h-how">
+      <div class="cols">
+        <div>
+          <h2 id="h-how">How it works</h2>
+          <ol class="steps">
+            <li><div><b>Mark the chat area once.</b> <span>Drag a box around the chat. The area is stored relative to the game window, so it survives a different window size.</span></div></li>
+            <li><div><b>Press Start.</b> <span>The program looks at that area twice a second and only reacts when the text has changed.</span></div></li>
+            <li><div><b>Read the translation.</b> <span>Language, name, translation and the original in small print appear in the overlay and fade after 25 seconds.</span></div></li>
+          </ol>
+        </div>
+        <div class="split" style="grid-template-columns:1fr 1fr">
+          <figure><div class="shot"><img src="/img/translate-ingame.webp" loading="lazy" decoding="async" width="713" height="827" alt="Fog Translate in a match: translated chat lines with language, name and original, above the game chat."></div></figure>
+          <figure><div class="shot"><img src="/img/translate-app.webp" loading="lazy" decoding="async" width="829" height="828" alt="Fog Translate window, &quot;Service&quot; tab: status and next step at the top, then target language, service, model, API key, daily limit and a notice about what is sent to the service."></div></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="services" aria-labelledby="h-svc">
+      <div class="sec-head">
+        <h2 id="h-svc">Pick a service</h2>
+        <p>The picture sent to a service can show other players' names and messages. API keys are stored encrypted with Windows DPAPI.</p>
+      </div>
+      <div class="scroll" tabindex="0" role="region" aria-labelledby="h-svc">
+        <table>
+          <thead><tr><th scope="col">Service</th><th scope="col">You need</th><th scope="col">Cost</th><th scope="col">Your data</th></tr></thead>
+          <tbody>
+            <tr><td>Claude</td><td>API key</td><td>about 1 cent per request or less</td><td>sent to Anthropic</td></tr>
+            <tr><td>Gemini</td><td>free API key</td><td>free tier</td><td>sent to Google</td></tr>
+            <tr><td>Ollama</td><td>local vision model, GPU with 8 GB or more</td><td>free</td><td>stays on your PC</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec dl" id="download" aria-labelledby="h-dl">
+      <h2 id="h-dl">Download</h2>
+      <div class="dl-row">
+        <img src="/tools/icons/fog-translate.svg" alt="" width="56" height="56">
+        <div><h3>Fog Translate</h3><p class="small" data-meta="fog-translate">Windows installer from the latest GitHub release</p></div>
+        <a class="btn solid" data-dl="fog-translate" href="https://github.com/senisinx/fog-translate/releases/latest"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Download Fog Translate</a>
+      </div>
+      <p class="small">A standalone program. It runs next to Fog Scout or without it. Not signed: SmartScreen shows "More info", then "Run anyway". No administrator rights needed.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/"><img src="/img/icon.svg" alt="" width="28" height="28">Fog Forge</a>
+      <nav aria-label="Sections">
+        <a href="/scout/">Fog Scout</a>
+        <a href="/translate/">Fog Translate</a>
+        <a href="/maps/">Maps</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://github.com/senisinx">GitHub</a>
+      </nav>
+    </div>
+    <div>
+      <p>Fog Scout and Fog Translate are unofficial fan tools. They are not affiliated with, reviewed or approved by Behaviour Interactive or Epic Games. Dead by Daylight and related names are trademarks of their owners. No warranty and no liability. There is no guarantee against warnings or bans.</p>
+      <p>Callout map pictures: Lethia, published on <a href="https://hens333.com/callouts/">hens333.com/callouts</a>, used with permission from Hens. Map names: Luca Fontanot, <a href="https://github.com/LucaFontanot/dbd-map-overlay">DBD Map Overlay</a>.</p>
+      <p>This page counts visits with Cloudflare Web Analytics. It sets no cookies.</p>
+      <p>Questions or bug reports? <a href="/contact/">Contact via Discord or GitHub</a>.</p>
+      <p>© 2026 senisinx. Terms of use are in each repository: <a href="https://github.com/senisinx/fog-scout">fog-scout</a>, <a href="https://github.com/senisinx/fog-translate">fog-translate</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var S = {"version": "Version %s", "installer": "Windows installer", "locale": "en-GB", "pause": "Pause", "play": "Play"};
+</script>
+<script src="/js/site.js?v=1" defer></script>
+<!-- Cloudflare Web Analytics: counts visits, sets no cookies -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dab1d7a4f525477ab7e8de7dd1a5ad67"}'></script>
+</body>
+</html>

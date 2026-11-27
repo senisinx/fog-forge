@@ -9,520 +9,118 @@
 <meta property="og:description" content="Fog Scout and Fog Translate: two free Windows tools for Dead by Daylight that only read what is on your screen.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fogforge.app/">
-<meta property="og:image" content="https://fogforge.app/img/og.jpg?v=4">
+<meta property="og:image" content="https://fogforge.app/img/og.jpg?v=5">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Fog Forge: two free tools for Dead by Daylight, Fog Scout and Fog Translate">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#e9e5db">
+<meta name="theme-color" content="#0e1418">
 <link rel="icon" href="/img/icon.svg" type="image/svg+xml">
 <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="canonical" href="https://fogforge.app/">
 <!-- i18n:head -->
 <!-- fonts:head -->
+<link rel="stylesheet" href="/css/site.css?v=1">
 <!-- ld:json -->
-<style>
-/* A printed field sheet: paper, ink, one rust colour. Rules instead of cards, figures with numbers, no effects.
-   Both tools on one page: the opening names them, then one chapter each, fair play, download. */
-:root {
-  color-scheme: light;
-  --paper: #e9e5db;
-  --paper-2: #dfdacd;
-  --ink: #14181a;
-  --mid: #575e5b;
-  --hair: rgba(20, 24, 26, .2);
-  --rust: #a64715;  /* darkest rust that still reads as rust: 4.7:1 on paper (WCAG AA text), 3:1 on ink (focus ring) */
-  --green: #2c6a44;
-  --display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
-  --wrap: 82rem;
-  --pad: clamp(1rem, 3vw, 2.5rem);
-}
-/* Big Shoulders and Instrument Sans have no Chinese, Japanese or Korean (and no Cyrillic): name the system fonts */
-:lang(zh) { --display: "Big Shoulders Display", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; --body: "Instrument Sans", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; }
-:lang(ja) { --display: "Big Shoulders Display", "Yu Gothic", "Hiragino Sans", "Noto Sans JP", sans-serif; --body: "Instrument Sans", "Yu Gothic UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; }
-:lang(ko) { --display: "Big Shoulders Display", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; --body: "Instrument Sans", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.55 var(--body); }
-img { display: block; max-width: 100%; height: auto; }
-[hidden] { display: none !important; }
-a { color: inherit; text-underline-offset: .18em; text-decoration-thickness: 1px; }
-a:hover { color: var(--rust); }
-h1, h2, h3, p, ol, ul, dl, dd, figure { margin: 0; padding: 0; }
-:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; }
-.wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--pad); }
-.mono { font: 500 .78rem/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
-.dim { color: var(--mid); }
-
-/* top strip */
-.top { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--ink); }
-.top .wrap { display: flex; align-items: center; gap: clamp(.9rem, 2vw, 1.75rem); height: 3.5rem; }
-.name { font: 800 1.55rem/1 var(--display); letter-spacing: .03em; text-transform: uppercase; text-decoration: none; margin-right: auto; white-space: nowrap; }
-.top a.l { font-size: .9375rem; text-decoration: none; white-space: nowrap; }
-.top a.l:hover { text-decoration: underline; }
-.btn { display: inline-flex; align-items: center; gap: .6rem; padding: .85rem 1.2rem; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font: 600 1rem/1 var(--body); text-decoration: none; transition: background .15s, color .15s; }
-.btn:hover { background: var(--rust); border-color: var(--rust); color: #fff; }
-.btn.s { padding: .55rem .9rem; font-size: .9375rem; white-space: nowrap; }
-.btn svg { flex: none; }
-
-/* language menu (filled in by tools/build.py) */
-.lang { position: relative; }
-.lang summary { list-style: none; cursor: pointer; padding: .45rem .6rem; border: 1px solid var(--hair); font: 500 .78rem/1.2 var(--mono); letter-spacing: .06em; }
-.lang summary::-webkit-details-marker { display: none; }
-.lang summary::after { content: ""; display: inline-block; margin-left: .45rem; width: .4rem; height: .4rem; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-.2rem) rotate(45deg); }
-.lang summary:hover, .lang[open] summary { border-color: var(--ink); }
-.lang ul { position: absolute; right: 0; top: calc(100% + .4rem); z-index: 6; margin: 0; padding: .3rem 0; list-style: none; min-width: 10.5rem; max-height: 70vh; overflow-y: auto; background: var(--paper); border: 1px solid var(--ink); }
-.lang a { display: block; padding: .45rem .9rem; font-size: .9375rem; line-height: 1.3; text-decoration: none; }
-.lang a:hover { background: var(--paper-2); color: var(--ink); }
-.lang a[aria-current] { color: var(--rust); font-weight: 650; }
-
-/* opening */
-.open { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); border-bottom: 1px solid var(--ink); }
-.open-l { padding: clamp(2rem, 5vw, 4.5rem) var(--pad) clamp(2rem, 4vw, 3.5rem) 0; display: flex; flex-direction: column; }
-h1 { margin-top: 1.25rem; font: 900 clamp(4rem, 11.5vw, 11.5rem)/.82 var(--display); letter-spacing: -.005em; text-transform: uppercase; overflow-wrap: break-word; }
-h1 span { display: block; }
-h1 .o { color: var(--rust); }
-.lede { max-width: 34rem; font-size: clamp(1.0625rem, 1.5vw, 1.25rem); line-height: 1.45; }
-.go { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.1rem; margin-top: .9rem; }
-.open-l .foot { margin-top: auto; padding-top: 2.5rem; }
-/* right of the headline: what the page is about, then the two tools as a table of contents */
-.open-r { border-left: 1px solid var(--ink); padding: clamp(2rem, 5vw, 4.5rem) 0 0 var(--pad); display: flex; flex-direction: column; justify-content: flex-end; }
-.open-r .lede { margin-bottom: 2.25rem; }
-.tool { display: grid; grid-template-columns: 3.5rem 1fr; gap: .15rem 1rem; padding: 1.4rem 0 1.5rem; border-top: 1px solid var(--ink); }
-.tool img { grid-row: span 3; width: 56px; height: 56px; border-radius: 13px; }
-.tool h2 { margin: 0; font: 800 2.4rem/.95 var(--display); }
-.tool h2 a { text-decoration: none; }
-.tool p { color: var(--mid); font-size: .9688rem; line-height: 1.45; }
-.more { font-size: .9375rem; }
-.more::after { content: " ↓"; }
-
-/* figures */
-.fig { border: 1px solid var(--ink); background: var(--ink); }
-.fig img { width: 100%; }
-figcaption { display: flex; gap: 1rem; padding: .65rem 0 0; font: 400 .8125rem/1.5 var(--mono); color: var(--mid); }
-figcaption b { flex: none; color: var(--ink); font-weight: 600; }
-.wide { padding-block: clamp(1.5rem, 3vw, 2.5rem); }
-
-/* measured */
-.meas { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--ink); }
-.meas div { padding: 1.25rem 1.25rem 1.4rem 0; }
-.meas div + div { padding-left: 1.25rem; border-left: 1px solid var(--hair); }
-.meas b { display: block; font: 800 clamp(3rem, 6vw, 5.25rem)/.9 var(--display); }
-.meas span { display: block; margin-top: .6rem; max-width: 17rem; font-size: .875rem; line-height: 1.4; color: var(--mid); }
-
-/* chapters */
-.ch { padding-top: clamp(4rem, 9vw, 8rem); }
-.ch-h { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1.5rem var(--pad); align-items: end; padding-bottom: 1.5rem; border-bottom: 1px solid var(--ink); }
-.no { display: flex; align-items: center; gap: .75rem; }
-.no img { width: 30px; height: 30px; border-radius: 7px; }
-.no span + span::before { content: "· "; }
-h2 { margin-top: .6rem; font: 900 clamp(3.25rem, 8.5vw, 8rem)/.84 var(--display); text-transform: uppercase; overflow-wrap: break-word; }
-.ch-h > p { font-size: 1.125rem; line-height: 1.45; max-width: 34rem; }
-h3 { font: 800 1.9rem/1 var(--display); letter-spacing: .01em; text-transform: uppercase; }
-/* scripts the display face does not have: smaller and less tight, or the lines run into each other */
-:lang(ru) h1 { font-size: clamp(3rem, 8.5vw, 8.5rem); line-height: .9; }
-:lang(ru) h2 { font-size: clamp(2.75rem, 6.5vw, 6rem); line-height: .92; }
-:lang(zh) h1, :lang(ja) h1, :lang(ko) h1 { font-size: clamp(2.6rem, 6.4vw, 6rem); line-height: 1.08; font-weight: 800; }
-:lang(zh) h2, :lang(ja) h2, :lang(ko) h2 { font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1.1; font-weight: 800; }
-:lang(zh) .tool h2, :lang(ja) .tool h2, :lang(ko) .tool h2, :lang(ru) .tool h2 { font-size: 2.4rem; line-height: .95; }
-
-/* feature rows */
-.rows { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
-.rows { counter-reset: row; }
-.rows > div { counter-increment: row; display: grid; align-content: start; grid-template-columns: 2.2rem 1fr; gap: .2rem 0; padding: 1.15rem 0 1.2rem; border-bottom: 1px solid var(--hair); }
-.rows > div::before { content: counter(row, decimal-leading-zero); grid-row: span 2; font: 500 .78rem/1.9 var(--mono); color: var(--rust); }
-.rows dt { font-weight: 650; font-size: 1.0625rem; }
-.rows dd { grid-column: 2; color: var(--mid); font-size: .9688rem; line-height: 1.5; max-width: 34rem; }
-
-/* the features of a tool in groups: two columns of groups, one below the other on a phone */
-.kit { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--pad); }
-.kit section { margin-top: clamp(2rem, 4vw, 3rem); }
-.kit h3 { display: flex; align-items: baseline; gap: .8rem; padding-bottom: .7rem; border-bottom: 1px solid var(--ink); }
-.kit h3 span { font: 500 .78rem/1 var(--mono); letter-spacing: .06em; color: var(--rust); }
-.kit .rows { grid-template-columns: 1fr; }
-.tr-rows { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
-.score { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 48rem; }
-
-/* two pictures side by side, one caption */
-.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); }
-.pair p { padding-top: .65rem; }
-.pair figcaption { grid-column: 1 / -1; }
-/* the app's pages */
-.app { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--pad); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
-.idx { position: sticky; top: 5rem; }
-.idx h3 { margin-bottom: 1rem; }
-.idx button { display: grid; grid-template-columns: 2.2rem 1fr; width: 100%; padding: .7rem 0; border: 0; border-top: 1px solid var(--hair); background: none; color: var(--mid); font: 500 1.0625rem/1.3 var(--body); text-align: left; cursor: pointer; }
-.idx button:last-of-type { border-bottom: 1px solid var(--hair); }
-.idx button i { font: 500 .78rem/1.75 var(--mono); font-style: normal; }
-.idx button span { grid-column: 2; display: none; margin-top: .25rem; font-size: .9063rem; font-weight: 400; line-height: 1.45; color: var(--mid); }
-.idx button:hover { color: var(--ink); }
-.idx button[aria-pressed="true"] { color: var(--ink); font-weight: 650; }
-.idx button[aria-pressed="true"] i { color: var(--rust); }
-.idx button[aria-pressed="true"] span { display: block; }
-.note { margin-top: 1.5rem; max-width: 60rem; font: 400 .8125rem/1.6 var(--mono); color: var(--mid); }
-
-/* translate */
-.tr { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); border-bottom: 1px solid var(--ink); }
-.replay { background: var(--ink); color: var(--paper); padding: clamp(1.25rem, 3vw, 2.25rem); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.25rem, 3vw, 2.5rem); min-height: 27rem; }
-.replay h3 { margin: 0 0 1rem; letter-spacing: .07em; font: 500 .75rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: rgba(233, 229, 219, .55); }
-.chat p { font: 500 1.0625rem/1.45 "Segoe UI", Roboto, var(--body); color: #f1f1f1; overflow-wrap: anywhere; }
-.chat p b { color: #f4d83c; font-weight: 700; }
-.out { list-style: none; display: grid; gap: 1.1rem; align-content: start; }
-.out small { display: flex; gap: .6rem; font: 500 .72rem/1 var(--mono); color: rgba(233, 229, 219, .55); }
-.out small b { color: #f0a35e; }
-.out strong { display: block; margin-top: .3rem; font-weight: 600; font-size: 1.125rem; line-height: 1.3; }
-.out em { display: block; margin-top: .15rem; font-style: normal; font-size: .875rem; color: rgba(233, 229, 219, .55); }
-.chat p, .out li { animation: in .35s ease-out backwards; }
-@keyframes in { from { opacity: 0; transform: translateY(6px); } }
-.replay .end { grid-column: 1 / -1; align-self: end; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.replay .foot { font: 400 .78rem/1.5 var(--mono); color: rgba(233, 229, 219, .55); }
-.hold { flex: none; padding: .45rem .75rem; border: 1px solid rgba(233, 229, 219, .55); background: none; color: var(--paper); font: 500 .75rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; cursor: pointer; }
-.hold:hover { border-color: var(--paper); }
-.win { border-left: 1px solid var(--ink); background: var(--paper-2); display: grid; place-items: center; padding: 2rem; }
-.win img { width: min(24rem, 100%); border: 1px solid var(--ink); }
-.cols { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--pad); padding-top: clamp(2.5rem, 5vw, 4rem); }
-.steps { list-style: none; counter-reset: s; margin-top: 1rem; }
-.steps li { counter-increment: s; display: grid; grid-template-columns: 2.2rem 1fr; padding: 1rem 0; border-top: 1px solid var(--hair); }
-.steps li::before { content: "0" counter(s); font: 500 .78rem/1.9 var(--mono); color: var(--rust); }
-.steps b { display: block; font-weight: 650; }
-.steps span { color: var(--mid); font-size: .9688rem; }
-.scroll { overflow-x: auto; }
-table { width: 100%; margin-top: 1rem; border-collapse: collapse; font-size: .9688rem; }
-th { text-align: left; padding: .6rem 1rem .6rem 0; border-bottom: 1px solid var(--ink); font: 500 .75rem/1.4 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--mid); }
-td { padding: .9rem 1rem .9rem 0; border-bottom: 1px solid var(--hair); vertical-align: top; color: var(--mid); }
-td:first-child { color: var(--ink); font-weight: 650; }
-
-/* fair play */
-.law { list-style: none; }
-.law li { display: grid; grid-template-columns: minmax(6.5rem, max-content) 1fr; gap: 1rem 2rem; padding: 1rem 0; border-bottom: 1px solid var(--hair); align-items: baseline; }
-.law em { font: 700 1.35rem/1 var(--display); font-style: normal; letter-spacing: .04em; text-transform: uppercase; }
-.law .yes em { color: var(--green); }
-
-/* download */
-.dl { border-top: 1px solid var(--ink); }
-.dl > div { display: grid; grid-template-columns: 4.5rem minmax(0, 5fr) minmax(0, 6fr) auto; gap: 1rem var(--pad); align-items: center; padding: 1.6rem 0; border-bottom: 1px solid var(--ink); }
-.dl img { width: 64px; height: 64px; border-radius: 15px; }
-.dl h3 { font-size: clamp(2.25rem, 4.5vw, 3.5rem); }
-.dl p { color: var(--mid); font-size: .9688rem; }
-.dl .v { display: block; margin-top: .3rem; font: 400 .78rem/1.5 var(--mono); }
-
-footer { margin-top: clamp(4rem, 9vw, 8rem); background: var(--ink); color: rgba(233, 229, 219, .68); font-size: .875rem; line-height: 1.6; }
-footer .wrap { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 2rem var(--pad); padding-block: 3rem 3.5rem; }
-footer .name { color: var(--paper); font-size: 2.5rem; }
-footer nav { display: grid; gap: .4rem; margin-top: 1.25rem; }
-footer a { color: var(--paper); }
-footer a:hover { color: #f0a35e; }
-footer p + p { margin-top: .75rem; }
-footer p { max-width: 58rem; }
-
-@media (max-width: 60rem) {
-  .open, .ch-h, .tr, .cols, .app, footer .wrap { grid-template-columns: minmax(0, 1fr); }
-  .open-l { padding-right: 0; }
-  .open-r { border-left: 0; padding-left: 0; padding-top: 0; }
-  .rows { grid-template-columns: 1fr; }
-  .kit { grid-template-columns: minmax(0, 1fr); }
-  .idx { position: static; }
-  .idx div { display: flex; flex-wrap: wrap; gap: .35rem; }
-  .idx button { display: block; width: auto; padding: .5rem .8rem; border: 1px solid var(--hair) !important; font-size: .9375rem; }
-  .idx button i, .idx button[aria-pressed="true"] span { display: none; }
-  .idx button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink) !important; color: var(--paper); }
-  .win { border-left: 0; border-top: 1px solid var(--ink); }
-  .meas { grid-template-columns: 1fr 1fr; }
-  .meas div:nth-child(3) { padding-left: 0; border-left: 0; }
-  .meas div:nth-child(n+3) { border-top: 1px solid var(--hair); }
-  .dl > div { grid-template-columns: 4.5rem 1fr; }
-  .dl > div > p, .dl .btn { grid-column: 2; justify-self: start; }
-}
-@media (max-width: 46rem) {
-  .top a.l { display: none; }
-}
-@media (max-width: 38rem) {
-  .replay { grid-template-columns: 1fr; min-height: 0; }
-  .law li { grid-template-columns: 1fr; gap: .25rem; }
-  figcaption { flex-direction: column; gap: .15rem; }
- .pair { grid-template-columns: 1fr; row-gap: 1rem; }
-}
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
-</style>
 </head>
-<body>
-
+<body class="home">
+<a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap">
-    <a class="name" href="/">Fog Forge</a>
-    <a class="l" href="#scout">Fog Scout</a>
-    <a class="l" href="#translate">Fog Translate</a>
-    <a class="l" href="#fair-play">Fair play</a>
-    <a class="l" href="/maps/">Maps</a>
-    <a class="l" href="/contact/">Contact</a>
+    <a class="brand" href="/"><img src="/img/icon.svg" alt="" width="28" height="28">Fog Forge</a>
+    <nav aria-label="Pages">
+      <a href="/scout/">Fog Scout</a>
+      <a href="/translate/">Fog Translate</a>
+      <a href="/maps/">Maps</a>
+      <a href="/contact/">Contact</a>
+    </nav>
     <!-- i18n:switch -->
-    <a class="btn s" href="#download">Download</a>
+    <a class="btn solid s" href="/#download">Download</a>
   </div>
 </header>
 
-<main id="top">
-  <div class="wrap">
-    <div class="open">
-      <div class="open-l">
-        <p class="mono dim">Two free Windows tools for Dead by Daylight</p>
-        <h1><span>Know the map.</span> <span class="o">Read the chat.</span></h1>
-        <p class="mono dim foot">Unofficial fan tools. They read screen pixels, nothing else.</p>
+<main id="main">
+  <section class="hero" aria-labelledby="title">
+    <img src="/img/match-rotten-fields-1600.webp" srcset="/img/match-rotten-fields-960.webp 960w, /img/match-rotten-fields-1600.webp 1600w, /img/match-rotten-fields.webp 3439w" sizes="100vw" width="3439" height="1437" fetchpriority="high" decoding="async" alt="Dead by Daylight match on Rotten Fields. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge.">
+    <div class="fog" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <h1 id="title">Know the map.<br>Read the chat.</h1>
+      <p class="lede">Two free Windows tools for Dead by Daylight. Fog Scout shows the callout map when the match starts. Fog Translate translates the chat while you play.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#download"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Download</a>
+        <a class="btn ghost" href="#scout">What they do</a>
       </div>
-      <div class="open-r">
-        <p class="lede">Fog Scout puts the callout map on your screen when the match starts. Fog Translate translates the chat while you play. Both only read what is on your screen.</p>
-        <div class="tool">
-          <img src="/tools/icons/fog-scout.svg" alt="" width="56" height="56">
-          <h2><a href="#scout">Fog Scout</a></h2>
-          <p>Shows the callout map of the map you are on, right when the match starts.</p>
-          <div class="go">
-            <a class="btn s" data-dl="fog-scout" href="https://github.com/senisinx/fog-scout/releases/latest"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Download</a>
-            <a class="more" href="#scout">What it does</a>
-          </div>
-        </div>
-        <div class="tool">
-          <img src="/tools/icons/fog-translate.svg" alt="" width="56" height="56">
-          <h2><a href="#translate">Fog Translate</a></h2>
-          <p>Translates the Dead by Daylight chat while you play, from any script.</p>
-          <div class="go">
-            <a class="btn s" data-dl="fog-translate" href="https://github.com/senisinx/fog-translate/releases/latest"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Download</a>
-            <a class="more" href="#translate">What it does</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <figure class="wide">
-      <div class="fig"><img src="/img/match-rotten-fields-1600.webp" srcset="/img/match-rotten-fields-960.webp 960w, /img/match-rotten-fields-1600.webp 1600w, /img/match-rotten-fields.webp 3439w" sizes="(min-width: 82rem) 78rem, calc(100vw - 32px)" width="3439" height="1437" fetchpriority="high" decoding="async" alt="Dead by Daylight match on Rotten Fields. Fog Scout shows the callout map with the round timer at the left edge and system values at the right edge."></div>
-      <figcaption><b>Fig. 1</b><span>Fog Scout in custom games at 3440×1440. The game runs in 16:9 here, so the map sits in the black bar next to the picture.</span></figcaption>
-    </figure>
-
-    <div class="meas">
-      <div><b>112/112</b><span>map pictures in English and German, 720p to 4K and ultrawide, all correct</span></div>
-      <div><b>0</b><span>false alarms on 319 screens without a banner</span></div>
-      <div><b>≈0.1 s</b><span>per picture at 1440p</span></div>
-      <div><b>0</b><span>of 120 unknown map names assigned to a wrong map</span></div>
-    </div>
-    <p class="note">Tested with real screenshots and rebuilt banners on real game backgrounds. Synthetic tests do not replace a real round.</p>
-  </div>
-
-  <section class="ch" id="scout">
-    <div class="wrap">
-      <div class="ch-h">
-        <div>
-          <p class="mono no"><img src="/tools/icons/fog-scout.svg" alt="" width="30" height="30"><span>01</span><span>Map overlay</span></p>
-          <h2>Fog Scout</h2>
-        </div>
-        <p>When a match starts, Fog Scout reads the map name at the bottom left of the screen and puts the matching callout map on top of the game. After the round the map goes away again.</p>
-      </div>
-
-      <div class="kit">
-        <div>
-          <section aria-labelledby="k-match">
-            <h3 id="k-match"><span>A</span>In the match</h3>
-            <dl class="rows">
-              <div><dt>Automatic callout maps</dt><dd>56 map pictures, layouts like Coal Tower II told apart, in a click-through window. <a href="/maps/">See the six map styles →</a></dd></div>
-              <div><dt>Round timer and alerts</dt><dd>A timer below the map while the round runs, the search time while you wait, and a sound when the lobby is found or your bloodpoints stop going up at the cap.</dd></div>
-              <div><dt>Score tracker</dt><dd>Counts the score events at the top right while you play and adds up each category: as rings, bars or one line next to the map. A full category shows MAX.</dd></div>
-              <div><dt>Teammates' loadouts</dt><dd>As a survivor, press Esc once in the match: Fog Scout reads the other survivors' perks, item, add-ons and offering from the pause menu and shows them next to each of them. Optional.</dd></div>
-              <div><dt>Cards around the game</dt><dd>Next to the map, optional cards show system values, today's rounds and the music that is playing. Arrange them in the overlay editor, one layout per screen size.</dd></div>
-              <div><dt>Keys and controller on screen</dt><dd>Optional: shows which movement keys, mouse buttons and controller buttons you hold. With a recording, they are saved next to the video and shown again in the clip editor.</dd></div>
-              <div><dt>Notes per map and killer</dt><dd>A short note of your own for each map and each killer, shown on the map card in the round.</dd></div>
-            </dl>
-          </section>
-          <section aria-labelledby="k-rec">
-            <h3 id="k-rec"><span>B</span>Recordings and clips</h3>
-            <dl class="rows">
-              <div><dt>Recording with OBS</dt><dd>Starts and labels recordings per match, with a clip editor for the highlights. Each mark you set in a round can become a clip of its own, and Fog Scout shows how many more rounds fit on the drive.</dd></div>
-              <div><dt>Clip editor</dt><dd>Cut, hide names, add subtitles, music and your own voice, join clips from several rounds or make a vertical short.</dd></div>
-              <div><dt>Moments</dt><dd>Finds quiet stretches and dark loading screens in a recording and offers to cut them out.</dd></div>
-              <div><dt>Steam screenshots</dt><dd>Your F12 screenshots in one gallery: crop, draw on them and hide names. Fog Scout saves an edited copy and never touches the original.</dd></div>
-              <div><dt>YouTube upload</dt><dd>Optional: uploads a round or a clip to your channel and pauses while you are in a lobby.</dd></div>
-            </dl>
-          </section>
-        </div>
-        <div>
-          <section aria-labelledby="k-stats">
-            <h3 id="k-stats"><span>C</span>Statistics</h3>
-            <dl class="rows">
-              <div><dt>Match statistics</dt><dd>Role, killer, kills, escapes and bloodpoints per round, your form by weekday and time of day, perk pairs and waiting times. Kept on your PC.</dd></div>
-              <div><dt>Records and sessions</dt><dd>Streaks, your best week and every session, with a short summary when you close DBD.</dd></div>
-              <div><dt>Bloodpoints and farming</dt><dd>Bloodpoints per hour, and farming rounds counted apart or hidden with one switch.</dd></div>
-              <div><dt>Export</dt><dd>Rounds as a CSV file, filtered by period, role, killer or map.</dd></div>
-            </dl>
-          </section>
-          <section aria-labelledby="k-tools">
-            <h3 id="k-tools"><span>D</span>Tools</h3>
-            <dl class="rows">
-              <div><dt>Server region</dt><dd>Choose which regions you connect to and see the game server you are on.</dd></div>
-              <div><dt>Perk calculator</dt><dd>Combine perks, items and add-ons for up to four survivors and a killer, and see what they give after diminishing returns, skill checks included.</dd></div>
-              <div><dt>Discord and Spotify</dt><dd>Optional: show map and role as Discord status, see your Spotify queue.</dd></div>
-              <div><dt>Search everything</dt><dd>Ctrl+F finds every page, setting, map and round.</dd></div>
-              <div><dt>Ask Claude</dt><dd>Optional, with your own API key: questions about your statistics and suggestions in the clip editor. Only figures and fixed texts are sent, never player names.</dd></div>
-              <div><dt>Detects the game language</dt><dd>Map names in English, German, French, Spanish, Italian, Polish, Portuguese, Turkish, Russian, Chinese, Japanese and Korean. Fog Scout spots the game language by itself.</dd></div>
-              <div><dt>Seven languages</dt><dd>The app in German, English, Italian, Russian, Chinese, Japanese and Korean. Follows the Windows language, switchable in the settings.</dd></div>
-              <div><dt>Safe updates and backups</dt><dd>Updates come from the GitHub release and are checked against a SHA-256 before they install. Settings and rounds go into one backup file.</dd></div>
-            </dl>
-          </section>
-        </div>
-      </div>
-
-      <figure class="score">
-        <div class="fig"><img src="/img/score.webp" loading="lazy" decoding="async" width="1117" height="492" alt="Score tracker in three looks: four survivor categories as rings with icons and values, four killer categories as bars, and the survivor values in one line. Altruism and Hunter are full and show MAX in gold."></div>
-        <figcaption><b>Fig. 2</b><span>The score tracker with made-up points, drawn by Fog Scout: rings, bars or one line. A full category turns gold. The icons are Fog Scout's own.</span></figcaption>
-      </figure>
-
-      <figure class="pair">
-        <div>
-          <div class="fig"><img src="/img/loadouts.webp" loading="lazy" decoding="async" width="700" height="630" alt="Dead by Daylight survivor list during a match. Left of three teammates' portraits, Fog Scout shows each one's four perks as a diamond and their offering, item and add-ons as small squares."></div>
-          <p class="mono dim">Beside the list</p>
-        </div>
-        <div>
-          <div class="fig"><img src="/img/loadouts-name.webp" loading="lazy" decoding="async" width="700" height="630" alt="The same survivor list. Above the name of each of three teammates, Fog Scout shows their four perks in a row, followed by offering, item and add-ons."></div>
-          <p class="mono dim">Above the name</p>
-        </div>
-        <figcaption><b>Fig. 3</b><span>Teammates' loadouts in a real match at 3440×1440, read from the pause menu. Left: beside DBD's survivor list, the perks as a diamond with offering, item and add-ons. Right: in a row above each name. Names painted over.</span></figcaption>
-      </figure>
-
-      <div class="app">
-        <div class="idx">
-          <h3>Inside the app</h3>
-          <div id="idx" role="group" aria-label="Inside the app">
-            <button type="button" aria-pressed="true" data-src="/img/maps.webp" data-alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."><i>01</i>Maps<span>All 56 callout maps in six styles, with your rounds and kills per map.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overlay.webp" data-alt="Fog Scout Overlay page: a layout editor with map, system values, today and music placed around the game picture."><i>02</i>Overlay<span>Place map, timer, system values, music and teammates' loadouts where you want them. Optional rows show FPS, your last result on the map and your session streak.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overlay-system.webp" data-alt="Fog Scout Overlay page with the System values card selected: rows for CPU, GPU, hot spot, VRAM, RAM and FPS, placed at the top right of the black bar."><i>03</i>System values<span>CPU and GPU temperature and load, VRAM and RAM next to the game, FPS through HWiNFO. Pick the rows you want.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/statistics.webp" data-alt="Fog Scout Statistics page: rounds, average kills, escape rate, bloodpoints and the most played maps."><i>04</i>Statistics<span>Rounds, kills, escapes and bloodpoints, stored on this PC only.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/stats-rounds.webp" data-alt="Fog Scout Statistics, Last rounds: a table of rounds with date, map, length, waiting time, role or killer and server region with ping."><i>05</i>Round history<span>Every round with map, length, waiting time, role and server. Correct a round with a right-click.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/stats-waiting.webp" data-alt="Fog Scout Statistics, Waiting time: average, median, shortest and longest wait, a table by weekday and a chart per week for killer and survivor."><i>06</i>Waiting times<span>How long the search takes, by weekday and role, compared with the game's estimate.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/recordings.webp" data-alt="Fog Scout Recordings page: the recording status and a list of recorded rounds with map, role, result, length and size."><i>07</i>Recordings<span>Recorded rounds, clips and screenshots: play, cut and tidy up.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/calculator.webp" data-alt="Fog Scout Calculator page: survivor and killer builds on the left, generator times and the share each bonus counts for on the right."><i>08</i>Calculator<span>Combine perks and see what they give after diminishing returns.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/overview.webp" data-alt="Fog Scout Overview page: current map, feature switches, this week's numbers, system values and last rounds."><i>09</i>Overview<span>Current map, your week and the system values at a glance.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/server.webp" data-alt="Fog Scout Server page: a list of 15 server regions with checkboxes, two of them allowed."><i>10</i>Server<span>Tick the regions DBD may search in. "Allow all" undoes it.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/settings.webp" data-alt="Fog Scout Settings, Detection tab: detection switches, the game languages of the map names and notifications."><i>11</i>Settings<span>Everything Fog Scout does in one place, searchable with Ctrl+F.</span></button>
-            <button type="button" aria-pressed="false" data-src="/img/setup.webp" data-alt="Fog Scout setup, step 2 of 8: the overlay position with a preview of the map in the black bar, and where the system values go."><i>12</i>Setup<span>Eight short steps on the first start: game language, overlay, hotkeys, notifications, match data, OBS, connections and server.</span></button>
-          </div>
-        </div>
-        <figure>
-          <div class="fig"><img id="appImg" src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."></div>
-          <figcaption><b>Fig. 4</b><span>The control window, filled with made-up rounds.</span></figcaption>
-        </figure>
-      </div>
-      <p class="note"><span>Text recognition runs on your PC. Map detection and the overlay open no internet connection.</span> <span>Not signed: SmartScreen shows "More info", then "Run anyway". Asks for administrator rights once. Set DBD to Windowed Fullscreen.</span></p>
+      <p class="small">Unofficial fan tools. They read screen pixels, nothing else.</p>
     </div>
   </section>
 
-  <section class="ch" id="translate">
-    <div class="wrap">
-      <div class="ch-h">
-        <div>
-          <p class="mono no"><img src="/tools/icons/fog-translate.svg" alt="" width="30" height="30"><span>02</span><span>Live chat translation</span></p>
-          <h2>Fog Translate</h2>
-        </div>
-        <p>Translates the Dead by Daylight chat while you play. It reads any script, including Cyrillic, Korean, Japanese and Chinese, and shows the translation in a small click-through window on top of the game.</p>
-      </div>
-
-      <dl class="rows tr-rows">
-        <div><dt>Any script</dt><dd>Cyrillic, Korean, Japanese, Chinese, Latin with accents: the AI model reads the chat, spots the language and translates it.</dd></div>
-        <div><dt>13 target languages</dt><dd>English, German, French, Spanish, Italian, Portuguese, Polish, Russian, Turkish, Dutch, Chinese, Japanese and Korean.</dd></div>
-        <div><dt>Only new lines</dt><dd>Sends only the strip with the new lines and nothing while the chat is closed. When the chat moves fast, it collects the lines and sends them together, so none is lost.</dd></div>
-        <div><dt>Right above the chat</dt><dd>Shown only while the chat is visible. Pick another spot, hide it with Ctrl+Alt+T, or keep it out of screenshots and recordings.</dd></div>
-        <div><dt>Costs under control</dt><dd>A daily limit, 300 requests by default, a test with a made-up chat and the time each answer took. Nothing is sent before you confirm what goes to the service.</dd></div>
-        <div><dt>Easy to set up</dt><dd>A setup assistant for service and key, updates checked against a SHA-256, no administrator rights. The window in six languages, light or dark.</dd></div>
-      </dl>
-
-      <div class="tr">
-        <div class="replay">
-          <div><h3>Game chat</h3><div class="chat" id="chat"></div></div>
-          <div><h3>Fog Translate</h3><ol class="out" id="out"></ol></div>
-          <div class="end"><p class="foot">Prepared sentences, replayed in your browser. Nothing is sent to a service here.</p><button type="button" class="hold" id="hold" hidden>Pause</button></div>
-          <ol id="lines" hidden>
-            <li data-lang="ZH" data-name="xiaoyu_77" data-orig="谢谢你把我从钩子上救下来">Thanks for getting me off the hook</li>
-            <li data-lang="RU" data-name="volk_tumana" data-orig="извини, у меня лагало весь матч">Sorry, I was lagging the whole match</li>
-            <li data-lang="DE" data-name="nachtfalke" data-orig="gg, das war knapp am Ende">gg, that was close at the end</li>
-            <li data-lang="JA" data-name="kiri_no_neko" data-orig="最後のチェイス、すごかったです">That last chase was amazing</li>
-            <li data-lang="KO" data-name="angae_04" data-orig="발전기 같이 돌려줘서 고마워요">Thanks for doing the generators with me</li>
-            <li data-lang="ES" data-name="niebla_roja" data-orig="buena partida, ¿jugamos otra?">Good game, one more?</li>
-            <li data-lang="FR" data-name="brume_grise" data-orig="bien joué, tu m'as eu à la porte">Well played, you got me at the gate</li>
-          </ol>
-        </div>
-        <div class="win"><img src="/img/translate-app.webp" loading="lazy" decoding="async" width="829" height="828" alt="Fog Translate window, &quot;Service&quot; tab: status and next step at the top, then target language, service, model, API key, daily limit and a notice about what is sent to the service."></div>
-      </div>
-
-      <div class="cols">
-        <div>
-          <h3>How it works</h3>
-          <ol class="steps">
-            <li><div><b>Mark the chat area once.</b> <span>Drag a box around the chat. The area is stored relative to the game window, so it survives a different window size.</span></div></li>
-            <li><div><b>Press Start.</b> <span>The program looks at that area twice a second and only reacts when the text has changed.</span></div></li>
-            <li><div><b>Read the translation.</b> <span>Language, name, translation and the original in small print appear in the overlay and fade after 25 seconds.</span></div></li>
-          </ol>
-        </div>
-        <div>
-          <h3 id="services">Pick a service</h3>
-          <div class="scroll" tabindex="0" role="region" aria-labelledby="services">
-            <table>
-              <thead><tr><th scope="col">Service</th><th scope="col">You need</th><th scope="col">Cost</th><th scope="col">Your data</th></tr></thead>
-              <tbody>
-                <tr><td>Claude</td><td>API key</td><td>about 1 cent per request or less</td><td>sent to Anthropic</td></tr>
-                <tr><td>Gemini</td><td>free API key</td><td>free tier</td><td>sent to Google</td></tr>
-                <tr><td>Ollama</td><td>local vision model, GPU with 8 GB or more</td><td>free</td><td>stays on your PC</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="note"><span>The picture sent to a service can show other players' names and messages. API keys are stored encrypted with Windows DPAPI.</span> <span>A standalone program. It runs next to Fog Scout or without it.</span> <span>Not signed: SmartScreen shows "More info", then "Run anyway". No administrator rights needed.</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="ch" id="fair-play">
-    <div class="wrap">
-      <div class="ch-h">
-        <div>
-          <p class="mono no"><span>03</span><span>Fair play</span></p>
-          <h2>Built to stay out of the game</h2>
-        </div>
-        <p>Both tools were designed around one rule: do not interact with Dead by Daylight. They are still unofficial. Behaviour Interactive has not approved map overlays or region tools, so you use them at your own risk.</p>
-      </div>
-      <ul class="law">
-        <li class="yes"><em>Reads</em><span>Screen pixels, the way OBS or Discord screen sharing does, and window information.</span></li>
-        <li><em>Never</em><span>Keyboard or mouse input to the game, or any automation of game actions.</span></li>
-        <li><em>Never</em><span>Access to the game process: no memory reading, no injection.</span></li>
-        <li><em>Never</em><span>Reading or changing game files.</span></li>
-        <li><em>Never</em><span>Hidden information. The callout map is a static community map, with no generators or positions. Teammates' loadouts come from the pause menu, where the game shows them to you.</span></li>
-        <li class="yes"><em>Changes</em><span>Only if you use the server region feature: the Windows hosts file, which "Allow all" puts back.</span></li>
+  <section class="wrap tool" id="scout" aria-labelledby="h-scout">
+    <a class="shot" href="/scout/" tabindex="-1"><img src="/img/maps.webp" loading="lazy" decoding="async" width="1560" height="1180" alt="Fog Scout Maps page: all callout maps grouped by realm, with rounds and average kills per map."></a>
+    <div>
+      <div class="tool-head"><img src="/tools/icons/fog-scout.svg" alt="" width="52" height="52"><h2 id="h-scout">Fog Scout</h2></div>
+      <p class="what">Shows the callout map of the map you are on, right when the match starts. After the round the map goes away again.</p>
+      <ul class="points">
+        <li><b>Automatic callout maps</b><span>Reads the map name from the screen. 56 maps, six map styles.</span></li>
+        <li><b>Match statistics</b><span>Kills, escapes, bloodpoints and waiting times per round, kept on your PC.</span></li>
+        <li><b>Recording with OBS</b><span>Records each match and cuts the highlights in the clip editor.</span></li>
       </ul>
+      <a class="link" href="/scout/">All Fog Scout features</a>
     </div>
   </section>
 
-  <section class="ch" id="download">
-    <div class="wrap">
-      <p class="mono no" style="padding-bottom:1rem"><span>04</span><span>Download</span></p>
-      <div class="dl">
-        <div>
-          <img src="/tools/icons/fog-scout.svg" alt="" width="64" height="64">
-          <h3>Fog Scout</h3>
-          <p>Shows the callout map of the map you are on, right when the match starts.<span class="v" data-meta="fog-scout">Windows installer from the latest GitHub release</span></p>
-          <a class="btn" data-dl="fog-scout" href="https://github.com/senisinx/fog-scout/releases/latest">Download Fog Scout</a>
-        </div>
-        <div>
-          <img src="/tools/icons/fog-translate.svg" alt="" width="64" height="64">
-          <h3>Fog Translate</h3>
-          <p>Translates the Dead by Daylight chat while you play, from any script.<span class="v" data-meta="fog-translate">Windows installer from the latest GitHub release</span></p>
-          <a class="btn" data-dl="fog-translate" href="https://github.com/senisinx/fog-translate/releases/latest">Download Fog Translate</a>
-        </div>
+  <section class="wrap tool flip" id="translate" aria-labelledby="h-translate">
+    <a class="shot tall" href="/translate/" tabindex="-1"><img src="/img/translate-ingame.webp" loading="lazy" decoding="async" width="713" height="827" alt="Fog Translate in a match: translated chat lines with language, name and original, above the game chat."></a>
+    <div>
+      <div class="tool-head"><img src="/tools/icons/fog-translate.svg" alt="" width="52" height="52"><h2 id="h-translate">Fog Translate</h2></div>
+      <p class="what">Translates the Dead by Daylight chat while you play, from any script.</p>
+      <ul class="points">
+        <li><b>Any script</b><span>Cyrillic, Korean, Japanese, Chinese, Latin with accents.</span></li>
+        <li><b>13 target languages</b><span>The translation appears in a small window right above the chat.</span></li>
+        <li><b>Pick a service</b><span>Claude, the free tier of Gemini, or Ollama on your own PC.</span></li>
+      </ul>
+      <a class="link" href="/translate/">All Fog Translate features</a>
+    </div>
+  </section>
+
+  <section class="band" id="fair-play" aria-labelledby="h-fair">
+    <div class="wrap fair">
+      <div>
+        <h2 id="h-fair">Built to stay out of the game</h2>
+        <p>Both tools were designed around one rule: do not interact with Dead by Daylight.</p>
+        <a class="link" href="/scout/#fair-play">Fair play in detail</a>
+      </div>
+      <div class="rules">
+        <div><h3 class="ok">Reads the screen</h3><p>Screen pixels, the way OBS or Discord screen sharing does, and window information.</p></div>
+        <div><h3>Never touches the game</h3><p>No input to the game, no memory reading, no injection, no game files changed.</p></div>
+        <div><h3>At your own risk</h3><p>They are still unofficial. Behaviour Interactive has not approved map overlays or region tools.</p></div>
       </div>
     </div>
+  </section>
+
+  <section class="wrap dl" id="download" aria-labelledby="h-dl">
+    <h2 id="h-dl">Download</h2>
+  <div class="dl-row">
+    <img src="/tools/icons/fog-scout.svg" alt="" width="56" height="56">
+    <div><h3>Fog Scout</h3><p class="small" data-meta="fog-scout">Windows installer from the latest GitHub release</p></div>
+    <a class="btn solid" data-dl="fog-scout" href="https://github.com/senisinx/fog-scout/releases/latest"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Download Fog Scout</a>
+  </div>
+  <div class="dl-row">
+    <img src="/tools/icons/fog-translate.svg" alt="" width="56" height="56">
+    <div><h3>Fog Translate</h3><p class="small" data-meta="fog-translate">Windows installer from the latest GitHub release</p></div>
+    <a class="btn solid" data-dl="fog-translate" href="https://github.com/senisinx/fog-translate/releases/latest"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 7l4 4 4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Download Fog Translate</a>
+  </div>
+    <p class="small">Not signed: SmartScreen shows "More info", then "Run anyway".</p>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
     <div>
-      <a class="name" href="/">Fog Forge</a>
+      <a class="brand" href="/"><img src="/img/icon.svg" alt="" width="28" height="28">Fog Forge</a>
       <nav aria-label="Sections">
+        <a href="/scout/">Fog Scout</a>
+        <a href="/translate/">Fog Translate</a>
         <a href="/maps/">Maps</a>
         <a href="/contact/">Contact</a>
         <a href="https://github.com/senisinx">GitHub</a>
@@ -539,80 +137,9 @@ footer p { max-width: 58rem; }
 </footer>
 
 <script>
-(function () {
-  var doc = document, calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var S = {"version": "Version %s", "installer": "Windows installer", "locale": "en-GB", "pause": "Pause", "play": "Play"};
-
-  /* the app's pages */
-  var idx = doc.querySelectorAll("#idx button"), app = doc.getElementById("appImg");
-  Array.prototype.forEach.call(idx, function (b) {
-    b.addEventListener("click", function () {
-      Array.prototype.forEach.call(idx, function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
-      app.src = b.getAttribute("data-src");
-      app.alt = b.getAttribute("data-alt");
-    });
-  });
-
-  /* translation replay: the prepared lines are in the page (so they are translated with it) */
-  var LINES = Array.prototype.map.call(doc.querySelectorAll("#lines li"), function (li) {
-    return [li.getAttribute("data-lang"), li.getAttribute("data-name"), li.getAttribute("data-orig"), li.textContent];
-  });
-  var out = doc.getElementById("out"), chat = doc.getElementById("chat"), at = 0;
-  function el(tag, txt) { var n = doc.createElement(tag); if (txt != null) n.textContent = txt; return n; }
-  function say() {
-    var l = LINES[at++ % LINES.length];
-    var p = el("p"); p.appendChild(el("b", l[1] + ": ")); p.appendChild(doc.createTextNode(l[2]));
-    chat.appendChild(p);
-    while (chat.children.length > 4) chat.removeChild(chat.firstChild);
-    setTimeout(function () {
-      var li = el("li"), s = el("small");
-      s.appendChild(el("b", l[0])); s.appendChild(doc.createTextNode(l[1]));
-      li.appendChild(s); li.appendChild(el("strong", l[3])); li.appendChild(el("em", l[2]));
-      out.appendChild(li);
-      while (out.children.length > 4) out.removeChild(out.firstChild);
-    }, calm ? 0 : 900);
-  }
-  if (LINES.length) {
-    say(); say(); say();
-    if (!calm && "IntersectionObserver" in window) {
-      var run = null, seen = false, held = false, hold = doc.getElementById("hold");
-      function go() {
-        if (seen && !held && !run) run = setInterval(say, 3000);
-        else if ((!seen || held) && run) { clearInterval(run); run = null; }
-      }
-      new IntersectionObserver(function (es) { seen = es[0].isIntersecting; go(); }).observe(doc.getElementById("translate"));
-      hold.hidden = false;
-      hold.addEventListener("click", function () { held = !held; hold.textContent = held ? S.play : S.pause; go(); });
-    }
-  }
-
-  /* newest release of each tool: the download buttons go straight to the setup, the line below names version, date and size */
-  var KEEP_MS = 10 * 60 * 1000;
-  function latest(repo) {
-    var key = "ff-rel-" + repo, now = Date.now();
-    try { var hit = JSON.parse(sessionStorage.getItem(key)); if (hit && now - hit.t < KEEP_MS && hit.rel) return Promise.resolve(hit.rel); } catch (e) {}
-    return fetch("https://api.github.com/repos/senisinx/" + repo + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function (rel) {
-        var keep = { tag_name: rel.tag_name, published_at: rel.published_at, assets: (rel.assets || []).map(function (a) {
-          return { name: a.name, size: a.size, browser_download_url: a.browser_download_url }; }) };
-        try { sessionStorage.setItem(key, JSON.stringify({ t: now, rel: keep })); } catch (e) {}
-        return keep;
-      });
-  }
-  function fmtDate(s) { try { return new Date(s).toLocaleDateString(S.locale, { day: "numeric", month: "short", year: "numeric" }); } catch (e) { return ""; } }
-  if (window.fetch && window.Promise) ["fog-scout", "fog-translate"].forEach(function (repo) {
-    var as = doc.querySelectorAll('a[data-dl="' + repo + '"]'), meta = doc.querySelector('[data-meta="' + repo + '"]');
-    latest(repo)
-      .then(function (rel) {
-        var asset = (rel.assets || []).filter(function (x) { return /setup.*\.exe$/i.test(x.name); })[0]; if (!asset) return;
-        Array.prototype.forEach.call(as, function (a) { a.href = asset.browser_download_url; });
-        if (meta) meta.textContent = S.version.replace("%s", String(rel.tag_name).replace(/^v/i, "")) + " · " + fmtDate(rel.published_at) + " · " + (asset.size / 1048576).toFixed(0) + " MB · " + S.installer;
-      })
-      .catch(function () { /* keep the release-page link */ });
-  });
-})();
+var S = {"version": "Version %s", "installer": "Windows installer", "locale": "en-GB", "pause": "Pause", "play": "Play"};
 </script>
+<script src="/js/site.js?v=1" defer></script>
 <!-- Cloudflare Web Analytics: counts visits, sets no cookies -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dab1d7a4f525477ab7e8de7dd1a5ad67"}'></script>
 </body>
