@@ -25,7 +25,7 @@ The HTML in the repository root and in the language folders (`de/`, `fr/`, …) 
   page the fog clears once over the game picture (off with "reduce motion"). The start page is short: hero, one block per
   tool with three points, fair play, download. Everything else is on the tool pages `/scout/` and `/translate/`, with a
   bar to jump between their sections.
-- Game picture of the start page: `img/match-rotten-fields.webp`, also as `-960` and `-1600` for `srcset`; after a new
+- Game picture of the start page: `img/match-mothers-dwelling.webp`, also as `-960` and `-1600` for `srcset`; after a new
   screenshot, make both sizes (WebP, quality 80). It is also the picture at the top of `/scout/`. The other
   `img/match-*.webp` are not shown at the moment.
 - Pictures of the programs (`img/maps.webp`, `overlay`, `statistics`, `recordings`, `calculator`, `overview`, `server`,
