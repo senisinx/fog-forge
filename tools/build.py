@@ -54,7 +54,7 @@ LANGS = {
 # Names and handles stay as they are in every language.
 KEEP = {
     "Fog Forge", "Fog", "Forge", "Scout", "Translate", "Fog Scout", "Fog Translate", "GitHub", "Discord", "Claude", "Gemini", "Ollama",
-    "senisin", "github.com/senisinx", "hens333.com/callouts", "DBD Map Overlay", "fog-scout", "fog-translate", "Fig. 1", "Fig. 2", "Fig. 3", "Fig. 4", "MAX", "A", "B", "C", "D",
+    "senisin", "github.com/senisinx", "Fog Scout · Fog Forge", "Fog Translate · Fog Forge", "hens333.com/callouts", "DBD Map Overlay", "fog-scout", "fog-translate", "Fig. 1", "Fig. 2", "Fig. 3", "Fig. 4", "MAX", "A", "B", "C", "D",
 }
 # Keys that are not text in src/ but made by this build.
 # The six map styles of Fog Scout, in the order of data/maps.json "styles"; named as in the app.
@@ -80,7 +80,7 @@ RANGES = {
 
 # The two tools for the JSON-LD block of the start pages; the description is a text of the page, so it is translated.
 TOOLS = [
-    ("Fog Scout", "fog-scout", "Shows the callout map of the map you are on, right when the match starts."),
+    ("Fog Scout", "fog-scout", "Shows the callout map of the map you are on, right when the match starts. After the round the map goes away again."),
     ("Fog Translate", "fog-translate", "Translates the Dead by Daylight chat while you play, from any script."),
 ]
 

@@ -222,6 +222,448 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/"/>
   </url>
   <url>
+    <loc>https://fogforge.app/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/de/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/fr/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/es/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/it/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/pt/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/pl/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/ru/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/tr/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/nl/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/zh/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/ja/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/ko/scout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/scout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/scout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/scout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/scout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/scout/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/scout/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/scout/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/scout/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/scout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/scout/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/de/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/fr/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/es/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/it/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/pt/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/pl/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/ru/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/tr/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/nl/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/zh/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/ja/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
+    <loc>https://fogforge.app/ko/translate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/translate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/translate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fogforge.app/fr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fogforge.app/es/translate/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fogforge.app/it/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fogforge.app/pt/translate/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://fogforge.app/pl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fogforge.app/ru/translate/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fogforge.app/tr/translate/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://fogforge.app/nl/translate/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fogforge.app/zh/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fogforge.app/ja/translate/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fogforge.app/ko/translate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fogforge.app/translate/"/>
+  </url>
+  <url>
     <loc>https://fogforge.app/contact/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://fogforge.app/contact/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://fogforge.app/de/contact/"/>

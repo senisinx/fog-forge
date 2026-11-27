@@ -314,3 +314,6 @@ footer p a:hover { color: var(--white); }
 }
 .btn.done { background: none; border: 1px solid var(--ok); color: var(--ok); }
 .page-head h1 { font-size: clamp(2.2rem, 3.9vw, 3.75rem); }
+/* Chinese, Japanese and Korean: smaller headlines, broken at phrases instead of inside words */
+:lang(zh) h1, :lang(ja) h1, :lang(ko) h1 { font-size: clamp(2.1rem, 4.4vw, 4.25rem); word-break: auto-phrase; }
+:lang(ko) h1, :lang(ko) h2 { word-break: keep-all; }
